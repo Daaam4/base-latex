@@ -7,80 +7,50 @@
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
-\bibitem[1]{zirui}
-\textsc{Li}, Zirui ; \textsc{Faheem}, Faizan  ; \textsc{Husung}, Stephan:
-\newblock Collaborative Model-Based Systems Engineering Using Dataspaces and
-  SysML v2.
-\newblock {In: }\emph{Systems} 12 (2024), No. 1.
-\newblock \url{http://dx.doi.org/10.3390/systems12010018}. --
-\newblock DOI 10.3390/systems12010018. --
-\newblock ISSN 2079--8954. --
-\newblock This paper explores how to enable collaborative, multi-company MBSE
-  by combining SysML v2 modeling with a secure framework for data exchange. The
-  proposed solution relies on a modeling guideline to maintain consistency and
-  interoperability, which is why its relevant as it justifies why standardized
-  guidelines are essential for leveraging SysML v2's new features in a
-  collaborative, multi-tool environment.
+\bibitem[1]{boelsen}
+\textsc{Boelsen}, K. ; \textsc{May}, M. ; \textsc{Jacobs}, G.  ; \textsc{al.} et:
+\newblock SysML v2 based modelling guidelines for mechanical system elements.
+\newblock {In: }\emph{Forsch Ingenieurwes} 89 (2025), No. 60.
+\newblock \url{http://dx.doi.org/10.1007/s10010-025-00827-w}. --
+\newblock DOI 10.1007/s10010--025--00827--w. --
+\newblock This paper argues that SysML v2's abstract, general-purpose nature creates a high risk of inconsistent modeling, making reuse impossible . It proposes a new, formal set of guidelines using SysML v2's native action, part, and metadata features. This source is a cornerstone as it provides a direct example of new formal guidelines and structures.
 
 \bibitem[2]{bergemann}
 \textsc{Bergemann}, Sebastian:
-\newblock Challenges in Multi-View Model Consistency Management for Systems
-  Engineering.
+\newblock Challenges in Multi-View Model Consistency Management for Systems Engineering.
 \newblock \,Version:\,2022.
 \newblock \url{http://dx.doi.org/10.18420/modellierung2022ws-009}.
 \newblock {In: }\emph{Modellierung 2022 Satellite Events}.
 \newblock Bonn : Gesellschaft für Informatik e.V., 2022. --
 \newblock DOI 10.18420/modellierung2022ws--009, p. 77--89. --
-\newblock This paper investigates the critical challenge of managing model
-  consistency across multiple, heterogeneous viewpoints in MBSE. It analyzes
-  existing approaches against a set of industrial requirements, identifying
-  significant gaps in current methods. This work is essential as it defines the
-  problem of inconsistency that new, formalized SysML v2 guidelines are
-  intended to solve, thereby motivating Hypotheses 1 and 2.
+\newblock This paper investigates the critical challenge of managing model consistency across multiple, heterogeneous viewpoints in MBSE. It analyzes existing approaches against a set of industrial requirements, identifying significant gaps in current methods. This work is essential as it defines the problem of inconsistency that new, formalized SysML v2 guidelines are intended to solve, thereby motivating Hypotheses 1 and 2.
 
-\bibitem[3]{boelsen}
-\textsc{Boelsen}, K. ; \textsc{May}, M. ; \textsc{Jacobs}, G.  ; \textsc{al.}
-  et:
-\newblock SysML v2 based modelling guidelines for mechanical system elements.
-\newblock {In: }\emph{Forsch Ingenieurwes} 89 (2025), No. 60.
-\newblock \url{http://dx.doi.org/10.1007/s10010-025-00827-w}. --
-\newblock DOI 10.1007/s10010--025--00827--w. --
-\newblock This paper argues that SysML v2's abstract, general-purpose nature
-  creates a high risk of inconsistent modeling, making reuse impossible . It
-  proposes a new, formal set of guidelines using SysML v2's native action,
-  part, and metadata features. This source is a cornerstone as it provides a
-  direct example of new formal guidelines and structures.
+\bibitem[3]{dehn}
+\textsc{Dehn}, Simon ; \textsc{Jacobs}, Georg ; \textsc{H{\"o}ck}, Philipp  ; \textsc{H{\"o}pfner}, Gregor:
+\newblock Enhancing model-based development with formalized requirements: integrating temporal logic and SysML v2 for comprehensive state and transition modeling.
+\newblock {In: }\emph{Forschung im Ingenieurwesen} 89 (2025), No. 1, p.~53
 
-\bibitem[4]{eduardo}
-\textsc{Cibrián}, Eduardo ; \textsc{Olivert-Iserte}, Jose ;
-  \textsc{Díez-Fenoy}, Carlos ; \textsc{Mendieta}, Roy ; \textsc{Llorens},
-  Juan  ; \textsc{Rodríguez}, José~M.:
-\newblock Ensuring Semantic Consistency in SysML v2 Models Through
-  Metamodel-Driven Validation.
+\bibitem[4]{zirui}
+\textsc{Li}, Zirui ; \textsc{Faheem}, Faizan  ; \textsc{Husung}, Stephan:
+\newblock Collaborative Model-Based Systems Engineering Using Dataspaces and SysML v2.
+\newblock {In: }\emph{Systems} 12 (2024), No. 1.
+\newblock \url{http://dx.doi.org/10.3390/systems12010018}. --
+\newblock DOI 10.3390/systems12010018. --
+\newblock ISSN 2079--8954. --
+\newblock This paper explores how to enable collaborative, multi-company MBSE by combining SysML v2 modeling with a secure framework for data exchange. The proposed solution relies on a modeling guideline to maintain consistency and interoperability, which is why its relevant as it justifies why standardized guidelines are essential for leveraging SysML v2's new features in a collaborative, multi-tool environment.
+
+\bibitem[5]{eduardo}
+\textsc{Cibrián}, Eduardo ; \textsc{Olivert-Iserte}, Jose ; \textsc{Díez-Fenoy}, Carlos ; \textsc{Mendieta}, Roy ; \textsc{Llorens}, Juan  ; \textsc{Rodríguez}, José~M.:
+\newblock Ensuring Semantic Consistency in SysML v2 Models Through Metamodel-Driven Validation.
 \newblock {In: }\emph{IEEE Access} 13 (2025), p. 121444--121457.
 \newblock \url{http://dx.doi.org/10.1109/ACCESS.2025.3587786}. --
 \newblock DOI 10.1109/ACCESS.2025.3587786. --
-\newblock This paper presents an automated method for ensuring semantic
-  consistency in SysML v2 models. The method programmatically derives
-  validation rules directly from metamodels to automatically detect both
-  syntactic and semantic inconsistencies. This work is essential as it provides
-  direct proof for the the hypothesis.
-
-\bibitem[5]{dehn}
-\textsc{Dehn}, Simon ; \textsc{Jacobs}, Georg ; \textsc{H{\"o}ck}, Philipp  ;
-  \textsc{H{\"o}pfner}, Gregor:
-\newblock Enhancing model-based development with formalized requirements:
-  integrating temporal logic and SysML v2 for comprehensive state and
-  transition modeling.
-\newblock {In: }\emph{Forschung im Ingenieurwesen} 89 (2025), No. 1, p.~53
+\newblock This paper presents an automated method for ensuring semantic consistency in SysML v2 models. The method programmatically derives validation rules directly from metamodels to automatically detect both syntactic and semantic inconsistencies. This work is essential as it provides direct proof for the the hypothesis.
 
 \bibitem[6]{yildirim}
-\textsc{Yildirim}, Unal ; \textsc{Campean}, Felician ; \textsc{Korsunovs},
-  Aleksandr  ; \textsc{Doikin}, Aleksandr:
-\newblock Flow heuristics for functional modelling in model-based systems
-  engineering.
-\newblock {In: }\emph{Proceedings of the Design Society} 3 (2023), p.
-  1895--1904
+\textsc{Yildirim}, Unal ; \textsc{Campean}, Felician ; \textsc{Korsunovs}, Aleksandr  ; \textsc{Doikin}, Aleksandr:
+\newblock Flow heuristics for functional modelling in model-based systems engineering.
+\newblock {In: }\emph{Proceedings of the Design Society} 3 (2023), p. 1895--1904
 
 \bibitem[7]{friedenthal}
 \textsc{Friedenthal}, Sanford:
@@ -88,17 +58,13 @@
 \newblock {In: }\emph{MODELSWARD}, 2023, p. 5--9
 
 \bibitem[8]{jansen}
-\textsc{Jansen}, Nico ; \textsc{Pfeiffer}, Jerome ; \textsc{Rumpe}, Bernhard ;
-  \textsc{Schmalzing}, David  ; \textsc{Wortmann}, Andreas:
+\textsc{Jansen}, Nico ; \textsc{Pfeiffer}, Jerome ; \textsc{Rumpe}, Bernhard ; \textsc{Schmalzing}, David  ; \textsc{Wortmann}, Andreas:
 \newblock The Language of SysML v2 under the Magnifying Glass.
 \newblock {In: }\emph{J. Object Technol.} 21 (2022), No. 3, p. 3--1
 
 \bibitem[9]{beers}
-\textsc{Beers}, Lasse ; \textsc{Nabizada}, Hamied ; \textsc{Weigand},
-  Maximilian ; \textsc{Gehlhoff}, Felix  ; \textsc{Fay}, Alexander:
-\newblock A SysML Profile for the Standardized Description of Processes during
-  System Development.
-\newblock {In: }\emph{2024 IEEE International Systems Conference (SysCon)}
-  IEEE, 2024, p. 1--8
+\textsc{Beers}, Lasse ; \textsc{Nabizada}, Hamied ; \textsc{Weigand}, Maximilian ; \textsc{Gehlhoff}, Felix  ; \textsc{Fay}, Alexander:
+\newblock A SysML Profile for the Standardized Description of Processes during System Development.
+\newblock {In: }\emph{2024 IEEE International Systems Conference (SysCon)} IEEE, 2024, p. 1--8
 
 \end{thebibliography}
