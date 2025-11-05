@@ -1,0 +1,53 @@
+\clearpage
+
+\chapter{Satz von Kuratowski und Wagner}
+Die Planarität eines Graphen kann nicht nur durch seine Darstellung überprüft, sondern auch durch eine strukturelle Eigenschaft formal beschrieben werden. Diese zentrale Charakterisierung liefert der sogenannte \textbf{Satz von Kuratowski}.
+
+% Minimal non-planar graphs
+\paragraph{Definition:} Sei $G=(V,E)$ ein Graph. Ein Graph $H=(V',E')$ ist ein \textbf{Teilgraph} von $G$, wenn $V' \subseteq V$ ist und $E' \subseteq E$ ist, wobei jede Kante in $E'$ nur Knoten aus $V'$ verbindet. Ein \textbf{echter Teilgraph} $H$ von $G$ ist ein Teilgraph, der sich von $G$ unterscheidet, das heißt $G \neq H$.\cite{buesing2010graphen,oldsforbidden}
+
+\paragraph{Definition:} Ein Graph $G$ heißt \textbf{minimal nicht-planar}, wenn $G$ nicht planar ist und alle seine \textbf{echten Teilgraphen} planar sind.\cite{oldsforbidden}\\
+
+Die beiden Graphen $K_5$ und $K_{3,3}$ stellen die \textbf{minimalen nicht-planarer Graphen} dar, da sie die kleinsten Graphen sind, die in der Ebene nicht ohne Kantenkreuzung gezeichnet werden können.
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.38\textwidth}
+        \centering
+        \includegraphics[width=0.6\textwidth]{./pic/Graph_K3-3.png}
+        \label{fig:k33-nonplanar}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=0.6\textwidth]{./pic/Graph_K5.png}
+        \label{fig:k5}
+    \end{subfigure}
+    \caption{Links: Der vollständige bipartite Graph \( K_{3,3} \), Rechts: Der vollständige Graph \( K_5 \).\\ Quellen: Links \cite{benbennick_K5graph}, Rechts \cite{wiki-bipartite-polygon}}
+    \label{fig:bipartite-graphs}
+\end{figure}
+
+% Def: Minorität
+\paragraph{Definition:} Ein Graph $H$ ist ein \textbf{Minor} eines Graphen $G$, wenn man $H$ aus $G$ durch eine Folge der folgenden Operationen erhält:
+\begin{itemize}
+    \item Entfernen von Kanten
+    \item Entfernen von Knoten (samt ihrer inzidenten Kanten)
+    \item Kontraktion von Kanten: Dabei fasst man zwei durch eine Kante verbundene Knoten zu einem einzigen Knoten zusammen, wobei alle anliegenden Kanten entsprechend angepasst werden (siehe Abbildung \ref{fig:kontraktion-bsp}).
+\end{itemize}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.5\textwidth]{./pic/kanten-kontraktion.png}
+    \caption{Beispiel einer Kantenkontraktion. Links: Ausgangsgraph. Rechts: Ergebnis nach Zusammenfassung der verbundenen Knoten.}
+    \label{fig:kontraktion-bsp}
+\end{figure}
+
+Ein wichtiger Zusammenhang ist, dass die \textbf{Planarität minor-geschlossen} ist. Das bedeutet: Wenn ein Graph $G$ planar ist, dann sind alle seine Minoren ebenfalls planar.
+
+% Def: Satz von Kuratowski
+\paragraph{Satz:} Ein Graph ist genau dann \textbf{planar}, wenn er weder einen $K_5$ noch einen $K_{3,3}$ als \textbf{Minor} enthält.\cite{buesing2010graphen}\\
+
+Die Richtung "$\Rightarrow$" (wenn ein Graph planar ist, enthält er keinen $K_5$ oder $K_{3,3}$ als Minor) folgt direkt aus der Minor-Abgeschlossenheit der Planarität: Da jeder Minor eines planaren Graphen ebenfalls planar ist, können $K_5$ oder $K_{3,3}$ keine Minoren eines planaren Graphen sein.\\
+
+Die Richtung "$\Leftarrow$" (wenn ein Graph weder $K_5$ noch $K_{3,3}$ als Minor enthält, dann ist er planar) ist nicht unmittelbar offensichtlich, aber sie wurde mathematisch bewiesen. Diese Rückrichtung beruht auf der strukturellen Erkenntnis, dass $K_5$ und $K_{3,3,}$ die einzigen minimalen nicht-planaren Graphen bezüglich der Minorität sind. Das bedeutet: Jeder nicht-planare Graph enthält entweder $K_5$ oder $K_{3,3}$ als Minor.
+
+\addtocontents{toc}{\vspace{0.8cm}}

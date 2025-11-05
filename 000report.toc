@@ -1,0 +1,21 @@
+\babel@toc {german}{}\relax 
+\linespread {1}
+\contentsline {chapter}{\numberline {1}Motivation}{1}{chapter.1}%
+\vspace {0.8cm}
+\contentsline {chapter}{\numberline {2}Planarität}{2}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Das Gas-Wasser-Strom Problem als Graphen problem}{2}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Planare Darstellung und planare Graphen}{2}{section.2.2}%
+\contentsline {paragraph}{\nonumberline Definition:}{2}{paragraph*.5}%
+\contentsline {paragraph}{\nonumberline Definition:}{2}{paragraph*.7}%
+\contentsline {section}{\numberline {2.3}Flächen}{3}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Flächengrad}{4}{section.2.4}%
+\contentsline {paragraph}{\nonumberline Definition:}{4}{paragraph*.12}%
+\vspace {0.8cm}
+\contentsline {chapter}{\numberline {3}Satz von Kuratowski und Wagner}{5}{chapter.3}%
+\contentsline {paragraph}{\nonumberline Definition:}{5}{paragraph*.15}%
+\contentsline {paragraph}{\nonumberline Definition:}{5}{paragraph*.17}%
+\contentsline {paragraph}{\nonumberline Definition:}{5}{paragraph*.20}%
+\contentsline {paragraph}{\nonumberline Satz:}{6}{paragraph*.23}%
+\vspace {0.8cm}
+\contentsline {chapter}{Literaturverzeichnis}{7}{chapter*.24}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

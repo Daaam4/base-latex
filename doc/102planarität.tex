@@ -1,0 +1,94 @@
+\clearpage
+
+\chapter{Planarität}
+
+% Subsection 1 - Modeling Three-Utility-Problem to Graph Problem
+\section{Das Gas-Wasser-Strom Problem als Graphen problem}
+Um das Gas-Wasser-Strom-Problem formal analysieren zu können, stellen wir es als Graphenproblem dar.
+Dabei modellieren wir jede der drei Versorgungseinheiten sowie jedes der drei Häuser als Knoten in einem ungerichteten Graphen.\\
+Ein solcher Graph weist eine bipartite Struktur auf, da die Knoten in zwei disjunkten Mengen aufteilen lassen, wobei Kanten nur zwischen den Knoten beider Gruppen verlaufen. Im konkreten Fall ergibt sich daraus der vollständige bipartite Graph $K_{3,3}$.\\
+Die zentrale Fragestellung lautet nun: Existiert eine Darstellung von $K_{3,3}$ im \(\mathbb{R}^2\), in der alle Kanten kreuzungsfrei verlaufen?
+
+
+\begin{figure}[htbp]
+    \centering 
+    \begin{subfigure}[b]{0.38\textwidth}
+        \centering
+        \includegraphics[width=0.6\textwidth]{./pic/Graph_K3-3.png}
+        \label{fig:k33-nonplanar}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=0.6\textwidth]{./pic/Graph_K3-3(1).png}
+        \label{fig:complex-bipartite}
+    \end{subfigure}
+    \caption{Zwei verschiedene Darstellungen des vollständigen bipartiten Graphen \( K_{3,3} \).\\ Quelle: Links \cite{wiki-k33}, Rechts \cite{wiki-bipartite-polygon}}
+    \label{fig:bipartite-graphs}
+\end{figure}
+
+% Subsection 2 - "Planare Darstellung" und "planare Graphen"
+\section{Planare Darstellung und planare Graphen}
+Um die Fragestellung aus dem vorherigen Abschnitt allgemeiner zu erfassen, müssen wir zwischen zwei wichtigen Begriffen unterscheiden: planare Darstellung und planar.
+
+\paragraph{Definition:} Ein Graph heißt \textbf{eben} oder \textbf{planar dargestellt}, wenn er im \(\mathbb{R}^2\) so gezeichnet ist, dass sich keine seiner Kanten kreuzen.\cite{buesing2010graphen}
+
+\paragraph{Definition:} Ein Graph heißt \textbf{planar}, wenn es überhaupt möglich ist, ihn planar darzustellen.\cite{buesing2010graphen}\\
+
+Das bedeutet, ein Graph muss nicht notwendigerweise ohne Kantenkreuzungen gezeichnet sein, um als planar zu gelten; entscheidend ist allein die Existenz einer solchen Darstellung.\\
+Der Unterschied zwischen einer konkreten planaren Darstellung und der Planarität eines Graphen lässt sich gut am Beispiel des vollständigen Graphen $K_4$ mit vier Knoten veranschaulichen. 
+In der linken Darstellung der Abbildung \ref{fig:graph-k4} kreuzen sich die Kanten, sie ist daher nicht planar dargestellt. Dennoch ist $K_4$ planar, da die rechte Darstellung zeigt, dass eine planare Darstellung existiert.
+
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.6\textwidth]{./pic/Graph_K4.png}
+    \caption{Zwei Darstellungen des vollständigen Graphen \(K_4\). (Links) eine nicht-planare Darstellung. (Rechts) eine planare Darstellung.}
+    \label{fig:graph-k4}
+\end{figure}
+
+% Flächen
+\section{Flächen}
+In einer planaren Darstellung eines Graphen wird die Ebene durch die Knoten und Kanten des Graphen in mehreren Bereichen unterteilt. Diese Bereiche nennt man \textbf{Flächen}.\\
+Wenn man den Graphen gezeichnet hat, bilden die Knoten und Kanten dabei die Begrenzung dieser Flächen.\cite{buesing2010graphen}\\
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.3\textwidth]{./pic/K4_Flächen.png}
+    \caption{Planare Darstellung des vollständigen Graphen $K_4$ mit den vier entstehenden Flächen $F_1$ bis $F_4$}
+    \label{fig:graph-k4-surfaces}
+\end{figure}
+
+% Innere und Äußere Flächen
+In Abbildung \ref{fig:graph-k4-surfaces} ist eine planare Darstellung des Graphen $K_4$ zu sehen, bei der die Ebene in vier Flächen unterteilt wird.\\
+Die Fläche $F4$ unterscheidet sich von den anderen dadurch, dass sie unbeschränkt ist. Eine solche Fläche wird als \textbf{äußere Fläche} bezeichnet und kommt in jeder planaren Darstellung genau einmal vor.\\
+Die übrigen Flächen werden als \textbf{innere Flächen} bezeichnet und sind stets durch einen Kreis im Graphen begrenzt.\\
+
+Ob eine Fläche als \textbf{äußere Fläche} erscheint, hängt von der konkreten planaren Darstellung ab (siehe Abbildung \ref{fig:k4-zwei-darstellungen}).\\
+Stellen Sie sich vor, der Graph ist auf einen Luftballon gezeichnet. Wenn man eine innere Fläche aufschneidet, die Ränder auseinanderzieht und den Ballon plattdrückt, wird diese Fläche zur äußeren.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.5\textwidth]{./pic/K4-zwei-darstellung.png}
+    \caption{Zwei planare Darstellungen des Graphen K4 mit unterschiedlicher Wahl der äußeren
+Fläche}
+    \label{fig:k4-zwei-darstellungen}
+\end{figure}
+
+
+% Flächen Grad
+\section{Flächengrad}
+Jede Fläche $F$ in einer planaren Darstellung besitzt eine \textbf{Länge}, auch \textbf{Grad} der Fläche genannt  $d(F)$.
+
+\paragraph{Definition:} Der \textbf{Grad} $d(F)$ einer Fläche $F$ ist die Anzahl der sie begrenzenden Kanten.\cite{buesing2010graphen}\\
+
+Dabei zählt jede Kante, die die Fläche begrenzt \textbf{einmal}. Falls eine Kante jedoch die Fläche \textit{von beiden Seiten} berührt, wird sie entsprechend \textbf{zweifach gezählt}.\\
+Genauso wie die Unterscheidung zwischen inneren und äußeren Flächen hängt auch der Grad einer Fläche von der konkreten planaren Darstellung ab (siehe Abbildung \ref{fig:flächen-grad}).
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{./pic/Flächen-grad.png}
+    \caption{Bestimmung des Grades der Außenfläche F3, in zwei verschiedenen planaren Darstellungen desselben Graphen.}
+    \label{fig:flächen-grad}
+\end{figure}
+
+\addtocontents{toc}{\vspace{0.8cm}}

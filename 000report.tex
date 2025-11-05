@@ -19,7 +19,7 @@
 \usepackage{epstopdf}
 \usepackage{kpfonts}
 \usepackage{blindtext}
-\usepackage[left=2.0cm,right=2.0cm,top=2.5cm,bottom=2.5cm]{geometry} 
+\usepackage[left=2.0cm,right=2.0cm,top=2.5cm,bottom=2.5cm,head=22pt,foot=22pt]{geometry} 
 \usepackage{url}
 
 \newcommand\tab[1][1cm]{\hspace*{#1}}
@@ -40,7 +40,6 @@
 \usepackage{booktabs}
 \usepackage[export]{adjustbox}
 \usepackage{svg}
-\usepackage{xcolor} % Better color support
 
 
 % fonts
@@ -60,6 +59,7 @@
 \renewcommand*{\chapterheadstartvskip}{\vspace*{-0.75\baselineskip}}
 
 % header and footer
+\setlength{\footheight}{22pt}
 \pagestyle{scrheadings}
 \ohead[\sffamily \bfseries \upshape \headmark]{\sffamily \bfseries \upshape \headmark}
 \chead[]{}
@@ -114,16 +114,18 @@
     \pagenumbering{gobble} % Remove page number from title
     
     % Table of contents is generated:
-    % \makeatletter
-    % \makeatother
-    % \tableofcontents
+    \makeatletter
+    \makeatother
+    \tableofcontents
    
     \cleardoublepage % First chapter starts on uneven number 
     \setstretch{1.25}
     \pagenumbering{arabic} % Move page number to the right
 
-    % M1 Pages
-    \include{doc/101expose}
+    % Pages
+    \include{./doc/101motivation} % Motivation
+    \include{./doc/102planarität} % Einführung in die Planarität
+    \include{./doc/103kuratowski} % Satz 6.14 Kuratowski 1930
 
     % References
     \clearpage
