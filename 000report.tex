@@ -9,8 +9,8 @@
 }
 
 \usepackage[german]{babel} % language: germen
-\usepackage[ddmmyyyy]{datetime} 
-\renewcommand{\dateseparator}{.} 
+\usepackage[ddmmyyyy]{datetime}
+\renewcommand{\dateseparator}{.}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
@@ -19,7 +19,7 @@
 \usepackage{epstopdf}
 \usepackage{kpfonts}
 \usepackage{blindtext}
-\usepackage[left=2.0cm,right=2.0cm,top=2.5cm,bottom=2.5cm]{geometry} 
+\usepackage[left=2.0cm,right=2.0cm,top=2.5cm,bottom=2.5cm]{geometry}
 \usepackage{url}
 
 \newcommand\tab[1][1cm]{\hspace*{#1}}
@@ -29,8 +29,8 @@
 \usepackage[automark,plainheadsepline,headsepline]{scrlayer-scrpage}
 \usepackage{color}
 \usepackage{setspace}
-\usepackage[numbers,sort&compress,square]{natbib} %this bibstyle uses numbers, which are sorted (increasing) and summarized eg. 104,105,106 --> 104-106 
-\usepackage{longtable} 
+\usepackage[numbers,sort&compress,square]{natbib} %this bibstyle uses numbers, which are sorted (increasing) and summarized eg. 104,105,106 --> 104-106
+\usepackage{longtable}
 \usepackage{listings}
 \usepackage{rotating}
 \usepackage{pdfpages}
@@ -85,7 +85,7 @@
 % tables
 \usepackage{multirow} % multilines in one column
 \renewcommand{\arraystretch}{1.5} % increase (or decrease) line spacing in tables
-\setlength{\doublerulesep}{0.2mm} % spacing between doubled lines 
+\setlength{\doublerulesep}{0.2mm} % spacing between doubled lines
 \usepackage{tabu}
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
@@ -108,26 +108,26 @@
 \begin{document}
     \setstretch{1.5}
     \addtocontents{toc}{\linespread{1}}
-    
+
     % Here the individual chapters are included in the main document by '\include{....}' . The files are in the folder 'doc'
     \include{./doc/001titlepage}
     \pagenumbering{gobble} % Remove page number from title
-    
+
     % Table of contents is generated:
     % \makeatletter
     % \makeatother
     % \tableofcontents
-   
-    \cleardoublepage % First chapter starts on uneven number 
+
+    \cleardoublepage % First chapter starts on uneven number
     \setstretch{1.25}
     \pagenumbering{arabic} % Move page number to the right
 
     % M1 Pages
-    \include{doc/101expose}
+    % \include{doc/...} % include your chapters here
 
     % References
     \clearpage
-    \bibliographystyle{unsrtdineng} % modified unsrtdin needs to be included as file in the main path (same level as the main document 000report.tex 
+    \bibliographystyle{unsrtdineng} % modified unsrtdin needs to be included as file in the main path (same level as the main document 000report.tex
     \bibliography{./bib/quellen}
     \addcontentsline{toc}{chapter}{Literaturverzeichnis}
      % add to TOC
