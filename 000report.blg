@@ -12,15 +12,15 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: ./bib/quellen.bib
 You've used 9 entries,
             4011 wiz_defined-function locations,
-            844 strings with 8773 characters,
-and the built_in function-call counts, 6464 in all, are:
-= -- 664
+            844 strings with 8774 characters,
+and the built_in function-call counts, 6471 in all, are:
+= -- 665
 > -- 115
-< -- 281
-+ -- 278
+< -- 282
++ -- 279
 - -- 34
 * -- 479
-:= -- 1019
+:= -- 1020
 add.period$ -- 15
 call.type$ -- 9
 change.case$ -- 0
@@ -29,7 +29,7 @@ cite$ -- 9
 duplicate$ -- 147
 empty$ -- 501
 format.name$ -- 99
-if$ -- 1288
+if$ -- 1289
 int.to.chr$ -- 0
 int.to.str$ -- 10
 missing$ -- 39
@@ -39,9 +39,9 @@ pop$ -- 39
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 316
+skip$ -- 317
 stack$ -- 0
-substring$ -- 720
+substring$ -- 721
 swap$ -- 60
 text.length$ -- 45
 text.prefix$ -- 0
