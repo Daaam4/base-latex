@@ -10,7 +10,10 @@
 
 \usepackage[german]{babel} % language: germen
 \usepackage[ddmmyyyy]{datetime} 
-\renewcommand{\dateseparator}{.} 
+\renewcommand{\dateseparator}{.}
+
+% Redefine bibliography name to English
+\addto\captionsgerman{\renewcommand{\bibname}{Bibliography}} 
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
@@ -129,7 +132,7 @@
     \clearpage
     \bibliographystyle{unsrtdineng} % modified unsrtdin needs to be included as file in the main path (same level as the main document 000report.tex 
     \bibliography{./bib/quellen}
-    \addcontentsline{toc}{chapter}{Literaturverzeichnis}
+    \addcontentsline{toc}{chapter}{Bibliography}
      % add to TOC
     \clearpage
 \end{document}

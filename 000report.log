@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.11.5)  5 NOV 2025 12:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.11.5)  5 NOV 2025 12:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -913,7 +913,7 @@ Package: longtable 2024-10-27 v4.22 Multi-page Table package (DPC)
 \c@LT@chunks=\count354
 \LT@p@ftn=\toks30
 )
-Class scrreprt Info: longtable captions redefined on input line 34.
+Class scrreprt Info: longtable captions redefined on input line 37.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/listings.sty
 \lst@mode=\count355
@@ -1690,7 +1690,7 @@ Package: xstring 2023/08/22 v1.86 String manipulations (CT)
 \AC@clearlist=\toks46
 )
 LaTeX Font Info:    Trying to load font information for OT1+phv on input line 1
-08.
+11.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
@@ -1703,57 +1703,57 @@ File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 (./000report.aux (./doc/001titlepage.aux) (./doc/101expose.aux))
 \openout1 = `000report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/jkp/m/it on input line 108.
+LaTeX Font Info:    Checking defaults for OML/jkp/m/it on input line 111.
 LaTeX Font Info:    Trying to load font information for OML+jkp on input line 1
-08.
+11.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/kpfonts/omljkp.fd
 File: omljkp.fd 2006/08/15 v1.0
 )
-LaTeX Font Info:    ... okay on input line 108.
-LaTeX Font Info:    Checking defaults for OMS/jkp/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for OMS/jkp/m/n on input line 111.
 LaTeX Font Info:    Trying to load font information for OMS+jkp on input line 1
-08.
+11.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/kpfonts/omsjkp.fd
 File: omsjkp.fd 2006/08/15 v1.0
 )
-LaTeX Font Info:    ... okay on input line 108.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 108.
-LaTeX Font Info:    ... okay on input line 108.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 108.
-LaTeX Font Info:    ... okay on input line 108.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 108.
-LaTeX Font Info:    ... okay on input line 108.
-LaTeX Font Info:    Checking defaults for OMX/jkp/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for OMX/jkp/m/n on input line 111.
 LaTeX Font Info:    Trying to load font information for OMX+jkp on input line 1
-08.
+11.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/kpfonts/omxjkp.fd
 File: omxjkp.fd 2006/08/15 v1.0
 )
-LaTeX Font Info:    ... okay on input line 108.
-LaTeX Font Info:    Checking defaults for U/jkpexa/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for U/jkpexa/m/n on input line 111.
 LaTeX Font Info:    Trying to load font information for U+jkpexa on input line 
-108.
+111.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/kpfonts/ujkpexa.fd
 File: ujkpexa.fd 2006/08/15 v1.0
 )
-LaTeX Font Info:    ... okay on input line 108.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 108.
-LaTeX Font Info:    ... okay on input line 108.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 108.
-LaTeX Font Info:    ... okay on input line 108.
-LaTeX Font Info:    Checking defaults for LGR/cmr/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for LGR/cmr/m/n on input line 111.
 LaTeX Font Info:    Trying to load font information for LGR+cmr on input line 1
-08.
+11.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/cbfonts-fd/lgrcmr.fd
 File: lgrcmr.fd 2017/07/29 v1.2 Greek European Computer Regular
 )
-LaTeX Font Info:    ... okay on input line 108.
-Package hyperref Info: Link coloring OFF on input line 108.
+LaTeX Font Info:    ... okay on input line 111.
+Package hyperref Info: Link coloring OFF on input line 111.
 
 (./000report.out) (./000report.out)
 \@outlinefile=\write4
@@ -1766,7 +1766,7 @@ Class scrreprt Info: loading recommended package `bookmark'.
 (scrreprt)           `bookmarkpackage=false' before \begin{document} and
 (scrreprt)           you can avoid this message adding:
 (scrreprt)             \usepackage{bookmark}
-(scrreprt)           before \begin{document} on input line 108.
+(scrreprt)           before \begin{document} on input line 111.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/bookmark/bookmark.sty
 Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
@@ -1825,7 +1825,7 @@ File: bkm-pdftex.def 2023-12-10 v1.31 bookmark driver for pdfTeX and luaTeX (HO
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \c@lstlisting=\count420
-Package tocbasic Info: setting babel extension for `lol' on input line 108.
+Package tocbasic Info: setting babel extension for `lol' on input line 111.
 \scr@dte@lstlisting@maxnumwidth=\skip87
 (/usr/local/texlive/2025/texmf-dist/tex/latex/pdflscape/pdflscape.sty
 Package: pdflscape 2022-10-27 v0.13 Display of landscape pages in PDF
@@ -1841,15 +1841,15 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 ))
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Info: Redefining \celsius on input line 108.
-Package gensymb Info: Faking symbols for \degree and \celsius on input line 108
+LaTeX Info: Redefining \celsius on input line 111.
+Package gensymb Info: Faking symbols for \degree and \celsius on input line 111
 .
 
 
 Package gensymb Warning: Not defining \perthousand.
 
-LaTeX Info: Redefining \ohm on input line 108.
-Package gensymb Info: Using \Omega for \ohm on input line 108.
+LaTeX Info: Redefining \ohm on input line 111.
+Package gensymb Info: Using \Omega for \ohm on input line 111.
 
 Package gensymb Warning: Not defining \micro.
 
@@ -1860,7 +1860,7 @@ File: translations-basic-dictionary-german.trsl (german translation file `trans
 lations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' f
-or `german'. on input line 108.
+or `german'. on input line 111.
 \openout2 = `./doc/001titlepage.aux'.
 
  (./doc/001titlepage.tex
@@ -1930,30 +1930,30 @@ File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
 ))
 
 LaTeX Font Info:    Trying to load font information for OT1+jkp on input line 1
-26.
+29.
 (/usr/local/texlive/2025/texmf-dist/tex/latex/kpfonts/ot1jkp.fd
 File: ot1jkp.fd 2007/08/30 Fontinst v1.928 font definitions for OT1/jkp.
 )
 LaTeX Font Info:    Trying to load font information for U+jkpsya on input line 
-126.
+129.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/kpfonts/ujkpsya.fd
 File: ujkpsya.fd 2006/08/15 v1.0
 )
 LaTeX Font Info:    Trying to load font information for U+jkpsyb on input line 
-126.
+129.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/kpfonts/ujkpsyb.fd
 File: ujkpsyb.fd 2006/08/15 v1.0
 )
 LaTeX Font Info:    Trying to load font information for U+jkpmia on input line 
-126.
+129.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/kpfonts/ujkpmia.fd
 File: ujkpmia.fd 2006/08/15 v1.0
 )
 LaTeX Font Info:    Trying to load font information for U+jkpsyc on input line 
-126.
+129.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/kpfonts/ujkpsyc.fd
 File: ujkpsyc.fd 2006/08/15 v1.0
@@ -1962,7 +1962,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.126     \include{doc/101expose}
+l.129     \include{doc/101expose}
                                   [1
 
 
@@ -2000,7 +2000,7 @@ Package rerunfilecheck Info: File `000report.out' has not changed.
 Here is how much of TeX's memory you used:
  32577 strings out of 473190
  645073 string characters out of 5715800
- 1209598 words of memory out of 5000000
+ 1209616 words of memory out of 5000000
  55283 multiletter control sequences out of 15000+600000
  585069 words of font info for 84 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -2009,7 +2009,7 @@ Here is how much of TeX's memory you used:
 local/texlive/2025/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/t
 exlive/2025/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/
 2025/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on 000report.pdf (4 pages, 102326 bytes).
+Output written on 000report.pdf (4 pages, 102508 bytes).
 PDF statistics:
  92 PDF objects out of 1000 (max. 8388607)
  76 compressed objects within 1 object stream
