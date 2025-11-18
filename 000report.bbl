@@ -40,7 +40,7 @@
 \newblock ISSN 2079--8954. --
 \newblock This paper explores how to enable collaborative MBSE by combining SysML v2 modeling with a secure framework for data exchange. The proposed solution relies on a modeling guideline to maintain consistency and interoperability, which is why its relevant as it justifies why standardized guidelines are essential for leveraging SysML v2's new features in a collaborative, multi-tool environment.
 
-\bibitem[5]{eduardo}
+\bibitem[5]{cibrian}
 \textsc{Cibrián}, Eduardo ; \textsc{Olivert-Iserte}, Jose ; \textsc{Díez-Fenoy}, Carlos ; \textsc{Mendieta}, Roy ; \textsc{Llorens}, Juan  ; \textsc{Rodríguez}, José~M.:
 \newblock Ensuring Semantic Consistency in SysML v2 Models Through Metamodel-Driven Validation.
 \newblock {In: }\emph{IEEE Access} 13 (2025), p. 121444--121457.
