@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.11.5)  18 NOV 2025 23:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.11.5)  19 NOV 2025 10:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1522,7 +1522,7 @@ File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count412
 \l__pdf_internal_box=\box84
-) (./000report.aux (./doc/001titlepage.aux) (./doc/101expose.aux))
+) (./000report.aux (./doc/001titlepage.aux) (./doc/101concept.aux))
 \openout1 = `000report.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/jkp/m/it on input line 111.
@@ -1709,9 +1709,9 @@ Package pdftex.def Info: ./pic/FHAC.jpg  used on input line 7.
 
 
 {/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/base/8r.enc} <./pic/FHAC.jpg>])
-\openout2 = `doc/101expose.aux'.
+\openout2 = `doc/101concept.aux'.
 
- (./doc/101expose.tex
+ (./doc/101concept.tex
 chapter 1.
 )
 
@@ -1738,8 +1738,8 @@ File: ujkpsyc.fd 2006/08/15 v1.0
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.129     \include{doc/101expose}
-                                  [1
+l.129     \include{doc/101concept}
+                                   [1
 
 
 
@@ -1765,7 +1765,7 @@ File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 
 ])
 
-[3] (./000report.aux (./doc/001titlepage.aux) (./doc/101expose.aux))
+[3] (./000report.aux (./doc/001titlepage.aux) (./doc/101concept.aux))
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -1775,7 +1775,7 @@ Package rerunfilecheck Info: File `000report.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  32566 strings out of 473190
- 645202 string characters out of 5715800
+ 645227 string characters out of 5715800
  1209616 words of memory out of 5000000
  55261 multiletter control sequences out of 15000+600000
  584756 words of font info for 83 fonts, out of 8000000 for 9000
