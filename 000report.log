@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.11.5)  19 NOV 2025 10:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.11.5)  28 NOV 2025 17:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1712,34 +1712,36 @@ Package pdftex.def Info: ./pic/FHAC.jpg  used on input line 7.
 \openout2 = `doc/101concept.aux'.
 
  (./doc/101concept.tex
-chapter 1.
+LaTeX Font Info:    Trying to load font information for TS1+phv on input line 7.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/ts1phv.fd
+File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
 )
 
-LaTeX Font Info:    Trying to load font information for OT1+jkp on input line 131.
+LaTeX Font Info:    Trying to load font information for OT1+jkp on input line 38.
 (/usr/local/texlive/2025/texmf-dist/tex/latex/kpfonts/ot1jkp.fd
 File: ot1jkp.fd 2007/08/30 Fontinst v1.928 font definitions for OT1/jkp.
 )
-LaTeX Font Info:    Trying to load font information for U+jkpsya on input line 131.
+LaTeX Font Info:    Trying to load font information for U+jkpsya on input line 38.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/kpfonts/ujkpsya.fd
 File: ujkpsya.fd 2006/08/15 v1.0
 )
-LaTeX Font Info:    Trying to load font information for U+jkpsyb on input line 131.
+LaTeX Font Info:    Trying to load font information for U+jkpsyb on input line 38.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/kpfonts/ujkpsyb.fd
 File: ujkpsyb.fd 2006/08/15 v1.0
 )
-LaTeX Font Info:    Trying to load font information for U+jkpmia on input line 131.
+LaTeX Font Info:    Trying to load font information for U+jkpmia on input line 38.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/kpfonts/ujkpmia.fd
 File: ujkpmia.fd 2006/08/15 v1.0
 )
-LaTeX Font Info:    Trying to load font information for U+jkpsyc on input line 131.
+LaTeX Font Info:    Trying to load font information for U+jkpsyc on input line 38.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/kpfonts/ujkpsyc.fd
 File: ujkpsyc.fd 2006/08/15 v1.0
 )
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.131     \include{doc/101concept}
-                                   [1
+l.38 \clearpage
+                [1
 
 
 
@@ -1747,9 +1749,18 @@ l.131     \include{doc/101concept}
 
 
 
+]
+Overfull \hbox (2.11977pt too wide) in paragraph at lines 75--77
+[]\OT1/phv/b/n/12 Constraint Sa-tis-fac-ti-on and Pro-pa-ga-ti-on\OT1/phv/m/n/12 : The for-mal cons-traint ca-pa-bi-li-ties in SysML
+ []
 
 
-] (./000report.bbl
+
+[2
+
+])
+
+[3] (./000report.bbl
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <12> not available
 (Font)              Font shape `OT1/phv/m/sl' tried instead on input line 13.
 LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 14.
@@ -1757,15 +1768,17 @@ LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 14
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
 
-[2
+[4
 
 
 
 
 
-])
+]
 
-[3] (./000report.aux (./doc/001titlepage.aux) (./doc/101concept.aux))
+[5])
+
+[6] (./000report.aux (./doc/001titlepage.aux) (./doc/101concept.aux))
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -1774,18 +1787,18 @@ Package rerunfilecheck Info: File `000report.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 32566 strings out of 473190
- 645227 string characters out of 5715800
+ 32616 strings out of 473190
+ 645891 string characters out of 5715800
  1209616 words of memory out of 5000000
- 55261 multiletter control sequences out of 15000+600000
- 584756 words of font info for 83 fonts, out of 8000000 for 9000
+ 55306 multiletter control sequences out of 15000+600000
+ 585069 words of font info for 84 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 108i,20n,117p,10948b,1248s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,20n,117p,10948b,1264s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on 000report.pdf (4 pages, 102748 bytes).
+Output written on 000report.pdf (7 pages, 111494 bytes).
 PDF statistics:
- 101 PDF objects out of 1000 (max. 8388607)
- 85 compressed objects within 1 object stream
- 29 named destinations out of 1000 (max. 500000)
- 34 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 144 PDF objects out of 1000 (max. 8388607)
+ 124 compressed objects within 2 object streams
+ 30 named destinations out of 1000 (max. 500000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
