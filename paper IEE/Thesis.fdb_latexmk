@@ -1,7 +1,8 @@
 # Fdb version 4
-["pdflatex"] 1765018209.92178 "/Users/nasim.awabdy/Desktop/code/base-latex/paper IEE/Thesis.tex" "Thesis.pdf" "Thesis" 1765018210.34398 0
-  "/Users/nasim.awabdy/Desktop/code/base-latex/paper IEE/Thesis.tex" 1765018209.25791 4437 570bb72d6e043969475d39408e555e7c ""
+["pdflatex"] 1765030568.07555 "/Users/nasim.awabdy/Desktop/code/base-latex/paper IEE/Thesis.tex" "Thesis.pdf" "Thesis" 1765030568.56804 0
+  "/Users/nasim.awabdy/Desktop/code/base-latex/paper IEE/Thesis.tex" 1765030567.35069 6270 11175ebb59ade5e2a06d09d4054c5804 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
+  "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm" 1136768653 2172 fd0c924230362ff848a33632ed45dc23 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/adobe/times/ptmb8r.tfm" 1136768653 4524 6bce29db5bc272ba5f332261583fee9c ""
@@ -12,6 +13,7 @@
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/adobe/times/ptmrc7t.tfm" 1136768653 2680 312a2d12b1f1df8ee0212e7ba1962402 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/adobe/times/ptmri7t.tfm" 1136768653 2288 f478fc8fed18759effb59f3dad7f3084 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/adobe/times/ptmri8r.tfm" 1136768653 4640 532ca3305aad10cc01d769f3f91f1029 ""
+  "/usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/tcrm0800.tfm" 1136768653 1536 05df9db6aeccc4eea94fec15c9024f79 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex9.tfm" 1246382020 996 a18840b13b499c08ac2de96a99eda4bc ""
@@ -34,6 +36,7 @@
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1136768653 1116 933a60c408fc0a863a92debe84b2d294 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1136768653 1120 8b7d695260f3cff42e636090a8002094 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmsy9.tfm" 1136768653 1116 25a7bf822c58caf309a702ef79f4afbb ""
+  "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb" 1215737283 164227 3df942b4ff2124425d8fb1b6d3e01c7a ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmb8a.pfb" 1136849748 44729 811d6c62865936705a31c797a1d5dada ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb" 1136849748 44656 0cbca70e0534538582128f6b54593cca ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmr8a.pfb" 1136849748 46026 6dab18b61c907687b520c72847215a68 ""
@@ -75,8 +78,8 @@
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1762339191 3345730 27d1f15853b71a344e3df1dbd361d882 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
   "IEEEtran.cls" 1764621695.69697 288304 b67b6fc6c2abb39f9b461923f5199343 ""
-  "Thesis.aux" 1765018210.30743 1227 ad7a6d5d5140e6a78e398a6de2c8db4b "pdflatex"
-  "Thesis.tex" 1765018209.25791 4437 570bb72d6e043969475d39408e555e7c ""
+  "Thesis.aux" 1765030568.52491 1776 81d10d4037e9f8911a422b4a3dea212a "pdflatex"
+  "Thesis.tex" 1765030567.35069 6270 11175ebb59ade5e2a06d09d4054c5804 ""
   (generated)
   "Thesis.aux"
   "Thesis.log"
