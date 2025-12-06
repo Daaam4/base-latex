@@ -7,11 +7,11 @@
     
     \item \textbf{Introduction to SysML v1 and v2}: Briefly introduce SysML v1 industry standard that laid the groundwork for MBSE but suffers from limitations, and SysML v2 as the next-generation standard addressing these issues. \cite{boelsen, zirui, dehn, cibrian, yildirim,friedenthal,jansen, beers}
     
-    \item \textbf{Problem Statement}: Hightlight the shift from V1's profile-based system to V2's formal, metamodel-based approach. \cite{friedenthal, cibrian,zirui}
+    \item \textbf{Problem Statement}: SysML v2 architectural overhaul overcomes v1 limitations, its abstract nature introduces a 'flexibility paradox' resulting in model inconsistencies. This semantic amiguity creates new problems for automated verification, necessitating a change in the implementation mechanism of modeling guidelines. \cite{boelsen, friedenthal, cibrian,zirui}
     
     \item \textbf{Research Question}: How does the implementation mechanism of modeling guidelines for consistency validation differ between SysML v1 and SysML v2, and what are the implications for automated verification?
     
-    \item \textbf{Thesis}: The change in mechanisms to V2 enables more robust levels of automated verification compared to V1. \cite{molnar,ratzke}
+    \item \textbf{Thesis}: The change in SysML v2 architecture, which is grounded in formal axiomatic semantics, enables a significant increase in the rigor, automation of automated verification. \cite{molnar,ratzke}
 \end{itemize}
 
 \paragraph{Theoretical Background: From UML to KerML}
@@ -48,14 +48,14 @@
         \item These approach often lack percision due to the lack of formal semantics in SysML v1. \cite{jansen}
     \end{itemize}
 
-    \item \textbf{V2 Implementation - Metamodel-Driven Validation (Consistency by Design)}: V2 implements consistency through a systematic, metamodel-based validation approach. \cite{cibrian}
+    \item \textbf{V2 Implementation}: V2 implements consistency through a systematic, metamodel-based validation approach. \cite{cibrian}
     \begin{itemize}
         \item The metamodel functions as formal specification from which validation rules are directly derived ensuring automated detection of structural and semantic inconsistencies. \cite{cibrian}
         
         \item Guideline Enforcement: Guidelines are enforced directly using the native notation and syntax combined with metadata definitions. \cite{boelsen}
     \end{itemize}
 
-    \item \textbf{Contrasting Abstaction}: Show that V1 required effort when mapping high-level concepts to OCL expressions and transforming models to support external checking, whereas V2 validation operates directly on the formal semantics of the model via its abstract syntax representation. \cite{zavada, cibrian}
+    \item \textbf{Direct vs. Indirect Validation}: Detail the difference between validation process in V1 where it required mapping high-level concepts to OCL expressions and transforming models to support external checking, whereas V2 validation operates directly on the formal semantics of the model via its abstract syntax representation. \cite{zavada, cibrian}
 \end{itemize}
 
 
@@ -64,15 +64,11 @@
 \paragraph{Discussion and Implications}
 
 \begin{itemize}
-    \item \textbf{Formal Methods (FM) Integration}: foundation of V2 drastically simplifies the application of FM. \cite{molnar, ratzke}
-    \begin{itemize}
-        \item Verification tools like Gamma, Imandra, SAVVS, and SysMD are being integrated to leverage V2's features (e.g., the standardized API). \cite{molnar, ratzke}
-    \end{itemize}
+    \item \textbf{Formal Methods (FM) Integration}: foundation of V2 drastically simplifies the application of FM. Verification tools like Gamma, Imandra, SAVVS, and SysMD are being integrated to leverage V2's features (e.g., the standardized API) \cite{molnar, ratzke}
 
     \item \textbf{Advanced Behavioral Verification}: V2 enables formal verification of behavioral models (state machines) by semantically mapping them to theorem prover encodings. \cite{kausch}
     
-    \item \textbf{Constraint Satisfaction and Propagation}: The formal constraint capabilities in SysML v2 enable powerful constructive model analysis. 
-    This is achieved by reformulating the system model as a Constraint Satisfaction Problem (CSP) and applying Constraint Propagation algorithms to analyze requirements and reduce variable domains. \cite{molnar, ratzke}
+    \item \textbf{Constraint Satisfaction and Propagation}: The formal constraint capabilities in SysML v2 enable powerful constructive model analysis. This is achieved by reformulating the system model as a Constraint Satisfaction Problem (CSP) and applying Constraint Propagation algorithms to analyze requirements and reduce variable domains. \cite{molnar, ratzke}
 
     \item \textbf{Verification Scalability}: In contrast to potentially exponential complexity of state generation in some manual V1 checks, V2 benefits from underlying formalisms (like Focus) that support the compositionality of refinement. \cite{dehn, kausch}
     
