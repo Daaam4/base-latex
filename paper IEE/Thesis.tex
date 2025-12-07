@@ -49,36 +49,39 @@ component, formatting, style, styling, insert
 % Introduction 
 %
 \section{Introduction}
-% Context - MBSE, CPS
-Modern Cyber-Physical Systems (CPS) are technical systems that combine mechanical, electronic, and software subsystems with physical elements embedded in the real world. 
-The development of CPSs is becoming increasingly complex and challenging, due to their interdisciplinary nature and the need to ensure seamless integration between their physical and computational components.
+% CPS
+Modern Cyber-Physical Systems (CPS) are technical systems that combine mechanical, electronic, and software subsystems with physical elements embedded in the real world.
+The development of CPSs is becoming increasingly complex and challenging, due to their interdisciplinary nature and the need to ensure seamless integration between their physical and computational components \cite{bergemann,boelsen}.
 
-Model-Based Systems Engineering (MBSE)
+% MBSE
+Model-Based Systems Engineering (MBSE) is a methodology for the development and management such complex systems, that addresses issues arising from the complexity and interdisciplinary nature of CPS, and provides the agility required to adapt to changing requirements and technologies. 
+MBSE incorporates a centralized system model as the primary source of information, throughout the system lifecycle \cite{bergemann,dehn,cibrian,dukic,boelsen,friedenthal}. 
 
-Model-Based Systems Engineering (MBSE) has become a cornerstone methodology for managing the complexity of modern Cyber-Physical Systems (CPS). The development of CPSs is inherently challenging because they combine software with hardware embedded in the physical world. MBSE has become the industry standard for the development and design management of these complex systems, extending the classical systems engineering by utilizing a centralized system model.
+% (Status Quo) SysML v1 and its limitations 
+SysML v1 has been widely adopted as the standard for modelling CPS and served as a key enabler MBSE. SysML v1 is a graphical, general purpose modelling language that is defined as an extension of the Unified Modeling Language (UML). Because it was built on top of UML, SysML v1 inherited several limitations from UML, that limited it's expressiveness and usability for CPS modelling. However, it still provided a solid  foundation for specifying and analyzing a systems's behaviour, structure and requirements \cite{boelsen,cibrian,friedenthal,molnar, jansen}.
 
-By emphasizing the use of \textbf{formal models} throughout the system lifecycle, MBSE supports the design, analysis, and verification of system representations, promoting consistency, traceability, and reusability across engineering processes. MBSE enables system architects to respond more quickly and effectively to numerous changes in requirements that occur during the development process.
-
-In this context, the Models are crucial for specifying the high-level, architecture, functionality, uses cases, requirements, and constraints of the technical systems.
-
-% - Define the difference between verification and validation 
-% 
-% - Methodology of the thesis
-
+% (Shift) SysML v2 
+The release of SysML v2 represents the next generation of the Systems Modeling Language, designed as a comprehensive overhaul of SysML v1 that address it's limitations and enhance the efficacy of MBSE practices.
+However, despite the advancements introduced by SysML v2, many challenges remain in effectively utilizing the language for CPS modelling, particularly in ensuring model consistency, validation, and verification \cite{boelsen,cibrian,friedenthal}.
 
 % Problem Statement (SysML v1 as a standard, its limitations, and SysML v2 as a solution)
+This shift creates a critical paradox: while SysML v2 offers higher precision through its formal axiomatic semantics, its abstract nature and flexibility can lead to inconsistent modeling practices if not strictly guided. Without standardized modeling guidelines, the reuse of system elements from model libraries becomes difficult, leading to redundant efforts and potential errors \cite{boelsen}. Consequently, the mechanism for implementing these guidelines must evolve from the profile-based constraints of SysML v1 to leverage the native formal capabilities of SysML v2.
 
+% Define the difference between verification and validation 
 
-% Research Question & Thesis Statement
-% + Highlight the focus which is on specific scenarios not a holistic overview of the tools
+% Research Question & Thesis Statement & Methodology of the thesis
+%% Highlight the focus which is on specific scenarios not a holistic overview of the tools
 
-% Highlight the difference between validation and verification
+\clearpage
 
 %
 % Theoretical Background
 %
 \section{Theoretical Background}
 \subsection{MBSE}
+By emphasizing the use of \textbf{formal models} throughout the system lifecycle, MBSE supports the design, analysis, and verification of system representations, promoting consistency, traceability, and reusability across engineering processes. MBSE enables system architects to respond more quickly and effectively to numerous changes in requirements that occur during the development process.
+
+In this context, the Models are crucial for specifying the high-level, architecture, functionality, uses cases, requirements, and constraints of the technical systems.
 \subsection{SysML v1 Foundations}
 \subsection{SysML v2 Foundations}
 
