@@ -86,17 +86,20 @@ We analyze the implications these differences have on model verification process
 % Theoretical Background
 %
 \section{Theoretical Background}
+% MBSE - Foundations
 \subsection{Model-Based Systems Engineering (MBSE)}
 Model-Based Systems Engineering (MBSE) is defined by the International Council on Systems Engineering (INCOSE) as ''The formalized application of modeling to support system requirements, design, analysis, verification, and validation activities beginning in the concept stage and continuing throughout development and later life cycle stages.'' \cite{incose}. 
 Unlike traditional document-based approaches, where system's information is scattered across various files, MBSE is a methodology the centralizes system's information within a unified model, which serves as the primary source of information that is managed throughout the system lifecycle \cite{friedenthal}.
 This approach enhances collaboration among multidisciplinary teams, reduces errors from manual synchronization, and enables system architects to respond more quickly and effectively to numerous changes in requirements that occur during the development process \cite{dukic,yildirim,beers}.
 
+% SysML v1 Foundations
 \subsection{SysML v1 Foundations}
 SysML v1 is a graphical, general purpose modeling language that is widely recognized as the standard language for MBSE, serving as a foundational tool for specifying, analyzing, designing and verifying complex multidisciplinary systems \cite{beers,cibrian,jansen}.
 SysML v1, adopted by the Object Management Group (OMG) in 2007, was essential in advancing MBSE practice by providing capabilities for formally capturing system requirements, structure, behaviour, and parametrics \cite{friedenthal}.
 The language is defined as an extension of the Unified Modeling Language (UML), allowing it to adopt established modeling concepts \cite{cibrian}.
 SysML v1 organizes its modeling constructs into four main categories:
 
+%% SysML v1 Diagram Categories
 \begin{itemize}
     \item \textbf{Structure}: This aspect is modeled using Block Definition Diagrams (BDDs) and Internal Block Diagrams (IBDs). BBDs are used to define components, interfaces, and relationships at black-box level, while IBDs offer a white-box perspective by outlining the internal structure of a signle block \cite{jansen}.
     \item \textbf{Behaviour}: SysML v1 provides several behavioral diagrams, including State Machine Diagrams, Sequence Diagrams, and Activity Diagrams \cite{jansen,yildirim}. These diagrams capture distinct uses for modeling system behaviour.
@@ -104,9 +107,15 @@ SysML v1 organizes its modeling constructs into four main categories:
     \item \textbf{Parametrics}: Parametric Diagrams define mathematical constraints and equations between system elements. They support preliminary calculations and analysis within the model, though they often require external tools for complex evaluations \cite{jansen}.
 \end{itemize}
 
+%% Customization through Stereotypes
 SysML v1 allows the restriction of modeling practices through UML profiling mechanism, enabling the construction of specialized extensions. The central element for customization is the \textbf{stereotype}, which functions as a distinct metaclass within UML \cite{beers}. Stereotypes enable the customization of existing metaclasses by associating them with specific properties and constraints, thereby tailoring the modeling language to meet domain-specific requirements \cite{beers,raedler}.
 
+%% OCL
+The \textbf{Object Constraint Language (OCL)} function as a specialized textual specifications language that enables formally defining rules, constraints and queries on models especially those created using UML \cite{ratzke}. It was developed to overcome the limitations of graphical modeling by allowing precise specification of rules that cannot be easily represented visually \cite{beers}.
+
+% SysML v2 Foundations
 \subsection{SysML v2 Foundations}
+
 \cite{molnar,cibrian,ratzke}
 
 \clearpage

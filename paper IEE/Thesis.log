@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.11.5)  9 DEC 2025 21:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.11.5)  9 DEC 2025 21:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -291,12 +291,10 @@ LaTeX Font Info:    Calculating math sizes for size <11> on input line 30.
 
 
 
-[2
-
-]
+[2]
 LaTeX Info: Symbol \textasciidieresis not provided by
             font family ptm in TS1 encoding.
-            Default family used instead on input line 142.
+            Default family used instead on input line 151.
 
 
 ** Conference Paper **
@@ -332,7 +330,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  57i,11n,65p,647b,304s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Thesis.pdf (3 pages, 88233 bytes).
+Output written on Thesis.pdf (3 pages, 89032 bytes).
 PDF statistics:
  46 PDF objects out of 1000 (max. 8388607)
  28 compressed objects within 1 object stream
