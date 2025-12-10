@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.11.5)  9 DEC 2025 21:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.11.5)  10 DEC 2025 19:09
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -294,7 +294,21 @@ LaTeX Font Info:    Calculating math sizes for size <11> on input line 30.
 [2]
 LaTeX Info: Symbol \textasciidieresis not provided by
             font family ptm in TS1 encoding.
-            Default family used instead on input line 151.
+            Default family used instead on input line 170.
+
+Underfull \hbox (badness 10000) in paragraph at lines 190--191
+[]\OT1/ptm/m/n/8 Object Man-age-ment Group, \Ker-nel Mod-el-ing Lan-guage
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 190--191
+\OT1/ptm/m/n/8 (KerML), Ver-sion 1.0," Ob-ject Man-age-ment Group, Spec-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 190--191
+\OT1/ptm/m/n/8 i-fi-ca-tion formal/25-09-01, Sep. 2025. [On-line]. Avail-able:
+ []
 
 
 ** Conference Paper **
@@ -322,15 +336,15 @@ L3 programming layer <2025-01-18>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 4227 strings out of 473190
- 65794 string characters out of 5715800
- 472825 words of memory out of 5000000
- 27438 multiletter control sequences out of 15000+600000
- 603623 words of font info for 130 fonts, out of 8000000 for 9000
+ 4229 strings out of 473190
+ 65806 string characters out of 5715800
+ 472829 words of memory out of 5000000
+ 27439 multiletter control sequences out of 15000+600000
+ 604759 words of font info for 131 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,11n,65p,647b,304s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Thesis.pdf (3 pages, 89032 bytes).
+Output written on Thesis.pdf (3 pages, 93320 bytes).
 PDF statistics:
  46 PDF objects out of 1000 (max. 8388607)
  28 compressed objects within 1 object stream
