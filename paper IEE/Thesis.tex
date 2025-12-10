@@ -33,9 +33,7 @@ nassim.awabdy@alumni.fh-aachen.de}
 % Abstract
 %
 \begin{abstract}
-This document is a model and instructions for \LaTeX.
-This and the IEEEtran.cls file define the components of your paper [title, text, heads, etc.]. *CRITICAL: Do Not Use Symbols, Special Characters, Footnotes, 
-or Math in Paper Title or Abstract.
+TODO
 \end{abstract}
 
 %
@@ -113,7 +111,7 @@ SysML v1 allows the restriction of modeling practices through UML profiling mech
 %% Object Constraint Language (OCL)
 The \textbf{Object Constraint Language (OCL)} function as a specialized textual specifications language that enables formally defining rules, constraints and queries on models especially those created using UML \cite{ratzke}. It was developed to overcome the limitations of graphical modeling by allowing precise specification of rules that cannot be easily represented visually \cite{beers}.
 
-% SysML v2 Foundations
+% SysML v2 Foundations (molnar,cibrian,ratzke)
 \subsection{SysML v2 Foundations}
 SysML v2 represents a major evolution over it's predecessor, having been engineered independently from UML to overcome the limitations inherited from it \cite{cibrian,friedenthal}. It aims to enhance MBSE adoption and effectiveness by focusing on improving precision, expressiveness, consistency, usability, interoperability, and extensibility. \cite{friedenthal}
 The foundation of SysML v2 is built upon a new general-purpose modeling language called the \textbf{Kernel Modeling Language (KerML)} \cite{molnar}.
@@ -122,9 +120,9 @@ The foundation of SysML v2 is built upon a new general-purpose modeling language
 The mechanism of KerML is built upon a hierarchical, three-layered architecture, successively progressing from general to specific constructs \cite{omg}.
 
 \begin{itemize}
-    \item The \textit{Root Layer} establishes the essential syntactic scaffolding for constructing models. The main focus of this layer is to define organizational constructs, such as \textit{Elements}, \textit{Namespaces}, and \textit{Relationships}, leaving out model-level semantic interpretation relative to the modeled system \cite{omg,molnar}.
-    \item The \textit{Core Layer} introduces the language's semantic foundation based on classification, defined in first-order logic axioms. The central primitive is \textit{Type}, which is divided into \textit{Classifiers}, \textit{Features} and key relationships between them necessary for organizing classification hierachies \cite{omg,molnar}. 
-    \item The \textit{Kernel Layer} finalizes the language specification by adding specialized constructs used in common modeling applications, such as \textit{Data Types}, \textit{Classes}, \textit{Structures}, and \textit{Behaviours} \cite{omg,molnar}.
+    \item The \textbf{Root Layer} establishes the essential syntactic scaffolding for constructing models. The main focus of this layer is to define organizational constructs, such as \textit{Elements}, \textit{Namespaces}, and \textit{Relationships}, leaving out model-level semantic interpretation relative to the modeled system \cite{omg,molnar}.
+    \item The \textbf{Core Layer} introduces the language's semantic foundation based on classification, defined in first-order logic axioms. The central primitive is \textit{Type}, which is divided into \textit{Classifiers}, \textit{Features}. It also defines key relationships necessary for organizing classification hierachies \cite{omg,molnar}. 
+    \item The \textbf{Kernel Layer} finalizes the language specification by adding specialized constructs used in common modeling applications, such as \textit{Data Types}, \textit{Classes}, \textit{Structures}, and \textit{Behaviours} \cite{omg,molnar}.
 \end{itemize}
 
 %% Semantic Foundation
@@ -132,13 +130,16 @@ KernML achieves its consistent semantics through formal mathematical logic and l
 Since the semantics in the \textit{Core Layer} are defined using first-order logic, a consistent basis for mathematical reasoning about models is established \cite{omg,molnar}.
 For comprehensive concepts introduced in the \textit{Kernel Layer}, KerML extends its semantics through the reuse of elements found in the \textbf{Kernel Semantic Library}. This library is itself expressed in KerML, meaning that all concepts in the language are ultimately grounded in the same formal semantic framework \cite{omg,molnar}.
 
-%% Key Language Features and Notations
+%% Key Language Features, Notations & Constructs
+SysML v2 introduces several key features for further enhancing modeling capabilities, accessibility, and tool integration.
+\begin{itemize}
+    \item \textbf{Textual Notations}: In addition to graphical notation, SysML v2 features a standardized textual syntax that provides advantages for interoperability with external tools and exchange of models \cite{omg,molnar}.
+    \item \textbf{Standardized API}: The language includes the new Systems Modeling API (SysML API), which enables full access to the model and general Model as Code workflows \cite{omg,molnar}.
+    \item \textbf{Formal Requirements}: Requirements in SysML v2, are constructs that can formally specify a \textit{constraint}, declare their \textit{subject}, and have defined \textit{attributes}, moving beyond natural language representation \cite{omg,molnar}.
+    \item \textbf{Cases}: SysML v2 introduced a generic \textit{Case} construct that can declare a subject and an objective to provide a formal and executable way to check model correctness and evaluate system properties \cite{molnar}. Two specialized cases are provided \textit{Analysis Case} (Quantative Analysis) and \textit{Verification Case} (Qualitative Analysis), further enhacing model analysis capabilities \cite{molnar}.
+\end{itemize}
 
 
-
-\cite{molnar,cibrian,ratzke}
-
-\clearpage
 %
 % Results
 %
