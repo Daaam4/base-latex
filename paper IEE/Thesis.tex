@@ -67,8 +67,8 @@ Therefore, mechanisms for implementing and enforcing modeling guidelines must ev
 %% Outline the difference between verification and validation
 Within the context of model analysis, a distinct differentiation between model validation and model verification is necessary. Following the ISO 15288 standard, this works adopts the following definitions:
 \begin{itemize}
-    \item \textbf{Verification} is the process of proving that a design solution conforms to defined architectural and technical standards. This includes \textit{syntactic verification}, \textit{requirements traceability} and \textit{syntactic verification} \cite{iso15288}.
-    \item \textbf{Validation}, conversely, aims to prove that the system fulfills its business objectives and stakeholder requirements in its intended operational environment. This is achieved through \textit{behavioral simulation} and the execution of \textit{operational scenarios} \cite{iso15288}.
+    \item \textit{Verification} is the process of proving that a design solution conforms to defined architectural and technical standards. This includes \textit{syntactic verification}, \textit{requirements traceability} and \textit{syntactic verification} \cite{iso15288}.
+    \item \textit{Validation}, conversely, aims to prove that the system fulfills its business objectives and stakeholder requirements in its intended operational environment. This is achieved through \textit{behavioral simulation} and the execution of \textit{operational scenarios} \cite{iso15288}.
 \end{itemize}
 
 %% Research Question
@@ -104,15 +104,15 @@ SysML v1 organizes its modeling constructs into four main categories:
 \end{itemize}
 
 %% Stereotypes and Profiling
-SysML v1 allows the restriction of modeling practices through UML profiling mechanism, enabling the construction of specialized extensions. The central element for customization is the \textbf{stereotype}, which functions as a distinct metaclass within UML \cite{beers}. Stereotypes enable the customization of existing metaclasses by associating them with specific properties and constraints, thereby tailoring the modeling language to meet domain-specific requirements \cite{beers,raedler}.
+SysML v1 allows the restriction of modeling practices through UML profiling mechanism, enabling the construction of specialized extensions. The central element for customization is the \textit{stereotype}, which functions as a distinct metaclass within UML \cite{beers}. Stereotypes enable the customization of existing metaclasses by associating them with specific properties and constraints, thereby tailoring the modeling language to meet domain-specific requirements \cite{beers,raedler}.
 
 %% Object Constraint Language (OCL)
-The \textbf{Object Constraint Language (OCL)} function as a specialized textual specifications language that enables formally defining rules, constraints and queries on models especially those created using UML \cite{ratzke}. It was developed to overcome the limitations of graphical modeling by allowing precise specification of rules that cannot be easily represented visually \cite{beers}.
+The \textit{Object Constraint Language (OCL)} function as a specialized textual specifications language that enables formally defining rules, constraints and queries on models especially those created using UML \cite{ratzke}. It was developed to overcome the limitations of graphical modeling by allowing precise specification of rules that cannot be easily represented visually \cite{beers}.
 
 % SysML v2 Foundations (molnar,cibrian,ratzke)
 \subsection{SysML v2 Foundations}
 SysML v2 represents a major evolution over it's predecessor, having been engineered independently from UML to overcome the limitations inherited from it \cite{cibrian,friedenthal}. It aims to enhance MBSE adoption and effectiveness by focusing on improving precision, expressiveness, consistency, usability, interoperability, and extensibility. \cite{friedenthal}
-The foundation of SysML v2 is built upon a new general-purpose modeling language called the \textbf{Kernel Modeling Language (KerML)} \cite{molnar}.
+The foundation of SysML v2 is built upon a new general-purpose modeling language called the \textit{Kernel Modeling Language (KerML)} \cite{molnar}.
 
 %% KerML Overview
 The mechanism of KerML is built upon a hierarchical, three-layered architecture, successively progressing from general to specific constructs \cite{omg}.
@@ -124,9 +124,9 @@ The mechanism of KerML is built upon a hierarchical, three-layered architecture,
 \end{itemize}
 
 %% Semantic Foundation
-KernML achieves its consistent semantics through formal mathematical logic and library-based ontological modeling that maintain a precise interpretation of complex models.
+KerML achieves its consistent semantics through formal mathematical logic and library-based ontological modeling that maintain a precise interpretation of complex models.
 Since the semantics in the \textit{Core Layer} are defined using first-order logic, a consistent basis for mathematical reasoning about models is established \cite{omg,molnar}.
-For comprehensive concepts introduced in the \textit{Kernel Layer}, KerML extends its semantics through the reuse of elements found in the \textbf{Kernel Semantic Library}. This library is itself expressed in KerML, meaning that all concepts in the language are ultimately grounded in the same formal semantic framework \cite{omg,molnar}.
+For comprehensive concepts introduced in the \textit{Kernel Layer}, KerML extends its semantics through the reuse of elements found in the \textit{Kernel Semantic Library}. This library is itself expressed in KerML, meaning that all concepts in the language are ultimately grounded in the same formal semantic framework \cite{omg,molnar}.
 
 %% Key Language Features, Notations & Constructs
 SysML v2 introduces several key features for further enhancing modeling capabilities, accessibility, and tool integration.
@@ -143,10 +143,23 @@ SysML v2 introduces several key features for further enhancing modeling capabili
 %
 \section{Results}
 The comparative analysis of the literature reveals a fundamental shift in the role of modeling guidelines between SysML v1 and SysML v2. While v1 utilized guidelines primarily as external constraints to enforce structural consistency, SysML v2 integrates them as foundational semantic requirements.
-Consequently, the relationship between \textbf{modeling guideline}, \textbf{validation}, and \textbf{verification} can be conceptualized as a hierarchical dependency.
+Consequently, the relationship between \textit{modeling guideline}, \textit{validation}, and \textit{verification} can be conceptualized as a hierarchical dependency.
 
-\subsection{The SysML v1 Baseline -- Profile-Based Validation} %{ Beers }
-\subsection{The SysML v2 Shift -- Metamodel-Driven Validation} %{ Boelsen, Cibrian }
+% SysML v1 (Profile-based)
+\subsection{Implementing Guidelines in SysML v1} %{ Beers }
+In SysML v1, the implementation of domain-specific guidelines is achieved through the construction of a custom \textit{Domain-Specific Modeling Language (DSML)} profile overlaying the base UML metamodel \cite{beers}. Because the language lacks a native formal semantics foundation for domain-specific rules, guidelines are enforced through the combination of stereotypes and the attachment of \textit{Object Constraint Language (OCL)} constraints \cite{beers}.
+
+\subsubsection{Semantic Extension via Stereotypes}: System engineers utilize the profiling mechanism to introduce domain-specific terminology that does not exist in the native SysML v1 metamodel. Guidelines are then enforced by restricting the application of elements to a specific palette of stereotyped elements, ensuring that the model structure reflects domain-specific semantics rather than generic block definitions \cite{beers}.
+A concrete application of this mechanism is demonstrated by Beers et al. in the development of a DSML for formal process description. To enforce the guideline that system functions must be standardized, the author extends the metaclass \textit{CallBehaviorAction} to create a specific \textit{Process Operator} stereotype. This ensures that an element cannot be designated as a \textit{Process Operator} unless it inherits the specific meta-attributes defined by the stereotype \cite{beers}.
+
+\subsubsection{Topological Enforcement via OCL}: While stereotypes provide semantic labeling, they are insufficient for enforcing complex topological guidelines regarding the interaction between elements. To validate that the model structure adheres to the guidelines, OCL constraints must be layered onto the profile to restrict valid connections \cite{beers}.
+Beers et al. show the necessity of this mechanism when enforcing the VDI/VDE 3682 standard that provides the rules to implement the ''Product-Process-Resource'' (PPR) concept. 
+This concept mandates that production systems are modeled through the strict interconnection of the \textit{Process}, the \textit{Product}, and the \textit{Resource} \cite{beers}.
+In their implementation, a ''State'' (e.g., a Product or Energy) cannot legally connect directly to another ''State'' without an intermediary process. Since standard SysML v1 syntax permits the connection of any two compatible nodes, the guideline is enforced through an OCL invariant attached to the \textit{Flow} stereotype, that prevents two state-describing elements from being connected together \cite{beers}.
+
+
+\subsection{SysML v2 (Metamodel-driven)} %{ Boelsen, Cibrian }
+
 \subsection{The New Capacity -- Automated Verification} %{ Kausch, Dehn, Molnar }
 
 \clearpage
