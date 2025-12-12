@@ -158,7 +158,8 @@ This concept mandates that production systems are modeled through the strict int
 In their implementation, a ''State'' (e.g., a Product or Energy) cannot legally connect directly to another ''State'' without an intermediary process. Since standard SysML v1 syntax permits the connection of any two compatible nodes, the guideline is enforced through an OCL invariant attached to the \textit{Flow} stereotype, that prevents two state-describing elements from being connected together \cite{beers}.
 
 
-\subsection{SysML v2 (Metamodel-driven)} %{ Boelsen, Cibrian }
+\subsection{Implementing Guidelines in SysML v2} %{ Boelsen, Cibrian }
+In contrast to the profile-based approach of SysML v1, SysML v2 implements guidelines through the extension of its underlying metamodel, the \textit{Kernel Modeling Language (KerML)}. Rather than overlaying constraints onto a rigid structure, guidelines in SysML v2 are defined as native language constructs using \textit{Metadata definitions} and semantic specialization. This shift allows for validity to be an intrinsic property of the model elements themselves rather than an externally enforced state.
 
 \subsection{The New Capacity -- Automated Verification} %{ Kausch, Dehn, Molnar }
 
@@ -178,6 +179,7 @@ In their implementation, a ''State'' (e.g., a Product or Energy) cannot legally 
 % Acknowledgment
 %
 \section*{Acknowledgment}
+The author would like to express sincere gratitude to Professor Sebastian Voss for his supervision and guidance throughout the preparation of this work. His support in defining the research scope regarding SysML modeling guidelines was fundamental to the direction of this comparative analysis.
 
 %
 % Bibliography
