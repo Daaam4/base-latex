@@ -67,16 +67,16 @@ Therefore, mechanisms for implementing and enforcing modeling guidelines must ev
 %% Outline the difference between verification and validation
 Within the context of model analysis, a distinct differentiation between model validation and model verification is necessary. Following the ISO 15288 standard, this works adopts the following definitions:
 \begin{itemize}
-    \item \textit{Verification} is the process of proving that a design solution conforms to defined architectural and technical standards. This includes \textit{syntactic verification}, \textit{requirements traceability} and \textit{syntactic verification} \cite{iso15288}.
+    \item \textit{Verification} is the process of proving that a design solution conforms to defined architectural and technical standards. This includes \textit{requirements traceability} and \textit{syntactic verification} \cite{iso15288}.
     \item \textit{Validation}, conversely, aims to prove that the system fulfills its business objectives and stakeholder requirements in its intended operational environment. This is achieved through \textit{behavioral simulation} and the execution of \textit{operational scenarios} \cite{iso15288}.
 \end{itemize}
 
 %% Research Question
-This work addresses the following research question: \textbf{How do the mechanisms for implementing modeling guidelines differ between SysML v1 and SysML v2, and how do these differences impact the capabilities for model validation and automated verification?}
+This work addresses the following research question: \textbf{How do the mechanisms for implementing modeling guidelines differ between SysML v1 and SysML v2, and how do these differences impact the capabilities automated verification?}
 
 %% Methodology & Scope
 To answer this, we conduct a comparative analysis of the underlying implementation mechanisms, specifically contrasting the profile-based constraints of SysML v1 with the metamodel-driven and formal semantic capabilities of SysML v2. 
-We analyze the implications of this shift by examining specific scenarios where these mechanisms facilitate structural verification and dynamic validation, rather than providing a holistic overview of all available commercial tools.
+We analyze the implications of this shift by examining specific scenarios where these mechanisms facilitate structural verification, rather than providing a holistic overview of all available commercial tools.
 
 %
 % Theoretical Background
@@ -158,10 +158,31 @@ This concept mandates that production systems are modeled through the strict int
 In their implementation, a ''State'' (e.g., a Product or Energy) cannot legally connect directly to another ''State'' without an intermediary process. Since standard SysML v1 syntax permits the connection of any two compatible nodes, the guideline is enforced through an OCL invariant attached to the \textit{Flow} stereotype, that prevents two state-describing elements from being connected together \cite{beers}.
 
 
-\subsection{Implementing Guidelines in SysML v2} %{ Boelsen, Cibrian }
-In contrast to the profile-based approach of SysML v1, SysML v2 implements guidelines through the extension of its underlying metamodel, the \textit{Kernel Modeling Language (KerML)}. Rather than overlaying constraints onto a rigid structure, guidelines in SysML v2 are defined as native language constructs using \textit{Metadata definitions} and semantic specialization. This shift allows for validity to be an intrinsic property of the model elements themselves rather than an externally enforced state.
+\subsection{Implementing Guidelines in SysML v2} %{ Boelsen, Ratzke }
+In contrast to the profile-based approach of SysML v1, SysML v2 implements modeling guidelines through intrinsic semantic definitions rather than extrinsic constraints.
 
-\subsection{The New Capacity -- Automated Verification} %{ Kausch, Dehn, Molnar }
+%% Metadata Definition (Replacing Stereotypes) - Boelsen
+In SysML v1, you likely discussed Stereotypes. In SysML v2, guidelines are implemented using Metadata Definitions.
+%%% Mechanism - You can define a metadata def to create customized model elements. These act as the "tagging" mechanism to extend the language
+%%% Application: Boelsen et al. demonstrate using metadata def to enforce a standardized structure for mechanical elements (e.g., SolutionElementDef). This allows you to restrict how a specific engineering concept is modeled, ensuring that every "Solution Element" always contains a "Physical Effect" and "Active Surfaces".
+
+%% Libraries und Usage/Definition Separation  - Boelsen
+SysML v2 enforces guidelines through strict separation of Definition (Type) and Usage (Instance).
+%%% Mechanism: Guidelines can demand that users model Definitions in libraries (e.g., part def) and only use Usages (part) in the system breakdown
+
+%%% Impact: This enforces reuse. A guideline might state: "All physical effects must be defined in the Domain Library and only referenced in the System Model." SysML v2 supports this via its package import and usage syntax
+%% KerML Constraints (Replacing OCL) - Ratzke
+SysML v2 is built on KerML, which has native constraint support, reducing the need for add-on languages like OCL.
+%%% Mechanism: You can embed invariant, assert, and requirement directly into the element definitions.
+%%% Advanced Semantics: Ratzke et al. show how to implement strict guidelines for range values using semantics like oneOf, anyOf, and allOf directly in the model. This allows the guideline creator to restrict value ranges natively (e.g., "A tank volume must be one of these specific integers")
+
+
+\subsection{Verification Methods} %{ Kausch, Dehn, Molnar }
+\subsubsection{SysML v1 Verification}
+- Relies heavily on proprietary tool features (e.g., Cameo Validation Suite) to execute OCL.
+- Verification is often "static" (checking structure).
+- Limitation: Hard to integrate with external solvers without complex model transformations.
+\subsubsection{SysML v2 Verification}
 
 \clearpage
 
