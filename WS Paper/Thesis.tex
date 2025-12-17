@@ -7,6 +7,45 @@
 \usepackage{graphicx}
 \usepackage{textcomp}
 \usepackage{xcolor}
+\usepackage{listings}
+
+\definecolor{sysmlkeyword}{RGB}{127,0,85}
+\definecolor{sysmlcomment}{RGB}{63,127,95}
+\definecolor{sysmlstring}{RGB}{42,0,255}
+\definecolor{sysmlbg}{RGB}{250,250,250}
+
+\lstdefinelanguage{SysMLv2}{
+  keywords={package, import, metadata, def, part, constraint, attribute, doc, ref, alias, bind, in, out, perform, first, then, done, return},
+  keywordstyle=\color{sysmlkeyword}\bfseries,
+  ndkeywords={PartDefinition, PartUsage, ConstraintDefinition, ConstraintUsage, ScalarValues, Real, Integer, Boolean, String},
+  ndkeywordstyle=\color{blue}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=true,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{sysmlcomment}\ttfamily,
+  stringstyle=\color{sysmlstring}\ttfamily,
+  morestring=[b]",
+  morestring=[b]',
+  alsoletter={\#},
+  literate={\#}{{\textcolor{sysmlkeyword}{\#}}}1
+}
+
+\lstset{
+  language=SysMLv2,
+  backgroundcolor=\color{sysmlbg},
+  basicstyle=\ttfamily\scriptsize, % scriptsize fits IEEE columns better
+  breaklines=true,
+  captionpos=b,
+  keepspaces=true,
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  frame=single,
+  rulecolor=\color{lightgray},
+  tabsize=2,
+  showstringspaces=false
+}
+
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
@@ -168,15 +207,68 @@ In SysML v2, Boelsen et al. demonstrates how to use the \textit{Metadata Definit
 In his work, the author aimed to implement modeling guidelines for reusable mechanical system elements based on the \textit{motego} methodology. \\
 
 %%% Defining Metamodel (Establishing the rules)
-The structural foundation is built by defining an abstract metadata definition for a general \textit{solution}, which is set up as a specialization of the standard \textit{SysML::PartDefinition}. From this abstract base, concrete domain-specific types \textit{SolutionElement} and \textit{SystemSolution} are derived \cite{boelsen}.
+The structural foundation is built by defining an abstract metadata definition for a general \textit{solution}, which is set up as a specialization of the standard \textit{SysML::PartDefinition} (see Fig. \ref{lst:metamodel}). From this abstract base, concrete domain-specific types \textit{SolutionElement} and \textit{SystemSolution} are derived \cite{boelsen}.
 The guidelines further mandate specific structural and behavioral components. 
 The \textit{ActiveSurface} and \textit{ActiveSurfaceSet} are defined as specializations of \textit{SysML::PartDefinition} to represent geometrical structure, while the \textit{Material} is integrated as a reusable structural part within these surfaces. 
-Crucially, the behavioral logic is enforced by defining the \textit{PhysicalEffect} not as a block, but as a specialization of the \textit{SysML::ConstraintDefinition} meta type. Corresponding metadata definitions are also derived for \textit{PartUsage} to enable the instantiation of these elements within the system model \cite{boelsen}. \\
+Crucially, the behavioral logic is enforced by defining the \textit{PhysicalEffect} not as a block, but as a specialization of the \textit{SysML::ConstraintDefinition} meta type. Corresponding metadata definitions are also derived for \textit{PartUsage} to enable the instantiation of these elements within the system model \cite{boelsen}. \\ 
+
+\begin{figure}[ht]
+    \centering
+\begin{lstlisting}[caption={Definition of the domain-specific metamodel for mechanical elements in SysML v2 (adapted from Boelsen et al. \cite{boelsen})}, label={lst:metamodel}]
+// 1. Structural Definitions
+metadata def SolutionElementDef :> PartDefinition;
+metadata def ActiveSurfaceSetDef :> PartDefinition;
+metadata def ActiveSurfaceDef :> PartDefinition;
+
+// 2. Behavioral Definitions
+// Enforces behavior as constraints, not blocks
+metadata def PhyEffectDef :> ConstraintDefinition;
+
+// 3. Usage Definitions
+metadata def SolutionElement :> PartUsage;
+metadata def ActiveSurfaceSet :> PartUsage;
+metadata def ActiveSurface :> PartUsage;
+metadata def PhyEffect :> ConstraintUsage;
+
+metadata def Material :> PartUsage;
+
+\end{lstlisting}
+\end{figure}
 
 %%% Applying Metamodel (Enforcing the rules)
-The enforcement of these guidelines is demonstrated in the modeling of a specific component, such as a ''Lubricated Mechanical Line Rolling Contact''. The component is instantiated using the \textit{\#SolutionElementDef} metadata definition. By using this specific definition, the modeler is guided to explicitly include the required sub-elements defined the in the meta model, specifically the \textit{ActiveSurface} and \textit{PhysicalEffect} \cite{boelsen}.
+The enforcement of these guidelines is demonstrated in the modeling of a specific component, such as a ''Lubricated Mechanical Line Rolling Contact''. The component is instantiated using the \textit{\#SolutionElementDef} metadata definition (see Fig. \ref{lst:implementation}). By using this specific definition, the modeler is guided to explicitly include the required sub-elements defined the in the meta model, specifically the \textit{ActiveSurface} and \textit{PhysicalEffect} \cite{boelsen}.
 Within this structure, the \textit{ActiveSurface} integrates essential parameters via attribute definition and references the material using the \textit{\#Material} command \cite{boelsen}.
-Simultaneously, the \textit{PhysicalEffect} is completed by adding input and output attributes and defining the calculation specification as expression, thereby ensuring that the relationship between the physical effect and the functional flows are strictly quantified accordingly \cite{boelsen}. \\
+Simultaneously, the \textit{PhysicalEffect} is completed by adding input and output attributes and defining the calculation specification as expression, thereby ensuring that the relationship between the physical effect and the functional flows are strictly quantified accordingly \cite{boelsen}.
+
+\begin{figure}[ht]
+    \centering
+\begin{lstlisting}[caption={Implementation of a "Lubricated Mechanical Line Rolling Contact" using the enforced metadata definitions (adapted from Boelsen et al. \cite{boelsen})}, label={lst:implementation}]
+// Specific component using custom metadata def
+#SolutionElementDef def LubMechLineRollingContact {
+    // Guideline mandates specific sub-elements:
+    
+    // 1. Behavioral Layer
+    #PhyEffect pe1 : SurfacePressure;
+    #PhyEffect pe2 : CurvedCurvedKinematics {
+        in omega : Real;
+        out v_out : Real = r * omega;
+    }
+
+    // 2. Structural Layer
+    #ActiveSurfaceSet ass : CylindricalLatSurfaces {
+        #ActiveSurface as1 : CylindricLatSurface {
+                attribute radius : Real;
+        }
+        #ActiveSurface as2 : CylindricLatSurface {
+            #Material mat : Steel;
+        }
+    }
+
+    // 3. Binding Parameters 
+    bind pe2.radius = ass.as1.radius;
+}
+\end{lstlisting}
+\end{figure}
 
 \subsubsection{Libraries and Usage Definition Separation}
 %% Libraries und Usage/Definition Separation  - Boelsen 
