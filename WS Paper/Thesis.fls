@@ -1,8 +1,8 @@
-PWD /Users/nasim.awabdy/Desktop/code/base-latex/paper IEE
+PWD /Users/nasim.awabdy/Desktop/code/base-latex/WS Paper
 INPUT /usr/local/texlive/2025/texmf.cnf
 INPUT /usr/local/texlive/2025/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT /Users/nasim.awabdy/Desktop/code/base-latex/paper IEE/Thesis.tex
+INPUT /Users/nasim.awabdy/Desktop/code/base-latex/WS Paper/Thesis.tex
 OUTPUT Thesis.log
 INPUT ./IEEEtran.cls
 INPUT IEEEtran.cls
