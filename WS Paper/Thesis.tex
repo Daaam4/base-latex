@@ -211,7 +211,7 @@ The structural foundation is built by defining an abstract metadata definition f
 The guidelines further mandate specific structural and behavioral components. 
 The \textit{ActiveSurface} and \textit{ActiveSurfaceSet} are defined as specializations of \textit{SysML::PartDefinition} to represent geometrical structure, while the \textit{Material} is integrated as a reusable structural part within these surfaces. 
 Crucially, the behavioral logic is enforced by defining the \textit{PhysicalEffect} not as a block, but as a specialization of the \textit{SysML::ConstraintDefinition} meta type. Corresponding metadata definitions are also derived for \textit{PartUsage} to enable the instantiation of these elements within the system model \cite{boelsen}. \\ 
-
+%%% Figure for Defining Metamodel
 \begin{figure}[ht]
     \centering
 \begin{lstlisting}[caption={Definition of the domain-specific metamodel for mechanical elements in SysML v2 (adapted from Boelsen et al. \cite{boelsen})}, label={lst:metamodel}]
@@ -239,7 +239,7 @@ metadata def Material :> PartUsage;
 The enforcement of these guidelines is demonstrated in the modeling of a specific component, such as a ''Lubricated Mechanical Line Rolling Contact''. The component is instantiated using the \textit{\#SolutionElementDef} metadata definition (see Fig. \ref{lst:implementation}). By using this specific definition, the modeler is guided to explicitly include the required sub-elements defined the in the meta model, specifically the \textit{ActiveSurface} and \textit{PhysicalEffect} \cite{boelsen}.
 Within this structure, the \textit{ActiveSurface} integrates essential parameters via attribute definition and references the material using the \textit{\#Material} command \cite{boelsen}.
 Simultaneously, the \textit{PhysicalEffect} is completed by adding input and output attributes and defining the calculation specification as expression, thereby ensuring that the relationship between the physical effect and the functional flows are strictly quantified accordingly \cite{boelsen}.
-
+%%% Figure for Applying Metamodel
 \begin{figure}[ht]
     \centering
 \begin{lstlisting}[caption={Implementation of a "Lubricated Mechanical Line Rolling Contact" using the enforced metadata definitions (adapted from Boelsen et al. \cite{boelsen})}, label={lst:implementation}]
