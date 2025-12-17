@@ -106,7 +106,7 @@ SysML v1 organizes its modeling constructs into four main categories:
 %% Stereotypes and Profiling
 SysML v1 allows the restriction of modeling practices through UML profiling mechanism, enabling the construction of specialized extensions. The central element for customization is the \textit{stereotype}, which functions as a distinct metaclass within UML \cite{beers}. Stereotypes enable the customization of existing metaclasses by associating them with specific properties and constraints, thereby tailoring the modeling language to meet domain-specific requirements \cite{beers,raedler}.
 
-%% Object Constraint Language (OCL)
+%% Object Constraint Language (OCL) - {ratzke,beers}
 The \textit{Object Constraint Language (OCL)} function as a specialized textual specifications language that enables formally defining rules, constraints and queries on models especially those created using UML \cite{ratzke}. It was developed to overcome the limitations of graphical modeling by allowing precise specification of rules that cannot be easily represented visually \cite{beers}.
 
 % SysML v2 Foundations (molnar,cibrian,ratzke)
@@ -133,6 +133,7 @@ SysML v2 introduces several key features for further enhancing modeling capabili
 \begin{itemize}
     \item \textbf{Textual Notations}: In addition to graphical notation, SysML v2 features a standardized textual syntax that provides advantages for interoperability with external tools and exchange of models \cite{omg,molnar}.
     \item \textbf{Standardized API}: The language includes the new Systems Modeling API (SysML API), which enables full access to the model and general Model as Code workflows \cite{omg,molnar}.
+    \item \textbf{Metadata Definitions}: In SysML v2, \textit{Metadata Definitions} (\texttt{metadata def}) serve as the primary mechanism for annotating model elements with domain-specific semantics, analogous to Stereotypes in SysML v1. They define a specific schema (properties and constraints) that extends the language's metaclasses, enabling the creation of domain-specific modeling languages (DSMLs) \cite{molnar,boelsen}.
     \item \textbf{Formal Requirements}: Requirements in SysML v2, are constructs that can formally specify a \textit{constraint}, declare their \textit{subject}, and have defined \textit{attributes}, moving beyond natural language representation \cite{omg,molnar}.
     \item \textbf{Cases}: SysML v2 introduced a generic \textit{Case} construct which is essentially a calculation that can declare a subject and an objective to provide a formal and executable way to check model correctness and evaluate system properties. Two specialized cases are provided \textit{Analysis Case} (Quantitative Analysis) and \textit{Verification Case} (Qualitative Analysis), further enhancing model analysis capabilities \cite{molnar}.
 \end{itemize}
@@ -160,17 +161,29 @@ In their implementation, a ''State'' (e.g., a Product or Energy) cannot legally 
 
 \subsection{Implementing Guidelines in SysML v2} %{ Boelsen, Ratzke }
 In contrast to the profile-based approach of SysML v1, SysML v2 implements modeling guidelines through intrinsic semantic definitions rather than extrinsic constraints.
+ 
+%% Metadata Context - Boelsen
+\subsubsection{Metadata Definition}
+In SysML v2, Boelsen et al. demonstrates how to use the \textit{Metadata Definitions} to construct a domain-specific metamodel hierarchies directly within the language architecture by specializing standard KerML constructs \cite{boelsen}.
+In his work, the author aimed to implement modeling guidelines for reusable mechanical system elements based on the \textit{motego} methodology. \\
 
-%% Metadata Definition (Replacing Stereotypes) - Boelsen
-In SysML v1, you likely discussed Stereotypes. In SysML v2, guidelines are implemented using Metadata Definitions.
-%%% Mechanism - You can define a metadata def to create customized model elements. These act as the "tagging" mechanism to extend the language
-%%% Application: Boelsen et al. demonstrate using metadata def to enforce a standardized structure for mechanical elements (e.g., SolutionElementDef). This allows you to restrict how a specific engineering concept is modeled, ensuring that every "Solution Element" always contains a "Physical Effect" and "Active Surfaces".
+%%% Defining Metamodel (Establishing the rules)
+The structural foundation is built by defining an abstract metadata definition for a general \textit{solution}, which is set up as a specialization of the standard \textit{SysML::PartDefinition}. From this abstract base, concrete domain-specific types \textit{SolutionElement} and \textit{SystemSolution} are derived \cite{boelsen}.
+The guidelines further mandate specific structural and behavioral components. 
+The \textit{ActiveSurface} and \textit{ActiveSurfaceSet} are defined as specializations of \textit{SysML::PartDefinition} to represent geometrical structure, while the \textit{Material} is integrated as a reusable structural part within these surfaces. 
+Crucially, the behavioral logic is enforced by defining the \textit{PhysicalEffect} not as a block, but as a specialization of the \textit{SysML::ConstraintDefinition} meta type. Corresponding metadata definitions are also derived for \textit{PartUsage} to enable the instantiation of these elements within the system model \cite{boelsen}. \\
 
-%% Libraries und Usage/Definition Separation  - Boelsen
+%%% Applying Metamodel (Enforcing the rules)
+The enforcement of these guidelines is demonstrated in the modeling of a specific component, such as a ''Lubricated Mechanical Line Rolling Contact''. The component is instantiated using the \textit{\#SolutionElementDef} metadata definition. By using this specific definition, the modeler is guided to explicitly include the required sub-elements defined the in the meta model, specifically the \textit{ActiveSurface} and \textit{PhysicalEffect} \cite{boelsen}.
+Within this structure, the \textit{ActiveSurface} integrates essential parameters via attribute definition and references the material using the \textit{\#Material} command \cite{boelsen}.
+Simultaneously, the \textit{PhysicalEffect} is completed by adding input and output attributes and defining the calculation specification as expression, thereby ensuring that the relationship between the physical effect and the functional flows are strictly quantified accordingly \cite{boelsen}. \\
+
+\subsubsection{Libraries and Usage Definition Separation}
+%% Libraries und Usage/Definition Separation  - Boelsen 
 SysML v2 enforces guidelines through strict separation of Definition (Type) and Usage (Instance).
 %%% Mechanism: Guidelines can demand that users model Definitions in libraries (e.g., part def) and only use Usages (part) in the system breakdown
-
 %%% Impact: This enforces reuse. A guideline might state: "All physical effects must be defined in the Domain Library and only referenced in the System Model." SysML v2 supports this via its package import and usage syntax
+
 %% KerML Constraints (Replacing OCL) - Ratzke
 SysML v2 is built on KerML, which has native constraint support, reducing the need for add-on languages like OCL.
 %%% Mechanism: You can embed invariant, assert, and requirement directly into the element definitions.
@@ -190,7 +203,10 @@ SysML v2 is built on KerML, which has native constraint support, reducing the ne
 % Discuss & Implications
 %
 \section{Discussion and Implications}
+\subsection{Stereotypes vs. Metadata}
+SysML v1 required a "trust but verify" approach, where users were trusted to apply stereotypes correctly, and scripts verified compliance later. SysML v2 sought to invert this paradigm. By integrating the definition of metadata and constraints into the core language kernel, SysML v2 aims to make non-compliant modeling physically impossible—or at least syntactically invalid—within the tool environment. The shift is from "compliance upon inspection" to "compliance by definition". \cite{cibrian}
 
+\clearpage
 %
 % Conclusion & Outlook
 %

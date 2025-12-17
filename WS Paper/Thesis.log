@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.11.5)  17 DEC 2025 13:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.11.5)  17 DEC 2025 17:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -291,25 +291,107 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 
 [2]
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 136.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
+
+
+Underfull \hbox (badness 3514) in paragraph at lines 167--169
+\OT1/ptm/m/n/10 demon-strates how to use the \OT1/ptm/m/it/10 Meta-data Def-i-ni-tions \OT1/ptm/m/n/10 to
+ []
+
+
+Underfull \hbox (badness 2626) in paragraph at lines 167--169
+\OT1/ptm/m/n/10 im-ple-ment mod-el-ing guide-lines for reusable me-chan-i-cal
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 167--169
+
+ []
+
+
+Underfull \hbox (badness 2050) in paragraph at lines 171--175
+\OT1/ptm/m/n/10 From this ab-stract base, con-crete domain-specific types
+ []
+
+
+Underfull \hbox (badness 1377) in paragraph at lines 171--175
+\OT1/ptm/m/n/10 com-po-nents. The \OT1/ptm/m/it/10 Ac-tiveSur-face \OT1/ptm/m/n/10 and \OT1/ptm/m/it/10 Ac-tiveSur-face-Set \OT1/ptm/m/n/10 are
+ []
+
+
+Underfull \hbox (badness 6961) in paragraph at lines 171--175
+\OT1/ptm/m/n/10 de-fined as spe-cial-iza-tions of \OT1/ptm/m/it/10 SysML::PartDefinition \OT1/ptm/m/n/10 to
+ []
+
+
+Underfull \hbox (badness 5161) in paragraph at lines 171--175
+\OT1/ptm/m/n/10 rep-re-sent ge-o-met-ri-cal struc-ture, while the \OT1/ptm/m/it/10 Ma-te-rial \OT1/ptm/m/n/10 is
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 171--175
+
+ []
+
+
+Underfull \hbox (badness 4205) in paragraph at lines 177--180
+\OT1/ptm/m/n/10 Me-chan-i-cal Line Rolling Con-tact''. The com-po-nent is
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 177--180
+\OT1/ptm/m/n/10 in-stan-ti-ated us-ing the \OT1/ptm/m/it/10 #So-lu-tionEle-ment-Def \OT1/ptm/m/n/10 meta-data
+ []
+
+
+Underfull \hbox (badness 1622) in paragraph at lines 177--180
+\OT1/ptm/m/n/10 in-put and out-put at-tributes and defin-ing the cal-cu-la-tion
+ []
+
+
+Underfull \hbox (badness 6047) in paragraph at lines 177--180
+\OT1/ptm/m/n/10 spec-i-fi-ca-tion as ex-pres-sion, thereby en-sur-ing that the
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 177--180
+
+ []
 
 
 
 [3]
+
+
+
+[4
+
+]
+
+
+
+[5
+
+
+]
 LaTeX Info: Symbol \textasciidieresis not provided by
             font family ptm in TS1 encoding.
-            Default family used instead on input line 211.
+            Default family used instead on input line 227.
 
-Underfull \hbox (badness 10000) in paragraph at lines 233--234
+Underfull \hbox (badness 10000) in paragraph at lines 249--250
 []\OT1/ptm/m/n/8 Object Man-age-ment Group, \Ker-nel Mod-el-ing Lan-guage
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 233--234
+Underfull \hbox (badness 10000) in paragraph at lines 249--250
 \OT1/ptm/m/n/8 (KerML), Ver-sion 1.0," Ob-ject Man-age-ment Group, Spec-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 233--234
+Underfull \hbox (badness 10000) in paragraph at lines 249--250
 \OT1/ptm/m/n/8 i-fi-ca-tion formal/25-09-01, Sep. 2025. [On-line]. Avail-able:
  []
 
@@ -328,7 +410,7 @@ Before submitting the final camera ready copy, remember to:
 
 
 
-[4
+[6
 
 {/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}
 
@@ -339,18 +421,18 @@ L3 programming layer <2025-01-18>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 4204 strings out of 473190
- 65552 string characters out of 5715800
+ 4242 strings out of 473190
+ 66113 string characters out of 5715800
  475833 words of memory out of 5000000
- 27423 multiletter control sequences out of 15000+600000
- 597815 words of font info for 112 fonts, out of 8000000 for 9000
+ 27456 multiletter control sequences out of 15000+600000
+ 598330 words of font info for 114 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,11n,65p,631b,334s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Thesis.pdf (4 pages, 97939 bytes).
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on Thesis.pdf (6 pages, 108670 bytes).
 PDF statistics:
- 49 PDF objects out of 1000 (max. 8388607)
- 30 compressed objects within 1 object stream
+ 60 PDF objects out of 1000 (max. 8388607)
+ 37 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
