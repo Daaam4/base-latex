@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.11.5)  17 DEC 2025 17:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.11.5)  17 DEC 2025 17:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -352,19 +352,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 206--208
 ]
 LaTeX Info: Symbol \textasciidieresis not provided by
             font family ptm in TS1 encoding.
-            Default family used instead on input line 319.
+            Default family used instead on input line 320.
 
-Underfull \hbox (badness 10000) in paragraph at lines 341--342
+Underfull \hbox (badness 10000) in paragraph at lines 342--343
 []\OT1/ptm/m/n/8 Object Man-age-ment Group, \Ker-nel Mod-el-ing Lan-guage
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 341--342
+Underfull \hbox (badness 10000) in paragraph at lines 342--343
 \OT1/ptm/m/n/8 (KerML), Ver-sion 1.0," Ob-ject Man-age-ment Group, Spec-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 341--342
+Underfull \hbox (badness 10000) in paragraph at lines 342--343
 \OT1/ptm/m/n/8 i-fi-ca-tion formal/25-09-01, Sep. 2025. [On-line]. Avail-able:
  []
 
