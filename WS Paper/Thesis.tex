@@ -281,13 +281,25 @@ Simultaneously, the \textit{PhysicalEffect} is completed by adding input and out
 \end{lstlisting}
 \end{figure}
 
-\subsubsection{Libraries and Usage Definition Separation}
-%% Libraries und Usage/Definition Separation  - Boelsen 
-SysML v2 enforces guidelines through strict separation of Definition (Type) and Usage (Instance).
-%%% Mechanism: Guidelines can demand that users model Definitions in libraries (e.g., part def) and only use Usages (part) in the system breakdown
-%%% Impact: This enforces reuse. A guideline might state: "All physical effects must be defined in the Domain Library and only referenced in the System Model." SysML v2 supports this via its package import and usage syntax
+%%% --- RESULTS - SYSML V2 - USAGE DEFINITION SEPARATION ---
+\subsubsection{Usage Definition Separation} % {Boelsen}
+In SysML v2, the language distinguishes between the \textit{definition} of an element (Its ''Type'') and the \textit{usage} of an element (Its ''Instance'') \cite{friedenthal,boelsen}.
+\begin{itemize}
+    \item \textbf{Definition} defines the reusable template, including features, attributes, and constraints. This acts as the ''Library'' element \cite{friedenthal}.
+    \item \textbf{Usage} represents the occurrence of that definition within the systems. It inherits features for the definition but can redefine them to adapt to the specific context \cite{friedenthal,boelsen}.
+\end{itemize}
 
-%% KerML Constraints (Replacing OCL) - Ratzke
+Boelsen et al. leverages this to enforce a standardized structure for mechanical system elements, to ensure that engineers cannot deviate from the required structure. Using this approach Boelsen et al. was able to enforce guidelines in two ways.
+\begin{itemize}
+    \item \textbf{Structural Inheritance}: When an engineer uses a library element, they create a \textit{Usage} defined by the \textit{Definition}. Because the usage inherits from the \textit{Definition}, it automatically includes all required internal structures (e.g., \textit{Physical Effect}) mandated by the guideline \cite{boelsen}.
+    \item \item \textbf{Restricted Customization}: the guideline can dictate the the internal structure is defined once in the library (\textit{Definition}). In the system model (\textit{Usage}), the engineer interacts with the exposed parameters (e.g., input/output flows) but relies on the validated internal logic of the \textit{Definition}.
+\end{itemize}
+
+Overall, this separation allows the guidelines to treat the \textit{Definition} as the ''Single Point of Truth'' (SPOT) stored in libraries. The \textit{Usage} are merely pointers to these definition. Thereby, preventing redundant modeling efforts and diverse formalization.
+
+%%% --- RESULTS - SYSML V2 - CONSTRAINTS ---
+\subsubsection{Contraints} % {Ratzke}
+(Replacing OCL)
 SysML v2 is built on KerML, which has native constraint support, reducing the need for add-on languages like OCL.
 %%% Mechanism: You can embed invariant, assert, and requirement directly into the element definitions.
 %%% Advanced Semantics: Ratzke et al. show how to implement strict guidelines for range values using semantics like oneOf, anyOf, and allOf directly in the model. This allows the guideline creator to restrict value ranges natively (e.g., "A tank volume must be one of these specific integers")
