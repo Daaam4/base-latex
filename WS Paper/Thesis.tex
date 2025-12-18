@@ -292,7 +292,7 @@ In SysML v2, the language distinguishes between the \textit{definition} of an el
 Boelsen et al. leverages this to enforce a standardized structure for mechanical system elements, to ensure that engineers cannot deviate from the required structure. Using this approach Boelsen et al. was able to enforce guidelines in two ways.
 \begin{itemize}
     \item \textbf{Structural Inheritance}: When an engineer uses a library element, they create a \textit{Usage} defined by the \textit{Definition}. Because the usage inherits from the \textit{Definition}, it automatically includes all required internal structures (e.g., \textit{Physical Effect}) mandated by the guideline \cite{boelsen}.
-    \item \item \textbf{Restricted Customization}: the guideline can dictate the the internal structure is defined once in the library (\textit{Definition}). In the system model (\textit{Usage}), the engineer interacts with the exposed parameters (e.g., input/output flows) but relies on the validated internal logic of the \textit{Definition}.
+    \item \textbf{Restricted Customization}: the guideline can dictate the the internal structure is defined once in the library (\textit{Definition}). In the system model (\textit{Usage}), the engineer interacts with the exposed parameters (e.g., input/output flows) but relies on the validated internal logic of the \textit{Definition}.
 \end{itemize}
 
 Overall, this separation allows the guidelines to treat the \textit{Definition} as the ''Single Point of Truth'' (SPOT) stored in libraries. The \textit{Usage} are merely pointers to these definition. Thereby, preventing redundant modeling efforts and diverse formalization.
