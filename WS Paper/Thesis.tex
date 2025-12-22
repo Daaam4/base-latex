@@ -300,16 +300,33 @@ Overall, this separation allows the guidelines to treat the \textit{Definition} 
 %%% --- RESULTS - SYSML V2 - CONSTRAINTS (Replacing OCL) ---
 \subsubsection{Contraints} % {Ratzke}
 
+\begin{itemize}
+    \item \textbf{Source}: Ratzke
+    \item Demonstrate how SysML v2's native constraint constructs can replace the need for external OCL constraints to enforce modeling guidelines.
+\end{itemize}
 %%% Mechanism: You can embed invariant, assert, and requirement directly into the element definitions.
 %%% Advanced Semantics: Ratzke et al. show how to implement strict guidelines for range values using semantics like oneOf, anyOf, and allOf directly in the model. This allows the guideline creator to restrict value ranges natively (e.g., "A tank volume must be one of these specific integers")
 
 
 \subsection{Verification Methods} %{ Kausch, Dehn, Molnar }
 \subsubsection{SysML v1 Verification}
-- Relies heavily on proprietary tool features (e.g., Cameo Validation Suite) to execute OCL.
-- Verification is often "static" (checking structure).
-- Limitation: Hard to integrate with external solvers without complex model transformations.
+\begin{itemize}
+    \item \textbf{Source}: Beers
+    \item  OCL constraints are embedded within the profile to restrict how stereotypes can be related or attributed
+\end{itemize}
+% - Relies heavily on proprietary tool features (e.g., Cameo Validation Suite) to execute OCL.
+% - Verification is often "static" (checking structure).
+% - Limitation: Hard to integrate with external solvers without complex model transformations.
 \subsubsection{SysML v2 Verification}
+\begin{itemize}
+    \item \textbf{Source}: Kausch
+    \item  DLUF avionics case study demonstrates Theorem Proving to verify complex liveness properties that define system behavior over infinite time
+\end{itemize}
+
+\begin{itemize}
+    \item \textbf{Source}: Molnar
+    \item  applied Model Checking to the LightSwitch case study, utilizing tools like Gamma and Imandra to generate concrete execution traces that identify conflicting system states
+\end{itemize}
 
 \clearpage
 
@@ -318,7 +335,26 @@ Overall, this separation allows the guidelines to treat the \textit{Definition} 
 %
 \section{Discussion and Implications}
 \subsection{Stereotypes vs. Metadata}
-SysML v1 required a "trust but verify" approach, where users were trusted to apply stereotypes correctly, and scripts verified compliance later. SysML v2 sought to invert this paradigm. By integrating the definition of metadata and constraints into the core language kernel, SysML v2 aims to make non-compliant modeling physically impossible—or at least syntactically invalid—within the tool environment. The shift is from "compliance upon inspection" to "compliance by definition". \cite{cibrian}
+\begin{itemize}
+    \item Stereotypes - Compliance is extrinsic. the model structure and the rule are separate entities (Profiles + OCL) \cite{beers}.
+    \item Metadata - Compliance is intrinsic. the rule is the definition of the element itself \cite{boelsen}.
+\end{itemize}
+
+\subsection{The Impact on Verification Capabilities}
+\begin{itemize}
+    \item SysML v1 - They ensure the diagram is readable and topologically correct, but they do not ensure the math is sound \cite{cibrian}.
+    \item Metadata - Because the guidelines enforce structure using KerML (First-Order Logic), the resulting models are natively compatible with formal solvers \cite{kausch,molnar}
+\end{itemize}
+
+\subsection{Scalability via Library First Verification}
+\begin{itemize}
+    \item SysML v1 - Complex OCL constraints often have to be re-evaluated for every instance in the system, leading to performance bottlenecks in large models. \cite{bergemann,ratzke} 
+    \item SysML v2 - Separation of Definition (Type) and Usage (Instance) allows for a ''Verify Once, Use Many'' approach \cite{boelsen}
+\end{itemize}
+
+
+
+% SysML v1 required a "trust but verify" approach, where users were trusted to apply stereotypes correctly, and scripts verified compliance later. SysML v2 sought to invert this paradigm. By integrating the definition of metadata and constraints into the core language kernel, SysML v2 aims to make non-compliant modeling physically impossible—or at least syntactically invalid—within the tool environment. The shift is from "compliance upon inspection" to "compliance by definition". \cite{cibrian}
 
 \clearpage
 %
