@@ -177,7 +177,7 @@ SysML v2 introduces several key features for further enhancing modeling capabili
     \item \textbf{Textual Notations}: In addition to graphical notation, SysML v2 features a standardized textual syntax that provides advantages for interoperability with external tools and exchange of models \cite{omg,molnar}.
     \item \textbf{Standardized API}: The language includes the new Systems Modeling API (SysML API), which enables full access to the model and general Model as Code workflows \cite{omg,molnar}.
     \item \textbf{Metadata Definitions}: In SysML v2, \textit{Metadata Definitions} (\texttt{metadata def}) serve as the primary mechanism for annotating model elements with domain-specific semantics, analogous to Stereotypes in SysML v1. They define a specific schema (properties and constraints) that extends the language's metaclasses, enabling the creation of domain-specific modeling languages (DSMLs) \cite{molnar,boelsen}.
-    \item \textbf{Formal Requirements}: Requirements in SysML v2, are constructs that can formally specify a \textit{constraint}, declare their \textit{subject}, and have defined \textit{attributes}, moving beyond natural language representation \cite{omg,molnar}.
+    \item \textbf{Constraints}: KerML provides the foundation for defining for defining constraints through constructs such as \textit{assert}, \textit{requirement}. These constructs enable the Specification of Boolean conditions that must be true for a model to be valid \cite{ratzke}.
     \item \textbf{Cases}: SysML v2 introduced a generic \textit{Case} construct which is essentially a calculation that can declare a subject and an objective to provide a formal and executable way to check model correctness and evaluate system properties. Two specialized cases are provided \textit{Analysis Case} (Quantitative Analysis) and \textit{Verification Case} (Qualitative Analysis), further enhancing model analysis capabilities \cite{molnar}.
 \end{itemize}
 
@@ -297,10 +297,9 @@ Boelsen et al. leverages this to enforce a standardized structure for mechanical
 
 Overall, this separation allows the guidelines to treat the \textit{Definition} as the ''Single Point of Truth'' (SPOT) stored in libraries. The \textit{Usage} are merely pointers to these definition. Thereby, preventing redundant modeling efforts and diverse formalization.
 
-%%% --- RESULTS - SYSML V2 - CONSTRAINTS ---
+%%% --- RESULTS - SYSML V2 - CONSTRAINTS (Replacing OCL) ---
 \subsubsection{Contraints} % {Ratzke}
-(Replacing OCL)
-SysML v2 is built on KerML, which has native constraint support, reducing the need for add-on languages like OCL.
+
 %%% Mechanism: You can embed invariant, assert, and requirement directly into the element definitions.
 %%% Advanced Semantics: Ratzke et al. show how to implement strict guidelines for range values using semantics like oneOf, anyOf, and allOf directly in the model. This allows the guideline creator to restrict value ranges natively (e.g., "A tank volume must be one of these specific integers")
 
