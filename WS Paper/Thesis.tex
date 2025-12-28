@@ -15,7 +15,7 @@
 \definecolor{sysmlbg}{RGB}{250,250,250}
 
 \lstdefinelanguage{SysMLv2}{
-  keywords={package, import, metadata, def, part, constraint, attribute, doc, ref, alias, bind, in, out, perform, first, then, done, return},
+  keywords={package, import, metadata, def, part, constraint, attribute, doc, ref, alias, bind, in, out, perform, first, then, done, return, requirement, subject, require},
   keywordstyle=\color{sysmlkeyword}\bfseries,
   ndkeywords={PartDefinition, PartUsage, ConstraintDefinition, ConstraintUsage, ScalarValues, Real, Integer, Boolean, String},
   ndkeywordstyle=\color{blue}\bfseries,
@@ -177,10 +177,9 @@ SysML v2 introduces several key features for further enhancing modeling capabili
     \item \textbf{Textual Notations}: In addition to graphical notation, SysML v2 features a standardized textual syntax that provides advantages for interoperability with external tools and exchange of models \cite{omg,molnar}.
     \item \textbf{Standardized API}: The language includes the new Systems Modeling API (SysML API), which enables full access to the model and general Model as Code workflows \cite{omg,molnar}.
     \item \textbf{Metadata Definitions}: In SysML v2, \textit{Metadata Definitions} (\texttt{metadata def}) serve as the primary mechanism for annotating model elements with domain-specific semantics, analogous to Stereotypes in SysML v1. They define a specific schema (properties and constraints) that extends the language's metaclasses, enabling the creation of domain-specific modeling languages (DSMLs) \cite{molnar,boelsen}.
-    \item \textbf{Constraints}: KerML provides the foundation for defining for defining constraints through constructs such as \textit{assert}, \textit{requirement}. These constructs enable the Specification of Boolean conditions that must be true for a model to be valid \cite{ratzke}.
+    \item \textbf{Constraints}: KerML provides the foundation for defining constraints through constructs such as \textit{assert}, \textit{invariant}, \textit{requirement}. These KerML constructs enable the model to be treated as a mathematical system that can be analyzed and solved directly \cite{ratzke}. 
     \item \textbf{Cases}: SysML v2 introduced a generic \textit{Case} construct which is essentially a calculation that can declare a subject and an objective to provide a formal and executable way to check model correctness and evaluate system properties. Two specialized cases are provided \textit{Analysis Case} (Quantitative Analysis) and \textit{Verification Case} (Qualitative Analysis), further enhancing model analysis capabilities \cite{molnar}.
 \end{itemize}
-
 
 %
 % Results
@@ -298,15 +297,38 @@ Boelsen et al. leverages this to enforce a standardized structure for mechanical
 Overall, this separation allows the guidelines to treat the \textit{Definition} as the ''Single Point of Truth'' (SPOT) stored in libraries. The \textit{Usage} are merely pointers to these definition. Thereby, preventing redundant modeling efforts and diverse formalization.
 
 %%% --- RESULTS - SYSML V2 - CONSTRAINTS (Replacing OCL) ---
-\subsubsection{Contraints} % {Ratzke}
+\subsubsection{Native Constraint Propagation} % {Ratzke}
+To demonstrate the efficacy of SysML v2's native constraint handling, we examine the ''Constructive Model Analysis'' approach proposed by Ratzke et al. case study utilizes the formal semantics of KerML to define ranges and logical assertions directly within the model, treating the system definition as a Constraint Satisfaction Problem (CSP) rather than a static diagram \cite{ratzke}.
 
-\begin{itemize}
-    \item \textbf{Source}: Ratzke
-    \item Demonstrate how SysML v2's native constraint constructs can replace the need for external OCL constraints to enforce modeling guidelines.
-\end{itemize}
-%%% Mechanism: You can embed invariant, assert, and requirement directly into the element definitions.
-%%% Advanced Semantics: Ratzke et al. show how to implement strict guidelines for range values using semantics like oneOf, anyOf, and allOf directly in the model. This allows the guideline creator to restrict value ranges natively (e.g., "A tank volume must be one of these specific integers")
+The study defines a \textit{Tank} part with attributes for width, height, and length. These attributes leverage the use of range-based semantics such as \textit{oneOf} to define permissible dimensions with precise variability.
+A requirement usage \textit{tankBigEnough} is nested directly within the part definition, mandating that the derived volume attribute must fall within a specific range  \cite{ratzke}.
 
+In this demonstration, the restriction on volume is propagated backwards through the mathematical definition (width * height * length), automatically reducing the valid domains of the dimensional attributes.
+
+\begin{figure}[ht]
+    \centering
+\begin{lstlisting}[caption={Implementation of constructive model analysis using Range-Based Semantics (adapted from Ratzke et al. \cite{ratzke})}, label={lst:tank_example}]
+// Part definition utilizing native range constraints
+part def Tank {
+    // 1. Attribute Definition with "oneOf" Semantics
+    attribute width: ISO::Length = oneOf(10.0 .. 100.0) [cm];
+    attribute height: ISO::Length = oneOf(1.0 .. 3.0) [m];
+    attribute length: ISO::Length = oneOf(1.0 .. 1.2) [m];
+
+    // 2. Mathematical Definition
+    attribute volume: ISO::Volume = width * height * length;
+}
+
+// Requirement leveraging native constraint checking
+requirement tankBigEnough {
+    // 3. Subject Binding
+    subject t: Tank;
+
+    // 4. Constraint Assertion
+    require t.volume == oneOf(1000.0 .. 2000.0) [L];
+}
+\end{lstlisting}
+\end{figure}
 
 \subsection{Verification Methods} %{ Kausch, Dehn, Molnar }
 \subsubsection{SysML v1 Verification}
