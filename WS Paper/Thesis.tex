@@ -224,16 +224,12 @@ Crucially, the behavioral logic is enforced by defining the \textit{PhysicalEffe
 \begin{figure}[ht]
     \centering
 \begin{lstlisting}[caption={Definition of the domain-specific metamodel for mechanical elements in SysML v2 (adapted from Boelsen et al. \cite{boelsen})}, label={lst:metamodel}]
-// 1. Structural Definitions
 metadata def SolutionElementDef :> PartDefinition;
 metadata def ActiveSurfaceSetDef :> PartDefinition;
 metadata def ActiveSurfaceDef :> PartDefinition;
 
-// 2. Behavioral Definitions
-// Enforces behavior as constraints, not blocks
 metadata def PhyEffectDef :> ConstraintDefinition;
 
-// 3. Usage Definitions
 metadata def SolutionElement :> PartUsage;
 metadata def ActiveSurfaceSet :> PartUsage;
 metadata def ActiveSurface :> PartUsage;
@@ -297,38 +293,38 @@ Boelsen et al. leverages this to enforce a standardized structure for mechanical
 Overall, this separation allows the guidelines to treat the \textit{Definition} as the ''Single Point of Truth'' (SPOT) stored in libraries. The \textit{Usage} are merely pointers to these definition. Thereby, preventing redundant modeling efforts and diverse formalization.
 
 %%% --- RESULTS - SYSML V2 - CONSTRAINTS (Replacing OCL) ---
-\subsubsection{Native Constraint Propagation} % {Ratzke}
-To demonstrate the efficacy of SysML v2's native constraint handling, we examine the ''Constructive Model Analysis'' approach proposed by Ratzke et al. case study utilizes the formal semantics of KerML to define ranges and logical assertions directly within the model, treating the system definition as a Constraint Satisfaction Problem (CSP) rather than a static diagram \cite{ratzke}.
+\subsubsection{Formal Semantic Constraints} % {Ratzke}
+In this section we refer to the work of Ratzke et al. \cite{ratzke} that builds upon the capabilities of SysML v2 native constraints to provide a more generalized constraint evaluation mechanism, especially for early-phase system modeling \cite{ratzke}.
+Ratzke's work introduces range-based semantics that enable modelers to enforce guidelines regarding system variability and precision throughout three constraints:
+\begin{itemize}
+    \item \textbf{oneOf}: This semantic assigns exactly one value from a specified range that satisfies the constraint, which can be used to represent variation (e.g., choosing a specific diameter for a part) \cite{ratzke}.
+    \item \textbf{anyOf}: This semantic allows any value within a range to satisfy the constraint, useful for approximations (e.g., tolerances or acceptable performance ranges) \cite{ratzke}.
+    \item \textbf{allOf}: This mandates that all contained values in a range must fulfill the constraint. This is applicable for operational envelopes (e.g., ensuring a system operates across an entire temperature range) \cite{ratzke}.
+\end{itemize}
 
-The study defines a \textit{Tank} part with attributes for width, height, and length. These attributes leverage the use of range-based semantics such as \textit{oneOf} to define permissible dimensions with precise variability.
-A requirement usage \textit{tankBigEnough} is nested directly within the part definition, mandating that the derived volume attribute must fall within a specific range  \cite{ratzke}.
-
-In this demonstration, the restriction on volume is propagated backwards through the mathematical definition (width * height * length), automatically reducing the valid domains of the dimensional attributes.
+To demonstrate the practical application of these constraints, a \textit{Tank} part definition was modeled with attributes for width, height, and length (see Listing \ref{lst:tank_example}). These attributes leverage the \textit{oneOf} operator, to define permissible dimensions with precise variability. 
+The requirement \textit{tankBigEnough} then enforces that the derived volume attribute falls within a specific range.
 
 \begin{figure}[ht]
     \centering
 \begin{lstlisting}[caption={Implementation of constructive model analysis using Range-Based Semantics (adapted from Ratzke et al. \cite{ratzke})}, label={lst:tank_example}]
-// Part definition utilizing native range constraints
 part def Tank {
-    // 1. Attribute Definition with "oneOf" Semantics
     attribute width: ISO::Length = oneOf(10.0 .. 100.0) [cm];
     attribute height: ISO::Length = oneOf(1.0 .. 3.0) [m];
     attribute length: ISO::Length = oneOf(1.0 .. 1.2) [m];
 
-    // 2. Mathematical Definition
     attribute volume: ISO::Volume = width * height * length;
 }
 
-// Requirement leveraging native constraint checking
 requirement tankBigEnough {
-    // 3. Subject Binding
     subject t: Tank;
 
-    // 4. Constraint Assertion
     require t.volume == oneOf(1000.0 .. 2000.0) [L];
 }
 \end{lstlisting}
 \end{figure}
+
+When a restriction is imposed on the final volume, the solver utilizes constraint propagation to automatically reduce the valid domains of the dimensional attributes ($width \times height \times length$), ensuring the system model remains consistent with the specified design guidelines.
 
 \subsection{Verification Methods} %{ Kausch, Dehn, Molnar }
 \subsubsection{SysML v1 Verification}
