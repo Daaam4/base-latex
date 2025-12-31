@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.11.5)  30 DEC 2025 18:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.11.5)  31 DEC 2025 16:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -313,13 +313,17 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 ]
 
-
-
-[2]
-LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 179.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 172.
+(/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
+
+[2]
+
+
+Underfull \hbox (badness 4132) in paragraph at lines 207--209
+ \OT1/ptm/m/it/10 1) Metamodel-Driven Guide-lines: [][] \OT1/ptm/m/n/10 Boelsen et al. [3]
+ []
 
 
 
@@ -328,34 +332,23 @@ File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 
 
 [4]
-
-
-
-[5
-
-]
-
-
-
-[6
-
-
-]
 LaTeX Info: Symbol \textasciidieresis not provided by
             font family ptm in TS1 encoding.
-            Default family used instead on input line 395.
+            Default family used instead on input line 381.
 
-Underfull \hbox (badness 10000) in paragraph at lines 417--418
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 403--404
 []\OT1/ptm/m/n/8 Object Man-age-ment Group, \Ker-nel Mod-el-ing Lan-guage
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 417--418
+Underfull \hbox (badness 10000) in paragraph at lines 403--404
 \OT1/ptm/m/n/8 (KerML), Ver-sion 1.0," Ob-ject Man-age-ment Group, Spec-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 417--418
+Underfull \hbox (badness 10000) in paragraph at lines 403--404
 \OT1/ptm/m/n/8 i-fi-ca-tion formal/25-09-01, Sep. 2025. [On-line]. Avail-able:
  []
 
@@ -372,13 +365,7 @@ Before submitting the final camera ready copy, remember to:
 
 
 
-
-
-[7
-
-{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}
-
-] (./Thesis.aux)
+[5{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] (./Thesis.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -387,16 +374,16 @@ L3 programming layer <2025-01-18>
 Here is how much of TeX's memory you used:
  5989 strings out of 473190
  89575 string characters out of 5715800
- 861055 words of memory out of 5000000
+ 750519 words of memory out of 5000000
  29187 multiletter control sequences out of 15000+600000
  600438 words of font info for 119 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,11n,65p,631b,1294s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 57i,11n,65p,849b,1294s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Thesis.pdf (7 pages, 153066 bytes).
+Output written on Thesis.pdf (5 pages, 151024 bytes).
 PDF statistics:
- 80 PDF objects out of 1000 (max. 8388607)
- 50 compressed objects within 1 object stream
+ 72 PDF objects out of 1000 (max. 8388607)
+ 44 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
