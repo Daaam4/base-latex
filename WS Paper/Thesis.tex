@@ -43,7 +43,8 @@
   frame=single,
   rulecolor=\color{lightgray},
   tabsize=2,
-  showstringspaces=false
+  showstringspaces=false,
+  xleftmargin=2em,
 }
 
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
@@ -180,27 +181,27 @@ Computational Solvers in MBSE are engines that automate the search for solutions
 The utility and implementation of solvers differ fundamentally between SysML v1 and SysML v2, due to the fundamental shift in language architecture.
 
 %
-% Results
+% Implementing Guidelines
 %
 \section{Mechanisms for Guideline Implementation}
 This section analyzes the structural mechanisms used to define and enforce domain-specific modeling guidelines. The comparison reveals a shift from extrinsic constraints in SysML v1 to intrinsic semantic definitions in SysML v2.
 
-%% --- RESULTS - SYSML V1 ---
+% --- Implementing Guidelines - SYSML V1 ---
 \subsection{SysML v1: Profile-Based Implementation} %{ Beers }
 In SysML v1, the implementation of domain-specific guidelines is achieved through multiple layer approach.
-%%% --- RESULTS - SYSML V1 - SEMANTIC EXTENSION VIA STEREOTYPES ---
+% --- Implementing Guidelines - SYSML V1 - SEMANTIC EXTENSION VIA STEREOTYPES ---
 First, system engineers utilize the \textit{Stereotypes} to build a custom profile that overlays the native SysML v1 metamodel, thereby introducing semantic labeling and domain specific terminology \cite{beers}. The application of SysML v1 elements is then restricted to a specific palette of stereotyped elements, ensuring that the model structure reflects domain-specific semantics rather than generic block definitions \cite{beers}.
 A concrete application of this mechanism is demonstrated by Beers et al. \cite{beers} in the development of a Domain-specific Modeling Language (DSML) for formal process description. To enforce the guideline that system functions must be standardized, the author extends the metaclass \textit{CallBehaviorAction} to create a specific \textit{Process Operator} stereotype. This ensures that an element cannot be designated as a \textit{Process Operator} unless it inherits the specific meta-attributes defined by the stereotype.
 
-%%% --- RESULTS - SYSML V1 - TOPOLOGICAL ENFORCEMENT VIA OCL ---
+% --- Implementing Guidelines - SYSML V1 - TOPOLOGICAL ENFORCEMENT VIA OCL ---
 While stereotypes provide semantic labeling, \textit{Object Constraint Language (OCL)} is layer onto the profile to enhance the rigor of the model by specifying invariants, constraints and complex relationships between elements \cite{beers}.
 Beers et al. show the necessity of this mechanism when enforcing the VDI/VDE 3682 standard that provides the rules to implement the ''Product-Process-Resource'' (PPR) concept, which mandates that production systems are modeled through the strict interconnection of the \textit{Process}, the \textit{Product}, and the \textit{Resource} \cite{beers}. In their implementation, a ''State'' (e.g., a Product or Energy) cannot legally connect directly to another ''State'' without an intermediary process. Since standard SysML v1 syntax permits the connection of any two compatible nodes, the guideline is enforced through an OCL invariant attached to the \textit{Flow} stereotype, that prevents two state-describing elements from being connected together \cite{beers}.
 
-%% --- RESULTS - SYSML V2 ---
+% --- Implementing Guidelines - SYSML V2 ---
 \subsection{SysML v2: Intrinsic Enforcement via Metamodel Definitions} %{ Boelsen, Ratzke }
 SysML v2 implements guidelines intrinsically by allowing modelers to extend the language's ontology directly using KerML (Kernel Modeling Language). This removes the separation between the model and the rules found in v1.
  
-%%% --- RESULTS - SYSML V2 - METAMODEL-DRIVEN GUIDELINES ---
+% --- Implementing Guidelines - SYSML V2 - METAMODEL-DRIVEN GUIDELINES ---
 \textit{Metadata Definitions} is used to construct a domain-specific metamodel hierarchies directly within the language architecture by specializing standard KerML constructs \cite{boelsen}.
 
 \subsubsection{Metamodel-Driven Guidelines} % {Boelsen}
@@ -211,7 +212,7 @@ The guidelines further mandate specific structural and behavioral components. Th
 
 Crucially, the behavioral logic is enforced by defining the \textit{PhysicalEffect} not as a block, but as a specialization of the \textit{SysML::ConstraintDefinition} meta type. Corresponding metadata definitions are also derived for \textit{PartUsage} to enable the instantiation of these elements within the system model \cite{boelsen}.
 
-%%%% Figure for Defining Metamodel
+% --- Implementing Guidelines - SYSML V2 - METAMODEL-DRIVEN GUIDELINES (Figure) ---
 \begin{figure}[ht]
     \centering
 \begin{lstlisting}[caption={Definition of the domain-specific metamodel for mechanical elements in SysML v2 (adapted from Boelsen et al. \cite{boelsen})}, label={lst:metamodel}]
@@ -279,7 +280,11 @@ Overall, this separation allows the guidelines to treat the \textit{Definition} 
 
 \section{Mechanisms for Model Verification}
 
+\subsection{SysML v1}
+Profile + OCL + Solvers
+
 %%% --- Mechanisms for Model Verification - SYSML V2 - CONSTRAINTS (Replacing OCL) ---
+\subsection{SysML v2} %{ Ratzke }
 \subsubsection{Formal Semantic Constraints} % {Ratzke}
 In this section we refer to the work of Ratzke et al. \cite{ratzke} that builds upon the capabilities of SysML v2 native constraints to provide a more generalized constraint evaluation mechanism, especially for early-phase system modeling \cite{ratzke}.
 Ratzke's work introduces range-based semantics that enable modelers to enforce guidelines regarding system variability and precision throughout three constraints:
@@ -312,27 +317,6 @@ requirement tankBigEnough {
 \end{figure}
 
 When a restriction is imposed on the final volume, the solver utilizes constraint propagation to automatically reduce the valid domains of the dimensional attributes ($width \times height \times length$), ensuring the system model remains consistent with the specified design guidelines.
-
-\subsection{Verification Capabilities} %{ Kausch, Dehn, Molnar }
-
-\subsubsection{SysML v1 Verification}
-\begin{itemize}
-    \item \textbf{Source}: Beers
-    \item  OCL constraints are embedded within the profile to restrict how stereotypes can be related or attributed
-\end{itemize}
-% - Relies heavily on proprietary tool features (e.g., Cameo Validation Suite) to execute OCL.
-% - Verification is often "static" (checking structure).
-% - Limitation: Hard to integrate with external solvers without complex model transformations.
-\subsubsection{SysML v2 Verification}
-\begin{itemize}
-    \item \textbf{Source}: Kausch
-    \item  DLUF avionics case study demonstrates Theorem Proving to verify complex liveness properties that define system behavior over infinite time
-\end{itemize}
-
-\begin{itemize}
-    \item \textbf{Source}: Molnar
-    \item  applied Model Checking to the LightSwitch case study, utilizing tools like Gamma and Imandra to generate concrete execution traces that identify conflicting system states
-\end{itemize}
 
 %
 % Discuss & Implications
