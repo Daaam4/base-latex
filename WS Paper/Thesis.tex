@@ -191,11 +191,12 @@ This section analyzes the structural mechanisms used to define and enforce domai
 In SysML v1, the implementation of domain-specific guidelines is achieved through multiple layer approach.
 % --- Implementing Guidelines - SYSML V1 - SEMANTIC EXTENSION VIA STEREOTYPES ---
 First, system engineers utilize the \textit{Stereotypes} to build a custom profile that overlays the native SysML v1 metamodel, thereby introducing semantic labeling and domain specific terminology \cite{beers}. The application of SysML v1 elements is then restricted to a specific palette of stereotyped elements, ensuring that the model structure reflects domain-specific semantics rather than generic block definitions \cite{beers}.
+
 A concrete application of this mechanism is demonstrated by Beers et al. \cite{beers} in the development of a Domain-specific Modeling Language (DSML) for formal process description. To enforce the guideline that system functions must be standardized, the author extends the metaclass \textit{CallBehaviorAction} to create a specific \textit{Process Operator} stereotype. This ensures that an element cannot be designated as a \textit{Process Operator} unless it inherits the specific meta-attributes defined by the stereotype.
 
 % --- Implementing Guidelines - SYSML V1 - TOPOLOGICAL ENFORCEMENT VIA OCL ---
-While stereotypes provide semantic labeling, \textit{Object Constraint Language (OCL)} is layer onto the profile to enhance the rigor of the model by specifying invariants, constraints and complex relationships between elements \cite{beers}.
-Beers et al. show the necessity of this mechanism when enforcing the VDI/VDE 3682 standard that provides the rules to implement the ''Product-Process-Resource'' (PPR) concept, which mandates that production systems are modeled through the strict interconnection of the \textit{Process}, the \textit{Product}, and the \textit{Resource} \cite{beers}. In their implementation, a ''State'' (e.g., a Product or Energy) cannot legally connect directly to another ''State'' without an intermediary process. Since standard SysML v1 syntax permits the connection of any two compatible nodes, the guideline is enforced through an OCL invariant attached to the \textit{Flow} stereotype, that prevents two state-describing elements from being connected together \cite{beers}.
+While stereotypes provide semantic labeling, UML profiles are not expressive enough to represent constraints on the models \cite{lu}. Therefore, \textit{Object Constraint Language (OCL)} is layered onto the profile to specify invariants, constraints and complex relationships between elements \cite{beers,lu}.
+Beers et al. \cite{beers} demonstrates this when enforcing the VDI/VDE 3682 standard that provides the rules to implement the ''Product-Process-Resource'' (PPR) concept, which mandates that production systems are modeled through the strict interconnection of the \textit{Process}, the \textit{Product}, and the \textit{Resource} \cite{beers}. In their implementation, a ''State'' (e.g., a Product or Energy) cannot legally connect directly to another ''State'' without an intermediary process. Since standard SysML v1 syntax permits the connection of any two compatible nodes, the guideline is enforced through an OCL invariant attached to the \textit{Flow} stereotype, that prevents two state-describing elements from being connected together \cite{beers}.
 
 % --- Implementing Guidelines - SYSML V2 ---
 \subsection{SysML v2: Intrinsic Enforcement via Metamodel Definitions} %{ Boelsen, Ratzke }
@@ -281,7 +282,14 @@ Overall, this separation allows the guidelines to treat the \textit{Definition} 
 \section{Mechanisms for Model Verification}
 
 \subsection{SysML v1}
-Profile + OCL + Solvers
+The native verification capabilities of SysML v1 are inherently limited due to its UML-based architecture. While stereotypes provide a fundamental layer of structural consistency, through restriction of available elements, they offer no intrinsic verification capabilities \cite{beers}.
+
+We discussed how OCL is layered onto profiles to define formal constraints that can be evaluated against the model, thereby enabling basic verification \cite{beers,lu}. However, OCL is declarative and static, which is excellent for checking ''flags'', but to be able to verify that a model conforms to defined technical standards (e.g., Power < 5W), OCL alone is insufficient if the values are derived variables rather than static constants \cite{lu}.
+
+To bridge this gap, external solvers are required to perform mathematical verification by evaluating the constraints defined in OCL against the model's parameters and derived values \cite{lu,kausch}.
+However, solvers cannot directly interpret SysML v1 models therefore transformers are required to transform the models into a format compatible with the solver (e.g., OWL, SMT-LIB) \cite{lu,kausch}.
+
+A prominent example of this verification workflow is the approach by Lu et al. \cite{lu}
 
 %%% --- Mechanisms for Model Verification - SYSML V2 - CONSTRAINTS (Replacing OCL) ---
 \subsection{SysML v2} %{ Ratzke }
@@ -382,6 +390,8 @@ The author would like to express sincere gratitude to Professor Sebastian Voss f
     
     \bibitem{kausch} H. Kausch, M. Pfeiffer, D. Raco, B. Rumpe, and A. Schweiger, “Model-driven development for functional correctness of avionics systems: a verification framework for sysml specifications,” CEAS Aeronautical Journal, vol. 16, no. 1, pp. 33--48, 2025.
     
+    \bibitem{lu} S. Lu, A. Tazin, Y. Chen, M. M. Kokar, and J. Smith, “Detection of inconsistencies in SysML/OCL models using OWL reasoning,” SN Computer Science, vol. 4, no. 175, 2023.
+
     \bibitem{molnar} V. Moln\'{a}r, B. Graics, A. V\"or\"os, S. Tonetta, L. Cristoforetti, G. Kimberly, P. Dyer, K. Giammarco, M. Koethe, J. Hester et al., “Towards the formal verification of sysml v2 models,” in Proceedings of the ACM/IEEE 27th International Conference on Model Driven Engineering Languages and Systems, 2024, pp. 1086--1095.
 
     \bibitem{omg} Object Management Group, “Kernel Modeling Language (KerML), Version 1.0,” Object Management Group, Specification formal/25-09-01, Sep. 2025. [Online]. Available: https://www.omg.org/spec/KerML/1.0/PDF
