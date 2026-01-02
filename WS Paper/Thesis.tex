@@ -44,7 +44,7 @@
   rulecolor=\color{lightgray},
   tabsize=2,
   showstringspaces=false,
-  xleftmargin=2em,
+  xleftmargin=1em,
 }
 
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
@@ -289,7 +289,11 @@ We discussed how OCL is layered onto profiles to define formal constraints that 
 To bridge this gap, external solvers are required to perform mathematical verification by evaluating the constraints defined in OCL against the model's parameters and derived values \cite{lu,kausch}.
 However, solvers cannot directly interpret SysML v1 models therefore transformers are required to transform the models into a format compatible with the solver (e.g., OWL, SMT-LIB) \cite{lu,kausch}.
 
-A prominent example of this verification workflow is the approach by Lu et al. \cite{lu}
+A prominent example of this verification workflow is the approach by Lu et al., based on the Cloud Agility Baseline (CAB) model. In their work, the authors explicitly highlight the semantic limitations of native SysML v1 tools, noting that tools such as Cameo Enterprise Architecture often validate OCL constraints based solely on syntax. Consequently, the native tool reported that the verification was "successful" even when the model contained known inconsistencies.
+
+To perform actual verification, their workflow required mapping the SysML Block Definition Diagrams, State Machine diagrams, and associated OCL invariants into the Web Ontology Language (OWL). This transformation enabled the use of the Pellet OWL reasoner to evaluate the logical consistency of the CAB model. Crucially, the external solver identified that the \textit{Shipment} block was logically equivalent to ''Nothing'' (unsatisfiable) due to conflicting constraints in the state machine, a fatal design flaw that was undetectable within the native SysML v1 environment.
+
+This case study exemplifies the extrinsic nature of SysML v1 verification, where the validity of a design cannot be determined by the modeling environment itself but is contingent upon the successful transformation to an external mathematical domain.
 
 %%% --- Mechanisms for Model Verification - SYSML V2 - CONSTRAINTS (Replacing OCL) ---
 \subsection{SysML v2} %{ Ratzke }
