@@ -263,7 +263,7 @@ Simultaneously, the \textit{PhysicalEffect} is completed by adding input and out
 \end{lstlisting}
 \end{figure}
 
-%%% --- RESULTS - SYSML V2 - USAGE DEFINITION SEPARATION ---
+%%% --- Implementing Guidelines - SYSML V2 - USAGE DEFINITION SEPARATION ---
 \subsubsection{Usage Definition Separation} % {Boelsen}
 In SysML v2, the language distinguishes between the \textit{definition} of an element (Its ''Type'') and the \textit{usage} of an element (Its ''Instance'') \cite{friedenthal,boelsen}.
 \begin{itemize}
@@ -279,21 +279,22 @@ Boelsen et al. leverages this to enforce a standardized structure for mechanical
 
 Overall, this separation allows the guidelines to treat the \textit{Definition} as the ''Single Point of Truth'' (SPOT) stored in libraries. The \textit{Usage} are merely pointers to these definition. Thereby, preventing redundant modeling efforts and diverse formalization.
 
+%
+% --- Mechanisms for Model Verification ---
+%
 \section{Mechanisms for Model Verification}
 
-\subsection{SysML v1}
-The native verification capabilities of SysML v1 are inherently limited due to its UML-based architecture. While stereotypes provide a fundamental layer of structural consistency, through restriction of available elements, they offer no intrinsic verification capabilities \cite{beers}.
+% --- Mechanisms for Model Verification - SYSML V1 ---
+\subsection{SysML v1: Profile-Based Constraint Checking}
+The native verification capabilities of SysML v1 are inherently limited due to its UML-based architecture. While stereotypes provide a mechanism for structural consistency by restricting permissible element types, they lack the foundations required for formal verification. \cite{beers}.
 
-We discussed how OCL is layered onto profiles to define formal constraints that can be evaluated against the model, thereby enabling basic verification \cite{beers,lu}. However, OCL is declarative and static, which is excellent for checking ''flags'', but to be able to verify that a model conforms to defined technical standards (e.g., Power < 5W), OCL alone is insufficient if the values are derived variables rather than static constants \cite{lu}.
+As already stated, OCL is layered onto profiles to define formal constraints and requirements that can be evaluated against the model.
+Native UML/SysML v1 tools are limited to verifying syntactic correctness, rather than the semantic validity of the model \cite{lu}.
 
-To bridge this gap, external solvers are required to perform mathematical verification by evaluating the constraints defined in OCL against the model's parameters and derived values \cite{lu,kausch}.
-However, solvers cannot directly interpret SysML v1 models therefore transformers are required to transform the models into a format compatible with the solver (e.g., OWL, SMT-LIB) \cite{lu,kausch}.
+To bridge this gap, external solvers are required to perform \textit{semantic verification}. However, since these solvers cannot directly interpret SysML v1 models, the diagrams must be transformed into ontology-based representations or compatible formats (e.g., OWL, SMT-LIB) \cite{lu,kausch}.
 
-A prominent example of this verification workflow is the approach by Lu et al., based on the Cloud Agility Baseline (CAB) model. In their work, the authors explicitly highlight the semantic limitations of native SysML v1 tools, noting that tools such as Cameo Enterprise Architecture often validate OCL constraints based solely on syntax. Consequently, the native tool reported that the verification was "successful" even when the model contained known inconsistencies.
-
-To perform actual verification, their workflow required mapping the SysML Block Definition Diagrams, State Machine diagrams, and associated OCL invariants into the Web Ontology Language (OWL). This transformation enabled the use of the Pellet OWL reasoner to evaluate the logical consistency of the CAB model. Crucially, the external solver identified that the \textit{Shipment} block was logically equivalent to ''Nothing'' (unsatisfiable) due to conflicting constraints in the state machine, a fatal design flaw that was undetectable within the native SysML v1 environment.
-
-This case study exemplifies the extrinsic nature of SysML v1 verification, where the validity of a design cannot be determined by the modeling environment itself but is contingent upon the successful transformation to an external mathematical domain.
+This verification workflow is exemplified by Lu et al., where they present a Cloud Agility Baseline (CAB) model, representing a logistics system comprised of \textit{Shipment}, \textit{Dispatcher}, and \textit{Transporter} blocks, governed by specific state invariants expressed in OCL \cite{lu}. 
+They initially show how the native SysML v1 tool successfully verifies a model containing significant semantic contradictions. Their approach involved mapping the SysML blocks and OCL constraints into Web Ontology Language (OWL) DL axioms. Only through the external application of an OWL inference engine (Pellet) could the logical inconsistency be identified, revealing that the \textit{Shipment} class was unsatisfiable (equivalent to Nothing).
 
 %%% --- Mechanisms for Model Verification - SYSML V2 - CONSTRAINTS (Replacing OCL) ---
 \subsection{SysML v2} %{ Ratzke }
