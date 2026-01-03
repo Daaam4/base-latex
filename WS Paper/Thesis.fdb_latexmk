@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1767443080.23494 "/Users/nasim.awabdy/Desktop/code/base-latex/WS Paper/Thesis.tex" "Thesis.pdf" "Thesis" 1767443080.85427 0
-  "/Users/nasim.awabdy/Desktop/code/base-latex/WS Paper/Thesis.tex" 1767443079.39905 35755 3afc26266d318f7054962e65d7d17984 ""
+["pdflatex"] 1767443267.22372 "/Users/nasim.awabdy/Desktop/code/base-latex/WS Paper/Thesis.tex" "Thesis.pdf" "Thesis" 1767443267.85817 0
+  "/Users/nasim.awabdy/Desktop/code/base-latex/WS Paper/Thesis.tex" 1767443266.00834 35528 797b0536fd1154a47f7be6d68f6f310f ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -85,8 +85,8 @@
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1762339191 3345730 27d1f15853b71a344e3df1dbd361d882 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
   "IEEEtran.cls" 1765973561.10703 281957 5b2e4fa15b0f7eabb840ebf67df4c0f7 ""
-  "Thesis.aux" 1767443080.79312 5413 08d0fa67dfab1a614a9aa5f5f52199b2 "pdflatex"
-  "Thesis.tex" 1767443079.39905 35755 3afc26266d318f7054962e65d7d17984 ""
+  "Thesis.aux" 1767443267.79762 5390 8286a635078d57d172d77d2c7ee9804a "pdflatex"
+  "Thesis.tex" 1767443266.00834 35528 797b0536fd1154a47f7be6d68f6f310f ""
   (generated)
   "Thesis.aux"
   "Thesis.log"
