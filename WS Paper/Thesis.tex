@@ -297,12 +297,14 @@ This verification workflow is exemplified by Lu et al., where they present a Clo
 They initially show how the native SysML v1 tool successfully verifies a model containing significant semantic contradictions. Their approach involved mapping the SysML blocks and OCL constraints into Web Ontology Language (OWL) DL axioms. Only through the external application of an OWL inference engine (Pellet) could the logical inconsistency be identified, revealing that the \textit{Shipment} class was unsatisfiable (equivalent to Nothing).
 
 %%% --- Mechanisms for Model Verification - SYSML V2 - CONSTRAINTS (Replacing OCL) ---
-\subsection{SysML v2: Formal Verification via Constraint Satisfaction} %{ Ratzke }
-In contrast to SysML v1, where verification requires model transformations to external formalisms (e.g., OWL) to check logical consistency, SysML v2 native constraints are built upon KerML, which is founded on first-order logic. This foundation allows verification guidelines to be treated as intrinsic mathematical expressions that can be solved directly within the system model context.
+\subsection{SysML v2: Formal Verification via Constraint Satisfaction} %{ Molanr, Ratzke }
+In contrast to SysML v1, where verification requires model transformations to external formalisms (e.g., OWL) to check logical consistency, SysML v2 native constraints are built upon KerML, which is founded on first-order logic \cite{molnar}. This intrinsic formalism allows SysML v2 models to be directly interpreted as mathematical systems that can be analyzed and solved using specialized solvers \cite{ratzke,molnar}.
 
-A primary verification workflows is based on reformulating the models into constraint satisfaction problems (CSPs) that can be solved using specialized solvers \cite{ratzke}. This process begins with the compilation of the model into a KerML abstract representation. To render the model solvable, the abstract syntax is ''flattened'' to represent specific instances rather than generic types. This involves cloning features from general definitions to specialized usages and utilizing KerML binding relationships to identify set-intersections between variables and their constraints. The result is a mathematically rigorous CSP consisting of a finite set of variables and their respective domains (Boolean, Integer, or Real), which can then be processed by specialized solvers to enforce logical consistency.
+By encapsulating verification objectives and constraints directly within the model, the language ensures that the criteria for model correctness are traceable and independent of specific external tools. \cite{molnar}. This capability supports the Verification process by allowing models to be reformulated into Constraint Satisfaction Problems (CSPs) hat can be solved using specialized solvers \cite{ratzke,molnar}.
 
-Ratzke et al. [15] demonstrate a concrete application of this workflow by introducing range-based semantics that enable the verification of system variability and precision. In their implementation the semantic library is extended to include three range-based constraint operators:
+As described by Ratzke et al. this process begins with the compilation of the model into a KerML abstract representation. To render the model solvable, the abstract syntax is ''flattened'' to represent specific instances rather than generic types. This involves cloning features from general definitions to specialized usages and utilizing KerML binding relationships to identify set-intersections between variables and their constraints. The result is a mathematically rigorous CSP consisting of a finite set of variables and their respective domains (Boolean, Integer, or Real), which can then be processed by specialized solvers to enforce logical consistency \cite{ratzke}.
+
+Ratzke et al. \cite{ratzke} demonstrate the application of this workflow by introducing range-based semantics to verify the system's variability and precision. In their implementation the semantic library is extended to include three range-based constraint operators:
 
 \begin{itemize}
     \item \textbf{oneOf}: This semantic assigns exactly one value from a specified range that satisfies the constraint, which can be used to represent variation (e.g., choosing a specific diameter for a part) \cite{ratzke}.
@@ -310,8 +312,7 @@ Ratzke et al. [15] demonstrate a concrete application of this workflow by introd
     \item \textbf{allOf}: This mandates that all contained values in a range must fulfill the constraint. This is applicable for operational envelopes (e.g., ensuring a system operates across an entire temperature range) \cite{ratzke}.
 \end{itemize}
 
-To demonstrate the practical application of these constraints, a \textit{Tank} part definition was modeled with attributes for width, height, and length (see Listing \ref{lst:tank_example}). These attributes leverage the \textit{oneOf} operator, to define permissible dimensions with precise variability. 
-The requirement \textit{tankBigEnough} then enforces that the derived volume attribute falls within a specific range.
+To demonstrate this, a \textit{Tank} part definition was modeled with attributes for width, height, and length (see Listing \ref{lst:tank_example}). These attributes leverage the \textit{oneOf} operator, to define permissible dimensions. The requirement \textit{tankBigEnough} then enforces the technical standard that the derived volume attribute falls within a specific range \cite{ratzke}.
 
 \begin{figure}[ht]
     \centering
@@ -331,7 +332,7 @@ requirement tankBigEnough {
 \end{lstlisting}
 \end{figure}
 
-Ratzke et al.'s implementation utilizes a custom solver to apply constraint propagation algorithms. By evaluating the tankBigEnough requirement, this solver actively reduces the design space by automatically restricting the valid domains of the dimensional attributes (width, height, length), ensuring that only values capable of satisfying the volume requirement remain in the valid set.
+By applying constraint propagation algorithms to this model, the solver actively reduces the design space. Restricting the valid domains of the dimensional attributes (width, height, length), verifying that only those values capable of satisfying the tankBigEnough requirement remain. This constitutes a formal verification of the design solution against its technical requirements, achieved entirely through the intrinsic semantics of SysML v2 \cite{ratzke,molnar}.
 
 %
 % Discuss & Implications
