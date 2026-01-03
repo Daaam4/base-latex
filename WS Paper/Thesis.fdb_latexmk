@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1767365012.58494 "/Users/nasim.awabdy/Desktop/code/base-latex/WS Paper/Thesis.tex" "Thesis.pdf" "Thesis" 1767365013.21882 0
-  "/Users/nasim.awabdy/Desktop/code/base-latex/WS Paper/Thesis.tex" 1767365011.7257 34803 b0ebb3c2889286632958a9cce22dfbb3 ""
+["pdflatex"] 1767442600.33218 "/Users/nasim.awabdy/Desktop/code/base-latex/WS Paper/Thesis.tex" "Thesis.pdf" "Thesis" 1767442600.96574 0
+  "/Users/nasim.awabdy/Desktop/code/base-latex/WS Paper/Thesis.tex" 1767442600.12253 35987 20160d378a2436fac8110940f089d333 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -33,8 +33,6 @@
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr8.tfm" 1136768653 1292 21c1c5bfeaebccffdb478fd231a0997d ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm" 1136768653 1124 6c73e740cf17375f03eec0ee63599741 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1136768653 1120 8b7d695260f3cff42e636090a8002094 ""
-  "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1248133631 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
-  "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1248133631 32716 08e384dc442464e7285e891af9f45947 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb" 1215737283 164227 3df942b4ff2124425d8fb1b6d3e01c7a ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb" 1136849748 50493 4ed1f7e9eba8f1f3e1ec25195460190d ""
@@ -87,8 +85,8 @@
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1762339191 3345730 27d1f15853b71a344e3df1dbd361d882 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
   "IEEEtran.cls" 1765973561.10703 281957 5b2e4fa15b0f7eabb840ebf67df4c0f7 ""
-  "Thesis.aux" 1767365013.15409 5512 618b74c91d080aa12c7dd278e336dae8 "pdflatex"
-  "Thesis.tex" 1767365011.7257 34803 b0ebb3c2889286632958a9cce22dfbb3 ""
+  "Thesis.aux" 1767442600.90518 5433 f28d9684ef83a09fa6dbcf60c85d74ad "pdflatex"
+  "Thesis.tex" 1767442600.12253 35987 20160d378a2436fac8110940f089d333 ""
   (generated)
   "Thesis.aux"
   "Thesis.log"

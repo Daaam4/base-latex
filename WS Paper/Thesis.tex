@@ -285,7 +285,7 @@ Overall, this separation allows the guidelines to treat the \textit{Definition} 
 \section{Mechanisms for Model Verification}
 
 % --- Mechanisms for Model Verification - SYSML V1 ---
-\subsection{SysML v1: Profile-Based Constraint Checking}
+\subsection{SysML v1: Constraint Checking via Profiles and Model Transformation}
 The native verification capabilities of SysML v1 are inherently limited due to its UML-based architecture. While stereotypes provide a mechanism for structural consistency by restricting permissible element types, they lack the foundations required for formal verification. \cite{beers}.
 
 As already stated, OCL is layered onto profiles to define formal constraints and requirements that can be evaluated against the model.
@@ -297,10 +297,13 @@ This verification workflow is exemplified by Lu et al., where they present a Clo
 They initially show how the native SysML v1 tool successfully verifies a model containing significant semantic contradictions. Their approach involved mapping the SysML blocks and OCL constraints into Web Ontology Language (OWL) DL axioms. Only through the external application of an OWL inference engine (Pellet) could the logical inconsistency be identified, revealing that the \textit{Shipment} class was unsatisfiable (equivalent to Nothing).
 
 %%% --- Mechanisms for Model Verification - SYSML V2 - CONSTRAINTS (Replacing OCL) ---
-\subsection{SysML v2} %{ Ratzke }
-\subsubsection{Formal Semantic Constraints} % {Ratzke}
-In this section we refer to the work of Ratzke et al. \cite{ratzke} that builds upon the capabilities of SysML v2 native constraints to provide a more generalized constraint evaluation mechanism, especially for early-phase system modeling \cite{ratzke}.
-Ratzke's work introduces range-based semantics that enable modelers to enforce guidelines regarding system variability and precision throughout three constraints:
+\subsection{SysML v2: Formal Verification via Constraint Satisfaction} %{ Ratzke }
+In contrast to SysML v1, where verification requires model transformations to external formalisms (e.g., OWL) to check logical consistency, SysML v2 native constraints are built upon KerML, which is founded on first-order logic. This foundation allows verification guidelines to be treated as intrinsic mathematical expressions that can be solved directly within the system model context.
+
+A primary verification workflows is based on reformulating the models into constraint satisfaction problems (CSPs) that can be solved using specialized solvers \cite{ratzke}. This process begins with the compilation of the model into a KerML abstract representation. To render the model solvable, the abstract syntax is ''flattened'' to represent specific instances rather than generic types. This involves cloning features from general definitions to specialized usages and utilizing KerML binding relationships to identify set-intersections between variables and their constraints. The result is a mathematically rigorous CSP consisting of a finite set of variables and their respective domains (Boolean, Integer, or Real), which can then be processed by specialized solvers to enforce logical consistency.
+
+Ratzke et al. [15] demonstrate a concrete application of this workflow by introducing range-based semantics that enable the verification of system variability and precision. In their implementation the semantic library is extended to include three range-based constraint operators:
+
 \begin{itemize}
     \item \textbf{oneOf}: This semantic assigns exactly one value from a specified range that satisfies the constraint, which can be used to represent variation (e.g., choosing a specific diameter for a part) \cite{ratzke}.
     \item \textbf{anyOf}: This semantic allows any value within a range to satisfy the constraint, useful for approximations (e.g., tolerances or acceptable performance ranges) \cite{ratzke}.
@@ -323,13 +326,12 @@ part def Tank {
 
 requirement tankBigEnough {
     subject t: Tank;
-
     require t.volume == oneOf(1000.0 .. 2000.0) [L];
 }
 \end{lstlisting}
 \end{figure}
 
-When a restriction is imposed on the final volume, the solver utilizes constraint propagation to automatically reduce the valid domains of the dimensional attributes ($width \times height \times length$), ensuring the system model remains consistent with the specified design guidelines.
+Ratzke et al.'s implementation utilizes a custom solver to apply constraint propagation algorithms. By evaluating the tankBigEnough requirement, this solver actively reduces the design space by automatically restricting the valid domains of the dimensional attributes (width, height, length), ensuring that only values capable of satisfying the volume requirement remain in the valid set.
 
 %
 % Discuss & Implications
