@@ -89,7 +89,7 @@ The development of CPSs is becoming increasingly complex and challenging, due to
 
 % --- INTRODUCTION - MBSE ---
 Model-Based Systems Engineering (MBSE) is a methodology for the development and management such complex systems, that addresses issues arising from the complexity and interdisciplinary nature of CPS, and provides the agility required to adapt to changing requirements and technologies. 
-MBSE incorporates a centralized system model as the primary source of information, throughout the system lifecycle \cite{bergemann,dehn,cibrian,dukic,boelsen,friedenthal}. 
+MBSE incorporates a centralized system model as the primary source of information, throughout the system lifecycle \cite{bergemann,cibrian,boelsen,friedenthal}. 
 
 % --- INTRODUCTION - SYSML V1 ---
 SysML v1 has been widely adopted as the standard for modelling CPS and served as a key enabler MBSE. SysML v1 is a graphical, general purpose modelling language that is defined as an extension of the Unified Modeling Language (UML). Because it was built on top of UML, SysML v1 inherited several limitations from UML, that limited it's expressiveness and usability for CPS modelling. However, it still provided a solid  foundation for specifying and analyzing a systems's behavior, structure and requirements \cite{boelsen,cibrian,friedenthal}.
@@ -332,34 +332,21 @@ requirement tankBigEnough {
 \end{lstlisting}
 \end{figure}
 
-By applying constraint propagation algorithms to this model, the solver actively reduces the design space. Restricting the valid domains of the dimensional attributes (width, height, length), verifying that only those values capable of satisfying the tankBigEnough requirement remain. This constitutes a formal verification of the design solution against its technical requirements, achieved entirely through the intrinsic semantics of SysML v2 \cite{ratzke,molnar}.
+By applying constraint propagation algorithms to this model, the solver actively reduces the design space. 
+Restricting the valid domains of the dimensional attributes (width, height, length), verifying that only those values capable of satisfying the tankBigEnough requirement remain. 
+This constitutes a formal verification of the design solution against its technical requirements, achieved entirely through the intrinsic semantics of SysML v2 \cite{ratzke,molnar}.
 
 %
 % Discuss & Implications
 %
 \section{Discussion and Implications}
-\subsection{Stereotypes vs. Metadata}
-\begin{itemize}
-    \item Stereotypes - Compliance is extrinsic. the model structure and the rule are separate entities (Profiles + OCL) \cite{beers}.
-    \item Metadata - Compliance is intrinsic. the rule is the definition of the element itself \cite{boelsen}.
-\end{itemize}
-
-\subsection{The Impact on Verification Capabilities}
-\begin{itemize}
-    \item SysML v1 - They ensure the diagram is readable and topologically correct, but they do not ensure the math is sound \cite{cibrian}.
-    \item Metadata - Because the guidelines enforce structure using KerML (First-Order Logic), the resulting models are natively compatible with formal solvers \cite{kausch,molnar}
-\end{itemize}
-
-\subsection{Scalability via Library First Verification}
-\begin{itemize}
-    \item SysML v1 - Complex OCL constraints often have to be re-evaluated for every instance in the system, leading to performance bottlenecks in large models. \cite{bergemann,ratzke} 
-    \item SysML v2 - Separation of Definition (Type) and Usage (Instance) allows for a ''Verify Once, Use Many'' approach \cite{boelsen}
-\end{itemize}
+\subsection{The Shift from Extrinsic to Intrinsic Verification}
+\subsection{Eliminating the Model Transformation Gap}
+\subsection{Scalability and complexity}
+\subsection{Compliance upon inspection vs. Compliance by definition} %{ Cibrián }
 
 
-\subsection{Solver Agnosticism and the Shift from Compliance Checking to Constructive Analysis}
-
-% SysML v1 required a "trust but verify" approach, where users were trusted to apply stereotypes correctly, and scripts verified compliance later. SysML v2 sought to invert this paradigm. By integrating the definition of metadata and constraints into the core language kernel, SysML v2 aims to make non-compliant modeling physically impossible—or at least syntactically invalid—within the tool environment. The shift is from "compliance upon inspection" to "compliance by definition". \cite{cibrian}
+\clearpage
 
 %
 % Conclusion & Outlook
@@ -383,12 +370,8 @@ The author would like to express sincere gratitude to Professor Sebastian Voss f
     \bibitem{boelsen} K. Boelsen, M. May, G. Jacobs, and et al., “Sysml v2 based modelling guidelines for mechanical system elements,” Forsch Ingenieurwes, vol. 89, no. 60, 2025.
     
     \bibitem{cibrian} E. Cibri\'{a}n, J. Olivert-Iserte, C. D\'{i}ez-Fenoy, R. Mendieta, J. Llorens, and J. M. \'Alvarez Rodr\'{i}guez, “Ensuring semantic consistency in sysml v2 models through metamodel-driven validation,” IEEE Access, vol. 13, pp. 121 444--121 457, 2025.
-    
-    \bibitem{dehn} S. Dehn, G. Jacobs, P. H\"ock, and G. H\"opfner, “Enhancing model-based development with formalized requirements: integrating temporal logic and sysml v2 for comprehensive state and transition modeling,” Forschung im Ingenieurwesen, vol. 89, no. 1, p. 53, 2025.
 
     \bibitem{iso15288} Systems and software engineering — System life cycle processes, ISO/IEC/IEEE Standard 15288:2023, May 2023.
-    
-    \bibitem{dukic} P. Duki\'c, “Generating sysmlv2 models from structured natural language,” 2025.
 
     \bibitem{friedenthal} S. Friedenthal, “Future directions for mbse with sysml v2.” in MODEL-SWARD, 2023, pp. 5--9.
 
