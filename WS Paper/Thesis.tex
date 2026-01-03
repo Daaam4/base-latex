@@ -115,6 +115,7 @@ Within the context of model analysis, a distinct differentiation between model v
 This work addresses the following research question: \textbf{How do the mechanisms for implementing modeling guidelines differ between SysML v1 and SysML v2, and how do these differences impact the capabilities automated verification?}
 
 % --- INTRODUCTION - METHODOLOGY & SCOPE ---
+TODO UPDATE to explicitly mention the case studies discussed (not a holistic overview)
 To answer this, we conduct a comparative analysis of the underlying implementation mechanisms, specifically contrasting the profile-based constraints of SysML v1 with the metamodel-driven and formal semantic capabilities of SysML v2. 
 We analyze the implications of this shift by examining specific scenarios where these mechanisms facilitate structural verification, rather than providing a holistic overview of all available commercial tools.
 
@@ -284,7 +285,7 @@ Overall, this separation allows the guidelines to treat the \textit{Definition} 
 %
 \section{Mechanisms for Model Verification}
 
-% --- Mechanisms for Model Verification - SYSML V1 ---
+% --- Mechanisms for Model Verification - SYSML V1 --- % { Beers, Lu, Kausch }
 \subsection{SysML v1: Constraint Checking via Profiles and Model Transformation}
 The native verification capabilities of SysML v1 are inherently limited due to its UML-based architecture. While stereotypes provide a mechanism for structural consistency by restricting permissible element types, they lack the foundations required for formal verification. \cite{beers}.
 
@@ -296,8 +297,8 @@ To bridge this gap, external solvers are required to perform \textit{semantic ve
 This verification workflow is exemplified by Lu et al., where they present a Cloud Agility Baseline (CAB) model, representing a logistics system comprised of \textit{Shipment}, \textit{Dispatcher}, and \textit{Transporter} blocks, governed by specific state invariants expressed in OCL \cite{lu}. 
 They initially show how the native SysML v1 tool successfully verifies a model containing significant semantic contradictions. Their approach involved mapping the SysML blocks and OCL constraints into Web Ontology Language (OWL) DL axioms. Only through the external application of an OWL inference engine (Pellet) could the logical inconsistency be identified, revealing that the \textit{Shipment} class was unsatisfiable (equivalent to Nothing).
 
-%%% --- Mechanisms for Model Verification - SYSML V2 - CONSTRAINTS (Replacing OCL) ---
-\subsection{SysML v2: Formal Verification via Constraint Satisfaction} %{ Molanr, Ratzke }
+%%% --- Mechanisms for Model Verification - SYSML V2 --- %{ Molanr, Ratzke }
+\subsection{SysML v2: Formal Verification via Constraint Satisfaction} 
 In contrast to SysML v1, where verification requires model transformations to external formalisms (e.g., OWL) to check logical consistency, SysML v2 native constraints are built upon KerML, which is founded on first-order logic \cite{molnar}. This intrinsic formalism allows SysML v2 models to be directly interpreted as mathematical systems that can be analyzed and solved using specialized solvers \cite{ratzke,molnar}.
 
 By encapsulating verification objectives and constraints directly within the model, the language ensures that the criteria for model correctness are traceable and independent of specific external tools. \cite{molnar}. This capability supports the Verification process by allowing models to be reformulated into Constraint Satisfaction Problems (CSPs) hat can be solved using specialized solvers \cite{ratzke,molnar}.
@@ -340,10 +341,20 @@ This constitutes a formal verification of the design solution against its techni
 % Discuss & Implications
 %
 \section{Discussion and Implications}
-\subsection{The Shift from Extrinsic to Intrinsic Verification}
-\subsection{Eliminating the Model Transformation Gap}
-\subsection{Scalability and complexity}
-\subsection{Compliance upon inspection vs. Compliance by definition} %{ Cibrián }
+\subsection{The Shift from Extrinsic to Native Constraints}
+- Eliminating the Semantic Gap: Explains how SysML v2 resolves the transformation issue while acknowledging that reformulation to CSP is still needed
+- Enhanced Traceability: Contrasts external OCL annotations with embedded metadata definitions
+- Single Source of Truth: Discusses the Definition-Usage separation advantage
+
+\subsection{Scalability and Complexity}
+- Computational Complexity: Addresses NP-hardness of CSP solving for large-scale systems
+- Solver Integration: Discusses toolchain maturity challenges
+- Expressiveness vs. Decidability: Examines trade-offs between comprehensive specifications and verification feasibility
+
+\subsection{Compliance upon inspection vs. by definition} %{ Cibrián }
+- Post-Hoc vs. Built-In Correctness: Contrasts the two philosophies with concrete examples from your case studies
+- Engineering Workflow Implications: Discusses flexibility trade-offs and suggests configurable enforcement
+- Tool-Mediated Guidance: Highlights usability improvements for interdisciplinary teams
 
 
 \clearpage
@@ -358,6 +369,8 @@ This constitutes a formal verification of the design solution against its techni
 %
 \section*{Acknowledgment}
 The author would like to express sincere gratitude to Professor Sebastian Voss for his supervision and guidance throughout the preparation of this work. His support in defining the research scope regarding SysML modeling guidelines was fundamental to the direction of this comparative analysis.
+
+TODO mention gemini which is used to generate the code snippets, review grammatical correctness.
 
 %
 % Bibliography
