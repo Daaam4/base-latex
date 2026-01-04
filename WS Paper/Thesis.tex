@@ -364,6 +364,11 @@ To manage this computational complexity, Kausch et al. \cite{kausch} argue that 
 % Conclusion & Outlook
 %
 \section{Conclusion and Outlook}
+This work addressed the research question of how the mechanisms for implementing modeling guidelines differ between SysML v1 and SysML v2, and how these differences impact the capabilities for automated verification. The comparative analysis reveals a fundamental paradigm shift from extrinsic constraint application in SysML v1 to intrinsic semantic definition in SysML v2.
+
+SysML v1 relies on extrinsic constraints via stereotypes and OCL. Verification necessitates transforming models into external formalisms (e.g., OWL), a disjointed process susceptible to semantic gaps where design intent is often lost. Conversely, SysML v2 utilizes a metamodel-driven approach grounded in KerML. Guidelines become intrinsic properties inherited through the separation of Definition and Usage. This foundation in first-order logic shifts verification from transformation to reformulation, allowing models to be solved directly as Constraint Satisfaction Problems (CSPs) within the native environment.
+
+While the semantic formalization of SysML v2 enhances consistency, it introduces scalability challenges as verification becomes bound by the computational limits of solving NP-hard Constraint Satisfaction Problems. Future research must prioritize decomposition strategies to manage state-space growth alongside the development of standardized semantic libraries to replace ad-hoc constraint definitions. This corresponds with emerging metamodel-driven tools that automate consistency checking against the formal ontology. Furthermore, "Model as Code" workflows enable SysML v2 to serve as a central artifact for formal analysis, allowing models to be transpiled for theorem provers and model checkers like Imandra and Gamma. Continued effort is required to bridge the gap between static structural verification and dynamic behavioral validation, ensuring rigorous consistency extends to operational logic.
 
 %
 % Acknowledgment
