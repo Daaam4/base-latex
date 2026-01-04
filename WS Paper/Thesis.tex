@@ -69,9 +69,9 @@ nassim.awabdy@alumni.fh-aachen.de}
 % Abstract
 %
 \begin{abstract}
-The increasing complexity of Cyber-Physical Systems (CPS) demands rigorous Model-Based Systems Engineering (MBSE) practices to ensure architectural and technical consistency. This paper conducts a comparative analysis of guideline implementation mechanisms in SysML v1 and SysML v2, exploring their specific impact on automated verification. We identify that SysML v1 relies on extrinsic mechanisms, specifically Profiles and the Object Constraint Language (OCL), which necessitate transforming models into external formalisms, often introducing semantic gaps and inconsistencies.
-
-In contrast, SysML v2 fundamentally alters this paradigm by leveraging the Kernel Modeling Language (KerML) to enforce guidelines intrinsically. By utilizing Metadata Definitions and the separation of Definition and Usage, SysML v2 allows guidelines to be inherited as native logical assertions. Consequently, the verification process evolves from model transformation to mathematical reformulation, enabling models to be solved directly as Constraint Satisfaction Problems (CSPs). While this formalization resolves the semantic ambiguities found in v1, we discuss the resulting trade-off: the burden of consistency shifts from the accuracy of manual mapping to the computational management of NP-hard solution spaces.
+The increasing complexity of Cyber-Physical Systems (CPS) is managed by rigorous Model-Based Systems Engineering (MBSE) practices that ensure architectural and technical consistency. This study compares guideline implementation mechanisms in SysML v1 and SysML v2, exploring their specific impact on automated verification. Our comparative analysis reveals a fundamental shift in paradigm between the two versions.
+SysML v1, relies on extrinsic mechanisms, specifically Profiles and the Object Constraint Language (OCL), which necessitate transforming models into external formalisms, often introducing semantic gaps and inconsistencies.
+In contrast, SysML v2's foundation in Kernel Modeling Language (KerML) allows for intrinsic implementation and enforcement of modeling guidelines. The utilization of Metadata Definitions and the separation of Definition and Usage, allows guidelines to be inherited as native logical assertions. Consequently, the verification process evolves from model transformation to mathematical reformulation, enabling models to be solved directly as Constraint Satisfaction Problems (CSPs). This formalization resolves the semantic ambiguities found in v1, but shifts the burden of consistency from the accuracy of manual mapping to the computational management of NP-hard solution spaces.
 \end{abstract}
 
 %
@@ -117,7 +117,6 @@ Within the context of model analysis, a distinct differentiation between model v
 This work addresses the following research question: \textbf{How do the mechanisms for implementing modeling guidelines differ between SysML v1 and SysML v2, and how do these differences impact the capabilities of automated verification?}
 
 % --- INTRODUCTION - METHODOLOGY & SCOPE ---
-% TODO UPDATE to explicitly mention the case studies discussed (not a holistic overview)
 To answer this, we conduct a comparative analysis of the underlying implementation mechanisms, specifically contrasting the profile-based constraints of SysML v1 with the metamodel-driven and formal semantic capabilities of SysML v2. 
 We analyze the implications of this shift by examining specific scenarios where these mechanisms facilitate structural verification, rather than providing a holistic overview of all available commercial tools.
 
@@ -130,20 +129,19 @@ We analyze the implications of this shift by examining specific scenarios where 
 \subsection{SysML v1 Foundations}
 SysML v1 is a graphical, general purpose modeling language that is widely recognized as the standard language for MBSE, serving as a foundational tool for specifying, analyzing, designing and verifying complex multidisciplinary systems \cite{beers,cibrian,jansen}.
 
-SysML v1, adopted by the Object Management Group (OMG) in 2007, was essential in advancing MBSE practice by providing capabilities for formally capturing system requirements, structure, behavior, and parametric \cite{friedenthal}.
-The language is defined as an extension of the Unified Modeling Language (UML), allowing it to adopt established modeling concepts \cite{cibrian}.
+SysML v1, adopted by the Object Management Group (OMG) in 2007, was essential in advancing MBSE practice by providing capabilities for formally capturing system requirements, structure, behavior, and parametric \cite{friedenthal}. Since the language is defined as an extension of the Unified Modeling Language (UML), it allows it to adopt established modeling concepts \cite{cibrian}.
 
 % --- THEORETICAL BACKGROUND - SYSML V1 - STRUCTURE & DIAGRAMS ---
-SysML v1 organizes its modeling constructs into four main categories:
+SysML v1's modeling constructs are organized in four main categories:
 \begin{itemize}
-    \item \textbf{Structure}: This aspect is modeled using Block Definition Diagrams (BDDs) and Internal Block Diagrams (IBDs). BBDs are used to define components, interfaces, and relationships at black-box level, while IBDs offer a white-box perspective by outlining the internal structure of a single block \cite{jansen}.
-    \item \textbf{Behavior}: SysML v1 provides several behavioral diagrams, including State Machine Diagrams, Sequence Diagrams, and Activity Diagrams \cite{jansen,yildirim}. These diagrams capture distinct uses for modeling system behavior.
+    \item \textbf{Structure}: This structure is modeled using Block Definition Diagrams (BDDs) and Internal Block Diagrams (IBDs). BBDs are used to define components, interfaces, and relationships at black-box level and IBDs offer a white-box perspective by outlining the internal structure of a single block \cite{jansen}.
+    \item \textbf{Behavior}: SysML v1 provides several behavioral diagrams, including State Machine Diagrams, Sequence Diagrams, and Activity Diagrams \cite{jansen}. These diagrams capture distinct uses for modeling system behavior.
     \item \textbf{Requirements}: System requirements are specified in Requirement Diagrams, that largely rely on natural language representation, although they can be linked logically to other model elements \cite{jansen,molnar}.
-    \item \textbf{Parametric}: Parametric Diagrams define mathematical constraints and equations between system elements. They support preliminary calculations and analysis within the model, though they often require external tools for complex evaluations \cite{jansen}.
+    \item \textbf{Parametric}: Parametric Diagrams define mathematical constraints and equations between system elements that support fundamental calculations and analysis within the model. For complex evaluations they often require external tools \cite{jansen}.
 \end{itemize}
 
 % --- THEORETICAL BACKGROUND - SYSML V1 - STEREOTYPES AND PROFILING ---
-SysML v1 allows the restriction of modeling practices through UML profiling mechanism, enabling the construction of specialized extensions. The central element for customization is the \textit{stereotype}, which functions as a distinct metaclass within UML \cite{beers}. Stereotypes enable the customization of existing metaclasses by associating them with specific properties and constraints, thereby tailoring the modeling language to meet domain-specific requirements \cite{beers}.
+The restriction of modeling practices in SysML v1 is achieved through UML profiling mechanism that enable the construction of specialized extensions. The main element for customization is the \textit{stereotype}, which functions as a distinct metaclass within UML \cite{beers}. Stereotypes enable the customization of existing metaclasses by associating them with specific properties and constraints, thereby tailoring the modeling language to meet domain-specific requirements \cite{beers}.
 
 % --- THEORETICAL BACKGROUND - SYSML V1 - OBJECT CONSTRAINT LANGUAGE (OCL) ---
 \textit{Object Constraint Language (OCL)} is an expression language that enables formally defining rules, invariants and constraints on model elements that must be satisfied for a model to be considered valid \cite{ratzke}. It identifies what a valid state is but does not provide the mechanism to calculate variables to reach that state.
@@ -180,14 +178,14 @@ SysML v2 introduces several key features for further enhancing modeling capabili
 
 % --- THEORETICAL BACKGROUND - MODEL ANALYSIS CAPABILITIES ---
 \subsection{Computational Solvers}
-Computational Solvers in MBSE are engines that automate the search for solutions within a ''design space''. They process a set of declarative constraints (mathematical and logical) to identify valid configurations, verify that requirements are met, and optimize system performance.
+Computational Solvers in MBSE are engines that automate the search for solutions within a ''design space''. By processing a set of declarative constraints (mathematical and logical) they identify valid configurations, verify that requirements are met, and optimize system performance.
 The utility and implementation of solvers differ fundamentally between SysML v1 and SysML v2, due to the fundamental shift in language architecture.
 
 %
 % Implementing Guidelines
 %
 \section{Mechanisms for Guideline Implementation}
-This section analyzes the structural mechanisms used to define and enforce domain-specific modeling guidelines. The comparison reveals a shift from extrinsic constraints in SysML v1 to intrinsic semantic definitions in SysML v2.
+This section presents structural mechanisms used to define and enforce domain-specific modeling guidelines for both SysML v1 and SysML v2. For each version, we outline known methods of implementation and exemplify their application.
 
 % --- Implementing Guidelines - SYSML V1 ---
 \subsection{SysML v1: Profile-Based Implementation} %{ Beers }
@@ -195,26 +193,26 @@ In SysML v1, the implementation of domain-specific guidelines is achieved throug
 % --- Implementing Guidelines - SYSML V1 - SEMANTIC EXTENSION VIA STEREOTYPES ---
 First, system engineers utilize the \textit{Stereotypes} to build a custom profile that overlays the native SysML v1 metamodel, thereby introducing semantic labeling and domain specific terminology \cite{beers}. The application of SysML v1 elements is then restricted to a specific palette of stereotyped elements, ensuring that the model structure reflects domain-specific semantics rather than generic block definitions \cite{beers}.
 
-A concrete application of this mechanism is demonstrated by Beers et al. \cite{beers} in the development of a Domain-specific Modeling Language (DSML) for formal process description. To enforce the guideline that system functions must be standardized, the author extends the metaclass \textit{CallBehaviorAction} to create a specific \textit{Process Operator} stereotype. This ensures that an element cannot be designated as a \textit{Process Operator} unless it inherits the specific meta-attributes defined by the stereotype.
+This mechanism is illustrated by Beers et al. \cite{beers} in the development of a Domain-specific Modeling Language (DSML) for formal process description. To enforce the guideline that system functions must be standardized, the author extends the metaclass \textit{CallBehaviorAction} to create a specific \textit{Process Operator} stereotype. This ensures that an element cannot be designated as a \textit{Process Operator} unless it inherits the specific meta-attributes defined by the stereotype.
 
 % --- Implementing Guidelines - SYSML V1 - TOPOLOGICAL ENFORCEMENT VIA OCL ---
 While stereotypes provide semantic labeling, UML profiles are not expressive enough to represent constraints on the models \cite{lu}. Therefore, \textit{Object Constraint Language (OCL)} is layered onto the profile to specify invariants, constraints and complex relationships between elements \cite{beers,lu}.
 Beers et al. \cite{beers} demonstrates this when enforcing the VDI/VDE 3682 standard that provides the rules to implement the ''Product-Process-Resource'' (PPR) concept, which mandates that production systems are modeled through the strict interconnection of the \textit{Process}, the \textit{Product}, and the \textit{Resource} \cite{beers}. In their implementation, a ''State'' (e.g., a Product or Energy) cannot legally connect directly to another ''State'' without an intermediary process. Since standard SysML v1 syntax permits the connection of any two compatible nodes, the guideline is enforced through an OCL invariant attached to the \textit{Flow} stereotype, that prevents two state-describing elements from being connected together \cite{beers}.
 
 % --- Implementing Guidelines - SYSML V2 ---
-\subsection{SysML v2: Intrinsic Enforcement via Metamodel Definitions} %{ Boelsen, Ratzke }
-SysML v2 implements guidelines intrinsically by allowing modelers to extend the language's ontology directly using KerML (Kernel Modeling Language). This removes the separation between the model and the rules found in v1.
+\subsection{SysML v2: Metamodel Definitions} %{ Boelsen, Ratzke }
+SysML v2 implements guidelines intrinsically by the extension of the language's ontology directly using KerML (Kernel Modeling Language). Thereby, removing the separation between the model and the rules found in v1.
  
 % --- Implementing Guidelines - SYSML V2 - METAMODEL-DRIVEN GUIDELINES ---
 \textit{Metadata Definitions} is used to construct domain-specific metamodel hierarchies directly within the language architecture by specializing standard KerML constructs \cite{boelsen}.
 
 \subsubsection{Metamodel-Driven Guidelines} % {Boelsen}
-Boelsen et al. \cite{boelsen} demonstrates this by implementing modeling guidelines for reusable mechanical system elements based on the \textit{motego} methodology.
-The structural foundation is built by defining an abstract metadata definition for a general \textit{solution}, which is set up as a specialization of the standard \textit{SysML::PartDefinition} (see Fig. \ref{lst:metamodel}). From this abstract base, concrete domain-specific types \textit{SolutionElement} and \textit{SystemSolution} are derived \cite{boelsen}.
+Boelsen et al. \cite{boelsen} demonstrates this by implementing modeling guidelines for reusable mechanical system elements based on the \textit{motego} methodology. 
+By defining an abstract metadata definition for a general \textit{solution} the structural foundation is achieved that is set up as a specialization of the standard \textit{SysML::PartDefinition} (see Fig. \ref{lst:metamodel}). From this abstract base, concrete domain-specific types \textit{SolutionElement} and \textit{SystemSolution} are derived \cite{boelsen}.
 
-The guidelines further mandate specific structural and behavioral components. The \textit{ActiveSurface} and \textit{ActiveSurfaceSet} are defined as specializations of \textit{SysML::PartDefinition} to represent geometrical structure, while the \textit{Material} is integrated as a reusable structural part within these surfaces.
+Specific structural and behavioral components are required by the guideline. The \textit{ActiveSurface} and \textit{ActiveSurfaceSet} are defined as specializations of \textit{SysML::PartDefinition} to represent geometrical structure, while the \textit{Material} is integrated as a reusable structural part within these surfaces.
 
-Crucially, the behavioral logic is enforced by defining the \textit{PhysicalEffect} not as a block, but as a specialization of the \textit{SysML::ConstraintDefinition} meta type. Corresponding metadata definitions are also derived for \textit{PartUsage} to enable the instantiation of these elements within the system model \cite{boelsen}.
+The behavioral logic is enforced by defining the \textit{PhysicalEffect} not as a block, but as a specialization of the \textit{SysML::ConstraintDefinition} meta type. Corresponding metadata definitions are also derived for \textit{PartUsage} to enable the instantiation of these elements within the system model \cite{boelsen}.
 
 % --- Implementing Guidelines - SYSML V2 - METAMODEL-DRIVEN GUIDELINES (Figure) ---
 \begin{figure}[ht]
@@ -238,7 +236,7 @@ metadata def Material :> PartUsage;
 
 %%%% Applying Metamodel (Enforcing the rules)
 The enforcement of these guidelines is demonstrated in the modeling of a specific component, such as a ''Lubricated Mechanical Line Rolling Contact''. The component is instantiated using the \textit{\#SolutionElementDef} metadata definition (see Fig. \ref{lst:implementation}). 
-By using this specific definition, the modeler is guided to explicitly include the required sub-elements defined in the meta model, specifically the \textit{ActiveSurface} and \textit{PhysicalEffect} \cite{boelsen}.
+The use of this definition guides the inclusion of the required sub-elements defined in the meta model, specifically the \textit{ActiveSurface} and \textit{PhysicalEffect} \cite{boelsen}.
 Within this structure, the \textit{ActiveSurface} integrates essential parameters via attribute definition and references the material using the \textit{\#Material} command \cite{boelsen}.
 Simultaneously, the \textit{PhysicalEffect} is completed by adding input and output attributes and defining the calculation specification as expression, thereby ensuring that the relationship between the physical effect and the functional flows are strictly quantified accordingly \cite{boelsen}.
 %%%% Figure for Applying Metamodel
@@ -305,7 +303,7 @@ In contrast to SysML v1, where verification requires model transformations to ex
 
 By encapsulating verification objectives and constraints directly within the model, the language ensures that the criteria for model correctness are traceable and independent of specific external tools. \cite{molnar}. This capability supports the Verification process by allowing models to be reformulated into Constraint Satisfaction Problems (CSPs) that can be solved using specialized solvers \cite{ratzke,molnar}.
 
-As described by Ratzke et al. this process begins with the compilation of the model into a KerML abstract representation. To render the model solvable, the abstract syntax is ''flattened'' to represent specific instances rather than generic types. This involves cloning features from general definitions to specialized usages and utilizing KerML binding relationships to identify set-intersections between variables and their constraints. The result is a mathematically rigorous CSP consisting of a finite set of variables and their respective domains (Boolean, Integer, or Real), which can then be processed by specialized solvers to enforce logical consistency \cite{ratzke}.
+As described by Ratzke et al. this process begins with the compilation of the model into a KerML abstract representation. To render the model solvable, first the abstract syntax must represent specific instances rather than generic types. This involves cloning features from general definitions to specialized usages and utilizing KerML binding relationships to identify set-intersections between variables and their constraints. The result is a mathematically rigorous CSP consisting of a finite set of variables and their respective domains (Boolean, Integer, or Real), which can then be processed by specialized solvers to enforce logical consistency \cite{ratzke}.
 
 Ratzke et al. \cite{ratzke} demonstrate the application of this workflow by introducing range-based semantics to verify the system's variability and precision. In their implementation the semantic library is extended to include three range-based constraint operators:
 
@@ -315,7 +313,7 @@ Ratzke et al. \cite{ratzke} demonstrate the application of this workflow by intr
     \item \textbf{allOf}: This mandates that all contained values in a range must fulfill the constraint. This is applicable for operational envelopes (e.g., ensuring a system operates across an entire temperature range) \cite{ratzke}.
 \end{itemize}
 
-To demonstrate this, a \textit{Tank} part definition was modeled with attributes for width, height, and length (see Listing \ref{lst:tank_example}). These attributes leverage the \textit{oneOf} operator, to define permissible dimensions. The requirement \textit{tankBigEnough} then enforces the technical standard that the derived volume attribute falls within a specific range \cite{ratzke}.
+To demonstrate this, a \textit{Tank} part definition was modeled with attributes for width, height, and length (see Listing \ref{lst:tank_example}). These attributes leverage the \textit{oneOf} operator to define permissible dimensions. The requirement \textit{tankBigEnough} then enforces the technical standard that the derived volume attribute falls within a specific range \cite{ratzke}.
 
 \begin{figure}[ht]
     \centering
@@ -335,9 +333,7 @@ requirement tankBigEnough {
 \end{lstlisting}
 \end{figure}
 
-By applying constraint propagation algorithms to this model, the solver actively reduces the design space. 
-Restricting the valid domains of the dimensional attributes (width, height, length), verifying that only those values capable of satisfying the tankBigEnough requirement remain. 
-This constitutes a formal verification of the design solution against its technical requirements, achieved entirely through the intrinsic semantics of SysML v2 \cite{ratzke,molnar}.
+A formal verification of the design solution against its requirements ist achieved by applying constraint propagation, where the solver actively reduces the design space. This process restricts the dimensional attributes (width, height, length) to their valid domain, thereby ensuring that only values capable of satisfying the tankBigEnough requirement remain \cite{ratzke,molnar}.  
 
 %
 % Discuss & Implications
@@ -355,11 +351,11 @@ However, as Ratzke et al. \cite{ratzke} note, native declarative constraints (e.
 \subsection{Scalability and Complexity}
 The methodological shift from transformation to reformulation, discussed above, fundamentally alters the scalability and complexity of model verification. In SysML v1, the primary bottleneck was the \textit{fidelity} of the mapping between the modeling tool and external solvers. In SysML v2, where system concepts are defined directly as native logical assertions, the bottleneck shifts to the \textit{solvability} of the resulting mathematical structures.
 
-Ratzke et al. \cite{ratzke} demonstrate that by compiling SysML v2 models into an underlying system of inequations, model analysis can be structured as a Constraint Satisfaction Problem (CSP). While this approach operationalizes the language's native semantics for rigorous verification, it exposes the analysis to the computational limits of CSP solvers, which are classified as NP-hard in best-case scenarios and NP-complete in others \cite{molnar,ratzke}.
+Ratzke et al. \cite{ratzke} demonstrate that by compiling SysML v2 models into an underlying system of linear constraints, model analysis can be structured as a Constraint Satisfaction Problem (CSP). While this approach leverages the language's native semantics for rigorous verification, it exposes the analysis to the computational limits of CSP solvers, which are classified as NP-hard in best-case scenarios and NP-complete in others \cite{molnar,ratzke}.
 
 Consequently, the ''cost'' of consistency is no longer paid in the manual effort of accurate transformation, but in the algorithmic runtime required to solve the reformulated logic. This trade-off is empirically evidenced by Cibrian et al. \cite{cibrian}, who analyzed metamodel-driven verification in SysML v2. Their findings indicate that while reformulation ensures higher semantic coherence, the verification time can grow non-linearly with model size due to the depth of the resulting logical dependency graph. This contrasts sharply with SysML v1, where OCL-based profile checks were computationally lightweight, albeit semantically shallow \cite{cibrian,ratzke}.
 
-To manage this computational complexity, Kausch et al. \cite{kausch} argue that reformulated systems must adhere to strict compositional refinement. By decomposing high-level requirements (HLRs) into independent component architectures, verification can be performed on atomic blocks rather than the monolithic system. This approach ensures that the complexity of proofs grows linearly with the system's structural decomposition rather than exponentially with its state space, allowing theorem provers to verify system models that would otherwise be computationally infeasible \cite{kausch}.
+To manage this computational complexity, Kausch et al. \cite{kausch} argue that reformulated systems must adhere to strict compositional refinement. By decomposing high-level requirements into independent components, verification can be performed on subsystems rather than aggregated system elements. This approach ensures that the complexity of proofs grows linearly with the system's structural decomposition rather than exponentially with its state space, allowing theorem provers to verify system models that would otherwise be computationally infeasible \cite{kausch}.
 
 %
 % Conclusion & Outlook
@@ -369,7 +365,9 @@ This work addressed the research question of how the mechanisms for implementing
 
 SysML v1 relies on extrinsic constraints via stereotypes and OCL. Verification requires transforming models into external formalisms (e.g., OWL), a disjointed process susceptible to semantic gaps where design intent is often lost. Conversely, SysML v2 utilizes a metamodel-driven approach grounded in KerML. Guidelines become intrinsic properties inherited through the separation of Definition and Usage. This foundation in first-order logic shifts verification from transformation to reformulation, allowing models to be solved directly as Constraint Satisfaction Problems (CSPs) within the native environment.
 
-While the semantic formalization of SysML v2 enhances consistency, it introduces scalability challenges as verification becomes bound by the computational limits of solving NP-hard Constraint Satisfaction Problems. Future research must prioritize decomposition strategies to manage state-space growth alongside the development of standardized semantic libraries to replace ad-hoc constraint definitions. This corresponds with emerging metamodel-driven tools that automate consistency checking against the formal ontology. Furthermore, "Model as Code" workflows enable SysML v2 to serve as a central artifact for formal analysis, allowing models to be transpiled for theorem provers and model checkers like Imandra and Gamma. Continued effort is required to bridge the gap between static structural verification and dynamic behavioral validation, ensuring rigorous consistency extends to operational logic.
+While the semantic formalization of SysML v2 enhances consistency, it introduces scalability challenges as verification becomes bound by the computational limits of solving NP-hard Constraint Satisfaction Problems. 
+Future research should look into the development of standardized semantic libraries to replace ad-hoc constraint definitions.  This corresponds with emerging metamodel-driven tools that automate consistency checking against the formal ontology. 
+Furthermore, ''Model as Code'' workflows enable SysML v2 to serve as a central artifact for formal analysis, allowing models to be transpiled for theorem provers and model checkers like Imandra and Gamma. Continued effort is required to bridge the gap between static structural verification and dynamic behavioral validation, ensuring rigorous consistency extends to operational logic.
 
 %
 % Acknowledgment

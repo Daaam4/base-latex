@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.11.5)  4 JAN 2026 15:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.11.5)  4 JAN 2026 19:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -316,30 +316,26 @@ Underfull \vbox (badness 1024) has occurred while \output is active []
 
 ]
 
-LaTeX Warning: Citation `yildirim' on page 2 undefined on input line 140.
-
-
-
 
 
 [2]
-LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 176.
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 174.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
 
 
-Underfull \hbox (badness 4132) in paragraph at lines 212--214
+Underfull \hbox (badness 4132) in paragraph at lines 210--212
  \OT1/ptm/m/it/10 1) Metamodel-Driven Guide-lines: [][] \OT1/ptm/m/n/10 Boelsen et al. [3]
  []
 
 
-Overfull \hbox (7.0pt too wide) in paragraph at lines 236--236
+Overfull \hbox (7.0pt too wide) in paragraph at lines 234--234
 [][] 
  []
 
 
-Overfull \hbox (7.0pt too wide) in paragraph at lines 266--266
+Overfull \hbox (7.0pt too wide) in paragraph at lines 264--264
 [][] 
  []
 
@@ -350,13 +346,8 @@ Overfull \hbox (7.0pt too wide) in paragraph at lines 266--266
 
 
 [4]
-Overfull \hbox (7.0pt too wide) in paragraph at lines 335--335
+Overfull \hbox (7.0pt too wide) in paragraph at lines 333--333
 [][] 
- []
-
-
-Underfull \hbox (badness 1490) in paragraph at lines 338--341
-[]\OT1/ptm/m/n/10 By ap-ply-ing con-straint prop-a-ga-tion al-go-rithms to this
  []
 
 
@@ -367,19 +358,19 @@ Underfull \hbox (badness 1490) in paragraph at lines 338--341
 
 LaTeX Info: Symbol \textasciidieresis not provided by
             font family ptm in TS1 encoding.
-            Default family used instead on input line 387.
+            Default family used instead on input line 385.
 
-Underfull \hbox (badness 10000) in paragraph at lines 407--408
+Underfull \hbox (badness 10000) in paragraph at lines 405--406
 []\OT1/ptm/m/n/8 Object Man-age-ment Group, \Ker-nel Mod-el-ing Lan-guage
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 407--408
+Underfull \hbox (badness 10000) in paragraph at lines 405--406
 \OT1/ptm/m/n/8 (KerML), Ver-sion 1.0," Ob-ject Man-age-ment Group, Spec-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 407--408
+Underfull \hbox (badness 10000) in paragraph at lines 405--406
 \OT1/ptm/m/n/8 i-fi-ca-tion formal/25-09-01, Sep. 2025. [On-line]. Avail-able:
  []
 
@@ -401,21 +392,17 @@ Before submitting the final camera ready copy, remember to:
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
  ) 
 Here is how much of TeX's memory you used:
- 5985 strings out of 473190
- 89542 string characters out of 5715800
- 714201 words of memory out of 5000000
- 29183 multiletter control sequences out of 15000+600000
+ 5984 strings out of 473190
+ 89532 string characters out of 5715800
+ 714144 words of memory out of 5000000
+ 29182 multiletter control sequences out of 15000+600000
  600438 words of font info for 119 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,11n,65p,992b,1298s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 57i,11n,65p,843b,1298s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Thesis.pdf (6 pages, 140062 bytes).
+Output written on Thesis.pdf (6 pages, 139642 bytes).
 PDF statistics:
  65 PDF objects out of 1000 (max. 8388607)
  40 compressed objects within 1 object stream
