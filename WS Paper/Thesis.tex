@@ -115,7 +115,7 @@ Within the context of model analysis, a distinct differentiation between model v
 This work addresses the following research question: \textbf{How do the mechanisms for implementing modeling guidelines differ between SysML v1 and SysML v2, and how do these differences impact the capabilities automated verification?}
 
 % --- INTRODUCTION - METHODOLOGY & SCOPE ---
-TODO UPDATE to explicitly mention the case studies discussed (not a holistic overview)
+% TODO UPDATE to explicitly mention the case studies discussed (not a holistic overview)
 To answer this, we conduct a comparative analysis of the underlying implementation mechanisms, specifically contrasting the profile-based constraints of SysML v1 with the metamodel-driven and formal semantic capabilities of SysML v2. 
 We analyze the implications of this shift by examining specific scenarios where these mechanisms facilitate structural verification, rather than providing a holistic overview of all available commercial tools.
 
@@ -358,7 +358,7 @@ Ratzke et al. \cite{ratzke} demonstrate that by compiling SysML v2 models into a
 
 Consequently, the ''cost'' of consistency is no longer paid in the manual effort of accurate transformation, but in the algorithmic runtime required to solve the reformulated logic. This trade-off is empirically evidenced by Cibrian et al. \cite{cibrian}, who analyzed metamodel-driven verification in SysML v2. Their findings indicate that while reformulation ensures higher semantic coherence, the verification time can grow non-linearly with model size due to the depth of the resulting logical dependency graph. This contrasts sharply with SysML v1, where OCL-based profile checks were computationally lightweight, albeit semantically shallow.
 
-Kausch et al. \cite{kausch} argue that to avoid the state-space explosion common in formal logic solvers, reformulated systems must adhere to strict hierarchical decomposition. They propose a "rule of ten," ensuring that no single logical block contains more than ten sub-elements, thereby allowing theorem provers to verify the system through linear composition rather than exponential search.
+To manage this computational complexity, Kausch et al. \cite{kausch} argue that reformulated systems must adhere to strict compositional refinement. By decomposing high-level requirements (HLRs) into independent component architectures, verification can be performed on atomic blocks rather than the monolithic system. This approach ensures that the complexity of proofs grows linearly with the system's structural decomposition rather than exponentially with its state space, allowing theorem provers to verify system models that would otherwise be computationally infeasible.
 
 %
 % Conclusion & Outlook
