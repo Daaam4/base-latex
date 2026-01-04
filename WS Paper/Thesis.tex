@@ -342,9 +342,14 @@ This constitutes a formal verification of the design solution against its techni
 %
 \section{Discussion and Implications}
 \subsection{The Shift from Extrinsic to Native Constraints}
-- Eliminating the Semantic Gap: Explains how SysML v2 resolves the transformation issue while acknowledging that reformulation to CSP is still needed
-- Enhanced Traceability: Contrasts external OCL annotations with embedded metadata definitions
-- Single Source of Truth: Discusses the Definition-Usage separation advantage
+The migration from SysML v1 to SysML v2 marks a transition from visual modeling augmented by extrinsic constraints to a framework where constraints are native mathematical primitives.
+
+% --- Discussion - Semantic Grounding and Solver Integration ---
+\subsubsection{From Transformation to Reformulation}
+SysML v1 mandates a disjointed verification workflow: engineers must define the model structure, annotate it with extrinsic OCL constraints, and subsequently transform the entire artifact into formal languages (e.g., OWL, Alloy) to enable execution \cite{beers, lu}. As Lu et al. \cite{lu} establish, this reliance on external transformation creates a ''semantic gap'', where discrepancies between the semi-formal UML metamodel and the target logic often corrupt design intent \cite{lu}.
+
+SysML v2 fundamentally alters this flow by grounding the language in KerML (First-Order Logic), merging model definition and constraint specification into a single, natively formal step. As Molnar et al. \cite{molnar} demonstrate, this formal foundation allows a single SysML v2 model to act as a ''formal base ontology'' that can be verified across diverse mathematical domains—ranging from theorem proving (Imandra) to model checking (Gamma) without the ambiguity of profile-based transformation. 
+However, as Ratzke et al. \cite{ratzke} note, native declarative constraints (e.g., anyOf ranges) must still be reformulated into solver-specific inputs (e.g., Linear Programming) for analysis \cite{ratzke}. Thus, the burden shifts from transforming the model to generate meaning to reformulating the mathematical definition for computational efficiency.
 
 \subsection{Scalability and Complexity}
 - Computational Complexity: Addresses NP-hardness of CSP solving for large-scale systems
