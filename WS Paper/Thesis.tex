@@ -94,11 +94,11 @@ Model-Based Systems Engineering (MBSE) is a methodology for the development and 
 MBSE incorporates a centralized system model as the primary source of information, throughout the system lifecycle \cite{bergemann,cibrian,boelsen,friedenthal}. 
 
 % --- INTRODUCTION - SYSML V1 ---
-SysML v1 has been widely adopted as the standard for modelling CPS and served as a key enabler for MBSE. SysML v1 is a graphical, general purpose modelling language that is defined as an extension of the Unified Modeling Language (UML). Because it was built on top of UML, SysML v1 inherited several limitations from UML that limited its expressiveness and usability for CPS modelling. However, it still provided a solid  foundation for specifying and analyzing a systems's behavior, structure and requirements \cite{boelsen,cibrian,friedenthal}.
+SysML v1 has been widely adopted as the standard for modeling CPS and served as a key enabler for MBSE. SysML v1 is a graphical, general purpose modeling language that is defined as an extension of the Unified Modeling Language (UML). Because it was built on top of UML, SysML v1 inherited several limitations from UML that limited its expressiveness and usability for CPS modeling. However, it still provided a solid  foundation for specifying and analyzing a systems's behavior, structure and requirements \cite{boelsen,cibrian,friedenthal}.
  
 % --- INTRODUCTION - SYSML V2 ---
 The release of SysML v2 represents the next generation of the Systems Modeling Language, designed as an overhaul of SysML v1 that addresses its limitations and enhances the efficacy of MBSE practices.
-Unlike its predecessor, SysML v2 is built upon the Kernel Modeling Language (KerML), this approach ensures that SysML v2 inherits a formal semantic foundation that is crucial for enhanced precision and automation in MBSE workflows \cite{boelsen,cibrian,friedenthal,molnar}.
+Unlike its predecessor, SysML v2 is built upon the Kernel Modeling Language (KerML); this approach ensures that SysML v2 inherits a formal semantic foundation that is crucial for enhanced precision and automation in MBSE workflows \cite{boelsen,cibrian,friedenthal,molnar}.
 
 % --- INTRODUCTION - PROBLEM STATEMENT ---
 While these advancements introduced by SysML v2 are promising, the abstract nature of the language still presents challenges for ensuring consistent modeling practices across diverse engineering teams.
@@ -140,7 +140,7 @@ SysML v1's modeling constructs are organized in four main categories:
 \end{itemize}
 
 % --- THEORETICAL BACKGROUND - SYSML V1 - STEREOTYPES AND PROFILING ---
-The restriction of modeling practices in SysML v1 is achieved through UML profiling mechanism that enable the construction of specialized extensions. The main element for customization is the \textit{stereotype}, which functions as a distinct metaclass within UML \cite{beers}. Stereotypes enable the customization of existing metaclasses by associating them with specific properties and constraints, thereby tailoring the modeling language to meet domain-specific requirements \cite{beers}.
+The restriction of modeling practices in SysML v1 is achieved through UML profiling mechanism that enable the construction of specialized extensions. The main element for customization is the \textit{Stereotype}, which functions as a distinct metaclass within UML \cite{beers}. Stereotypes enable the customization of existing metaclasses by associating them with specific properties and constraints, thereby tailoring the modeling language to meet domain-specific requirements \cite{beers}.
 
 % --- THEORETICAL BACKGROUND - SYSML V1 - OBJECT CONSTRAINT LANGUAGE (OCL) ---
 \textit{Object Constraint Language (OCL)} is an expression language that enables formally defining rules, invariants and constraints on model elements that must be satisfied for a model to be considered valid \cite{ratzke}. It identifies what a valid state is but does not provide the mechanism to calculate variables to reach that state.
@@ -170,7 +170,8 @@ SysML v2 introduces several key features for further enhancing modeling capabili
 \begin{itemize}
     \item \textbf{Textual Notations}: In addition to graphical notation, SysML v2 features a standardized textual syntax that provides advantages for interoperability with external tools and exchange of models \cite{omg,molnar}.
     \item \textbf{Standardized API}: The language includes the new Systems Modeling API (SysML API), which enables full access to the model and general Model as Code workflows \cite{omg,molnar}.
-    \item \textbf{Metadata Definitions}: In SysML v2, \textit{Metadata Definitions} (\texttt{metadata def}) serve as the primary mechanism for annotating model elements with domain-specific semantics, analogous to Stereotypes in SysML v1. They define a specific schema (properties and constraints) that extends the language's metaclasses, enabling the creation of domain-specific modeling languages (DSMLs) \cite{molnar,boelsen}.
+    \item \textbf{Metadata Definitions}: In SysML v2, \textit{Metadata Definitions} (\texttt{metadata def}) serve as the primary mechanism for annotating model elements with domain-specific semantics, analogous to S
+    stereotypes in SysML v1. They define a specific schema (properties and constraints) that extends the language's metaclasses, enabling the creation of domain-specific modeling languages (DSMLs) \cite{molnar,boelsen}.
     \item \textbf{Constraints}: KerML provides the foundation for defining constraints through constructs such as \textit{assert}, \textit{invariant}, \textit{requirement}. These KerML constructs enable the model to be treated as a mathematical system that can be analyzed and solved directly \cite{ratzke}. 
     \item \textbf{Cases}: SysML v2 introduced a generic \textit{Case} construct which is essentially a calculation that can declare a subject and an objective to provide a formal and executable way to check model correctness and evaluate system properties. Two specialized cases are provided: \textit{Analysis Case} (Quantitative Analysis) and \textit{Verification Case} (Qualitative Analysis), further enhancing model analysis capabilities \cite{molnar}.
 \end{itemize}
@@ -190,7 +191,7 @@ This section presents structural mechanisms used to define and enforce domain-sp
 \subsection{SysML v1: Profile-Based Implementation} %{ Beers }
 In SysML v1, the implementation of domain-specific guidelines is achieved through a multiple layer approach.
 % --- Implementing Guidelines - SYSML V1 - SEMANTIC EXTENSION VIA STEREOTYPES ---
-First, system engineers utilize the \textit{Stereotypes} to build a custom profile that overlays the native SysML v1 metamodel, thereby introducing semantic labeling and domain specific terminology \cite{beers}. The application of SysML v1 elements is then restricted to a specific palette of stereotyped elements, ensuring that the model structure reflects domain-specific semantics rather than generic block definitions \cite{beers}.
+First, system engineers utilize \textit{stereotypes} to build a custom profile that overlays the native SysML v1 metamodel, thereby introducing semantic labeling and domain specific terminology \cite{beers}. The application of SysML v1 elements is then restricted to a specific palette of stereotyped elements, ensuring that the model structure reflects domain-specific semantics rather than generic block definitions \cite{beers}.
 
 This mechanism is illustrated by Beers et al. \cite{beers} in the development of a Domain-specific Modeling Language (DSML) for formal process description. To enforce the guideline that system functions must be standardized, the author extends the metaclass \textit{CallBehaviorAction} to create a specific \textit{Process Operator} stereotype. This ensures that an element cannot be designated as a \textit{Process Operator} unless it inherits the specific meta-attributes defined by the stereotype.
 
@@ -276,7 +277,7 @@ Boelsen et al. \cite{boelsen} leverages this to enforce a standardized structure
     \item \textbf{Restricted Customization}: the guideline can dictate that the internal structure is defined once in the library (\textit{Definition}). In the system model (\textit{Usage}), the engineer interacts with the exposed parameters (e.g., input/output flows) but relies on the validated internal logic of the \textit{Definition}.
 \end{itemize}
 
-Overall, this separation allows the guidelines to treat the \textit{Definition} as the ''Single Point of Truth'' (SPOT) stored in libraries. The \textit{Usage} are merely pointers to these definitions. Thereby, preventing redundant modeling efforts and diverse formalization.
+Overall, this separation allows the guidelines to treat the \textit{Definition} as the ''Single Point of Truth'' (SPOT) stored in libraries. The \textit{Usages} are merely pointers to these definitions, thereby preventing redundant modeling efforts and diverse formalization.
 
 %
 % --- Mechanisms for Model Verification ---
@@ -331,7 +332,7 @@ requirement tankBigEnough {
 \end{lstlisting}
 \end{figure}
 
-A formal verification of the design solution against its requirements ist achieved by applying constraint propagation, where the solver actively reduces the design space. This process restricts the dimensional attributes (width, height, length) to their valid domain, thereby ensuring that only values capable of satisfying the tankBigEnough requirement remain \cite{ratzke,molnar}.  
+A formal verification of the design solution against its requirements is achieved by applying constraint propagation, where the solver actively reduces the design space. This process restricts the dimensional attributes (width, height, length) to their valid domain, thereby ensuring that only values capable of satisfying the tankBigEnough requirement remain \cite{ratzke,molnar}.  
 
 %
 % Discuss & Implications
