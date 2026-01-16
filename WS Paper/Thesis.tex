@@ -155,7 +155,7 @@ The mechanism of KerML is built upon a hierarchical, three-layered architecture,
 
 \begin{itemize}
     \item The \textbf{Root Layer} establishes the essential syntactic scaffolding for constructing models. The main focus of this layer is to define organizational constructs, such as \textit{Elements}, \textit{Namespaces}, and \textit{Relationships}, leaving out model-level semantic interpretation relative to the modeled system \cite{omg,molnar}.
-    \item The \textbf{Core Layer} introduces the language's semantic foundation based on classification, defined in first-order logic axioms. The central primitive is \textit{Type}, which is divided into \textit{Classifiers}, \textit{Features}. It also defines key relationships necessary for organizing classification hierarchies \cite{omg,molnar}. 
+    \item The \textbf{Core Layer} provides the language's formal base ontology by defining the semantics of modeling elements through first-order logic (FOL) axioms. These axioms establish a declarative semantics, specifying the precise logical constraints required for a valid interpretation of the \textit{Types} (Classifiers and Features) and relationships within the model \cite{omg,molnar}.
     \item The \textbf{Kernel Layer} finalizes the language specification by adding specialized constructs used in common modeling applications, such as \textit{Data Types}, \textit{Classes}, \textit{Structures}, and \textit{Behaviors} \cite{omg,molnar}.
 \end{itemize}
 
