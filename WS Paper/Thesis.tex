@@ -206,7 +206,7 @@ SysML v2 implements guidelines intrinsically by the extension of the language's 
 \textit{Metadata Definitions} is used to construct domain-specific metamodel hierarchies directly within the language architecture by specializing standard KerML constructs \cite{boelsen}.
 
 \subsubsection{Metamodel-Driven Guidelines} % {Boelsen}
-Boelsen et al. \cite{boelsen} demonstrates this by implementing modeling guidelines for reusable mechanical system elements based on the \textit{motego} methodology. By defining an abstract metadata definition for a general \textit{solution} the structural foundation is achieved that is set up as a specialization of the standard \textit{SysML::PartDefinition} (see Fig. \ref{lst:metamodel}). From this abstract base, concrete domain-specific types \textit{SolutionElement} and \textit{SystemSolution} are derived.
+Boelsen et al. \cite{boelsen} demonstrates this by implementing modeling guidelines for reusable mechanical system elements based on the \textit{motego} methodology. By defining an abstract metadata definition for a general \textit{solution} the structural foundation is achieved that is set up as a specialization of the standard \textit{SysML::PartDefinition} (see Listing \ref{lst:metamodel}). From this abstract base, concrete domain-specific types \textit{SolutionElement} and \textit{SystemSolution} are derived.
 
 Specific structural and behavioral components are required by the guideline. The \textit{ActiveSurface} and \textit{ActiveSurfaceSet} are defined as specializations of \textit{SysML::PartDefinition} to represent geometrical structure, while the \textit{Material} is integrated as a reusable structural part within these surfaces.
 
@@ -233,7 +233,7 @@ metadata def Material :> PartUsage;
 \end{figure}
 
 %%%% Applying Metamodel (Enforcing the rules)
-The enforcement of these guidelines is demonstrated in the modeling of a specific component, such as a ''Lubricated Mechanical Line Rolling Contact''. The component is instantiated using the \textit{\#SolutionElementDef} metadata definition (see Fig. \ref{lst:implementation}). 
+The enforcement of these guidelines is demonstrated in the modeling of a specific component, such as a ''Lubricated Mechanical Line Rolling Contact''. The component is instantiated using the \textit{\#SolutionElementDef} metadata definition (see Listing \ref{lst:implementation}). 
 The use of this definition guides the inclusion of the required sub-elements defined in the meta model, specifically the \textit{ActiveSurface} and \textit{PhysicalEffect} \cite{boelsen}.
 Within this structure, the \textit{ActiveSurface} integrates essential parameters via attribute definition and references the material using the \textit{\#Material} command \cite{boelsen}.
 Simultaneously, the \textit{PhysicalEffect} is completed by adding input and output attributes and defining the calculation specification as expression, thereby ensuring that the relationship between the physical effect and the functional flows are strictly quantified accordingly \cite{boelsen}.
