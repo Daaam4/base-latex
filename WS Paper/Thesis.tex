@@ -69,7 +69,7 @@ nassim.awabdy@alumni.fh-aachen.de}
 % Abstract
 %
 \begin{abstract}
-The increasing complexity of Cyber-Physical Systems (CPS) is managed by rigorous Model-Based Systems Engineering (MBSE) practices that ensure architectural and technical consistency. This study compares guideline implementation mechanisms in SysML v1 and SysML v2, exploring their specific impact on automated verification. Our comparative analysis reveals a fundamental shift in paradigm between the two versions.
+The increasing complexity of Cyber-Physical Systems (CPS) is managed by rigorous Model-Based Systems Engineering (MBSE) practices that ensure architectural and technical consistency. This study compares guideline implementation mechanisms in SysML v1 and SysML v2, exploring their specific impact on automated verification. The comparative analysis reveals a fundamental shift in paradigm between the two versions.
 SysML v1, relies on extrinsic mechanisms, specifically Profiles and the Object Constraint Language (OCL), which necessitate transforming models into external formalisms, often introducing semantic gaps and inconsistencies.
 In contrast, SysML v2's foundation in Kernel Modeling Language (KerML) allows for intrinsic implementation and enforcement of modeling guidelines. The utilization of Metadata Definitions and the separation of Definition and Usage, allows guidelines to be inherited as native logical assertions. Consequently, the verification process evolves from model transformation to mathematical reformulation, enabling models to be solved directly as Constraint Satisfaction Problems (CSPs). This formalization resolves the semantic ambiguities found in v1, but shifts the burden of consistency from the accuracy of manual mapping to the computational management of NP-hard solution spaces.
 \end{abstract}
@@ -116,8 +116,8 @@ Within the context of model analysis, a distinct differentiation between model v
 This work addresses the following research question: \textbf{How do the mechanisms for implementing modeling guidelines differ between SysML v1 and SysML v2, and how do these differences impact the capabilities of automated verification?}
 
 % --- INTRODUCTION - METHODOLOGY & SCOPE ---
-To answer this, we conduct a comparative analysis of the underlying implementation mechanisms, specifically contrasting the profile-based constraints of SysML v1 with the metamodel-driven and formal semantic capabilities of SysML v2. 
-We analyze the implications of this shift by examining specific scenarios where these mechanisms facilitate structural verification, rather than providing a holistic overview of all available commercial tools.
+To answer this, a comparative analysis is conducted of the underlying implementation mechanisms, specifically contrasting the profile-based constraints of SysML v1 with the metamodel-driven and formal semantic capabilities of SysML v2. 
+This work analyzes the implications of this shift by examining specific scenarios where these mechanisms facilitate structural verification, rather than providing a holistic overview of all available commercial tools.
 
 %
 % Theoretical Background
@@ -184,7 +184,7 @@ The utility and implementation of solvers differ fundamentally between SysML v1 
 % Implementing Guidelines
 %
 \section{Mechanisms for Guideline Implementation}
-This section presents structural mechanisms used to define and enforce domain-specific modeling guidelines for both SysML v1 and SysML v2. For each version, we outline known methods of implementation and exemplify their application.
+This section presents structural mechanisms used to define and enforce domain-specific modeling guidelines for both SysML v1 and SysML v2. For each version, known methods of implementation are outlined and their application is exemplified.
 
 % --- Implementing Guidelines - SYSML V1 ---
 \subsection{SysML v1: Profile-Based Implementation} %{ Beers }
