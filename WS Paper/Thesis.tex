@@ -206,7 +206,7 @@ SysML v2 implements guidelines intrinsically by the extension of the language's 
 \textit{Metadata Definitions} is used to construct domain-specific metamodel hierarchies directly within the language architecture by specializing standard KerML constructs \cite{boelsen}.
 
 \subsubsection{Metamodel-Driven Guidelines} % {Boelsen}
-Boelsen et al. \cite{boelsen} demonstrates this by implementing modeling guidelines for reusable mechanical system elements based on the \textit{motego} methodology. By defining an abstract metadata definition for a general \textit{solution} the structural foundation is achieved that is set up as a specialization of the standard \textit{SysML::PartDefinition} (see Listing \ref{lst:metamodel}). From this abstract base, concrete domain-specific types \textit{SolutionElement} and \textit{SystemSolution} are derived.
+Boelsen et al. \cite{boelsen} demonstrate this by implementing modeling guidelines based on the \textit{motego}, a function-oriented methodology that standardizes decomposition and formalization of reusable mechanical elements. By establishing an abstract metadata definition for a general \textit{solution}, a structural foundation is achieved that is set up as a specialization of the standard \textit{SysML::PartDefinition} (see Listing \ref{lst:metamodel}). From this abstract base, concrete domain-specific types \textit{SolutionElement} and \textit{SystemSolution} are derived.
 
 Specific structural and behavioral components are required by the guideline. The \textit{ActiveSurface} and \textit{ActiveSurfaceSet} are defined as specializations of \textit{SysML::PartDefinition} to represent geometrical structure, while the \textit{Material} is integrated as a reusable structural part within these surfaces.
 
@@ -297,7 +297,7 @@ They initially show how the native SysML v1 tool successfully verifies a model c
 
 %%% --- Mechanisms for Model Verification - SYSML V2 --- %{ Molanr, Ratzke }
 \subsection{SysML v2: Formal Verification via Constraint Satisfaction} 
-In contrast to SysML v1, where verification requires model transformations to external formalisms (e.g., OWL) to check logical consistency, SysML v2 native constraints are built upon KerML, which is founded on first-order logic \cite{molnar}. This intrinsic formalism allows SysML v2 models to be directly interpreted as mathematical systems that can be analyzed and solved using specialized solvers \cite{ratzke,molnar}.
+In contrast to SysML v1, where verification requires model transformations to external formalisms (e.g., OWL) to check logical consistency, SysML v2 native constraints are built upon KerML, which is founded on first-order logic, a formal system that allows statements to be mathematically proven true or false \cite{molnar}. This intrinsic formalism allows SysML v2 models to be directly interpreted as mathematical systems that can be analyzed and solved using specialized solvers \cite{ratzke,molnar}.
 
 By encapsulating verification objectives and constraints directly within the model, the language ensures that the criteria for model correctness are traceable and independent of specific external tools. \cite{molnar}. This capability supports the Verification process by allowing models to be reformulated into Constraint Satisfaction Problems (CSPs) that can be solved using specialized solvers \cite{ratzke,molnar}.
 
