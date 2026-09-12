@@ -1,7 +1,9 @@
 # AGENTS.md — Master Prompt for the Master's Thesis (branch `master-thesis`)
 
-> **Read this first in every session, then read `0. OVERVIEW.md`.**
-> This file holds the stable context; **`0. OVERVIEW.md` is the living status dashboard** (milestones, task checklists, blockers, log) — update it at the end of every session.
+> **Read order:** this file → `0. OVERVIEW.md` → `.pi/context/` as needed.
+> - **`0. OVERVIEW.md` is the user's document:** milestone-structured, short, checkbox-driven. M1 (Exposé) is detailed; M2–M5 are placeholders until agreed with Prof. Voss. **Keep it lean — do not move reference detail back into it.**
+> - **`.pi/context/`** holds the agent-facing detail: decisions (D1–D13), requirements, evaluation + statistical design, tooling, related work, conventions. Index: `.pi/context/00-index.md`.
+> - At the end of a session: tick the Overview checkboxes, add one log row, update the relevant `.pi/context/` file if a decision changed.
 > The Obsidian vault (`~/Documents/Obsidian Vault/Master Arbeit`) is **deprecated** — do not read from or write to it. Everything lives in this repo; thesis files are at the repository root.
 
 ---
@@ -40,7 +42,8 @@ The repository root **is** the thesis workspace. Templates and the old seminar p
 
 ```
 base-latex/
-├── 0. OVERVIEW.md             ← living status dashboard: milestones, checklists, blockers (keep current!)
+├── 0. OVERVIEW.md             ← user-facing status: milestones + checklists (keep lean!)
+├── .pi/context/               ← agent context: decisions, requirements, eval design, tooling (00-index.md)
 ├── AGENTS.md                  ← this file (master prompt); CLAUDE.md is a symlink to it
 ├── 000report.tex              ← main file for milestone documents (currently the Exposé)
 ├── Makefile                   ← make | make open | make watch | make clean
@@ -80,13 +83,13 @@ Later additions (planned): `models/` (git submodules for Apollo 11 + GfSE), `pag
 ## 5. Session start checklist
 
 1. `git status && git log --oneline -5` on `master-thesis`.
-2. Read **`0. OVERVIEW.md`** — §5 blockers, §6 task board, §3 milestones.
+2. Read **`0. OVERVIEW.md`** (current milestone + open items), then the relevant `.pi/context/` file.
 3. Ask the user what today's goal is if not stated; otherwise proceed.
-4. At the end: tick/extend the checklists in `0. OVERVIEW.md`, add a `§12 Log` row, and commit.
+4. At the end: tick the Overview checkboxes, add a log row, update `.pi/context/` if a decision changed, and commit.
 
 ## 6. Next steps
 
-Tracked in **`0. OVERVIEW.md` §6 (task board)** — single place, do not duplicate here.
+Tracked in **`0. OVERVIEW.md`** (current milestone) — single place, do not duplicate here.
 
 ## 7. Log
 
