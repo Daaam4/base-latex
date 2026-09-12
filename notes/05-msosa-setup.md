@@ -41,7 +41,9 @@
 ## 3. Consequences for the thesis
 
 ### 3.1 Bridge option: B becomes the default
-No Teamwork Cloud ⇒ **no standard SysML v2 REST API endpoint** (that API is served by TWC, not by the desktop client).
+No Teamwork Cloud ⇒ **no standard SysML v2 REST API endpoint _over the MSoSA model_** (within the CATIA Magic line that API is served by TWC, not by the desktop client).
+
+> ⚠️ **Do not overstate this.** A standard-conformant SysML v2 API server exists **free and locally**: the OMG **pilot implementation** (`Systems-Modeling/SysML-v2-API-Services`). So "MCP server for SysML v2" needs no TWC at all — a seminar project did exactly that without it. TWC is only needed to reach an **MSoSA-hosted** model via the standard API. The thesis premise is the *industrial tool* (D3), which is why TWC matters here and nowhere else.
 → **Option B (MagicDraw/Cameo OpenAPI Java plugin inside MSoSA)** is the realistic path; Option A stays as related work / future work, and as an argument about tool-agnosticism.
 
 Implications to write up:
@@ -58,7 +60,8 @@ SysML v2 support in 2024x is feature-flagged and plugin-based — i.e. **incubat
 
 - [ ] **Priority spike (do before the exposé promises anything):** install MSoSA, enable the flag, install the three plugins, import one small GfSE model, then check in a trivial Java plugin whether SysML v2 elements are visible/creatable through the OpenAPI.
 - [ ] Ask whether a **newer MSoSA build (2025x / 2026x)** is available — SysML v2 support improved substantially and is no longer feature-flagged in later releases.
-- [ ] Ask explicitly about **Teamwork Cloud** (even a trial/eval instance would unlock Option A and the standard-API framing).
+- [ ] Ask explicitly about **Teamwork Cloud** (even a trial/eval instance would unlock Option A and the standard-API framing over the MSoSA model).
+- [ ] **Verify in the spike:** can the 2024x *SysML v2* plugin import/export against an **external SysML v2 API repository**? If yes, MSoSA could sync with a **local pilot-implementation server** — giving standard-API access to an MSoSA-authored model *without* TWC. That would be the best of both worlds; currently **unverified, do not assume**.
 
 ### 3.3 Practical / operational
 - **FH VPN is required for the licence** ⇒ every evaluation run depends on VPN + licence-server availability. Plan for: batch runs, retry on licence checkout failure, and document this as a threat to reproducibility.
