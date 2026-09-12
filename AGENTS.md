@@ -15,7 +15,7 @@
 | Second examiner | **M. Eng. Tim Höner** — wissenschaftlicher Mitarbeiter, FB5, Lehrgebiet Datennetze / IT-Sicherheit / IT-Forensik · hoener@fh-aachen.de · +49 241 6009 52122 |
 | Thesis | *Evaluating AI Agent Capabilities in SysML v2 Modeling via an MCP Bridge to Magic Systems of Systems Architect* |
 | Timeline | official start **01.09.2026**, 20 weeks → submission **≈ 19.01.2027** |
-| Milestones | **M1 Exposé — due 30.09.2026, max 2 pages** · weekly group meetings with Prof. Voss from end Sep / early Oct |
+| Fixed dates | **Exposé sent to Prof. Voss by 20.09.2026** (formal due 30.09) · **practical work done by 10.12.2026** · submission ≈ 19.01.2027. Further milestones are defined *after* the exposé. Weekly group meetings with Prof. Voss from end Sep / early Oct. |
 | Language | English. Template: `fh-template` (KOMA `scrreprt`, annotated bibliography via `unsrtdineng.bst`) |
 | Length | **min. 40 pages** thesis body (hard requirement) |
 | Prior work | WS seminar paper (grade 1.3): *Mechanisms for Model Consistency — SysML v1 vs v2 guidelines* (`0. Seminar/WS Paper/`), on branch `SysML-modeling-guidelines` |
@@ -70,7 +70,7 @@ Later additions (planned): `models/` (git submodules for Apollo 11 + GfSE), `pag
 - **Branch:** `master-thesis`. Commit small with prefixes `feat:` / `fix:` / `docs:`. Do not commit build artefacts (see `.gitignore`); `000report.pdf` and `milestones/*.pdf` are committed on purpose.
 - **Build:** `make` in the repo root (latexmk, TeX Live 2025 is installed). Check page count with `pdfinfo 000report.pdf`; extract text with `pdftotext -layout`.
 - **Bibliography:** every entry carries a `note = {…}` annotation (1–3 sentences on relevance); the three most important get `[TOP 3]`. **Never invent authors/venues/years** — leave `TODO` and verify from the PDF/DOI.
-- **Exposé rules:** ≤ 2 pages body text (title page + bibliography excluded). Structure mirrors the WS exposé: Motivation → Problem → RQ & hypotheses → Approach → Evaluation → Work plan.
+- **Exposé rules (official brief):** ½–1 page body — Themendefinition · Relevanz · erste grobe Forschungsfrage/Hypothese · Überlegungen zu Quellenarten — **plus** an annotated literature list of ~15 entries (IEEE style, 2–3 sentences each on topic/method/relevance, 3 most important highlighted). The "max 2 pages" figure from the kickoff conflicts with this — confirm with Prof. Voss.
 - **Notes:** keep decisions in `notes/decisions-log.md` (dated: what, why, alternatives rejected) and new numbered notes; keep literature summaries in `notes/literature/` and register them in `0. Index.md`.
 - **Working process — write while working:** every practical phase (bridge, benchmark, evaluation) is written up into `pages/2xx-*.tex` **as soon as it is done**, while the next phase's implementation continues. A phase is not finished until its prose exists. See `0. OVERVIEW.md` §2.1 for the page budget.
 - **Implementation is vibe-coded** (MCP bridge / MBSE harness, evaluation framework, fault injection, run harness): favour speed, but log design decisions, dead ends and limitations as they happen — that log becomes the Design and Discussion chapters. Capture tool output/errors/screenshots into `pic/` immediately.
