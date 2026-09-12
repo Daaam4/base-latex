@@ -11,12 +11,12 @@
 |---|---|
 | Student | **Nassim Awabdy**, Matr. 3196909, Master FB5 (Elektrotechnik & Informationstechnik), FH Aachen |
 | Supervisor | **Prof. Dr. Sebastian Voss** (MBSE) |
-| Second examiner | **Prof. Hüner** |
+| Second examiner | **M. Eng. Tim Höner** — wissenschaftlicher Mitarbeiter, FB5, Lehrgebiet Datennetze / IT-Sicherheit / IT-Forensik · hoener@fh-aachen.de · +49 241 6009 52122 |
 | Thesis | *Evaluating AI Agent Capabilities in SysML v2 Modeling via an MCP Bridge to Magic Systems of Systems Architect* |
 | Timeline | official start **01.09.2026**, 20 weeks → submission **≈ 19.01.2027** |
 | Milestones | **M1 Exposé — due 30.09.2026, max 2 pages** · weekly group meetings with Prof. Voss from end Sep / early Oct |
 | Language | English. Template: `fh-template` (KOMA `scrreprt`, annotated bibliography via `unsrtdineng.bst`) |
-| Prior work | WS seminar paper (grade 1.3): *Mechanisms for Model Consistency — SysML v1 vs v2 guidelines* (`Seminar/WS Paper/`), on branch `SysML-modeling-guidelines` |
+| Prior work | WS seminar paper (grade 1.3): *Mechanisms for Model Consistency — SysML v1 vs v2 guidelines* (`0. Seminar/WS Paper/`), on branch `SysML-modeling-guidelines` |
 
 ## 2. Decisions so far (kickoff 07.09.2026)
 
@@ -52,10 +52,10 @@ base-latex/
 │   ├── 03-kickoff-results.md      decisions + open questions
 │   ├── 04-model-candidates.md     model comparison, MSoSA API facts, bridge options, prior art
 │   └── literature/                paper summaries; `0. Index.md` is the index; `update-sep-2026-*.md` = landscape
-├── templates/
+├── 0. Templates/
 │   ├── fh-template/           ← FH Aachen report template (do not edit; copy from it)
 │   └── conference-template/   ← IEEEtran template
-└── Seminar/
+└── 0. Seminar/
     ├── WS Paper/              ← previous seminar paper (reference only)
     └── WS Milestones/         ← its exposé / concept PDFs
 ```
