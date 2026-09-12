@@ -16,8 +16,9 @@
 | Thesis | *Evaluating AI Agent Capabilities in SysML v2 Modeling via an MCP Bridge to Magic Systems of Systems Architect* |
 | Timeline | official start **01.09.2026**, 20 weeks → submission **≈ 19.01.2027** |
 | Fixed dates | **Exposé sent to Prof. Voss by 20.09.2026** (formal due 30.09) · **practical work done by 10.12.2026** · submission ≈ 19.01.2027. Further milestones are defined *after* the exposé. Weekly group meetings with Prof. Voss from end Sep / early Oct. |
-| Language | English. Template: `fh-template` (KOMA `scrreprt`, annotated bibliography via `unsrtdineng.bst`) |
-| Length | **min. 40 pages** thesis body (hard requirement) |
+| Language | **English** (confirmed). Template: `fh-template` (KOMA `scrreprt`, annotated bibliography via `unsrtdineng.bst`) |
+| Length | **min. 40 pages** thesis body (confirmed hard requirement) |
+| Tooling | FH licence covers **MSoSA only** (2024x Refresh2 HF1 Academic, VPN-gated licence server; no Teamwork Cloud known). LLMs: **own Anthropic Max subscription** → Claude family only. |
 | Prior work | WS seminar paper (grade 1.3): *Mechanisms for Model Consistency — SysML v1 vs v2 guidelines* (`0. Seminar/WS Paper/`), on branch `SysML-modeling-guidelines` |
 
 ## 2. Decisions so far (kickoff 07.09.2026)
@@ -31,7 +32,7 @@
 4. **Evaluation design:** benchmark of tasks per use case with ground truth; ablation arms (no tool / thin CRUD bridge / semantic bridge with tool-native validation & evaluation); fault injection for *Korrektur*; evaluator outside the agent loop; 2–3 LLMs.
 5. Research question + H1–H3 are in `pages/101expose.tex`.
 
-**Open questions (ask Prof. Voss / FH IT):** MSoSA version (SysML v2 needs 2025x+)? Teamwork Cloud available? LLM API budget? — full list in `notes/03-kickoff-results.md`.
+**Open questions (ask Prof. Voss):** newer MSoSA build (2025x/2026x)? Teamwork Cloud available? expected rigour level? — current list in `0. OVERVIEW.md` §5. Settled: English, ≥ 40 pages, Anthropic Max, MSoSA-only licence.
 
 ## 3. Repository layout
 
