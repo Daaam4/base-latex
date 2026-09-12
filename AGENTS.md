@@ -1,7 +1,7 @@
 # AGENTS.md — Master Prompt for the Master's Thesis (branch `master-thesis`)
 
-> **Read this first in every session, then read `Overview.md`.**
-> This file holds the stable context; **`Overview.md` is the living status dashboard** (milestones, task checklists, blockers, log) — update it at the end of every session.
+> **Read this first in every session, then read `0. OVERVIEW.md`.**
+> This file holds the stable context; **`0. OVERVIEW.md` is the living status dashboard** (milestones, task checklists, blockers, log) — update it at the end of every session.
 > The Obsidian vault (`~/Documents/Obsidian Vault/Master Arbeit`) is **deprecated** — do not read from or write to it. Everything lives in this repo; thesis files are at the repository root.
 
 ---
@@ -17,6 +17,7 @@
 | Timeline | official start **01.09.2026**, 20 weeks → submission **≈ 19.01.2027** |
 | Milestones | **M1 Exposé — due 30.09.2026, max 2 pages** · weekly group meetings with Prof. Voss from end Sep / early Oct |
 | Language | English. Template: `fh-template` (KOMA `scrreprt`, annotated bibliography via `unsrtdineng.bst`) |
+| Length | **min. 40 pages** thesis body (hard requirement) |
 | Prior work | WS seminar paper (grade 1.3): *Mechanisms for Model Consistency — SysML v1 vs v2 guidelines* (`0. Seminar/WS Paper/`), on branch `SysML-modeling-guidelines` |
 
 ## 2. Decisions so far (kickoff 07.09.2026)
@@ -38,7 +39,7 @@ The repository root **is** the thesis workspace. Templates and the old seminar p
 
 ```
 base-latex/
-├── Overview.md                ← living status dashboard: milestones, checklists, blockers (keep current!)
+├── 0. OVERVIEW.md             ← living status dashboard: milestones, checklists, blockers (keep current!)
 ├── AGENTS.md                  ← this file (master prompt); CLAUDE.md is a symlink to it
 ├── 000report.tex              ← main file for milestone documents (M1 = Exposé)
 ├── Makefile                   ← make | make open | make watch | make clean
@@ -70,20 +71,22 @@ Later additions (planned): `models/` (git submodules for Apollo 11 + GfSE), `pag
 - **Build:** `make` in the repo root (latexmk, TeX Live 2025 is installed). Check page count with `pdfinfo 000report.pdf`; extract text with `pdftotext -layout`.
 - **Bibliography:** every entry carries a `note = {…}` annotation (1–3 sentences on relevance); the three most important get `[TOP 3]`. **Never invent authors/venues/years** — leave `TODO` and verify from the PDF/DOI.
 - **Exposé rules:** ≤ 2 pages body text (title page + bibliography excluded). Structure mirrors the WS exposé: Motivation → Problem → RQ & hypotheses → Approach → Evaluation → Work plan.
-- **Notes:** keep decisions in `notes/03-kickoff-results.md` / new numbered notes; keep literature summaries in `notes/literature/` and register them in `0. Index.md`.
+- **Notes:** keep decisions in `notes/decisions-log.md` (dated: what, why, alternatives rejected) and new numbered notes; keep literature summaries in `notes/literature/` and register them in `0. Index.md`.
+- **Working process — write while working:** every practical phase (bridge, benchmark, evaluation) is written up into `pages/2xx-*.tex` **as soon as it is done**, while the next phase's implementation continues. A phase is not finished until its prose exists. See `0. OVERVIEW.md` §2.1 for the page budget.
+- **Implementation is vibe-coded** (MCP bridge / MBSE harness, evaluation framework, fault injection, run harness): favour speed, but log design decisions, dead ends and limitations as they happen — that log becomes the Design and Discussion chapters. Capture tool output/errors/screenshots into `pic/` immediately.
 - **Web research:** configured search providers may be unavailable; `anysearch`/`duckduckgo` work as explicit fallbacks.
 - **Style:** concise, academic English; German use-case names (Abfragen, Validierung, …) are kept as terms because Prof. Voss uses them.
 
 ## 5. Session start checklist
 
 1. `git status && git log --oneline -5` on `master-thesis`.
-2. Read **`Overview.md`** — §5 blockers, §6 task board, §3 milestones.
+2. Read **`0. OVERVIEW.md`** — §5 blockers, §6 task board, §3 milestones.
 3. Ask the user what today's goal is if not stated; otherwise proceed.
-4. At the end: tick/extend the checklists in `Overview.md`, add a `§12 Log` row, and commit.
+4. At the end: tick/extend the checklists in `0. OVERVIEW.md`, add a `§12 Log` row, and commit.
 
 ## 6. Next steps
 
-Tracked in **`Overview.md` §6 (task board)** — single place, do not duplicate here.
+Tracked in **`0. OVERVIEW.md` §6 (task board)** — single place, do not duplicate here.
 
 ## 7. Log
 
