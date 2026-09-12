@@ -1,6 +1,7 @@
 # AGENTS.md — Master Prompt for the Master's Thesis (branch `master-thesis`)
 
-> **Read this first in every session.** It is the single source of truth for context.
+> **Read this first in every session, then read `Overview.md`.**
+> This file holds the stable context; **`Overview.md` is the living status dashboard** (milestones, task checklists, blockers, log) — update it at the end of every session.
 > The Obsidian vault (`~/Documents/Obsidian Vault/Master Arbeit`) is **deprecated** — do not read from or write to it. Everything lives in this repo; thesis files are at the repository root.
 
 ---
@@ -37,6 +38,7 @@ The repository root **is** the thesis workspace. Templates and the old seminar p
 
 ```
 base-latex/
+├── Overview.md                ← living status dashboard: milestones, checklists, blockers (keep current!)
 ├── AGENTS.md                  ← this file (master prompt); CLAUDE.md is a symlink to it
 ├── 000report.tex              ← main file for milestone documents (M1 = Exposé)
 ├── Makefile                   ← make | make open | make watch | make clean
@@ -75,18 +77,13 @@ Later additions (planned): `models/` (git submodules for Apollo 11 + GfSE), `pag
 ## 5. Session start checklist
 
 1. `git status && git log --oneline -5` on `master-thesis`.
-2. Skim `notes/03-kickoff-results.md` (open questions) and the *Next steps* below.
+2. Read **`Overview.md`** — §5 blockers, §6 task board, §3 milestones.
 3. Ask the user what today's goal is if not stated; otherwise proceed.
-4. At the end: update *Next steps* here and commit.
+4. At the end: tick/extend the checklists in `Overview.md`, add a `§12 Log` row, and commit.
 
-## 6. Next steps (keep current)
+## 6. Next steps
 
-- [ ] Draft prose for all `[TODO]` sections in `pages/101expose.tex`; target draft by ~20.09, send to Prof. Voss before 30.09.
-- [ ] Verify the 5 `TODO` bib entries (authors, venue) against the PDFs.
-- [ ] Clarify FH MSoSA version + Teamwork Cloud availability → decide bridge option A/B.
-- [ ] Add Apollo 11 + GfSE as submodules under `models/`; parse with the pilot-implementation jar (GfSE `CI/parse.py`) as ground-truth validity check.
-- [ ] Read Helle & Schramm 2026 fully; write summary in `notes/literature/`.
-- [ ] Try importing Apollo 11 into MSoSA (Community Edition is limited to 500 elements — full licence needed).
+Tracked in **`Overview.md` §6 (task board)** — single place, do not duplicate here.
 
 ## 7. Log
 
