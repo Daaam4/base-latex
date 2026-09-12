@@ -32,7 +32,7 @@
 4. **Evaluation design:** benchmark of tasks per use case with ground truth; ablation arms (no tool / thin CRUD bridge / semantic bridge with tool-native validation & evaluation); fault injection for *Korrektur*; evaluator outside the agent loop; 2–3 LLMs.
 5. Research question + H1–H3 are in `pages/101expose.tex`.
 
-**Open questions (ask Prof. Voss):** newer MSoSA build (2025x/2026x)? Teamwork Cloud available? expected rigour level? — current list in `0. OVERVIEW.md` §5. Settled: English, ≥ 40 pages, Anthropic Max, MSoSA-only licence.
+**Open questions (ask Prof. Voss):** newer MSoSA build — **2026x Refresh1** (there is no 2025x; the train is 2022x → 2024x → 2026x)? Teamwork Cloud available? expected rigour level? — current list in `0. OVERVIEW.md` §5. Settled: English, ≥ 40 pages, Anthropic Max, MSoSA-only licence.
 
 ## 3. Repository layout
 

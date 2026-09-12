@@ -26,6 +26,13 @@
 - Practitioner framing of MCP + SysML v2.
 - **Relevance:** community context; shows the idea is circulating outside academia. Low evidential weight.
 
+## 4b. CATIA SysML v2 Solution — version news (docs.nomagic.com, 2026x)
+- **Release train verified 13.09.2026:** 2022x → 2024x (R1/R2/R3) → **2026x** (28.11.2025) → HF1 (19.12.2025) → HF2 → **2026x Refresh1** (26.06.2026). **There is no 2025x release.**
+- 2026x is marketed as "the most powerful, integrated, and **100 % standard-compliant SysML v2** solution"; **Hot Fix 1 was focused primarily on two key areas of the SysML v2 implementation**; Refresh1 adds SysML v2 project migration (incl. bulk migration on Teamwork Cloud).
+- A free **CATIA Magic / Cameo SysML v2 Community Edition** exists.
+- **Relevance:** dates the maturation of SysML v2 support in the industrial tool, and quantifies the gap to our 2024x Refresh2 HF1 install (two release generations, on exactly the feature the thesis depends on). Cite for the tool-version discussion and the reproducibility appendix.
+- URLs: `docs.nomagic.com/VN/2026x/catia-sysml-v2-solution-272747834.html` · `docs.nomagic.com/VN/latest/2026x-refresh1-version-news-314179593.html`
+
 ## 5. sysml2kit blog (John Hodge, 08/2026)
 - Documents the SysML v2 tooling landscape as of August 2026.
 - Notes that the **textual syntax and REST API have been formal OMG standards since September 2025** — useful for framing the timeliness argument.
