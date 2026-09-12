@@ -42,20 +42,19 @@ The repository root **is** the thesis workspace. Templates and the old seminar p
 base-latex/
 ├── 0. OVERVIEW.md             ← living status dashboard: milestones, checklists, blockers (keep current!)
 ├── AGENTS.md                  ← this file (master prompt); CLAUDE.md is a symlink to it
-├── 000report.tex              ← main file for milestone documents (M1 = Exposé)
+├── 000report.tex              ← main file for milestone documents (currently the Exposé)
 ├── Makefile                   ← make | make open | make watch | make clean
 ├── unsrtdineng.bst            ← bib style (must sit next to 000report.tex)
 ├── pages/001titlepage.tex
 ├── pages/101expose.tex        ← Exposé (outline + word budgets in comments)
-├── bib/quellen.bib            ← annotated bibliography (entries with TODO need verification)
+├── bib/
+│   ├── quellen.bib             ← annotated bibliography (entries with TODO need verification)
+│   └── literature/             ← source summaries sorted by type:
+│       ├── 0. Index.md         ← index + source-type policy
+│       ├── 1-scientific/  2-blogs/  3-repos/
+│       └── landscape-sep-2026.md
 ├── pic/                       ← figures (FHAC.jpg logo)
 ├── milestones/                ← exported PDFs (Expose-draft.pdf, …)
-├── notes/
-│   ├── 01-thesis-idea.md          original idea write-up (pre-kickoff; pilot-REST-API framing superseded)
-│   ├── 02-kickoff-prep.md         timeline compression, descoping levers
-│   ├── 03-kickoff-results.md      decisions + open questions
-│   ├── 04-model-candidates.md     model comparison, MSoSA API facts, bridge options, prior art
-│   └── literature/                paper summaries; `0. Index.md` is the index; `update-sep-2026-*.md` = landscape
 ├── 0. Templates/
 │   ├── fh-template/           ← FH Aachen report template (do not edit; copy from it)
 │   └── conference-template/   ← IEEEtran template
@@ -64,15 +63,15 @@ base-latex/
     └── WS Milestones/         ← its exposé / concept PDFs
 ```
 
-Later additions (planned): `models/` (git submodules for Apollo 11 + GfSE), `pages/2xx-*.tex` (M2 concept / thesis chapters), and a separate code repo for the MCP bridge.
+Later additions (planned): `models/` (git submodules for Apollo 11 + GfSE), `pages/2xx-*.tex` (thesis chapters), and a separate code repo for the MCP bridge.
 
 ## 4. How to work in this repo
 
 - **Branch:** `master-thesis`. Commit small with prefixes `feat:` / `fix:` / `docs:`. Do not commit build artefacts (see `.gitignore`); `000report.pdf` and `milestones/*.pdf` are committed on purpose.
 - **Build:** `make` in the repo root (latexmk, TeX Live 2025 is installed). Check page count with `pdfinfo 000report.pdf`; extract text with `pdftotext -layout`.
-- **Bibliography:** every entry carries a `note = {…}` annotation (1–3 sentences on relevance); the three most important get `[TOP 3]`. **Never invent authors/venues/years** — leave `TODO` and verify from the PDF/DOI.
+- **Bibliography:** every entry carries a `note = {…}` annotation (topic · method · relevance, 2–3 sentences); the three most important get `[TOP 3]`. **Never invent authors/venues/years** — leave `TODO` and verify from the PDF/DOI. Sources are classified by type: **1 scientific** (primary, carries the argument) · **2 blogs** (adoption/tool facts; claims marked unvalidated) · **3 repos** (artifact state of the art; cite with commit + access date).
 - **Exposé rules (official brief):** ½–1 page body — Themendefinition · Relevanz · erste grobe Forschungsfrage/Hypothese · Überlegungen zu Quellenarten — **plus** an annotated literature list of ~15 entries (IEEE style, 2–3 sentences each on topic/method/relevance, 3 most important highlighted). The "max 2 pages" figure from the kickoff conflicts with this — confirm with Prof. Voss.
-- **Notes:** keep decisions in `notes/decisions-log.md` (dated: what, why, alternatives rejected) and new numbered notes; keep literature summaries in `notes/literature/` and register them in `0. Index.md`.
+- **Notes:** there is no `notes/` directory. Status + reference detail live in `0. OVERVIEW.md` (§11 appendices); decisions go in `decisions-log.md` at the repo root (dated: what, why, alternatives rejected); source summaries go in `bib/literature/{1-scientific,2-blogs,3-repos}/` and are registered in `bib/literature/0. Index.md`.
 - **Working process — write while working:** every practical phase (bridge, benchmark, evaluation) is written up into `pages/2xx-*.tex` **as soon as it is done**, while the next phase's implementation continues. A phase is not finished until its prose exists. See `0. OVERVIEW.md` §2.1 for the page budget.
 - **Implementation is vibe-coded** (MCP bridge / MBSE harness, evaluation framework, fault injection, run harness): favour speed, but log design decisions, dead ends and limitations as they happen — that log becomes the Design and Discussion chapters. Capture tool output/errors/screenshots into `pic/` immediately.
 - **Web research:** configured search providers may be unavailable; `anysearch`/`duckduckgo` work as explicit fallbacks.
