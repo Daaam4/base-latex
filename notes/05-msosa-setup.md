@@ -60,7 +60,7 @@ SysML v2 support in 2024x is feature-flagged and plugin-based — i.e. **incubat
 
 - [ ] **Priority spike (do before the exposé promises anything):** install MSoSA, enable the flag, install the three plugins, import one small GfSE model, then check in a trivial Java plugin whether SysML v2 elements are visible/creatable through the OpenAPI.
 - [ ] Ask whether a **newer MSoSA build (2025x / 2026x)** is available — SysML v2 support improved substantially and is no longer feature-flagged in later releases.
-- [x] ~~Ask about **Teamwork Cloud**~~ &rarr; **not asked.** Standing instruction from Prof. Voss: work with what the FH has access to. No TWC &rArr; **Option B locked**.
+- [ ] **Teamwork Cloud** — ask **after the exposé** (deferred; see `0. OVERVIEW.md` §5.1b). Standing instruction is to work with what we have → the exposé assumes **Option B**; a TWC instance would be an upgrade path, not a replan.
 - [ ] **Verify in the spike:** can the 2024x *SysML v2* plugin import/export against an **external SysML v2 API repository**? If yes, MSoSA could sync with a **local pilot-implementation server** — giving standard-API access to an MSoSA-authored model *without* TWC. That would be the best of both worlds; currently **unverified, do not assume**.
 
 ### 3.3 Practical / operational
