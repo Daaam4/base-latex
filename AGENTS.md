@@ -10,7 +10,7 @@
 | | |
 |---|---|
 | Student | **Nassim Awabdy**, Matr. 3196909, Master FB5 (Elektrotechnik & Informationstechnik), FH Aachen |
-| Supervisor | **Prof. Dr. Sebastian Voss** (MBSE) |
+| Supervisor | **Prof. Dr. rer. nat. Sebastian Voss** — FB5, Lehrgebiet Modellgetriebene Systementwicklung, Verifikation und Testen · s.voss@fh-aachen.de · +49 241 6009 52129 |
 | Second examiner | **M. Eng. Tim Höner** — wissenschaftlicher Mitarbeiter, FB5, Lehrgebiet Datennetze / IT-Sicherheit / IT-Forensik · hoener@fh-aachen.de · +49 241 6009 52122 |
 | Thesis | *Evaluating AI Agent Capabilities in SysML v2 Modeling via an MCP Bridge to Magic Systems of Systems Architect* |
 | Timeline | official start **01.09.2026**, 20 weeks → submission **≈ 19.01.2027** |
