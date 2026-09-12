@@ -1,0 +1,148 @@
+% =====================================================================
+% Master's thesis bibliography — Nassim Awabdy
+% Convention (as in WS exposé): every entry has a `note` with a 1–3 sentence
+% annotation explaining relevance. Mark the 3 most important with [TOP 3].
+% Entries marked TODO need metadata verification before use.
+% =====================================================================
+
+% ---------- Standards & specifications ----------
+
+@techreport{omg-sysml2,
+  author      = {{Object Management Group}},
+  title       = {{OMG Systems Modeling Language (SysML), Version 2.0}},
+  institution = {Object Management Group},
+  year        = {2025},
+  month       = sep,
+  type        = {Specification},
+  url         = {https://www.omg.org/spec/SysML/2.0/},
+  note        = {The formal SysML v2 language specification (textual notation, KerML-based semantics). Defines the language the agent must read and write.}
+}
+
+@techreport{omg-sysml2-api,
+  author      = {{Object Management Group}},
+  title       = {{Systems Modeling API and Services, Version 1.0}},
+  institution = {Object Management Group},
+  year        = {2025},
+  month       = sep,
+  type        = {Specification},
+  url         = {https://www.omg.org/spec/SystemsModelingAPI/1.0/},
+  note        = {Standard REST/HTTP API for SysML v2 repositories (projects, commits, branches, elements, queries). Implemented by Teamwork Cloud; candidate transport for the MCP bridge (Option A).}
+}
+
+@misc{mcp-spec,
+  author       = {{Anthropic}},
+  title        = {{Model Context Protocol -- Specification}},
+  year         = {2025},
+  howpublished = {\url{https://modelcontextprotocol.io/specification}},
+  note         = {Open protocol for exposing tools, resources and prompts to LLM agents. The bridge to MSoSA will be implemented as an MCP server.}
+}
+
+% ---------- Model under test ----------
+
+@article{helle2026apollo,
+  author  = {Helle, Philipp and Schramm, Gerrit},
+  title   = {Fly me to the Moon -- Modeling Apollo 11 Using SysML v2},
+  journal = {Systems Engineering},
+  year    = {2026},
+  doi     = {10.1002/sys.70074},
+  note    = {[TOP 3] Presents the open-source Apollo 11 SysML v2 model (Airbus Central R\&T, MPL-2.0, $\approx$7\,kLOC, five CoSMA layers) explicitly intended as a benchmark for next-generation MBSE tools. Chosen as the system under test for all use-case experiments.}
+}
+
+@misc{gfse-models,
+  author       = {{GfSE -- Gesellschaft f{\"u}r Systems Engineering}},
+  title        = {{SysML-v2-Models: A curated collection of high-quality SysML v2 models}},
+  year         = {2025},
+  howpublished = {\url{https://github.com/GfSE/SysML-v2-Models}},
+  note         = {Curated BSD-licensed collection of small SysML v2 models, explicitly meant to help train and test LLM-based tooling. Used as secondary/generalisation test set and as source of good/bad examples.}
+}
+
+% ---------- Tool / bridge ----------
+
+@misc{nomagic-sysml2,
+  author       = {{Dassault Syst{\`e}mes}},
+  title        = {{CATIA Magic/Cameo SysML v2 Solution}},
+  year         = {2026},
+  howpublished = {\url{https://docs.nomagic.com/SYSML2P/latest/}},
+  note         = {Vendor documentation for SysML v2 in Magic Systems of Systems Architect / Cameo: 100\,\% metamodel conformance, validation suites, expression evaluation, simulation, and the standard SysML v2 REST API served by Teamwork Cloud. Defines what tool-native capabilities the semantic bridge tier can expose.}
+}
+
+@misc{cameo-mcp-bridge,
+  author       = {ajhcs},
+  title        = {{cameo-mcp-bridge: MCP server bridging AI assistants to CATIA Magic / Cameo}},
+  year         = {2026},
+  howpublished = {\url{https://github.com/ajhcs/cameo-mcp-bridge}},
+  note         = {Community MCP server for Cameo (SysML v1/UML) via an embedded Java OpenAPI plugin with 162 tools. Closest engineering precedent for Option B of the bridge; no SysML v2 support and no systematic evaluation.}
+}
+
+% ---------- LLMs / agents for MBSE (from literature/) ----------
+% TODO: verify authors, venue and year of the following five IEEE papers.
+
+@inproceedings{llm-system-modeling-review,
+  author    = {TODO},
+  title     = {Using Large Language Models for System Modeling: Current State and Future Implications},
+  booktitle = {TODO (IEEE)},
+  year      = {2025},
+  url       = {https://ieeexplore.ieee.org/document/11369978},
+  note      = {Structured review of 20 publications on LLMs for MBSE tasks (creation, analysis, modification, reformulation); proposes evaluation criteria and points to MCP as the emerging integration mechanism. Provides the task taxonomy the use-case catalogue builds on.}
+}
+
+@inproceedings{nl2sysml,
+  author    = {TODO},
+  title     = {Generating SysML v2 Models from Natural Language Requirements Using Large Language Models},
+  booktitle = {TODO (IEEE)},
+  year      = {2025},
+  url       = {https://ieeexplore.ieee.org/document/11369988},
+  note      = {Four-component prompting (role, ontology, few-shot, requirements) for NL$\rightarrow$SysML v2 with precision/recall/F1 and syntax metrics. Reference point for the \emph{Erstellen} use case and its metrics.}
+}
+
+@inproceedings{kg-hallucination,
+  author    = {TODO},
+  title     = {Mitigating Hallucinations in SysML v2 Generation Using LLMs and a Tri-Layered Knowledge Graph Reasoning Framework},
+  booktitle = {TODO (IEEE)},
+  year      = {2025},
+  url       = {https://ieeexplore.ieee.org/document/11273264},
+  note      = {Three-layer KG grounding to reduce hallucinated SysML v2 constructs; measures structural validity and semantic fidelity. Motivates grounding the agent in the live model instead of a static KG.}
+}
+
+@inproceedings{sysforge,
+  author    = {TODO},
+  title     = {Knowledge-Augmented Conversational Agents for Dependency-Aware SysML v2 Model Generation and Refinement},
+  booktitle = {TODO (IEEE)},
+  year      = {2025},
+  url       = {https://ieeexplore.ieee.org/document/11137199},
+  note      = {SysForge multi-agent framework (designer + validator agents, dependency-aware retrieval, iterative refinement) evaluated with Pass@1/BLEU. Closest prior work for \emph{Korrektur}; file-based and without an industrial tool.}
+}
+
+@article{graphrag-mbse,
+  author  = {TODO},
+  title   = {Enabling Humans and AI Systems to Retrieve Information from System Architectures in Model-Based Systems Engineering},
+  journal = {TODO},
+  year    = {2025},
+  note    = {GraphRAG multi-agent system over a Neo4j graph parsed from SysML v2 text (RFLP schema), 93\,\% retrieval accuracy on a BEV model. Reference for the \emph{Abfragen} use case; the thesis queries the live tool instead of a derived graph.}
+}
+
+% ---------- Agent evaluation & tooling benchmarks ----------
+
+@misc{sei-native-ai,
+  author       = {{Software Engineering Institute, Carnegie Mellon University}},
+  title        = {Native AI Integration for Model-Based Systems Engineering: Three Layers that Make It Work},
+  year         = {2026},
+  howpublished = {\url{https://www.sei.cmu.edu/blog/native-ai-integration-for-model-based-systems-engineering-three-layers-that-make-it-work/}},
+  note         = {[TOP 3] Controlled three-arm SysML v2 benchmark (no tools / validation loop / MCP knowledge server + skills): iterative validation eliminates syntax errors, curated knowledge raises pattern conformance. File-based; template for the ablation design and the strongest evidence that tooling shapes agent capability.}
+}
+
+@misc{hw-mcp-benchmark,
+  author       = {TODO},
+  title        = {Benchmarking AI Agents for Hardware Design Automation via MCP Tool Calling},
+  year         = {2026},
+  howpublished = {arXiv:2608.26199},
+  note         = {[TOP 3] Methodological sibling in an adjacent domain: MCP server replicating a stateful design tool, benchmark with single-op edits, dependency chains and invalid requests, seven models with ablations. Findings on tool-description detail and context scope inform the bridge design.}
+}
+
+@misc{cae-agents,
+  author       = {TODO},
+  title        = {What Do CAE Simulation Agents Really Need Beyond a Generic Harness?},
+  year         = {2026},
+  howpublished = {arXiv:2609.03718},
+  note         = {Finds that a generic harness with domain knowledge matches specialised agent machinery for CAE tasks. Potential counter-evidence to H2; must be engaged in the discussion.}
+}

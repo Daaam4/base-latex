@@ -1,0 +1,102 @@
+\clearpage
+
+\chapter{Expos\'e}
+% =====================================================================
+% OUTLINE  (max. 2 pages incl. everything except bibliography)
+% Budget: ~1 000 words. Follows the structure of the WS exposé:
+%   1. Motivation & relevance          (~150 words)
+%   2. Problem statement / gap         (~150 words)
+%   3. Research question + hypotheses  (~150 words)
+%   4. Approach: bridge + model + use cases (~250 words, 1 table)
+%   5. Evaluation methodology          (~150 words)
+%   6. Work plan / milestones          (~100 words, 1 table)
+% Annotated bibliography follows automatically (\nocite{*}).
+% =====================================================================
+
+% ---------------------------------------------------------------------
+\section*{Motivation}
+% - MBSE + SysML v2 (formal KerML semantics, textual notation, standard API/services) = machine-readable models
+% - LLM agents + tool use (MCP) have become the dominant integration pattern; MBSE vendors are moving fast
+%   (Dassault: SysML v2 REST API on Teamwork Cloud, MagicLab; community MCP servers for Cameo)
+% - Industry-standard tool at FH: Magic Systems of Systems Architect (MSoSA) → practical relevance
+% Cite: omg-sysml2, omg-sysml2-api, helle2026apollo, mcp-spec
+\textit{[TODO ~150 words]}
+
+% ---------------------------------------------------------------------
+\section*{Problem Statement}
+% - Existing work: NL→SysML v2 generation (prompting, KGs, multi-agent), retrieval (GraphRAG), file/LSP-based
+%   validation loops (SEI). All file-based, text-in/text-out, small hand-made models.
+% - Nobody has evaluated what an agent can/cannot do against a *live model in an industrial tool*,
+%   on a *large* model, across the full task spectrum (query → validate → verify → correct → create).
+% - Unknown: capability boundaries; whether tool-side semantics (validation, evaluation) or a thin CRUD
+%   bridge is what matters.
+% Cite: llm-system-modeling-review, nl2sysml, kg-hallucination, sysforge, graphrag-mbse, sei-native-ai, cae-agents
+\textit{[TODO ~150 words]}
+
+% ---------------------------------------------------------------------
+\section*{Research Question and Hypotheses}
+\textbf{RQ:} \textit{Which SysML v2 modeling tasks can an LLM-based agent perform reliably in an industrial modeling environment (MSoSA) when connected through an MCP bridge, and where do its capabilities break down?}
+
+\begin{itemize}
+    \item \textbf{H1 (Task asymmetry):} Read-only tasks (Abfragen, Validierung) are performed with high reliability, whereas write tasks (Korrektur, Erstellen) and Verifizierung degrade with model size and cross-layer dependency depth.
+    \item \textbf{H2 (Tool semantics):} Exposing tool-native capabilities (validation suites, expression evaluation) as MCP tools yields larger gains than a thin CRUD wrapper over the SysML v2 API alone. % ablation
+    \item \textbf{H3 (Model scale):} Findings obtained on small teaching models (GfSE collection) do not transfer to a large multi-layer model (Apollo 11) without a semantic navigation layer.
+\end{itemize}
+
+% ---------------------------------------------------------------------
+\section*{Approach}
+% Artifact: MCP server bridging an agent to MSoSA
+%   Option A: Teamwork Cloud SysML v2 REST API (standard)  |  Option B: MagicDraw OpenAPI Java plugin
+%   → decide after checking FH licence (TWC available?). Design both as tool "tiers": thin vs. semantic.
+% Model under test: Airbus Apollo 11 SysML v2 model (Helle & Schramm 2026; ~7 kLOC, ~2 000 elements, 5 CoSMA layers)
+%   Secondary set: GfSE SysML-v2-Models (small, curated; also "bad examples")
+% Use cases (from kickoff):
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{p{2.6cm} p{6.4cm} p{6.4cm}}
+\toprule
+\textbf{Use case} & \textbf{Example task on Apollo 11} & \textbf{Ground truth / metric} \\
+\midrule
+Abfragen (query)          & ``Which technical components satisfy requirement X?'' & exact set match vs. model query \\
+Validierung (validation)  & ``Is package P well-formed and CoSMA-conformant?'' & tool validation suite results \\
+Verifizierung (verification) & ``Is mass budget requirement R satisfied by the current values?'' & expression evaluation in tool \\
+Korrektur (correction)    & repair injected faults (dangling ref., wrong type, broken \texttt{satisfy}) & fault-repair rate, no collateral change \\
+Erstellen (creation)      & add missing technical component with ports + satisfy links & syntactic validity + expert rubric \\
+\bottomrule
+\end{tabular}
+\caption{Use-case catalogue (to be refined).}
+\end{table}
+\textit{[TODO ~150 words prose around the table]}
+
+% ---------------------------------------------------------------------
+\section*{Evaluation Methodology}
+% - Benchmark: N tasks per use case, 3 difficulty levels (local / cross-package / cross-layer)
+% - Arms (ablation, cf. SEI 3-arm design): (0) no tool, textual file only; (1) thin CRUD bridge; (2) semantic bridge with validation/evaluation tools
+% - Metrics: task success, syntactic validity (tool validation), semantic correctness (ground-truth query / expert rubric),
+%   collateral damage (diff of model), tool-call count / tokens, failure taxonomy
+% - Models: 2–3 LLMs (frontier + open-weight)
+% - External evaluator outside the agent loop (cf. Pufibara)
+\textit{[TODO ~150 words]}
+
+% ---------------------------------------------------------------------
+\section*{Work Plan}
+% 20 weeks, 01.09.2026 – 19.01.2027; weekly meetings from Oct.
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{l l p{9.5cm}}
+\toprule
+\textbf{Weeks} & \textbf{Phase} & \textbf{Deliverable} \\
+\midrule
+1--4   & Setup       & Exposé; import Apollo 11 into MSoSA; MSoSA/TWC API access; literature base \\
+5--9   & Bridge      & MCP server (thin tier + semantic tier); use-case task catalogue v1 \\
+10--13 & Benchmark   & task set with ground truth; fault injection; evaluation harness \\
+14--16 & Experiments & runs across arms and LLMs; failure analysis \\
+17--20 & Writing     & thesis text, discussion, submission (19.01.2027) \\
+\bottomrule
+\end{tabular}
+\caption{Milestones.}
+\end{table}
+
+\addtocontents{toc}{\vspace{0.8cm}}
