@@ -1,1 +1,1 @@
-Read `AGENTS.md` at the repository root before doing anything. It is the master prompt for the Master's thesis (branch `master-thesis`, working directory `MA Thesis/`). The Obsidian vault is deprecated; work only in this repo.
+Read `AGENTS.md` at the repository root before doing anything. It is the master prompt for the Master's thesis (branch `master-thesis`, thesis files at the repository root). The Obsidian vault is deprecated; work only in this repo.

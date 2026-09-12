@@ -53,7 +53,7 @@ Facts from No Magic documentation (SysML v2 Solution page, 2026x Refresh1):
 
 ## 3. Immediate TODOs
 
-- [ ] Clone Apollo 11 + GfSE repos into `MA Thesis/models/` (git submodules) and parse both with the pilot-implementation jar (GfSE `CI/parse.py`) → confirm syntactic validity as ground truth.
+- [ ] Clone Apollo 11 + GfSE repos into `models/` (git submodules) and parse both with the pilot-implementation jar (GfSE `CI/parse.py`) → confirm syntactic validity as ground truth.
 - [ ] Confirm FH MSoSA version + TWC availability (→ decides option A vs B).
 - [ ] Import Apollo 11 into MSoSA; note import problems (first data point for *Validierung*).
 - [ ] Read Helle & Schramm (2026) fully; add to bib.
