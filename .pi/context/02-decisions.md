@@ -1,4 +1,4 @@
-# Decisions (D1–D13)
+# Decisions (D1–D14)
 
 > Agent context for the Master's thesis. Human-facing status lives in `0. OVERVIEW.md`.
 > Do not duplicate status here; this file holds stable context.
@@ -20,6 +20,7 @@
 | D13 | **Bridge = Option B** (MCP ↔ MagicDraw OpenAPI Java plugin in MSoSA) — the exposé is written for this. Standing instruction: work with what the FH has access to. TWC availability asked *after* the exposé (upgrade path, not a replan); A′ = emergency fallback only | 13.09.2026 |
 | D12 | **Rigour target: statistically solid results**, not a pilot study → paired design across arms, k=5, 36-task target, pre-registration, inter-rater kappa (`.pi/context/04-evaluation-design.md` (statistical design)). Cost: task breadth + a mandatory unattended batch harness | 13.09.2026 |
 | D11 | **Tooling licence scope: MSoSA only.** No TWC, no SysIDE licence assumed. SysIDE Automator only if essential / clearly advantageous — decided later, not designed into the exposé | 13.09.2026 |
+| D14 | **Tool build = MSoSA 2026x** (access granted by Prof. Voss, 13.09.2026) — supersedes the seminar-era 2024x Refresh2 HF1. Native SysML v2; 2024x-specific caveats (feature flag, incubator-grade v2) dropped. Exact build + API surface recorded in `06-tooling-msosa.md` A.0 after install. The exposé names 2026x as the tool version. Alternatives rejected: staying on 2024x (two generations behind on the feature under test) | 13.09.2026 |
 
 ### Pending decision: bridge option
 

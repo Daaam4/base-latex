@@ -6,7 +6,7 @@
 ### Hard constraints
 - **≥ 40 pages** thesis body → budget pages per chapter early; never let a finished phase go unwritten.
 - Practical work must be complete by **10.12.2026**, leaving ~5 weeks for concentrated writing (§3).
-- Tooling is fixed: **MSoSA 2024x Refresh2 HF1 (Academic)**, SysML v2 behind a feature flag + 3 plugins, VPN-gated licence, **no TWC** → bridge **Option B** locked (D13). All ~810 runs go through a GUI desktop app → harness must run unattended (`.pi/context/04-evaluation-design.md` (statistical design)). See `.pi/context/06-tooling-msosa.md`.
+- Tooling is fixed: **MSoSA 2026x** (D14; exact build TBD after install — native SysML v2, no feature flag expected), VPN-gated licence, **no TWC** → bridge **Option B** locked (D13). All ~810 runs go through a GUI desktop app → harness must run unattended (`.pi/context/04-evaluation-design.md` (statistical design)). See `.pi/context/06-tooling-msosa.md`.
 
 ---
 

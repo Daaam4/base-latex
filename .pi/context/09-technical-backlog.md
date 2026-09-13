@@ -7,10 +7,11 @@
 
 > Do the spike **before the exposé promises an architecture.** Everything downstream depends on whether SysML v2 is reachable through the MSoSA Java OpenAPI.
 
-- [ ] Install MSoSA per `.pi/context/06-tooling-msosa.md`: unpack → add `-Dmd.sysml2.enabled\=d69e2255-b8f5` to `JAVA_ARGS` in `MSOSA/bin/msosa.properties` → OpenJDK 17 → Resource/Plugin Manager → install *SysML v2*, *SysML v2 Evaluation*, *SysML v2 Textual Editor* → restart
-- [ ] Connect to the FH VPN and confirm licence checkout from 149.201.140.104:1101
+- [ ] **Obtain + install MSoSA 2026x** (access granted by Prof. Voss 13.09 — D14). Fill in `06-tooling-msosa.md` A.0: exact build from `Help > About`, JDK, plugin set, whether `-Dmd.sysml2.enabled` is still needed (expected: no). The 2024x recipe in A.1 is fallback only.
+- [ ] Connect to the FH VPN and confirm licence checkout (assume 149.201.140.104:1101; verify for 2026x)
+- [ ] Check 2026x for a **desktop REST API** for SysML v2 ("enhanced REST APIs" in release notes) — if present, candidate backend for the thin-CRUD arm
 - [ ] Import **one small GfSE model** via the SysML v2 Textual Editor → does textual import work at all?
-- [ ] **🔴 Spike:** hello-world MagicDraw OpenAPI Java plugin (target **Java 17**) — can it *see* and *create* SysML v2 elements, or only UML/SysML v1? → decides whether Option B is viable
+- [ ] **🔴 Spike (on 2026x):** hello-world MagicDraw OpenAPI Java plugin (target the JDK 2026x ships with) — can it *see* and *create* SysML v2 elements, or only UML/SysML v1? → decides whether Option B is viable
 - [ ] Try the **SysML v2 Evaluation** plugin on an expression (feasibility for *Verifizierung*)
 - [ ] Add `models/` submodules: `airbus/apollo-11-sysml-v2`, `GfSE/SysML-v2-Models`
 - [ ] Parse both with the pilot-implementation jar (reuse GfSE `CI/parse.py`) → baseline syntactic validity = ground truth

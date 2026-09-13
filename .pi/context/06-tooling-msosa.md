@@ -3,10 +3,29 @@
 > Agent context for the Master's thesis. Human-facing status lives in `0. OVERVIEW.md`.
 > Do not duplicate status here; this file holds stable context.
 
-## Appendix A — MSoSA setup (what the FH has)
+## Appendix A — MSoSA setup
 
-> Source: FH ILIAS course folder "SysMLv2 Tool" (WS seminar). ⚠️ Seminar-era — a newer build may exist (§5.1).
-> Goes into the thesis reproducibility appendix verbatim.
+### A.0 — Current: MSoSA **2026x** (granted by Prof. Voss, 13.09.2026 — D14)
+
+> **This is the build the thesis is done on.** Fill in on first launch; goes into the reproducibility appendix verbatim.
+
+| Item | Value |
+|---|---|
+| Exact build (`Help > About`) | TODO — 2026x / 2026x HF1 / 2026x Refresh1 ? |
+| Edition / distribution | TODO (Academic? portable zip vs. installer?) |
+| Delivery channel | TODO (sciebo / ILIAS / licence-server update?) |
+| Licence server | TODO — assume 149.201.140.104:1101 via FH VPN until proven otherwise |
+| Java | TODO (2026x ships with its own JDK? version?) |
+| SysML v2 plugins needed | TODO — 2026x ships SysML v2 natively; check whether *SysML v2 Evaluation* / *Textual Editor* are still separate plugins |
+| Feature flag `-Dmd.sysml2.enabled` | TODO — expected **not required** in 2026x |
+| OpenAPI: SysML v2 metaclasses exposed? | TODO — **the spike** (`09-technical-backlog.md`) |
+| REST API ("enhanced REST APIs" per release notes)? | TODO — if 2026x exposes a SysML v2 REST API on the desktop, Option A-style access may exist *without* TWC → re-evaluate bridge design |
+
+**What changes vs. 2024x (from vendor release notes, to be verified hands-on):** native, "100 % standard-compliant" SysML v2; synchronised textual ⇄ graphical syntax; query-based views; enhanced REST APIs; (Refresh1) SysML v2 project migration.
+
+### A.1 — Fallback / historical: 2024x Refresh2 HF1 (seminar-era)
+
+> Source: FH ILIAS course folder "SysMLv2 Tool" (WS seminar). **Superseded by A.0** — kept for the fallback path and to document the delta.
 
 **Artifact:** `No_Magic_2024x_Refresh2_HF1.AM_NM_Academic.AllOS.2-5.zip` — *Magic Systems of Systems Architect* **2024x Refresh2 HF1**, **Academic**, all-OS, **portable (no_install)**, 3.4 GB, via sciebo FH Aachen.
 
@@ -21,10 +40,11 @@
 
 **Licence:** floating licence server **149.201.140.104 : 1101** — **requires the FH VPN**.
 
-**Consequences already acted on**
-- SysML v2 is **feature-flagged / incubator-grade** in 2024x → Apollo 11 import may partially fail. Whatever fails is a *finding* (tool readiness; first *Validierung* data point), not only a setback.
-- The Java OpenAPI was designed for the UML/SysML v1 metamodel → whether it exposes SysML v2 is the **top technical unknown** (the OpenAPI spike (`.pi/context/09-technical-backlog.md`)).
-- Bridge plugin must target **Java 17**.
+**Consequences (updated for 2026x)**
+- Apollo 11 import: with native SysML v2 in 2026x, a clean import is now the *expectation*; any residual failures remain a *finding* (tool readiness; first *Validierung* data point).
+- The Java OpenAPI was designed for the UML/SysML v1 metamodel → whether 2026x exposes SysML v2 metaclasses through it is **still the top technical unknown**, just with much better odds (the OpenAPI spike (`.pi/context/09-technical-backlog.md`)).
+- Bridge plugin must target the JDK 2026x ships with (verify; 2024x was Java 17).
+- Possible bonus: 2026x's "enhanced REST APIs" may provide a standard SysML v2 API endpoint on the desktop — if so, the thin-CRUD arm (D5 arm 1) could be built on it and the Java plugin reserved for the semantic arm (arm 2). Check during the spike.
 - VPN + licence-server dependency → threat to reproducibility, and a failure mode the batch runner must retry on (`.pi/context/04-evaluation-design.md` (statistical design)).
 - **SysML v2 Evaluation** plugin exists → *Verifizierung* and H2's semantic arm have real tool-native capability to expose.
 

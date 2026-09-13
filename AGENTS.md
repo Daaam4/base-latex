@@ -20,7 +20,7 @@
 | Fixed dates | **Exposé sent to Prof. Voss by 20.09.2026** (formal due 30.09) · **practical work done by 10.12.2026** · submission ≈ 19.01.2027. Further milestones are defined *after* the exposé. Weekly group meetings with Prof. Voss from end Sep / early Oct. |
 | Language | **English** (confirmed). Template: `fh-template` (KOMA `scrreprt`, annotated bibliography via `unsrtdineng.bst`) |
 | Length | **min. 40 pages** thesis body (confirmed hard requirement) |
-| Tooling | FH licence covers **MSoSA only** (2024x Refresh2 HF1 Academic, VPN-gated licence server; no Teamwork Cloud known). LLMs: **own Anthropic Max subscription** → Claude family only. |
+| Tooling | FH licence covers **MSoSA only** — **2026x** (access granted by Prof. Voss 13.09.2026; exact build TBD, native SysML v2), VPN-gated licence server; no Teamwork Cloud known. LLMs: **own Anthropic Max subscription** → Claude family only. |
 | Prior work | WS seminar paper (grade 1.3): *Mechanisms for Model Consistency — SysML v1 vs v2 guidelines* (`0. Seminar/WS Paper/`), on branch `SysML-modeling-guidelines` |
 
 ## 2. Decisions so far (kickoff 07.09.2026)
@@ -34,7 +34,7 @@
 4. **Evaluation design:** benchmark of tasks per use case with ground truth; ablation arms (no tool / thin CRUD bridge / semantic bridge with tool-native validation & evaluation); fault injection for *Korrektur*; evaluator outside the agent loop; 2–3 LLMs.
 5. Research question + H1–H3 are in `pages/101expose.tex`.
 
-**Open questions (ask Prof. Voss):** newer MSoSA build — **2026x Refresh1** (there is no 2025x; the train is 2022x → 2024x → 2026x)? Teamwork Cloud available? expected rigour level? — current list in `0. OVERVIEW.md` §5. Settled: English, ≥ 40 pages, Anthropic Max, MSoSA-only licence.
+**Open questions (ask Prof. Voss):** ~~newer MSoSA build~~ → **settled: 2026x** (train is 2022x → 2024x → 2026x, no 2025x). Teamwork Cloud available? expected rigour level? — current list in `0. OVERVIEW.md` §5. Settled: English, ≥ 40 pages, Anthropic Max, MSoSA-only licence.
 
 ## 3. Repository layout
 
@@ -98,3 +98,4 @@ Tracked in **`0. OVERVIEW.md`** (current milestone) — single place, do not dup
 | 07.09.2026 | Kickoff with Prof. Voss — decisions above |
 | 12.09.2026 | Branch `master-thesis` created; model research (Apollo 11 chosen), MSoSA API facts, exposé outline + bib seed; Obsidian vault retired |
 | 12.09.2026 | Repo reorganised: thesis files moved to root, templates → `templates/`, seminar paper → `Seminar/` |
+| 13.09.2026 | Prof. Voss granted access to **MSoSA 2026x** → D14; 2024x-specific caveats dropped |

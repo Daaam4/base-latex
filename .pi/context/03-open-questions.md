@@ -7,25 +7,25 @@
 
 > **Rule:** before the exposé, only §5.1's two questions go to Prof. Voss. Everything else waits for `.pi/context/03-open-questions.md` (deferred).
 
-### Ask Prof. Voss **now** — one question
+### Ask Prof. Voss **now** — resolved
 
 Nothing else goes to him before the exposé.
 
-- [x] **MSoSA version** — **asked via Webex 13.09.2026**, awaiting answer. (Sent as "2025x/2026x"; harmless — no 2025x exists, but the question reads as "is there a newer build?". Target if he asks for specifics: **2026x Refresh1**, or at least **2024x Refresh3**.)
-- [ ] **Follow up** if no answer by the first weekly meeting — and re-ask concretely for **2026x Refresh1** at that point
+- [x] **MSoSA version** — asked via Webex 13.09.2026, **answered same day: access to MSoSA 2026x granted** (D14). Exact build (2026x base / HF1 / Refresh1) unknown until installed → read `Help > About`, record in `06-tooling-msosa.md`.
+- [ ] After install: record exact build, plugin set, and whether the `-Dmd.sysml2.enabled` flag is still required in 2026x (expected: **no** — SysML v2 is native there)
 
 **Verified release train (13.09.2026, docs.nomagic.com — there is no 2025x):**
 
 | Release | Date | Why it matters |
 |---|---|---|
 | 2024x | 10.11.2023 | our lineage |
-| **2024x Refresh2 HF1** | — | **what we have** — SysML v2 feature-flagged / incubator-grade |
+| **2024x Refresh2 HF1** | — | seminar-era build — SysML v2 feature-flagged / incubator-grade (**superseded 13.09.2026**) |
 | **2024x Refresh3** | 11.07.2025 | newer within the same train — low-friction upgrade |
-| **2026x** | 28.11.2025 | **the SysML v2 release**: vendor claims a "100 % standard-compliant SysML v2 solution", synchronised textual ⇄ graphical syntax, query-based views, enhanced REST APIs |
+| **2026x** | 28.11.2025 | **what we have now (exact build TBD)** — **the SysML v2 release**: vendor claims a "100 % standard-compliant SysML v2 solution", synchronised textual ⇄ graphical syntax, query-based views, enhanced REST APIs |
 | 2026x Hot Fix 1 | 19.12.2025 | *"focused primarily on two key areas of the SysML v2 implementation"* |
 | **2026x Refresh1** | 26.06.2026 | **current latest**; adds SysML v2 project migration |
 
-→ The gap between what we have and what exists is **two release generations on exactly the feature we depend on**. This is the highest-leverage question in the whole project: 2026x would likely de-risk the the OpenAPI spike (`.pi/context/09-technical-backlog.md`), the Apollo 11 import, and H2's tool-native arm simultaneously.
+→ **Resolved in our favour:** we are on the 2026x train. This de-risks the OpenAPI spike (`.pi/context/09-technical-backlog.md`), the Apollo 11 import, and H2's tool-native arm simultaneously — but none of the three is *proven* until the spike runs on 2026x. The 2024x-specific caveats (feature flag, incubator-grade SysML v2) no longer apply; the seminar install recipe in `06-tooling-msosa.md` is kept only as a fallback.
 
 **Teamwork Cloud → deferred to `.pi/context/03-open-questions.md` (deferred)** (after the exposé). His standing instruction is to **work with what we have access to**, so the exposé is written for **Option B** (§4) — asking now would invite a scope discussion we do not need before 20.09. If a TWC instance turns out to exist later, it becomes an *upgrade*, not a replan.
 
