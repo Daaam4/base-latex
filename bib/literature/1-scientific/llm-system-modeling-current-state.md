@@ -1,5 +1,8 @@
 # Using Large Language Models for System Modeling: Current State and Future Implications
 
+**Bib:** `fresemann2025review` · **Type:** 1 scientific · **Verified:** Crossref 15.09.2026
+**Metadata:** Fresemann, Carina; Ellsel, Claudius; Grunenwald, Carl-Philipp; Stark, Rainer (TU Berlin) · *2025 IEEE International Symposium on Systems Engineering (ISSE)*, Oct 2025, pp. 1–8 · DOI 10.1109/ISSE65546.2025.11369978
+
 **Source:** [IEEE Xplore (arXiv 11369978)](https://ieeexplore.ieee.org/stampPDF/getPDF.jsp?tp=&arnumber=11369978&ref=aHR0cHM6Ly9pZWVleHBsb3JlLmllZWUub3JnL2RvY3VtZW50LzExMzY5OTc4) · [Find in Scholar](https://scholar.google.com/scholar?lookup_url=https%3A%2F%2Fieeexplore.ieee.org%2FstampPDF%2FgetPDF.jsp%3Ftp%3D%26arnumber%3D11369978%26ref%3DaHR0cHM6Ly9pZWVleHBsb3JlLmllZWUub3JnL2RvY3VtZW50LzExMzY5OTc4&q=Using%20Large%20Language%20Models%20for%20System%20Modeling%3A%20Current%20State%20and%20Future%20Implications&pi=cade2119166ac71007c231df84940001,118bf6504bad5affe83a736a8e5ee9fc)
 
 **Tags:** #LLM #MBSE #SysML #SysMLv2 #PromptEngineering #MCP #LiteratureReview

@@ -1,5 +1,8 @@
 # Generating SysML v2 Models from Natural Language Requirements Using Large Language Models
 
+**Bib:** `dehn2025nl2sysml` · **Type:** 1 scientific · **Verified:** Crossref 15.09.2026
+**Metadata:** Dehn, Simon; Schnürer, Simon; Jacobs, Georg; Höpfner, Gregor (RWTH Aachen, MSE) · *2025 IEEE International Symposium on Systems Engineering (ISSE)*, Oct 2025, pp. 1–7 · DOI 10.1109/ISSE65546.2025.11369988
+
 **Source:** [IEEE Xplore (arXiv 11369988)](https://ieeexplore.ieee.org/stampPDF/getPDF.jsp?tp=&arnumber=11369988&ref=aHR0cHM6Ly9pZWVleHBsb3JlLmllZWUub3JnL2Fic3RyYWN0L2RvY3VtZW50LzExMzY5OTg4) · [Find in Scholar](https://scholar.google.com/scholar?lookup_url=https%3A%2F%2Fieeexplore.ieee.org%2FstampPDF%2FgetPDF.jsp%3Ftp%3D%26arnumber%3D11369988%26ref%3DaHR0cHM6Ly9pZWVleHBsb3JlLmllZWUub3JnL2Fic3RyYWN0L2RvY3VtZW50LzExMzY5OTg4&q=Generating%20SysML%20v2%20Models%20from%20Natural%20Language%20Requirements%20Using%20Large%20Language%20Models&pi=060f981e11b233a589f0511091f16103,b0c964fe436dc2eb3201a3d66a87d56e)
 
 **Tags:** #LLM #MBSE #SysMLv2 #NaturalLanguage #PromptEngineering #Automotive #Requirements

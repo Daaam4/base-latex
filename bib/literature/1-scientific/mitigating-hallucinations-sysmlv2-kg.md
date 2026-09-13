@@ -1,5 +1,8 @@
 # Mitigating Hallucinations in SysML v2 Generation Using LLMs and a Tri-Layered Knowledge Graph Reasoning Framework
 
+**Bib:** `qualis2025hallucination` · **Type:** 1 scientific · **Verified:** Crossref 15.09.2026
+**Metadata:** Qualis, Richard A. · *2025 ACM/IEEE 28th Int. Conf. on Model Driven Engineering Languages and Systems Companion (MODELS-C)*, Oct 2025, pp. 357–366 · DOI 10.1109/MODELS-C68889.2025.00054
+
 **Source:** [IEEE Xplore (arXiv 11273264)](https://ieeexplore.ieee.org/stampPDF/getPDF.jsp?tp=&arnumber=11273264&ref=aHR0cHM6Ly9pZWVleHBsb3JlLmllZWUub3JnL2Fic3RyYWN0L2RvY3VtZW50LzExMjczMjY0) · [Find in Scholar](https://scholar.google.com/scholar?lookup_url=https%3A%2F%2Fieeexplore.ieee.org%2FstampPDF%2FgetPDF.jsp%3Ftp%3D%26arnumber%3D11273264%26ref%3DaHR0cHM6Ly9pZWVleHBsb3JlLmllZWUub3JnL2Fic3RyYWN0L2RvY3VtZW50LzExMjczMjY0&q=Mitigating%20Hallucinations%20in%20SysML%20v2%20Generation%20Using%20LLMs%20and%20a%20Tri-Layered%20Knowledge%20Graph%20Reasoning%20Framework&pi=e325d2fecb5daffe5b9326f4c978e672,adbe8a0752046a426e7cb901b5289afa)
 
 **Tags:** #LLM #MBSE #SysMLv2 #KnowledgeGraph #Hallucinations #RAG #Aerospace #Automotive

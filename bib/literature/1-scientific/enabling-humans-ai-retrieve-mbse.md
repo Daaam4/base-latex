@@ -1,5 +1,8 @@
 # Enabling Humans and AI Systems to Retrieve Information from System Architectures in Model-Based Systems Engineering
 
+**Bib:** `quast2026graphrag` · **Type:** 1 scientific · **Verified:** Crossref 15.09.2026
+**Metadata:** Quast, Vincent; Jacobs, Georg; Dehn, Simon; Höpfner, Gregor (RWTH Aachen, MSE) · *Systems* (MDPI) 14(1):83, Jan 2026 · DOI 10.3390/systems14010083 (preprint: 10.20944/preprints202512.0439.v1, Dec 2025)
+
 **Source:** [ProQuest](https://media.proquest.com/media/hms/PFT/1/JCOLf?_s=Equ4XP7m%2BxIoBjEg27N3gn1CGks%3D#view=FitV) · [Find in Scholar](https://scholar.google.com/scholar?lookup_url=https%3A%2F%2Fmedia.proquest.com%2Fmedia%2Fhms%2FPFT%2F1%2FJCOLf%3F_s%3DEqu4XP7m%252BxIoBjEg27N3gn1CGks%253D%23view%3DFitV&q=Enabling%20Humans%20and%20AI%20Systems%20to%20Retrieve%20Information%20from%20System%20Architectures%20in%20Model-Based%20Systems%20Engineering&pi=f0bc658faa6c01960f68b39ccd1f740e,2a13af333442d78178f6b690acd18c5d)
 
 **Tags:** #LLM #MBSE #SysMLv2 #GraphRAG #KnowledgeGraph #MultiAgent #RFLP #InformationRetrieval

@@ -19,18 +19,19 @@
 **Closest competing / parallel work:**
 | Work | Why it matters | How we differ |
 |---|---|---|
+| **Bazzal et al. 2026** (Fraunhofer IEM/FAU), *MCP for MBSE*, Proc. Design Society, DOI 10.1017/pds.2026.10630 | **Closest scientific competitor**: a framework for building MCP servers on the standard SysML v2 API, published July 2026. The artifact class the thesis builds. | (1) They contribute the *framework*, we contribute the *capability evaluation* — SysTemp's "no benchmark exists" still holds. (2) They sit on the standard REST API (Option A, no traversal per Ahlbrecht); we attach inside MSoSA (Option B) and expose tool-native validation. (3) Abstract mentions no evaluation. **Full text still to read** (open access; publica.fraunhofer.de unreachable from dev machine 15.09). |
+| **Al-Shami et al. 2026** (Aalto), INCOSE IS, DOI 10.1002/iis2.70189 | Semantic-vs-syntactic fault distinction, KG-driven systematic fault injection, diff-patch repair; plain LLM < 3 % → fine-tuned > 91 % | Precedent for the *Korrektur* fault taxonomy and injection method. They fine-tune a small model on files; we use a frontier agent with live-model tools, no fine-tuning. |
 | **SEI/CMU** "Native AI Integration for MBSE" | Controlled 3-arm SysML v2 benchmark (baseline / validation loop / full tooling); validation loop → 0 syntax errors; knowledge tooling 71.7 → 94.1 pattern score | Entirely **file-based** (textual + Syside LSP); their MCP server is a *knowledge-retrieval* service, not a model repository. No live state, no commits, no traversal |
 | **arXiv 2608.26199** (hardware MCP benchmark) | Methodological sibling: purpose-built MCP server + benchmark + ablations, 7 models | Different domain; no semantic graph layer |
 | **arXiv 2609.03718** (CAE agents) | ⚠️ Counter-evidence: generic harness ≈ specialized machinery; domain knowledge > scaffolding | Directly tested by our Arm 1 vs Arm 2 ablation |
 | **arXiv 2608.23653** (Pufibara/Modelica) | 232-task benchmark, evaluator outside agent loop, persistent state | Adopt the external-evaluator principle |
 | **DLR DASC 2025** | SysML v2 API cannot traverse relationships (>10 s/query at 200K elements / 16M relations) | Technical motivation for the semantic/cache layer; `DLR-FT/sysml-v2-sql` is a reference implementation |
 
-**Read papers (summaries in `bib/literature/1-scientific/`):**
-1. LLMs for System Modeling: Current State (SLR of 20 papers; SysML v1→v2 prompting; MCP)
-2. Generating SysML v2 from NL Requirements (4-component prompting; automotive)
-3. Mitigating Hallucinations via Tri-Layered KG (satellite case study)
-4. SysForge — knowledge-augmented conversational multi-agent generation + refinement
-5. Enabling Humans and AI to Retrieve Information from System Architectures (GraphRAG + Neo4j + RFLP; 93% accuracy)
+**Corpus (17 scientific sources, all metadata verified 15.09.2026; summaries in `bib/literature/1-scientific/`, table in `bib/literature/0. Index.md`):**
+A. LLM × SysML v2: DeHart 2024 (origin) · Fresemann 2025 (SLR) · Dehn 2025 (NL→v2) · Qualis 2025 (KG) · Wu 2025 (SysForge) · Quast 2026 (GraphRAG) · Bouamra 2025 (SysTemp, gap) · Al-Shami 2026 (fault localisation) · Bazzal 2026 (MCP for MBSE) · Ahlbrecht 2025 (DASC)
+B. Agent evaluation: Liparulo 2026 (hw-MCP) · Shi 2026 (CAE, counter) · Wang 2026 (Pufibara) · Shefa 2026 (47 %) · Pradas-Gomez 2026 (DUCTILE) · Molinari 2026 (EngiAI) · Hasan 2026 (MCP smells)
+
+**Design principles imported from the corpus:** evaluator outside the agent loop (Wang) · expert acceptance criteria + human second rater, no LLM-as-judge (Shefa, DUCTILE) · per-capability scores, traces as evidence (Molinari) · repeated runs / pass^k (DUCTILE) · tool-description quality held constant across arms (Hasan, Liparulo) · validation-feedback loop in every tool arm so the semantic layer is isolated from the repair-loop effect (Shi, SEI).
 
 ---
 
@@ -39,6 +40,7 @@
 | Question | Answer |
 |---|---|
 | "MCP servers already exist — what's novel?" | The gap is the **evaluation**, not the server. None of the existing servers has been benchmarked, and none targets SysML v2 in an industrial tool (MSoSA/TWC). |
+| "Fraunhofer already published *MCP for MBSE* (Bazzal 2026) — isn't that your thesis?" | No: they contribute a framework on the standard API and (per abstract) no evaluation. We contribute the benchmark, ablation and failure taxonomy — and test whether a tool-internal bridge with traversal + native validation beats the API-level design. Bazzal is the strongest argument that the topic is timely. |
 | "Is ~4.5 months enough to build *and* evaluate?" | Yes with descoping (§3): reuse Apollo 11 instead of authoring models, fewer difficulty tiers, one model family (Claude) with two capability tiers. Writing overlaps from week 1. |
 | "How do you measure semantic correctness?" | Expert-defined acceptance criteria per task + tool-native metamodel/validation conformance + diff against ground truth. Not LLM-as-judge alone (cf. arXiv 2609.03230: best model finds only 47% of expert issues). |
 | "What if the agent fails/succeeds at everything?" | Either outcome is the result — the contribution is the capability map + failure taxonomy. Difficulty tiers exist precisely to locate the boundary. |

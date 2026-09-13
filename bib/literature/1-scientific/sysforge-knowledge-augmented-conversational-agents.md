@@ -1,5 +1,8 @@
 # Knowledge-Augmented Conversational Agents for Dependency-Aware SysML v2 Model Generation and Refinement
 
+**Bib:** `wu2025sysforge` · **Type:** 1 scientific · **Verified:** Crossref 15.09.2026
+**Metadata:** Wu, Rui; Wen, Guangwei; Zhang, XiaoNing; Liang, Xiaojun; Yang, Chunhua; Gui, Weihua · *2025 IEEE 26th China Conf. on System Simulation Technology and its Applications (CCSSTA)*, Jul 2025, pp. 581–586 · DOI 10.1109/IEEECONF65522.2025.11137199
+
 **Source:** [IEEE Xplore (arXiv 11137199)](https://ieeexplore.ieee.org/stampPDF/getPDF.jsp?tp=&arnumber=11137199&ref=aHR0cHM6Ly9pZWVleHBsb3JlLmllZWUub3JnL2Fic3RyYWN0L2RvY3VtZW50LzExMTM3MTk5) · [Find in Scholar](https://scholar.google.com/scholar?lookup_url=https%3A%2F%2Fieeexplore.ieee.org%2FstampPDF%2FgetPDF.jsp%3Ftp%3D%26arnumber%3D11137199%26ref%3DaHR0cHM6Ly9pZWVleHBsb3JlLmllZWUub3JnL2Fic3RyYWN0L2RvY3VtZW50LzExMTM3MTk5&q=Knowledge-Augmented%20Conversational%20Agents%20for%20Dependency-Aware%20SysML%20v2%20Model%20Generation%20and%20Refinement&pi=51c685117e52252899f24d78f67f7025,b466cd5aa36b611e45d875c3564bf4dc)
 
 **Tags:** #LLM #MBSE #SysMLv2 #KnowledgeGraph #RAG #ConversationalAgent #SysForge #MultiAgent
