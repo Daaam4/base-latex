@@ -10,11 +10,8 @@ Can locally deployed LLM agents reliably automate dependency-ordered hardware-de
 ## Method
 Build an MCP server that reproduces the state and dependency logic of a proprietary hardware-design tool; construct a benchmark covering single-operation edits, multi-step dependency chains, invalid requests, misspelled prompts and multi-server contexts; evaluate seven open-source models under ablations of system prompt, tool-description detail, context scope and single- vs multi-agent architecture. Metric: expected-call coverage.
 
-## Findings to carry over
-- Comprehensive tool descriptions consistently reduce failures (→ design the bridge's tool surface deliberately; cf. Hasan et al.).
-- Few-shot prompting can cause severe *inaction* in some models.
-- Cumulative context harms constrained models → bound context per task.
-- Multi-agent decomposition helps weak workers / long sessions at the cost of extra calls.
-
 ## Relevance
-The closest **methodological** sibling: same recipe (purpose-built MCP server + task benchmark + configuration ablations), different domain, no semantic graph layer. Its task categories (single-op / chain / invalid / misspelled) map onto the difficulty tiers of the SysML v2 benchmark.
+The closest **methodological** sibling: same recipe (purpose-built MCP server + task benchmark + configuration ablations), different domain, no semantic graph layer. Its task categories (single-op / chain / invalid / misspelled) map onto the difficulty tiers of the SysML v2 benchmark. Findings to carry over: comprehensive tool descriptions consistently reduce failures (design the bridge's tool surface deliberately; cf. Hasan et al.); few-shot prompting can cause severe *inaction* in some models; cumulative context harms constrained models → bound context per task; multi-agent decomposition helps weak workers/long sessions at the cost of extra calls.
+
+## Status
+Full text read (arXiv). PDF at `bib/papers/liparulo2026hwmcp.pdf`.

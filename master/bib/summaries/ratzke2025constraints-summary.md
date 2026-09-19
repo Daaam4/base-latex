@@ -1,0 +1,17 @@
+# Modeling and Analysis of System Models with Constraints in SysMLv2
+
+**Bib:** `ratzke2025constraints` · **Type:** 1 scientific · **Verified:** full text read 19.09.2026 (Audited 19.09.2026, verdict: Verification — see `quellen.bib`)
+**Metadata:** Ratzke, Axel; Koch, Johannes; Grimm, Christoph (University of Kaiserslautern-Landau) · *2025 20th Annual System of Systems Engineering Conference (SoSE)*, pp. 1–6, June 2025 · DOI 10.1109/SoSE66311.2025.11083847
+**Tags:** #SysMLv2 #KerML #Constraints #ConstraintPropagation #CSP #Verification
+
+## Topic
+The paper addresses the lack of a unified, domain-independent way to integrate constraint programming directly within SysML v2/KerML models: existing tools (AADL, OCL, ontology-based checkers) either sit outside SysML's native semantics or require model transformation to external formalisms. Its core claim/contribution is a proof-of-concept extension of SysML v2's native `invariant`/`assert`/`requirement` constructs with more general range-based semantics — **oneOf** (choose exactly one value), **anyOf** (any value in a range satisfies the constraint), **allOf** (all values in a range must satisfy the constraint) — implemented as a KerML standard-library package, positioned as filling a gap left by prior SysML constraint work that stayed binary/discrete.
+
+## Method
+Approach: formalize range semantics for Booleans/Integers/Reals/Strings, define Liskov-consistent inheritance rules for specializing anyOf/oneOf/allOf constraints, then compile SysML v2 models into KerML abstract representation and reformulate them as a Constraint Satisfaction Problem (CSP) — using affine arithmetic/Chebyshev approximation for continuous (Real) domains and interval arithmetic/ILP for discrete (Integer) domains, solved via LP/SMT solvers with arc-consistency-based constraint propagation. Evaluated only via two small worked examples (a tank model with width/height/length/volume ranges, and a simplified electric-vs-combustion-engine car model) demonstrating hierarchical constraint propagation across part definitions and requirements — no benchmark, no dataset, no quantitative accuracy/performance metrics; the paper explicitly discusses NP-hardness of CSP/SMT/ILP solving as an acknowledged limitation, mitigated only by bounded ranges and over-approximation, and explicitly restricts the analysis to the static structure, excluding dynamic/behavioral aspects.
+
+## Relevance
+This is purely a static, structural technique — it computes whether declared range/inequality constraints over a system's static features are internally consistent (a form of the thesis's *Verifizierung* use case, per ISO 15288's conformance-checking definition), not a behavioral or stakeholder-objective validation (*Validierung*), which the paper itself excludes by design. It is relevant background for how SysML v2/KerML natively supports formal constraint checking (complementing `omg-kerml` and `boelsen2025guidelines`), useful for scoping what an agent could delegate to a constraint solver as a tool-native check when performing *Verifizierung* tasks, but it offers no agent/LLM angle, no ground truth, and no metrics — it is cited as a mechanism reference for the Verification leaf of the use-case taxonomy, not as competing or evaluated empirical work.
+
+## Status
+Full text read 19.09.2026 (via `pdftotext` extraction of the IEEE Xplore PDF). PDF at `bib/papers/ratzke2025constraints.pdf`.

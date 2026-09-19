@@ -12,3 +12,6 @@ Empirical study of 856 tools across 103 MCP servers; six description components 
 
 ## Relevance
 (1) Supplies a rubric for writing the bridge's tool descriptions. (2) Identifies a **confound between arms**: the semantic arm must not win merely because its tools are better described — description quality has to be held constant (same rubric, same components) across thin and semantic bridges. Complements Liparulo & Pierri's finding on description detail.
+
+## Status
+Full text read (arXiv). PDF at `bib/papers/hasan2026mcpsmells.pdf`.

@@ -88,7 +88,7 @@
   year    = {2024},
   month   = jul,
   doi     = {10.1002/iis2.13262},
-  note    = {The founding paper of the topic: argues that SysML v2's English-like textual syntax and the maturation of LLMs make conversational interaction with system models feasible, and that LLMs can replace API expertise as the interface. Method: conceptual analysis with case studies; explicitly warns of automation bias. Provides the vision the thesis puts to an empirical test.}
+  note    = {The founding paper of the topic: argues that SysML v2's English-like textual syntax and the maturation of LLMs make conversational interaction with system models feasible, and that LLMs can replace API expertise as the interface. Method: conceptual analysis plus three OpenAI Assistants-API case studies -- (1) modifying a beam model's length attribute, where the LLM generates and locally executes ad-hoc Python/regex code against the model's text file (no structured tool/API call); (2) a Flask \texttt{/ask} endpoint wrapping the same Assistant for conversational querying, e.g.\ correctly computing a von Mises stress from boundary conditions given only in prose; (3) a Jupyter-notebook case validating two requirements (max volume, max length) against a block model with a deliberately unconventional calculation, correctly traversing the Definition/Usage relationship and flagging the volume requirement as failed. All three are single-run proofs of concept -- no ground truth, no repeated trials, no quantitative metric beyond the reported outcome -- and explicitly warns of automation bias and overreliance. Provides the vision the thesis puts to an empirical test; also the earliest documented instance of the "no structured tool, LLM edits text directly" pattern that motivates this thesis's no-tool/thin-bridge ablation arms. Full text read 19.09.2026 (INCOSE/Wiley, via FH Aachen library access); PDF at \texttt{bib/papers/dehart2024llm.pdf}.}
 }
 
 @inproceedings{fresemann2025review,
@@ -153,14 +153,18 @@
   note    = {GraphRAG multi-agent system (supervisor + graph-query agent) over a Neo4j graph parsed from SysML v2 text and schema'd by RFLP; 93\,\% retrieval accuracy on a battery-EV model. Reference for the \emph{Abfragen} use case and its accuracy metric; the thesis queries the live tool instead of a derived graph.}
 }
 
-@misc{bouamra2025systemp,
-  author       = {Bouamra, Yasmine and Yun, Bruno and Poisson, Alexandre and Armetta, Fr{\'e}d{\'e}ric},
-  title        = {{SysTemp}: A Multi-Agent System for Template-Based Generation of {SysML} v2},
-  year         = {2025},
-  month        = jun,
-  howpublished = {arXiv:2506.21608 [cs.AI]},
-  doi          = {10.48550/arXiv.2506.21608},
-  note         = {Multi-agent, template-driven generation of SysML v2 from natural-language specifications, motivated by the scarcity of training corpora and the complex syntax. Its evaluation section states openly that no semantic evaluation method and no benchmark exist for SysML v2 generation -- the gap citation for the thesis's benchmark contribution.}
+@inproceedings{bouamra2025systemp,
+  author    = {Bouamra, Yasmine and Yun, Bruno and Poisson, Alexandre and Armetta, Fr{\'e}d{\'e}ric},
+  title     = {{SysTemp}: A Multi-Agent System for Template-Based Generation of {SysML} v2},
+  booktitle = {Advances in Practical Applications of Agents, Multi-Agent Systems, and Computational Social Science: The {PAAMS} Collection -- 23rd International Conference, {PAAMS} 2025, Lille, France},
+  series    = {Lecture Notes in Computer Science (LNAI)},
+  volume    = {16031},
+  pages     = {41--52},
+  year      = {2025},
+  month     = jun,
+  publisher = {Springer Nature Switzerland},
+  doi       = {10.1007/978-3-032-07638-0_4},
+  note      = {Peer-reviewed version (supersedes arXiv:2506.21608). Multi-agent pipeline -- SpecificationGeneratorAgent $\to$ TemplateGeneratorAgent $\to$ WriterAgent $\leftrightarrow$ ParserAgent iterative repair loop -- for NL-to-SysML-v2 textual generation. Ablation (GPT-4 Turbo, Claude 3.5 Sonnet, 5 toy bicycle-component scenarios): template scaffolding converges to zero syntax errors in 4/5 scenarios vs.\ 1/5 without it -- syntax convergence only, no semantic evaluation. States that the only two available SysML v2 example corpora are the Pilot-Implementation test suite and \texttt{GfSE/SysML-v2-Models}, $<$150 scenarios total -- corroborates this thesis's Apollo 11 (primary) / GfSE (secondary) split. Conclusion, quoted directly: ``assessing the quality of generated SysML v2 models remains constrained by the absence of standard benchmarks'' -- the gap citation for this thesis's benchmark contribution.}
 }
 
 @article{alshami2026faultloc,
@@ -276,9 +280,11 @@
 % ---------- Grey literature (type 2) ----------
 
 @misc{sei-native-ai,
-  author       = {{Software Engineering Institute, Carnegie Mellon University}},
+  author       = {Dempsey, Colin},
   title        = {Native {AI} Integration for Model-Based Systems Engineering: Three Layers that Make It Work},
+  howpublished = {SEI Blog, Carnegie Mellon University, \url{https://www.sei.cmu.edu/blog/native-ai-integration-for-model-based-systems-engineering-three-layers-that-make-it-work/}},
   year         = {2026},
-  howpublished = {SEI Blog, \url{https://www.sei.cmu.edu/blog/native-ai-integration-for-model-based-systems-engineering-three-layers-that-make-it-work/}, accessed 12.09.2026},
-  note         = {[TOP 3] Controlled three-arm SysML v2 experiment (no tools / validation loop / MCP knowledge server + skills; 8 tasks, Claude Opus 4.6): iterative validation eliminates syntax errors, curated knowledge raises pattern conformance from 71.7 to 94.1. Grey literature, but the only controlled tooling ablation on SysML v2 to date; file-based, so the thesis differentiates on the live-model / industrial-tool axis and adopts its ablation template.}
+  month        = sep,
+  day          = {2},
+  note         = {[TOP 3] Full text read 19.09.2026. Controlled three-arm SysML v2 experiment, same 8 tasks at two scales (n=40 small, n=24 large), single model (Claude Opus 4.6): (1) baseline, one-shot, no tools; (2) CLI-only, generation + \texttt{syside check} validation loop; (3) full tooling, adds a repository-local MCP knowledge-retrieval server (curated Markdown, not an LLM or KG) plus 10 file-based "skills" (e.g.\ \texttt{model-sysml}, \texttt{fix-sysml}, \texttt{review-sysml}). Both iterative arms reach 0 syntax errors/warnings (baseline: 3.7/100 lines small, 25.6/100 lines large) -- validation alone does not raise the project's 29-measure "pattern" score, but full tooling does: 71.7 $\to$ 94.1 on large tasks. Worked example (4-drone survey swarm, 8 coordinated files, 97.2/100 pattern score, 0 validator errors) shows the score's limit directly: separation and lost-link parameters, and several requested components, do not match the prompt, and analysis/verification elements are structurally present but not executable/evaluated -- a clean validation run does not mean the model is correct. Entirely file-based (textual notation + Syside LSP editor/CLI); their MCP server is a knowledge-retrieval service, not a model repository or live tool interface -- the thesis's point of differentiation (live model inside an industrial tool, MSoSA). Closest \emph{evaluated} work and the direct template for this thesis's own three-arm ablation (no tool / thin bridge / semantic bridge).}
 }
