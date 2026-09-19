@@ -1,10 +1,10 @@
 # AGENTS.md — Master Prompt for the Master's Thesis (branch `master-thesis`)
 
-> **Read order:** this file → `0. OVERVIEW.md` → `.pi/context/` as needed.
-> - **`0. OVERVIEW.md` is the user's document:** milestone-structured, short, checkbox-driven. M1 (Exposé) is detailed; M2–M5 are placeholders until agreed with Prof. Voss. **Keep it lean — do not move reference detail back into it.**
+> **Read order:** this file → `master/0. OVERVIEW.md` → `.pi/context/` as needed.
+> - **`master/0. OVERVIEW.md` is the user's document:** milestone-structured, short, checkbox-driven. M1 (Exposé) is detailed; M2–M5 are placeholders until agreed with Prof. Voss. **Keep it lean — do not move reference detail back into it.**
 > - **`.pi/context/`** holds the agent-facing detail: decisions (D1–D13), requirements, evaluation + statistical design, tooling, related work, conventions. Index: `.pi/context/00-index.md`.
 > - At the end of a session: tick the Overview checkboxes, add one log row, update the relevant `.pi/context/` file if a decision changed.
-> The Obsidian vault (`~/Documents/Obsidian Vault/Master Arbeit`) is **deprecated** — do not read from or write to it. Everything lives in this repo; thesis files are at the repository root.
+> The Obsidian vault (`~/Documents/Obsidian Vault/Master Arbeit`) is **deprecated** — do not read from or write to it. Everything lives in this repo; **all thesis files live under `master/`**.
 
 ---
 
@@ -32,50 +32,53 @@
    - Option B: **MagicDraw OpenAPI Java plugin** (works with desktop licence only).
    - Decision pending the FH licence check (see open questions).
 4. **Evaluation design:** benchmark of tasks per use case with ground truth; ablation arms (no tool / thin CRUD bridge / semantic bridge with tool-native validation & evaluation); fault injection for *Korrektur*; evaluator outside the agent loop; 2–3 LLMs.
-5. Research question + H1–H3 are in `pages/101expose.tex`.
+5. Research question + H1–H3 are in `master/pages/101expose.tex`.
 
-**Open questions (ask Prof. Voss):** ~~newer MSoSA build~~ → **settled: 2026x** (train is 2022x → 2024x → 2026x, no 2025x). Teamwork Cloud available? expected rigour level? — current list in `0. OVERVIEW.md` §5. Settled: English, ≥ 40 pages, Anthropic Max, MSoSA-only licence.
+**Open questions (ask Prof. Voss):** ~~newer MSoSA build~~ → **settled: 2026x** (train is 2022x → 2024x → 2026x, no 2025x). Teamwork Cloud available? expected rigour level? — current list in `master/0. OVERVIEW.md` §5. Settled: English, ≥ 40 pages, Anthropic Max, MSoSA-only licence.
 
 ## 3. Repository layout
 
-The repository root **is** the thesis workspace. Templates and the old seminar paper are tucked away in subfolders.
+**`master/` is the thesis workspace** — everything belonging to the Master's thesis lives there. Agent context, templates and the old seminar paper sit beside it at the root.
 
 ```
 base-latex/
-├── 0. OVERVIEW.md             ← user-facing status: milestones + checklists (keep lean!)
-├── .pi/context/               ← agent context: decisions, requirements, eval design, tooling (00-index.md)
 ├── AGENTS.md                  ← this file (master prompt); CLAUDE.md is a symlink to it
-├── 000report.tex              ← main file for milestone documents (currently the Exposé)
-├── Makefile                   ← make | make open | make watch | make clean
-├── unsrtdineng.bst            ← bib style (must sit next to 000report.tex)
-├── pages/001titlepage.tex
-├── pages/101expose.tex        ← Exposé (outline + word budgets in comments)
-├── bib/
-│   ├── quellen.bib             ← annotated bibliography (entries with TODO need verification)
-│   └── literature/             ← source summaries sorted by type:
-│       ├── 0. Index.md         ← index + source-type policy
-│       ├── 1-scientific/  2-blogs/  3-repos/
-│       └── landscape-sep-2026.md
-├── pic/                       ← figures (FHAC.jpg logo)
-├── milestones/                ← exported PDFs (Expose-draft.pdf, …)
-├── 0. Templates/
+├── Makefile                   ← thin wrapper: forwards all/clean/open/watch to master/
+├── .pi/context/               ← agent context: decisions, requirements, eval design, tooling (00-index.md)
+├── master/                    ← ★ the Master's thesis
+│   ├── 0. OVERVIEW.md         ← user-facing status: milestones + checklists (keep lean!)
+│   ├── 000report.tex          ← main file for milestone documents (currently the Exposé)
+│   ├── Makefile               ← make | make open | make watch | make clean
+│   ├── unsrtdineng.bst        ← bib style (must sit next to 000report.tex)
+│   ├── pages/001titlepage.tex
+│   ├── pages/101expose.tex    ← Exposé (outline + word budgets in comments)
+│   ├── bib/
+│   │   ├── quellen.bib         ← bibliography used by 000report.tex
+│   │   ├── pool-verified.bib   ← annotated verified entry pool
+│   │   └── literature/         ← source summaries sorted by type:
+│   │       ├── 0. Index.md     ← index + source-type policy
+│   │       ├── 1-scientific/  2-blogs/  3-repos/
+│   │       └── landscape-sep-2026.md
+│   ├── pic/                   ← figures (FHAC.jpg logo)
+│   └── milestones/            ← exported PDFs (Expose-draft.pdf, …)
+├── templates/
 │   ├── fh-template/           ← FH Aachen report template (do not edit; copy from it)
 │   └── conference-template/   ← IEEEtran template
-└── 0. Seminar/
+└── wissenschaftliche seminar/
     ├── WS Paper/              ← previous seminar paper (reference only)
     └── WS Milestones/         ← its exposé / concept PDFs
 ```
 
-Later additions (planned): `models/` (git submodules for Apollo 11 + GfSE), `pages/2xx-*.tex` (thesis chapters), and a separate code repo for the MCP bridge.
+Later additions (planned): `master/models/` (git submodules for Apollo 11 + GfSE), `master/pages/2xx-*.tex` (thesis chapters), and a separate code repo for the MCP bridge.
 
 ## 4. How to work in this repo
 
-- **Branch:** `master-thesis`. Commit small with prefixes `feat:` / `fix:` / `docs:`. Do not commit build artefacts (see `.gitignore`); `000report.pdf` and `milestones/*.pdf` are committed on purpose.
-- **Build:** `make` in the repo root (latexmk, TeX Live 2025 is installed). Check page count with `pdfinfo 000report.pdf`; extract text with `pdftotext -layout`.
+- **Branch:** `master-thesis`. Commit small with prefixes `feat:` / `fix:` / `docs:`. Do not commit build artefacts (see `.gitignore`); `master/000report.pdf` and `master/milestones/*.pdf` are committed on purpose.
+- **Build:** `make` in the repo root (wrapper) or inside `master/` (latexmk, TeX Live 2025 is installed). Check page count with `pdfinfo master/000report.pdf`; extract text with `pdftotext -layout`.
 - **Bibliography:** every entry carries a `note = {…}` annotation (topic · method · relevance, 2–3 sentences); the three most important get `[TOP 3]`. **Never invent authors/venues/years** — leave `TODO` and verify from the PDF/DOI. Sources are classified by type: **1 scientific** (primary, carries the argument) · **2 blogs** (adoption/tool facts; claims marked unvalidated) · **3 repos** (artifact state of the art; cite with commit + access date).
 - **Exposé rules (official brief):** ½–1 page body — Themendefinition · Relevanz · erste grobe Forschungsfrage/Hypothese · Überlegungen zu Quellenarten — **plus** an annotated literature list of ~15 entries (IEEE style, 2–3 sentences each on topic/method/relevance, 3 most important highlighted). The "max 2 pages" figure from the kickoff conflicts with this — confirm with Prof. Voss.
-- **Notes:** there is no `notes/` directory. Status + reference detail live in `0. OVERVIEW.md` (§11 appendices); decisions go in `decisions-log.md` at the repo root (dated: what, why, alternatives rejected); source summaries go in `bib/literature/{1-scientific,2-blogs,3-repos}/` and are registered in `bib/literature/0. Index.md`.
-- **Working process — write while working:** every practical phase (bridge, benchmark, evaluation) is written up into `pages/2xx-*.tex` **as soon as it is done**, while the next phase's implementation continues. A phase is not finished until its prose exists. See `0. OVERVIEW.md` §2.1 for the page budget.
+- **Notes:** there is no `notes/` directory. Status + reference detail live in `master/0. OVERVIEW.md` (§11 appendices); decisions go in `master/decisions-log.md` (dated: what, why, alternatives rejected); source summaries go in `master/bib/literature/{1-scientific,2-blogs,3-repos}/` and are registered in `master/bib/literature/0. Index.md`.
+- **Working process — write while working:** every practical phase (bridge, benchmark, evaluation) is written up into `master/pages/2xx-*.tex` **as soon as it is done**, while the next phase's implementation continues. A phase is not finished until its prose exists. See `master/0. OVERVIEW.md` §2.1 for the page budget.
 - **Implementation is vibe-coded** (MCP bridge / MBSE harness, evaluation framework, fault injection, run harness): favour speed, but log design decisions, dead ends and limitations as they happen — that log becomes the Design and Discussion chapters. Capture tool output/errors/screenshots into `pic/` immediately.
 - **Web research:** configured search providers may be unavailable; `anysearch`/`duckduckgo` work as explicit fallbacks.
 - **Style:** concise, academic English; German use-case names (Abfragen, Validierung, …) are kept as terms because Prof. Voss uses them.
@@ -83,13 +86,13 @@ Later additions (planned): `models/` (git submodules for Apollo 11 + GfSE), `pag
 ## 5. Session start checklist
 
 1. `git status && git log --oneline -5` on `master-thesis`.
-2. Read **`0. OVERVIEW.md`** (current milestone + open items), then the relevant `.pi/context/` file.
+2. Read **`master/0. OVERVIEW.md`** (current milestone + open items), then the relevant `.pi/context/` file.
 3. Ask the user what today's goal is if not stated; otherwise proceed.
 4. At the end: tick the Overview checkboxes, add a log row, update `.pi/context/` if a decision changed, and commit.
 
 ## 6. Next steps
 
-Tracked in **`0. OVERVIEW.md`** (current milestone) — single place, do not duplicate here.
+Tracked in **`master/0. OVERVIEW.md`** (current milestone) — single place, do not duplicate here.
 
 ## 7. Log
 
@@ -99,3 +102,4 @@ Tracked in **`0. OVERVIEW.md`** (current milestone) — single place, do not dup
 | 12.09.2026 | Branch `master-thesis` created; model research (Apollo 11 chosen), MSoSA API facts, exposé outline + bib seed; Obsidian vault retired |
 | 12.09.2026 | Repo reorganised: thesis files moved to root, templates → `templates/`, seminar paper → `Seminar/` |
 | 13.09.2026 | Prof. Voss granted access to **MSoSA 2026x** → D14; 2024x-specific caveats dropped |
+| 19.09.2026 | Repo restructured: all thesis files moved under `master/`; root keeps `AGENTS.md`, `.pi/context/`, a wrapper `Makefile`, `templates/`, `wissenschaftliche seminar/` |

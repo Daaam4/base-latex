@@ -1,6 +1,6 @@
 # Requirements & working process
 
-> Agent context for the Master's thesis. Human-facing status lives in `0. OVERVIEW.md`.
+> Agent context for the Master's thesis. Human-facing status lives in `master/0. OVERVIEW.md`.
 > Do not duplicate status here; this file holds stable context.
 
 ### Hard constraints
@@ -14,7 +14,7 @@
 
 Prior research on LLMs + SysML v2 is almost entirely **one-shot generation** from natural language, evaluated on small hand-made models, working on **text files**. Nobody has measured what an agent can and cannot do when it works **interactively against a live model inside an industrial modeling tool**, on a **large** model, across the full task spectrum. This thesis builds an **MCP bridge to Magic Systems of Systems Architect (MSoSA)**, uses the **Airbus Apollo 11 SysML v2 model** as system under test, and produces a **capability-and-failure map** across five use cases (Abfragen · Validierung · Verifizierung · Korrektur · Erstellen). *The bridge is the instrument — the evaluation is the contribution.*
 
-**Research question (as in `pages/101expose.tex`):**
+**Research question (as in `master/pages/101expose.tex`):**
 > Which SysML v2 modeling tasks can an LLM-based agent perform reliably in an industrial modeling environment (MSoSA) when connected through an MCP bridge, and where do its capabilities break down?
 
 **Hypotheses**
@@ -37,7 +37,7 @@ phase N practical work ──done─▶ write chapter N
 ```
 
 **Rules**
-- A phase is not "done" until its section exists in `pages/2xx-*.tex` as readable prose — not bullet notes.
+- A phase is not "done" until its section exists in `master/pages/2xx-*.tex` as readable prose — not bullet notes.
 - Implementation is **vibe-coded** (MCP bridge / MBSE harness, evaluation framework, fault injection, run harness): speed over craftsmanship. But every design decision, dead end and limitation is logged *as it happens* — that log becomes the Design and Discussion chapters.
 - Keep a running `decisions-log.md` in the repo root (dated: what, why, alternatives rejected). Cheap now, impossible to reconstruct in January.
 - Capture tool output, error messages and screenshots into `pic/` immediately — they become figures.
@@ -56,6 +56,6 @@ phase N practical work ──done─▶ write chapter N
 | 8 Conclusion & Future Work | writing month | 2 |
 | | **total** | **~45** |
 
-- [ ] Create the `pages/2xx-*.tex` skeleton with these headings right after the exposé, so every finished phase has a place to be written into
+- [ ] Create the `master/pages/2xx-*.tex` skeleton with these headings right after the exposé, so every finished phase has a place to be written into
 
 ---

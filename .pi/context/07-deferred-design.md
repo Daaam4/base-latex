@@ -1,6 +1,6 @@
 # Deferred / superseded design material
 
-> Agent context for the Master's thesis. Human-facing status lives in `0. OVERVIEW.md`.
+> Agent context for the Master's thesis. Human-facing status lives in `master/0. OVERVIEW.md`.
 > Do not duplicate status here; this file holds stable context.
 
 ## Appendix C — Deferred design material (pre-kickoff framing)

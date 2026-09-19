@@ -1,6 +1,6 @@
 # Tooling: MSoSA setup, versions, models
 
-> Agent context for the Master's thesis. Human-facing status lives in `0. OVERVIEW.md`.
+> Agent context for the Master's thesis. Human-facing status lives in `master/0. OVERVIEW.md`.
 > Do not duplicate status here; this file holds stable context.
 
 ## Appendix A — MSoSA setup

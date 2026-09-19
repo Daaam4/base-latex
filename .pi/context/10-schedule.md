@@ -1,6 +1,6 @@
 # Working schedule & capacity
 
-> Agent context. Human-facing status lives in `0. OVERVIEW.md`.
+> Agent context. Human-facing status lives in `master/0. OVERVIEW.md`.
 
 ## Weekly rhythm
 
@@ -22,7 +22,7 @@
 - **Thu afternoon (~4 h) is for bounded work:** literature annotation, bib verification, prose writing, reviewing agent output. Plan it as a discrete unit of work with a deliverable.
 - **Mon / Wed / Thu morning = unavailable.** No responses expected; do not plan interactive work there.
 - **Respect the off day.** If a plan only works by using it, the plan is too tight — say so rather than silently consuming the buffer.
-- Because thesis time is chunked, **prefer tasks that survive interruption**: written-down state, committed work-in-progress, checklists in `0. OVERVIEW.md` rather than in-session memory.
+- Because thesis time is chunked, **prefer tasks that survive interruption**: written-down state, committed work-in-progress, checklists in `master/0. OVERVIEW.md` rather than in-session memory.
 
 ## Capacity to the fixed dates
 

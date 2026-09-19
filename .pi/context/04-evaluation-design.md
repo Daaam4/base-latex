@@ -1,6 +1,6 @@
 # Evaluation design: use cases, metrics, statistics
 
-> Agent context for the Master's thesis. Human-facing status lives in `0. OVERVIEW.md`.
+> Agent context for the Master's thesis. Human-facing status lives in `master/0. OVERVIEW.md`.
 > Do not duplicate status here; this file holds stable context.
 
 ## Design: use cases, tasks & metrics
@@ -42,7 +42,7 @@ Two complementary halves. The quantitative half locates the capability boundary;
 - Every metric must be computable without human judgement, or be explicitly declared qualitative. No grey zone.
 - Log the full interaction trace (all tool calls + arguments + responses) for every run; it is the raw material for both halves.
 
-- [ ] Turn this table into the skeleton of `pages/2xx-evaluation.tex`
+- [ ] Turn this table into the skeleton of `master/pages/2xx-evaluation.tex`
 
 ### Statistical design — target: **statistically solid results** (decided 13.09.2026)
 

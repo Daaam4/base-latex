@@ -1,6 +1,6 @@
 # Open questions, settled facts, constraints
 
-> Agent context for the Master's thesis. Human-facing status lives in `0. OVERVIEW.md`.
+> Agent context for the Master's thesis. Human-facing status lives in `master/0. OVERVIEW.md`.
 > Do not duplicate status here; this file holds stable context.
 
 ## Blockers & open questions
@@ -18,9 +18,6 @@ Nothing else goes to him before the exposé.
 
 | Release | Date | Why it matters |
 |---|---|---|
-| 2024x | 10.11.2023 | our lineage |
-| **2024x Refresh2 HF1** | — | seminar-era build — SysML v2 feature-flagged / incubator-grade (**superseded 13.09.2026**) |
-| **2024x Refresh3** | 11.07.2025 | newer within the same train — low-friction upgrade |
 | **2026x** | 28.11.2025 | **what we have now (exact build TBD)** — **the SysML v2 release**: vendor claims a "100 % standard-compliant SysML v2 solution", synchronised textual ⇄ graphical syntax, query-based views, enhanced REST APIs |
 | 2026x Hot Fix 1 | 19.12.2025 | *"focused primarily on two key areas of the SysML v2 implementation"* |
 | **2026x Refresh1** | 26.06.2026 | **current latest**; adds SysML v2 project migration |

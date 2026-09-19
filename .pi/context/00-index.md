@@ -1,6 +1,6 @@
 # Agent context index — Master's thesis (branch `master-thesis`)
 
-**Read order:** `AGENTS.md` → `0. OVERVIEW.md` (human status, milestone-structured) → these files as needed.
+**Read order:** `AGENTS.md` → `master/0. OVERVIEW.md` (human status, milestone-structured) → these files as needed.
 
 | File | Contains |
 |---|---|
@@ -16,7 +16,7 @@
 | `10-schedule.md` | **Working rhythm & capacity** — job days Mon/Wed + Thu morning; thesis on Tue, Thu PM, Fri, one weekend day (~28 h/week); one protected day off |
 
 ## Rules
-1. **`0. OVERVIEW.md` is the user's document** — milestone-structured, short, checkbox-driven. Do not move reference detail back into it.
+1. **`master/0. OVERVIEW.md` is the user's document** — milestone-structured, short, checkbox-driven. Do not move reference detail back into it.
 2. These files hold **stable context**, not status. Status and progress live in the Overview.
 3. Update the relevant file when a decision changes, and add a one-line row to the Overview's log.
 4. Never invent bibliographic metadata — leave `TODO` and verify from PDF/DOI.

@@ -1,6 +1,6 @@
 # Technical backlog (post-exposé sequence)
 
-> Agent context for the Master's thesis. Human-facing status lives in `0. OVERVIEW.md`.
+> Agent context for the Master's thesis. Human-facing status lives in `master/0. OVERVIEW.md`.
 > Do not duplicate status here; this file holds stable context.
 
 ### Technical setup (parallel) — **the spike is now the top technical priority**
@@ -20,7 +20,7 @@
 - [ ] Write down the exact tool build + plugins + feature flag for the reproducibility appendix
 
 ### Reading
-- [ ] Read **Helle & Schramm 2026** (Apollo 11) fully → summary in `bib/literature/1-scientific/`, register in `bib/literature/0. Index.md`
+- [ ] Read **Helle & Schramm 2026** (Apollo 11) fully → summary in `master/bib/literature/1-scientific/`, register in `master/bib/literature/0. Index.md`
 - [ ] Read the **SEI/CMU** "Native AI Integration for MBSE" post in full (closest competing work — 3-arm design template)
 - [ ] Read **arXiv 2608.26199** (hardware-design MCP benchmark — closest methodological sibling)
 - [ ] Read **arXiv 2609.03718** (CAE generic harness — counter-evidence, must engage in discussion)
@@ -33,6 +33,6 @@
 - [ ] Fault-injection script for *Korrektur* (dangling refs, wrong types, broken `satisfy`)
 - [ ] Evaluation harness + external evaluator (outside agent loop) — **must support unattended batch runs with deterministic model reset** (`.pi/context/04-evaluation-design.md` (statistical design)); this is now a hard requirement, not a nicety
 - [ ] Metric implementation: task success, syntactic validity, semantic correctness, collateral damage (model diff), tool-call count / tokens, failure code
-- [ ] Chapter scaffolding `pages/2xx-*.tex`
+- [ ] Chapter scaffolding `master/pages/2xx-*.tex`
 
 ---
