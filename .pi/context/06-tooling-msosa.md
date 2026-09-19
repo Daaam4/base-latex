@@ -13,7 +13,7 @@
 |---|---|
 | Exact build (`Help > About`) | TODO — 2026x / 2026x HF1 / 2026x Refresh1 ? |
 | Edition / distribution | TODO (Academic? portable zip vs. installer?) |
-| Delivery channel | TODO (sciebo / ILIAS / licence-server update?) |
+| Delivery channel | **sciebo FH Aachen**, password-protected share `/s/L3kBaQZr3tY7dHS` (link 19.09.2026) — **password pending from Prof. Voss** (`03-open-questions.md`) |
 | Licence server | TODO — assume 149.201.140.104:1101 via FH VPN until proven otherwise |
 | Java | TODO (2026x ships with its own JDK? version?) |
 | SysML v2 plugins needed | TODO — 2026x ships SysML v2 natively; check whether *SysML v2 Evaluation* / *Textual Editor* are still separate plugins |
@@ -25,7 +25,7 @@
 
 ### A.1 — Fallback / historical: 2024x Refresh2 HF1 (seminar-era)
 
-> Source: FH ILIAS course folder "SysMLv2 Tool" (WS seminar). **Superseded by A.0** — kept for the fallback path and to document the delta.
+> Source: FH ILIAS course folder "SysMLv2 Tool" (WS seminar); recipe below re-confirmed against that page 19.09.2026 (screenshot) — unchanged, still advertises 2024x. **Superseded by A.0** — kept for the fallback path and to document the delta. Do not mistake the stale ILIAS page for the 2026x delivery.
 
 **Artifact:** `No_Magic_2024x_Refresh2_HF1.AM_NM_Academic.AllOS.2-5.zip` — *Magic Systems of Systems Architect* **2024x Refresh2 HF1**, **Academic**, all-OS, **portable (no_install)**, 3.4 GB, via sciebo FH Aachen.
 
