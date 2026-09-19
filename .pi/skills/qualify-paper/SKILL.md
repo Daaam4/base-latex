@@ -1,6 +1,6 @@
 ---
-name: quality-paper
-description: Vet and file a candidate source for the Master's thesis (branch master-thesis) — check relevance, reformat its summary, and wire it into the mind map / quellen.bib / bib/papers. Use when the user assigns a paper (a "todo - sources/*.md" file, or a paper name/PDF) to quality/review/add.
+name: qualify-paper
+description: Vet and file a candidate source for the Master's thesis (branch master-thesis) — check relevance, reformat its summary, and wire it into the mind map / quellen.bib / bib/papers. Use when the user assigns a paper (a "todo - sources/*.md" file, or a paper name/PDF) to qualify/review/add.
 ---
 
 Given one source (a `master/todo - sources/*.md` summary file, and/or a paper name or PDF), do this — one paper per pass, lightweight, no re-litigating already-settled sources:
