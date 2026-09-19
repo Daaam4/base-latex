@@ -55,10 +55,11 @@ base-latex/
 │   ├── bib/
 │   │   ├── quellen.bib         ← bibliography used by 000report.tex
 │   │   ├── pool-verified.bib   ← annotated verified entry pool
-│   │   └── literature/         ← source summaries sorted by type:
-│   │       ├── 0. Index.md     ← index + source-type policy
-│   │       ├── 1-scientific/  2-blogs/  3-repos/
-│   │       └── landscape-sep-2026.md
+│   │   ├── mindmap.md          ← working literature mind map (Mermaid)
+│   │   └── papers/             ← PDFs of cited sources (named by bib key)
+│   ├── todo - sources/        ← source summaries (flat, one .md per source):
+│   │   ├── 0. Index.md         ← index + source-type policy
+│   │   └── 0.landscape-sep-2026.md
 │   ├── pic/                   ← figures (FHAC.jpg logo)
 │   └── milestones/            ← exported PDFs (Expose-draft.pdf, …)
 ├── templates/
@@ -77,7 +78,7 @@ Later additions (planned): `master/models/` (git submodules for Apollo 11 + GfSE
 - **Build:** `make` in the repo root (wrapper) or inside `master/` (latexmk, TeX Live 2025 is installed). Check page count with `pdfinfo master/000report.pdf`; extract text with `pdftotext -layout`.
 - **Bibliography:** every entry carries a `note = {…}` annotation (topic · method · relevance, 2–3 sentences); the three most important get `[TOP 3]`. **Never invent authors/venues/years** — leave `TODO` and verify from the PDF/DOI. Sources are classified by type: **1 scientific** (primary, carries the argument) · **2 blogs** (adoption/tool facts; claims marked unvalidated) · **3 repos** (artifact state of the art; cite with commit + access date).
 - **Exposé rules (official brief):** ½–1 page body — Themendefinition · Relevanz · erste grobe Forschungsfrage/Hypothese · Überlegungen zu Quellenarten — **plus** an annotated literature list of ~15 entries (IEEE style, 2–3 sentences each on topic/method/relevance, 3 most important highlighted). The "max 2 pages" figure from the kickoff conflicts with this — confirm with Prof. Voss.
-- **Notes:** there is no `notes/` directory. Status + reference detail live in `master/0. OVERVIEW.md` (§11 appendices); decisions go in `master/decisions-log.md` (dated: what, why, alternatives rejected); source summaries go in `master/bib/literature/{1-scientific,2-blogs,3-repos}/` and are registered in `master/bib/literature/0. Index.md`.
+- **Notes:** there is no `notes/` directory. Status + reference detail live in `master/0. OVERVIEW.md` (§11 appendices); decisions go in `master/decisions-log.md` (dated: what, why, alternatives rejected); source summaries go in `master/todo - sources/` (flat, one file per source, type recorded in `0. Index.md`) and are registered in `master/todo - sources/0. Index.md`; PDFs go in `master/bib/papers/<bibkey>.pdf`; the literature mind map is `master/bib/mindmap.md`.
 - **Working process — write while working:** every practical phase (bridge, benchmark, evaluation) is written up into `master/pages/2xx-*.tex` **as soon as it is done**, while the next phase's implementation continues. A phase is not finished until its prose exists. See `master/0. OVERVIEW.md` §2.1 for the page budget.
 - **Implementation is vibe-coded** (MCP bridge / MBSE harness, evaluation framework, fault injection, run harness): favour speed, but log design decisions, dead ends and limitations as they happen — that log becomes the Design and Discussion chapters. Capture tool output/errors/screenshots into `pic/` immediately.
 - **Web research:** configured search providers may be unavailable; `anysearch`/`duckduckgo` work as explicit fallbacks.

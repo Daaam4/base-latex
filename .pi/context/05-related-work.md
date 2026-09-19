@@ -27,7 +27,7 @@
 | **arXiv 2608.23653** (Pufibara/Modelica) | 232-task benchmark, evaluator outside agent loop, persistent state | Adopt the external-evaluator principle |
 | **DLR DASC 2025** | SysML v2 API cannot traverse relationships (>10 s/query at 200K elements / 16M relations) | Technical motivation for the semantic/cache layer; `DLR-FT/sysml-v2-sql` is a reference implementation |
 
-**Corpus (17 scientific sources, all metadata verified 15.09.2026; summaries in `master/bib/literature/1-scientific/`, table in `master/bib/literature/0. Index.md`):**
+**Corpus (17 scientific sources, all metadata verified 15.09.2026; summaries in `master/todo - sources/`, table in `master/todo - sources/0. Index.md`):**
 A. LLM × SysML v2: DeHart 2024 (origin) · Fresemann 2025 (SLR) · Dehn 2025 (NL→v2) · Qualis 2025 (KG) · Wu 2025 (SysForge) · Quast 2026 (GraphRAG) · Bouamra 2025 (SysTemp, gap) · Al-Shami 2026 (fault localisation) · Bazzal 2026 (MCP for MBSE) · Ahlbrecht 2025 (DASC)
 B. Agent evaluation: Liparulo 2026 (hw-MCP) · Shi 2026 (CAE, counter) · Wang 2026 (Pufibara) · Shefa 2026 (47 %) · Pradas-Gomez 2026 (DUCTILE) · Molinari 2026 (EngiAI) · Hasan 2026 (MCP smells)
 

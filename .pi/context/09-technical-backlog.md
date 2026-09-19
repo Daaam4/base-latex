@@ -20,7 +20,7 @@
 - [ ] Write down the exact tool build + plugins + feature flag for the reproducibility appendix
 
 ### Reading
-- [ ] Read **Helle & Schramm 2026** (Apollo 11) fully → summary in `master/bib/literature/1-scientific/`, register in `master/bib/literature/0. Index.md`
+- [ ] Read **Helle & Schramm 2026** (Apollo 11) fully → summary in `master/todo - sources/`, register in `master/todo - sources/0. Index.md`
 - [ ] Read the **SEI/CMU** "Native AI Integration for MBSE" post in full (closest competing work — 3-arm design template)
 - [ ] Read **arXiv 2608.26199** (hardware-design MCP benchmark — closest methodological sibling)
 - [ ] Read **arXiv 2609.03718** (CAE generic harness — counter-evidence, must engage in discussion)

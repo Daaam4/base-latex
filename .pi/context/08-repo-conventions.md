@@ -20,12 +20,11 @@ base-latex/                    ← repo root (branch: master-thesis)
 │   ├── bib/
 │   │   ├── quellen.bib         ← bibliography used by 000report.tex
 │   │   ├── pool-verified.bib   ← annotated verified entry pool
-│   │   └── literature/         ← source summaries, sorted by type:
-│   │       ├── 0. Index.md     ← index + source-type policy (feeds the exposé's "Quellenarten")
-│   │       ├── 1-scientific/   ← papers, preprints, standards
-│   │       ├── 2-blogs/        ← institutional / vendor / practitioner posts
-│   │       ├── 3-repos/        ← open-source repos, packages, tooling
-│   │       └── landscape-sep-2026.md
+│   │   ├── mindmap.md          ← working literature mind map (Mermaid)
+│   │   └── papers/             ← PDFs of cited sources, named by bib key
+│   ├── todo - sources/        ← source summaries, flat (one .md per source; type in 0. Index.md)
+│   │   ├── 0. Index.md         ← index + source-type policy (feeds the exposé's "Quellenarten")
+│   │   └── 0.landscape-sep-2026.md
 │   ├── pic/                   ← figures (FHAC.jpg)
 │   └── milestones/            ← exported PDFs (Expose-draft.pdf, …)
 ├── templates/                 ← fh-template (do not edit; copy from it), conference-template

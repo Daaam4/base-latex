@@ -10,3 +10,113 @@
 %   5 Agent evaluation · 6 Model V&V and consistency · 7 MSoSA / tool integration
 %   8 Human oversight · 9 Empirical method
 % =====================================================================
+
+% ---------- Subject 1: MBSE (foundations) ----------
+
+@techreport{incose2007mbsevision,
+  author      = {{International Council on Systems Engineering (INCOSE)}},
+  title       = {{Systems Engineering Vision 2020}},
+  institution = {INCOSE},
+  year        = {2007},
+  month       = sep,
+  type        = {Technical Product},
+  number      = {INCOSE-TP-2004-004-02, v2.03},
+  url         = {https://sdincose.org/wp-content/uploads/2011/12/SEVision2020_20071003_v2_03.pdf},
+  note        = {[TOP 3] The original, canonical coinage of MBSE: "the formalized application of modeling to support system requirements, design, analysis, verification and validation activities beginning in the conceptual design phase and continuing throughout development and later life cycle phases." Nearly every downstream MBSE paper traces its definition to this document; verified by reading the primary PDF directly, not a secondary citation. PDF at \texttt{bib/papers/incose2007-se-vision-2020.pdf}.}
+}
+
+% ---------- Subject 2: SysML v2 (foundations) -- reused from the WS seminar paper ----------
+
+@techreport{omg-kerml,
+  author      = {{Object Management Group}},
+  title       = {{Kernel Modeling Language (KerML), Version 1.0}},
+  institution = {Object Management Group},
+  year        = {2025},
+  month       = sep,
+  type        = {Specification},
+  number      = {formal/25-09-01},
+  url         = {https://www.omg.org/spec/KerML/1.0/PDF},
+  note        = {Formal specification of KerML, the first-order-logic kernel that SysML v2 is built on (Root/Core/Kernel layers). Method: normative language specification. Foundational reference for why SysML v2 guidelines and constraints can be verified natively as CSPs rather than transformed to external formalisms as in SysML v1; PDF at \texttt{bib/papers/omg-kerml-v1.0.pdf}.}
+}
+
+@article{boelsen2025guidelines,
+  author  = {Boelsen, Kathrin and May, Matthias and Jacobs, Georg and Mennicken, Manuel and Moers, Frederik and Zerwas, Thilo and H{\"o}pfner, Gregor},
+  title   = {{SysML} v2 based modelling guidelines for mechanical system elements},
+  journal = {Forschung im Ingenieurwesen},
+  volume  = {89},
+  number  = {1},
+  pages   = {60},
+  year    = {2025},
+  doi     = {10.1007/s10010-025-00827-w},
+  note    = {Enforces domain-specific modelling guidelines intrinsically in SysML v2 via Metadata Definitions and the Definition/Usage separation (motego methodology, mechanical system elements), instead of extrinsic UML profiles/OCL as in v1. Method: metamodel design plus a worked example (lubricated rolling-contact component). Concrete precedent for how a semantic MCP bridge could expose or enforce guideline conformance as a tool-native check; PDF at \texttt{bib/papers/boelsen2025-sysml2-guidelines.pdf}.}
+}
+
+@inproceedings{ahlbrecht2025mbsqle,
+  author    = {Ahlbrecht, Alexander and Zaeske, Wanja and Durak, Umut},
+  title     = {{MBSqlE}: Enabling {SQL} as Powerful Query Language for {SysML} v2 in Aviation},
+  booktitle = {44th AIAA DATC/IEEE Digital Avionics Systems Conference (DASC 2025)},
+  year      = {2025},
+  month     = sep,
+  address   = {Montreal, Canada},
+  publisher = {IEEE},
+  url       = {https://elib.dlr.de/214792/},
+  note      = {DLR Institute of Flight Systems: analyses the standard SysML v2 API query model and shows it offers no direct graph traversal, leading to performance bottlenecks on large models; proposes SQLite as an intermediate, traversable representation with SQL as query language (open-source \texttt{DLR-FT/sysml-v2-sql}). Method: API analysis plus design and open-source implementation. Technical motivation for the semantic/cache layer of the bridge and for querying inside the tool rather than through the REST API; PDF at \texttt{bib/papers/ahlbrecht2025mbsqle.pdf}.}
+}
+
+% ---------- Subject 6: Model V&V and consistency -- reused from the WS seminar paper ----------
+
+@techreport{iso-15288,
+  author      = {{ISO/IEC/IEEE}},
+  title       = {{Systems and software engineering -- System life cycle processes}},
+  institution = {International Organization for Standardization},
+  year        = {2023},
+  month       = may,
+  type        = {International Standard},
+  number      = {ISO/IEC/IEEE 15288:2023},
+  url         = {https://www.iso.org/standard/81702.html},
+  note        = {Defines Verification (conformance to architectural/technical requirements, incl.\ traceability and syntactic checks) and Validation (fulfilment of stakeholder needs in the operational environment) as distinct system life-cycle processes. The thesis's Verification/Validation use cases adopt these definitions directly. Paywalled standard -- no PDF copy in \texttt{bib/papers/}, cite by standard number.}
+}
+
+% Verification-leaf candidates were independently audited (evidence-auditor subagents, 19.09.2026)
+% against the iso-15288 definitions above. Unanimous finding: all six audited papers perform
+% ISO-VERIFICATION (conformance/consistency checking against a formal spec or metamodel), regardless of
+% what their own title/abstract calls it. NONE of them performs ISO-VALIDATION (behavioral simulation or
+% operational-scenario execution against stakeholder/business objectives) -- that leaf remains an open
+% gap in the reviewed literature. Bergemann (multi-view consistency, survey/position paper) was audited
+% and excluded: it performs neither process. Curated down (19.09.2026) to the 3 most valuable of the six
+% audited Verification papers -- Molnar (broadest tool landscape), Cibrian (practical tool + clearest
+% conflation example), Ratzke (explains the native KerML-CSP mechanism, complements omg-kerml/boelsen).
+% Removed: Zavada (redundant second conflation example), Kausch (Isabelle theorem-proving, most tangential
+% to an agent/MCP-driven workflow), Lu (SysML v1, not v2). PDFs for the removed three were deleted from
+% bib/papers/; re-run the earlier copy step from the WS seminar bib/ folder if they're needed again.
+
+@article{cibrian2025validation,
+  author  = {Cibri{\'a}n, Eduardo and Olivert-Iserte, Jose and D{\'i}ez-Fenoy, Carlos and Mendieta, Roy and Llorens, Juan and {\'A}lvarez-Rodr{\'i}guez, Jose Mar{\'i}a},
+  title   = {Ensuring Semantic Consistency in {SysML} v2 Models Through Metamodel-Driven Validation},
+  journal = {IEEE Access},
+  volume  = {13},
+  pages   = {121444--121457},
+  year    = {2025},
+  doi     = {10.1109/ACCESS.2025.3587786},
+  note    = {Despite the title, this is ISO-verification: metamodel-conformance checking (syntax, cardinality, cross-reference integrity) via a custom validator, not behavioral simulation or stakeholder-objective fulfilment. Paper explicitly contrasts its static, structural approach with simulation-based tools (SysON). Method: metamodel-driven rule checker + case studies across three domains. Audited 19.09.2026, verdict: Verification. PDF at \texttt{bib/papers/cibrian2025validation.pdf}.}
+}
+
+@inproceedings{molnar2024formalverification,
+  author    = {Moln{\'a}r, Vince and Graics, Bence and V{\"o}r{\"o}s, Andr{\'a}s and Tonetta, Stefano and Cristoforetti, Luca and Kimberly, Greg and Dyer, Pamela and Giammarco, Kristin and Koethe, Manfred and Hester, John and Smith, Jamie and Grimm, Christoph},
+  title     = {Towards the Formal Verification of {SysML} v2 Models},
+  booktitle = {Proceedings of the ACM/IEEE 27th International Conference on Model Driven Engineering Languages and Systems (MODELS Companion '24)},
+  pages     = {1086--1095},
+  year      = {2024},
+  doi       = {10.1145/3652620.3687820},
+  note      = {Surveys five tool integrations (Gamma, MP-Firebird, Imandra, SAVVS, SysMD) applying model checking, theorem proving and SMT/contract-refinement to SysML v2 models -- all proofs of conformance to formally stated properties/contracts, with explicit traceability framing. "Verification and validation" appears only as a stock keyword pair; no operational-scenario or stakeholder-objective content anywhere in the body. Audited 19.09.2026, verdict: Verification. PDF at \texttt{bib/papers/molnar2024formalverification.pdf}.}
+}
+
+@inproceedings{ratzke2025constraints,
+  author    = {Ratzke, Axel and Koch, Johannes and Grimm, Christoph},
+  title     = {Modeling and Analysis of System Models with Constraints in {SysML}v2},
+  booktitle = {2025 20th Annual System of Systems Engineering Conference (SoSE)},
+  pages     = {1--6},
+  year      = {2025},
+  doi       = {10.1109/SoSE66311.2025.11083847},
+  note      = {Compiles KerML/SysML v2 range-based constraints (\texttt{oneOf}/\texttt{anyOf}/\texttt{allOf}) into a Constraint Satisfaction Problem and solves it via constraint propagation -- explicitly static, explicitly excludes dynamic/behavioral analysis ("restrict constraint propagation to... the static structure... excluding dynamic behaviors"). Uses "valid/validation" only informally for constraint satisfaction. Audited 19.09.2026, verdict: Verification. PDF at \texttt{bib/papers/ratzke2025constraints.pdf}.}
+}
