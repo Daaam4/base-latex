@@ -49,22 +49,23 @@ out to be a non-trivial capability to evaluate; drop otherwise.
 ## Sources by node (table)
 
 Rows = sources (25, from `bib/quellen.bib`), columns = mind-map nodes/leaves above. `X` marks that
-a source is attached to that node. `MSoSA` and `Delete` have no source yet (open gaps).
+a source is attached to that node. `MSoSA` and `Delete` have no source yet (open gaps). ⭐ marks the
+3 most important sources overall (per `bib/quellen.bib`'s `[TOP 3]` annotations).
 
 | # | Source | MBSE | AI | SysML v2 | MSoSA | EvalFW | API Query Limits | CRUD Ops | Create (Erstellen) | Patch (Korrektur) | Query (Abfragen) | Delete | Verification | Validation | MCP | AI Harness |
 |---|---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 | 1 | `ahlbrecht2025mbsqle` | | | | | | X | | | | | | | | | |
 | 2 | `alshami2026faultloc` | | | | | | | | | X | | | | | | |
-| 3 | `bazzal2026mcpmbse` | | | | | | X | | X | X | X | | | | X | |
+| 3 | ⭐ `bazzal2026mcpmbse` | | | | | | X | | X | X | X | | | | X | |
 | 4 | `boelsen2025guidelines` | | | X | | | | | | | | | | | | |
-| 5 | `bouamra2025systemp` | | | X | | | X | X | | | | | | | X |
+| 5 | `bouamra2025systemp` | | | X | | | | X | X | | | | | | | X |
 | 6 | `cibrian2025validation` | | | | | | | | | | | | X | | | |
 | 7 | `dehart2024llm` | | X | | | | | | | | | | | | | |
 | 8 | `dehn2025nl2sysml` | | | | | | | | X | | | | | | | |
-| 9 | `dempsey2026nativeai` | | | | | X | | | X | | | | | | X | X |
+| 9 | ⭐ `dempsey2026nativeai` | | | | | X | | | X | | | | | | X | X |
 | 10 | `fresemann2025review` | | | | | X | | | | | | | | | | |
 | 11 | `hasan2026mcpsmells` | | | | | | | | | | | | | | X | |
-| 12 | `incose2007mbsevision` | X | | | | | | | | | | | | | | |
+| 12 | ⭐ `incose2007mbsevision` | X | | | | | | | | | | | | | | |
 | 13 | `iso-15288` | | | | | | | | | | | | X | X | | |
 | 14 | `liparulo2026hwmcp` | | | | | | | | | | | | | | | X |
 | 15 | `molinari2026engiai` | | | | | X | | | | | | | | | | |
@@ -87,7 +88,7 @@ a source is attached to that node. `MSoSA` and `Delete` have no source yet (open
 2. **alshami2026faultloc** — Syntactic-vs-semantic fault distinction plus KG-driven systematic
    fault injection is the model for this thesis's fault taxonomy/injection method on Apollo 11;
    plain-LLM repair rate <3% sets the no-tool-arm baseline expectation for *Korrektur*.
-3. **bazzal2026mcpmbse** — [TOP 3] Fraunhofer IEM/HNI/FAU/Audi MCP framework built directly on the
+3. **bazzal2026mcpmbse** — ⭐ **[TOP 3]** Fraunhofer IEM/HNI/FAU/Audi MCP framework built directly on the
    standard SysML v2 API (C#.NET, official reference API+DB in Docker, open source); three tool
    classes (creation/modification/analysis) mirror this thesis's Create/Patch/Query use cases and it
    is the closest scientific competing work — the "Option A" contrast to this thesis's MSoSA-internal
@@ -120,7 +121,7 @@ a source is attached to that node. `MSoSA` and `Delete` have no source yet (open
    essential for syntactic correctness, and structured prompting trades quality for token/runtime
    cost; logical-to-physical element mapping stays unstable. File-based (no modelling tool) — supplies
    this thesis's element-level metric template, contrasted against the live-tool/MSoSA attachment.
-9. **dempsey2026nativeai** — [TOP 3] Controlled 3-arm SysML v2 benchmark (baseline / CLI validation
+9. **dempsey2026nativeai** — ⭐ **[TOP 3]** Controlled 3-arm SysML v2 benchmark (baseline / CLI validation
    loop / full MCP-knowledge+skills tooling, 8 tasks × 2 scales, Claude Opus 4.6) that directly
    templates this thesis's no-tool/thin-bridge/semantic-bridge ablation design: validation alone
    kills syntax errors but barely moves the modeling-pattern score (78.3→71.7), while curated
@@ -141,7 +142,7 @@ a source is attached to that node. `MSoSA` and `Delete` have no source yet (open
     with 17% regressions. Supplies the description-quality rubric for this thesis's bridge tools and
     flags a confound to control between the thin- and semantic-bridge arms, so the semantic arm
     doesn't win merely on better-written tool text.
-12. **incose2007mbsevision** — [TOP 3] The original, canonical coinage of MBSE (INCOSE SE Vision
+12. **incose2007mbsevision** — ⭐ **[TOP 3]** The original, canonical coinage of MBSE (INCOSE SE Vision
     2020), verified directly from the primary PDF; nearly every downstream MBSE paper traces its
     definition to this document — foundational reference for the MBSE root node.
 13. **iso-15288** — Source of the ISO 15288 verification/validation definitions used to audit and
