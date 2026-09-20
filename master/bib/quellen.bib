@@ -22,7 +22,7 @@
   type        = {Technical Product},
   number      = {INCOSE-TP-2004-004-02, v2.03},
   url         = {https://sdincose.org/wp-content/uploads/2011/12/SEVision2020_20071003_v2_03.pdf},
-  note        = {[TOP 3] The original, canonical coinage of MBSE: "the formalized application of modeling to support system requirements, design, analysis, verification and validation activities beginning in the conceptual design phase and continuing throughout development and later life cycle phases." Nearly every downstream MBSE paper traces its definition to this document; verified by reading the primary PDF directly, not a secondary citation. PDF at \texttt{bib/papers/incose2007-se-vision-2020.pdf}.}
+  note        = {[TOP 3] INCOSE foresight report (workshop synthesis, not an empirical study) that coins the canonical MBSE definition. Anchors the thesis's framing and its treatment of \emph{Verifizierung} and \emph{Validierung} as distinct activities.}
 }
 
 % ---------- Subject 2: SysML v2 (foundations) -- reused from the WS seminar paper ----------
@@ -36,7 +36,7 @@
   type        = {Specification},
   number      = {formal/26-03-01},
   url         = {https://www.omg.org/spec/KerML/1.0/PDF},
-  note        = {Formal specification of KerML, the first-order-logic kernel that SysML v2 is built on (Root/Core/Kernel layers). Method: normative language specification. Foundational reference for why SysML v2 guidelines and constraints can be verified natively as CSPs rather than transformed to external formalisms as in SysML v1; PDF at \texttt{bib/papers/omg-kerml-v1.0.pdf}. Note: KerML Version 1.0 was \emph{adopted} September 2025; the cited PDF is OMG document \texttt{formal/26-03-01}, published March 2026 (this is the document number/date, not the version-adoption date) -- verified against the live spec page \url{https://www.omg.org/spec/KerML/1.0} on 20.09.2026.}
+  note        = {Normative OMG specification of the logic-grounded kernel SysML\,v2 extends, with four declarable tool conformance levels. Supplies the vocabulary for what an MCP bridge exposes -- structural CRUD versus semantic conformance -- and why v2 constraints are natively verifiable.}
 }
 
 @article{boelsen2025guidelines,
@@ -48,7 +48,7 @@
   pages   = {60},
   year    = {2025},
   doi     = {10.1007/s10010-025-00827-w},
-  note    = {Enforces domain-specific modelling guidelines intrinsically in SysML v2 via Metadata Definitions and the Definition/Usage separation (motego methodology, mechanical system elements), instead of extrinsic UML profiles/OCL as in v1. Method: metamodel design plus a worked example (lubricated rolling-contact component). Concrete precedent for how a semantic MCP bridge could expose or enforce guideline conformance as a tool-native check; PDF at \texttt{bib/papers/boelsen2025-sysml2-guidelines.pdf}.}
+  note    = {Encodes mechanical-domain modelling guidelines natively in SysML\,v2 via Metadata Definitions (motego methodology, one worked example, no quantitative evaluation). Precedent for exposing guideline conformance as a tool-native check in \emph{Validierung}.}
 }
 
 @inproceedings{ahlbrecht2025mbsqle,
@@ -60,7 +60,7 @@
   address   = {Montreal, Canada},
   publisher = {IEEE},
   url       = {https://elib.dlr.de/214792/},
-  note      = {DLR Institute of Flight Systems: analyses the standard SysML v2 API query model and shows it offers no direct graph traversal, leading to performance bottlenecks on large models; proposes SQLite as an intermediate, traversable representation with SQL as query language (open-source \texttt{DLR-FT/sysml-v2-sql}). Method: API analysis plus design and open-source implementation. Technical motivation for the semantic/cache layer of the bridge and for querying inside the tool rather than through the REST API; PDF at \texttt{bib/papers/ahlbrecht2025mbsqle.pdf}.}
+  note      = {The standard SysML\,v2 API offers no graph traversal (REST traversals $>$10\,s); MBSqlE imports models into SQLite so recursive SQL traverses them in one query. Motivates a semantic/cache layer instead of a thin REST proxy for \emph{Abfragen}.}
 }
 
 % ---------- Subject 4: LLM x SysML v2 ----------
@@ -74,7 +74,7 @@
   pages     = {1--8},
   publisher = {IEEE},
   doi       = {10.1109/ISSE65546.2025.11369978},
-  note      = {Structured literature review of 20 publications on LLMs for MBSE tasks (creation, analysis, modification, reformulation), plus a modular prompting framework for SysML v1$\rightarrow$v2 translation. Points to MCP as the emerging mechanism for supplying engineering context, potentially surpassing prompting-only methods. Flags the lack of standardized, comparable evaluation criteria as an open problem. Provides the task taxonomy on which the thesis's use-case catalogue (Abfragen, Validierung, Verifizierung, Korrektur, Erstellen) is mapped. PDF at \texttt{bib/papers/fresemann2025review.pdf}.}
+  note      = {Structured review of 20 publications on LLMs for MBSE tasks (creation, analysis, modification, reformulation). Supplies the taxonomy behind this thesis's use-case catalogue, names MCP as the emerging context mechanism, and flags the missing evaluation criteria.}
 }
 
 @article{dehart2024llm,
@@ -87,7 +87,7 @@
   year    = {2024},
   month   = jul,
   doi     = {10.1002/iis2.13262},
-  note    = {The founding paper of the topic: argues that SysML v2's English-like textual syntax and the maturation of LLMs make conversational interaction with system models feasible, and that LLMs can replace API expertise as the interface. Method: conceptual analysis plus three OpenAI Assistants-API case studies -- (1) modifying a beam model's length attribute, where the LLM generates and locally executes ad-hoc Python/regex code against the model's text file (no structured tool/API call); (2) a Flask \texttt{/ask} endpoint wrapping the same Assistant for conversational querying, e.g.\ correctly computing a von Mises stress from boundary conditions given only in prose; (3) a Jupyter-notebook case validating two requirements (max volume, max length) against a block model with a deliberately unconventional calculation, correctly traversing the Definition/Usage relationship and flagging the volume requirement as failed. All three are single-run proofs of concept -- no ground truth, no repeated trials, no quantitative metric beyond the reported outcome -- and explicitly warns of automation bias and overreliance. Origin of the idea the thesis puts to an empirical test; also the earliest documented instance of the "no structured tool, LLM edits text directly" pattern that motivates this thesis's no-tool/thin-bridge ablation arms. Full text read 19.09.2026 (INCOSE/Wiley, via FH Aachen library access); PDF at \texttt{bib/papers/dehart2024llm.pdf}.}
+  note    = {Founding paper of the LLM$\times$SysML\,v2 topic: conceptual analysis and case studies, no controlled evaluation or ground truth. Provides the vision the thesis tests empirically and the ``LLM edits text directly'' pattern behind the no-tool arm.}
 }
 
 @inproceedings{dehn2025nl2sysml,
@@ -99,7 +99,7 @@
   pages     = {1--7},
   publisher = {IEEE},
   doi       = {10.1109/ISSE65546.2025.11369988},
-  note      = {Four-component structured prompting (role/goal description, ontology description, few-shot examples, natural-language requirements set) for NL$\rightarrow$SysML v2 generation, evaluated on an automotive electric-window-opener use case with precision/recall/F1 for information extraction plus coverage, syntax pass/fail, and qualitative semantics scores across four incremental prompting setups (minimal to full structure), averaged over three runs each. Findings: LLMs extract system elements with high precision/good recall; the ontology component improves traceability but needs few-shot examples to reach syntactic correctness; few-shot examples are essential for syntactically valid SysML v2 output; structured prompting trades accuracy gains against higher token usage/runtime. Remaining weakness: unstable mapping of logical to physical elements. Primary reference point for the \emph{Erstellen} use case and its element-level metrics; file-based generation without a modelling tool, unlike this thesis's live-tool/MSoSA attachment point. PDF at \texttt{bib/papers/dehn2025nl2sysml.pdf}.}
+  note      = {Four-component structured prompting for NL$\rightarrow$SysML\,v2 generation, evaluated on an automotive use case with precision/recall/F1 and syntax checks over three runs; few-shot examples prove essential. Primary reference for \emph{Erstellen}, but file-based without a modelling tool.}
 }
 
 @inproceedings{qualis2025hallucination,
@@ -111,7 +111,7 @@
   pages     = {357--366},
   publisher = {IEEE},
   doi       = {10.1109/MODELS-C68889.2025.00054},
-  note      = {Tri-layer knowledge graph (Layer 1: reusable SysML pattern/annotation KG for nine diagram types; Layer 2: domain-specific KG for sectors like aerospace/automotive; Layer 3: auto-generated system-specific KG parsed from structured requirements) feeding reusable prompt templates to ground SysML v2 generation against hallucinated constructs; satellite-system case study evaluated on a manually curated ground-truth dataset (Average Structure Score, Average Manual Structure Score, Average Semantic Score, Consistency Ratio, prompt-type analysis). Produces structurally valid models reliably; semantic fidelity and output determinism remain limited. Motivates grounding the agent in the \emph{live} model/tool state rather than a hand-built static KG. Reference point for the \emph{Erstellen} use case alongside \texttt{dehn2025nl2sysml}, \texttt{wu2025sysforge}, \texttt{bouamra2025systemp}. PDF at \texttt{bib/papers/qualis2025hallucination.pdf}.}
+  note      = {Tri-layered knowledge graph grounding SysML\,v2 generation against hallucinations, evaluated on a satellite case study against curated ground truth: structurally valid, semantically weak. Motivates grounding the agent in the live model rather than a static KG (\emph{Erstellen}).}
 }
 
 @inproceedings{wu2025sysforge,
@@ -123,7 +123,7 @@
   pages     = {581--586},
   publisher = {IEEE},
   doi       = {10.1109/IEEECONF65522.2025.11137199},
-  note      = {SysForge: multi-agent framework (conversational, context-synthesizer, designer and validator agents) with dependency-aware KG retrieval and iterative refinement; beats plain LLM and semantic-RAG baselines on Pass@1 and BLEU. Closest prior work for \emph{Korrektur} through a generate--validate loop; file-based and without an industrial tool. PDF at \texttt{bib/papers/wu2025sysforge.pdf}.}
+  note      = {SysForge: four agents with dependency-aware KG retrieval and a generate--validate--refine loop, beating plain-LLM and semantic-RAG baselines on Pass@1 and BLEU. Closest prior work for \emph{Korrektur}, but file-based with its own validator instead of tool-native validation.}
 }
 
 @article{quast2026graphrag,
@@ -137,7 +137,7 @@
   month     = jan,
   publisher = {MDPI},
   doi       = {10.3390/systems14010083},
-  note      = {GraphRAG multi-agent system (Supervisor Agent + Graph Query Agent) over a Neo4j knowledge graph parsed from SysML v2 textual notation by a custom Python parser and schema'd by the RFLP methodology; hybrid graph+vector indexing, Cypher queries, query decomposition, following Peng et al.'s GraphRAG framework. Evaluated on a synthetic battery-EV reference model (4 abstraction levels) with a zero/one-hop vs.\ multi-hop QA dataset, comparing four LLMs (LLaMA-3.3-70B, Gemini-2.0-flash-lite, Gemini-2.0-flash, Gemini-2.5-flash-preview); best model reaches \textbf{93\,\% overall accuracy, 90\,\% on multi-hop questions}. Authors' own stated limitations: metamodel-specific parser, synthetic (not industrial-scale) model, no user studies, and explicitly \emph{``lack of standardized benchmarks''} for QA-over-MBSE -- an independent second data point for this thesis's benchmark-gap argument (alongside \texttt{bouamra2025systemp}). Primary reference for the \emph{Abfragen} use case and its accuracy metric; the thesis queries the live tool/model state directly rather than a derived, pre-built graph. PDF at \texttt{bib/papers/quast2026graphrag.pdf}.}
+  note      = {GraphRAG multi-agent QA over a Neo4j graph parsed from SysML\,v2 text, reaching 93\,\% accuracy on a synthetic battery-EV model. Accuracy-metric template for \emph{Abfragen} and a second ``no standardized benchmarks'' gap citation; it queries a derived graph, not the live model.}
 }
 
 @inproceedings{bouamra2025systemp,
@@ -151,7 +151,7 @@
   month     = jun,
   publisher = {Springer Nature Switzerland},
   doi       = {10.1007/978-3-032-07638-0_4},
-  note      = {Peer-reviewed version (supersedes arXiv:2506.21608). Multi-agent pipeline -- SpecificationGeneratorAgent $\to$ TemplateGeneratorAgent $\to$ WriterAgent $\leftrightarrow$ ParserAgent iterative repair loop -- for NL-to-SysML-v2 textual generation. Ablation (GPT-4 Turbo, Claude 3.5 Sonnet, 5 toy bicycle-component scenarios): template scaffolding converges to zero syntax errors in 4/5 scenarios vs.\ 1/5 without it -- syntax convergence only, no semantic evaluation. States that the only two available SysML v2 example corpora are the Pilot-Implementation test suite and \texttt{GfSE/SysML-v2-Models}, $<$150 scenarios total -- corroborates this thesis's Apollo 11 (primary) / GfSE (secondary) split. Conclusion, quoted directly: ``assessing the quality of generated SysML v2 models remains constrained by the absence of standard benchmarks'' -- the gap citation for this thesis's benchmark contribution. PDF at \texttt{bib/papers/bouamra2025systemp.pdf}.}
+  note      = {Multi-agent template pipeline for NL-to-SysML\,v2 generation; scaffolding reaches zero syntax errors in 4/5 toy scenarios vs.\ 1/5 without, syntax only. The gap citation for this thesis's benchmark (``absence of standard benchmarks'') and for SysML\,v2 corpus scarcity.}
 }
 
 @article{alshami2026faultloc,
@@ -164,7 +164,7 @@
   year    = {2026},
   month   = jul,
   doi     = {10.1002/iis2.70189},
-  note    = {Fine-tuned small language model plus a domain KG of physical compatibility rules that localises and repairs \emph{semantic} faults which pass SysML v2 syntax validation; synthetic faults injected via the KG, output as unified-diff patches, 1\,184 test samples, repair rate $<$3\,\% $\rightarrow$ $>$91\,\%. Direct methodological precedent for the fault-injection design of the \emph{Korrektur} use case and for the syntactic/semantic fault distinction. PDF at \texttt{bib/papers/alshami2026faultloc.pdf}.}
+  note    = {Fine-tuned small LLM plus a physical-compatibility KG repairs \emph{semantic} faults that pass SysML\,v2 syntax checks, rising from $<$3\,\% to $>$91\,\% on 1\,184 test samples. Methodological precedent for the fault injection and fault taxonomy of \emph{Korrektur}.}
 }
 
 @article{bazzal2026mcpmbse,
@@ -177,7 +177,7 @@
   month     = jul,
   publisher = {Cambridge University Press},
   doi       = {10.1017/pds.2026.10630},
-  note      = {[TOP 3] Fraunhofer IEM / Paderborn HNI / FAU / Audi framework implementing MCP servers directly on the standard SysML v2 API (C\#.NET, official reference API + database in Docker; open-source at \texttt{github.com/hni-ase/SysMLV2-mcp}). Three tool classes -- creation, modification, analysis -- mirror this thesis's Create/Patch/Query use cases. Demonstrated, not benchmarked: two qualitative DSRM case studies (agentic use-case generation; signal-redundancy optimisation) adapted from prior workflow-based papers (Schleifer et al. 2025; Bazzal et al. 2025), no ground truth, no quantitative metrics -- own discussion section names the ``limitation on the number of MCP tools'' and single-agent scope as open issues. Closest scientific competing work: delivers the \emph{artifact class} (MCP-on-REST-API) the thesis builds on; the thesis supplies the missing empirical, ground-truth capability evaluation, and attaches inside the industrial tool (MSoSA) rather than the standard API alone. PDF at \texttt{bib/papers/bazzal2026mcpmbse.pdf}.}
+  note      = {[TOP 3] MCP servers on the standard SysML v2 API with creation, modification and analysis tools, shown only through two qualitative case studies without metrics. Closest competing work: it delivers the artifact class, the thesis the missing capability evaluation inside MSoSA.}
 }
 
 @misc{dempsey2026nativeai,
@@ -187,7 +187,7 @@
   year         = {2026},
   month        = sep,
   day          = {2},
-  note         = {[TOP 3] Controlled three-arm SysML v2 experiment, same 8 tasks at two scales (n=40 small, n=24 large), single model (Claude Opus 4.6): (1) baseline, one-shot, no tools; (2) CLI-only, generation + \texttt{syside check} validation loop; (3) full tooling, adds a repository-local MCP knowledge-retrieval server (curated Markdown, not an LLM or KG) plus 10 file-based ``skills'' (e.g.\ \texttt{model-sysml}, \texttt{fix-sysml}, \texttt{review-sysml}). Both iterative arms reach 0 syntax errors/warnings (baseline: 3.7/100 lines small, 25.6/100 lines large) -- validation alone does not raise the project's 29-measure ``pattern'' score, but full tooling does: 71.7 $\to$ 94.1 on large tasks. Worked example (4-drone survey swarm, 8 coordinated files, 97.2/100 pattern score, 0 validator errors) shows the score's limit directly: separation and lost-link parameters, and several requested components, do not match the prompt, and analysis/verification elements are structurally present but not executable/evaluated -- a clean validation run does not mean the model is correct. Entirely file-based (textual notation + Syside LSP); their MCP server is a knowledge-retrieval service, not a model repository or live tool interface -- the thesis's point of differentiation (live model inside an industrial tool, MSoSA). Closest \emph{evaluated} work and the direct template for this thesis's own three-arm ablation (no tool / thin bridge / semantic bridge). Archived native HTML capture of the live page (SEI blog posts have no PDF export) at \texttt{bib/papers/dempsey2026nativeai.html}.}
+  note         = {[TOP 3] Controlled three-arm SysML v2 experiment (no tool / validation loop / plus MCP knowledge and skills): both tool arms reach zero syntax errors, but only full tooling lifts the pattern score (71.7 $\to$ 94.1). Direct template for this thesis's ablation and evidence for H2.}
 }
 
 @techreport{iso-15288,
@@ -199,7 +199,7 @@
   type        = {International Standard},
   number      = {ISO/IEC/IEEE 15288:2023},
   url         = {https://www.iso.org/standard/81702.html},
-  note        = {Defines Verification (conformance to architectural/technical requirements, incl.\ traceability and syntactic checks) and Validation (fulfilment of stakeholder needs in the operational environment) as distinct system life-cycle processes. The thesis's Verification/Validation use cases adopt these definitions directly. Paywalled standard -- no PDF copy in \texttt{bib/papers/}, cite by standard number.}
+  note        = {Defines Verification (conformance to specified requirements) and Validation (fulfilment of stakeholder needs in the operational environment) as distinct life-cycle processes. The thesis adopts these definitions for its \emph{Verifizierung} and \emph{Validierung} use cases and audits prior work against them.}
 }
 
 % Verification-leaf candidates were independently audited (evidence-auditor subagents, 19.09.2026)
@@ -222,7 +222,7 @@
   pages   = {121444--121457},
   year    = {2025},
   doi     = {10.1109/ACCESS.2025.3587786},
-  note    = {Despite the title, this is ISO-verification: metamodel-conformance checking (syntax, cardinality, cross-reference integrity) via a custom validator, not behavioral simulation or stakeholder-objective fulfilment. Paper explicitly contrasts its static, structural approach with simulation-based tools (SysON). Method: metamodel-driven rule checker + case studies across three domains. Audited 19.09.2026, verdict: Verification. PDF at \texttt{bib/papers/cibrian2025validation.pdf}.}
+  note    = {Metamodel-derived rule checking (lexical, ANTLR syntax, semantic cross-references) detects 97\,\% of 428 injected errors across 25 OMG test models. Precedent for \emph{Verifizierung}: an error taxonomy, a fault-injection method transferable to \emph{Korrektur}, and a detection-rate baseline.}
 }
 
 @inproceedings{molnar2024formalverification,
@@ -232,7 +232,7 @@
   pages     = {1086--1095},
   year      = {2024},
   doi       = {10.1145/3652620.3687820},
-  note      = {Surveys five tool integrations (Gamma, MP-Firebird, Imandra, SAVVS, SysMD) applying model checking, theorem proving and SMT/contract-refinement to SysML v2 models -- all proofs of conformance to formally stated properties/contracts, with explicit traceability framing. "Verification and validation" appears only as a stock keyword pair; no operational-scenario or stakeholder-objective content anywhere in the body. Audited 19.09.2026, verdict: Verification. PDF at \texttt{bib/papers/molnar2024formalverification.pdf}.}
+  note      = {OMG Formal Methods WG survey of five formal-methods integrations for SysML\,v2 (model checking, theorem proving, contracts), illustrated by small examples without benchmarks. State-of-the-art backdrop for positioning a prompt-driven agent's \emph{Verifizierung} capability, which has no formal backend.}
 }
 
 @inproceedings{ratzke2025constraints,
@@ -242,7 +242,7 @@
   pages     = {1--6},
   year      = {2025},
   doi       = {10.1109/SoSE66311.2025.11083847},
-  note      = {Compiles KerML/SysML v2 range-based constraints (\texttt{oneOf}/\texttt{anyOf}/\texttt{allOf}) into a Constraint Satisfaction Problem and solves it via constraint propagation -- explicitly static, explicitly excludes dynamic/behavioral analysis ("restrict constraint propagation to... the static structure... excluding dynamic behaviors"). Uses "valid/validation" only informally for constraint satisfaction. Audited 19.09.2026, verdict: Verification. PDF at \texttt{bib/papers/ratzke2025constraints.pdf}.}
+  note      = {Extends SysML\,v2 constraints with range semantics (\texttt{oneOf}/\texttt{anyOf}/\texttt{allOf}) compiled into a CSP, demonstrated on two small examples and limited to static structure. Mechanism reference for what an agent could delegate to a tool-native constraint solver in \emph{Verifizierung}.}
 }
 
 % ---------- Subject 5: Agent evaluation & tooling benchmarks (adjacent domains) ----------
@@ -254,7 +254,7 @@
   month        = aug,
   howpublished = {arXiv:2608.26199 [cs.AI]},
   doi          = {10.48550/arXiv.2608.26199},
-  note         = {Methodological sibling in an adjacent domain: an MCP server that reproduces the state and dependency logic of a proprietary hardware-design tool, plus a benchmark of single-operation edits, multi-step dependency chains, invalid requests and misspelled prompts, evaluated on seven open-source models under ablations of system prompt, tool-description detail, context scope and single- vs.\ multi-agent architecture (metric: expected-call coverage). Findings directly informing the bridge/benchmark design: comprehensive tool descriptions consistently reduce failures; few-shot prompting can cause severe inaction in some models; cumulative context harms constrained models; multi-agent decomposition helps weak workers/long sessions at extra call cost. Its task taxonomy (single-op/chain/invalid/misspelled) maps onto the SysML v2 benchmark's difficulty tiers. PDF at \texttt{bib/papers/liparulo2026hwmcp.pdf}.}
+  note         = {Benchmarks seven open-source models against a purpose-built MCP server for hardware design across single-operation, chained, invalid and misspelled tasks under prompt and tool-description ablations. Closest methodological sibling: its task tiers and tool-description findings shape the bridge and benchmark design.}
 }
 
 @misc{hasan2026mcpsmells,
@@ -264,7 +264,7 @@
   month        = feb,
   howpublished = {arXiv:2602.14878},
   doi          = {10.48550/arXiv.2602.14878},
-  note         = {Empirical study of 856 tools across 103 MCP servers, using six description components from the literature to build a scoring rubric and formalise "smells" (operationalised by an FM-based scanner): 97.1\,\% of descriptions carry at least one smell, 56\,\% fail to state purpose. Augmenting all components raises task success by a median 5.85 pp and partial completion by 15\,\%, but increases execution steps by 67\,\% and regresses performance in 17\,\% of cases; compact component combinations often preserve reliability at lower token cost. Supplies a rubric for the bridge's tool-description design and identifies a confound to control between the thin and semantic bridge arms: description quality must be held constant so the semantic arm does not win merely on better-written tools. PDF at \texttt{bib/papers/hasan2026mcpsmells.pdf}.}
+  note         = {Study of 856 MCP tools: 97.1\,\% of descriptions carry a ``smell'', and augmenting them raises success by 5.85\,pp but adds 67\,\% more steps. Supplies the rubric for the bridge's tool descriptions and a confound to hold constant across arms.}
 }
 
 @misc{molinari2026engiai,
@@ -274,7 +274,7 @@
   month        = may,
   howpublished = {arXiv:2605.19743 (extended version of an ASME IDETC-CIE 2026 paper)},
   doi          = {10.48550/arXiv.2605.19743},
-  note         = {Capability-based evaluation framework for tool-connected engineering agents that scores workflow execution, retrieval-assisted parameter selection, HPC orchestration and code authoring separately from execution traces and artifacts; four LLM backends on EngiBench problems. Argues for capability-specific scores over end-to-end demos -- the rationale for evaluating per use case rather than per end-to-end task. PDF at \texttt{bib/papers/molinari2026engiai.pdf}.}
+  note         = {Capability-based evaluation scoring workflow execution, parameter selection, orchestration and code authoring separately from execution traces; backends reach 96--97\,\% on workflow tasks but only 20--53\,\% on tool-based decisions. Rationale for per-use-case scoring and template for the failure taxonomy.}
 }
 
 @misc{pradasgomez2026ductile,
@@ -284,7 +284,7 @@
   month        = mar,
   howpublished = {arXiv:2603.10249},
   doi          = {10.48550/arXiv.2603.10249},
-  note         = {Separates adaptive orchestration by the LLM agent from deterministic execution by verified engineering tools, demonstrated on an industrial aerospace structural-analysis task; evaluated against expert-defined acceptance criteria over 10 repeated independent runs and in deployment with engineers. Template for the agent--tool division of labour (the bridge exposes MSoSA's deterministic validation/evaluation, the agent orchestrates) and for repeated-run reliability reporting (pass\textasciicircum k). PDF at \texttt{bib/papers/pradasgomez2026ductile.pdf}.}
+  note         = {Splits adaptive orchestration by the agent from deterministic execution by verified tools, evaluated on an industrial aerospace task against expert acceptance criteria over 10 repeated runs. Template for the agent--tool division of labour and for repeated-run reliability reporting.}
 }
 
 @misc{wang2026pufibara,
@@ -294,7 +294,7 @@
   month        = aug,
   howpublished = {arXiv:2608.23653 [cs.SE]},
   doi          = {10.48550/arXiv.2608.23653},
-  note         = {232-task benchmark (repair, generation, tuning) for Modelica agents, with a source-grounded task-construction method and a benchmark-owned evaluator outside the agent loop; compares two complete harnesses under matched LLM backends. The external-evaluator principle and the repair/generation/tuning split are adopted for the SysML v2 benchmark. PDF at \texttt{bib/papers/wang2026pufibara.pdf}.}
+  note         = {Agent harness plus a source-grounded 232-task Modelica benchmark (repair, generation, tuning) scored by an evaluator outside the agent loop. Supplies three adopted principles: external evaluator, tasks grounded in an existing model, and the repair/generation/tuning split.}
 }
 
 @misc{shi2026cae,
@@ -304,7 +304,7 @@
   month        = sep,
   howpublished = {arXiv:2609.03718 [cs.CE]},
   doi          = {10.48550/arXiv.2609.03718},
-  note         = {With information access and repair budget held fixed, a single-agent generic harness matches or beats specialised multi-agent CAE systems (FoamBench 96.4\,\% vs.\ 88.2\,\%); execution-feedback repair and domain tutorials explain the gains, scripted reflection adds nothing. Counter-evidence to H2 (semantic bridge $>$ thin bridge) that the ablation must engage. PDF at \texttt{bib/papers/shi2026cae.pdf}.}
+  note         = {With information access and repair budget held fixed, a generic single-agent harness beats specialised multi-agent CAE systems (96.4\,\% vs.\ 88.2\,\%); execution-feedback repair and domain tutorials drive the gains. Counter-evidence to H2 that the thin-vs-semantic ablation must engage.}
 }
 
 @misc{shefa2026reqquality,
@@ -314,5 +314,5 @@
   month        = sep,
   howpublished = {arXiv:2609.03230 [cs.SE]},
   doi          = {10.48550/arXiv.2609.03230},
-  note         = {Ten OpenAI/Anthropic models, 100 runs, expert ground truth on INCOSE quality criteria: the best model finds a median of only 47\,\% of expert-identified issues, judgement-heavy criteria are almost always missed, generational progress is non-monotonic. Justifies expert-defined acceptance criteria and a second human rater instead of LLM-as-judge in the evaluation design. PDF at \texttt{bib/papers/shefa2026reqquality.pdf}.}
+  note         = {Ten LLMs, 100 runs, expert ground truth on INCOSE criteria: the best model finds a median of 47\,\% of issues and misses judgement-heavy ones. Justifies expert acceptance criteria with a human second rater instead of LLM-as-judge, and repeated runs.}
 }
