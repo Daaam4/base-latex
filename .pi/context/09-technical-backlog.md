@@ -12,10 +12,10 @@
 - [ ] Check 2026x for a **desktop REST API** for SysML v2 ("enhanced REST APIs" in release notes) — if present, candidate backend for the thin-CRUD arm
 - [ ] Import **one small GfSE model** via the SysML v2 Textual Editor → does textual import work at all?
 - [ ] **🔴 Spike (on 2026x):** hello-world MagicDraw OpenAPI Java plugin (target the JDK 2026x ships with) — can it *see* and *create* SysML v2 elements, or only UML/SysML v1? → decides whether Option B is viable
-- [ ] Try the **SysML v2 Evaluation** plugin on an expression (feasibility for *Verifizierung*)
+- [ ] Try the **SysML v2 Evaluation** plugin on an expression (feasibility for *Verification*)
 - [ ] Add `models/` submodules: `airbus/apollo-11-sysml-v2`, `GfSE/SysML-v2-Models`
 - [ ] Parse both with the pilot-implementation jar (reuse GfSE `CI/parse.py`) → baseline syntactic validity = ground truth
-- [ ] Import **Apollo 11** into MSoSA; log every import problem (**first data point for *Validierung*** and a real finding about tool readiness)
+- [ ] Import **Apollo 11** into MSoSA; log every import problem (**first data point for *Validation*** and a real finding about tool readiness)
 - [ ] Create the separate code repo for the MCP bridge; language: **Java 17 plugin** + a thin MCP process (Python/TS) talking to it over local socket/HTTP
 - [ ] Write down the exact tool build + plugins + feature flag for the reproducibility appendix
 
@@ -30,7 +30,7 @@
 
 ### Later (sequence, not yet dated — dates come after the exposé)
 - [ ] Use-case task catalogue v1 with 3 difficulty tiers (local / cross-package / cross-layer)
-- [ ] Fault-injection script for *Korrektur* (dangling refs, wrong types, broken `satisfy`)
+- [ ] Fault-injection script for *fault correction* (dangling refs, wrong types, broken `satisfy`)
 - [ ] Evaluation harness + external evaluator (outside agent loop) — **must support unattended batch runs with deterministic model reset** (`.pi/context/04-evaluation-design.md` (statistical design)); this is now a hard requirement, not a nicety
 - [ ] Metric implementation: task success, syntactic validity, semantic correctness, collateral damage (model diff), tool-call count / tokens, failure code
 - [ ] Chapter scaffolding `master/pages/2xx-*.tex`

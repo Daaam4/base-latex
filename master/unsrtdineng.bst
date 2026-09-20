@@ -892,14 +892,14 @@ FUNCTION {format.btitle.vol}
    { series empty$
      { volume empty$
         { title emphasize }
-        { title emphasize ". Bd." * volume tie.or.space.connect }
+        { title emphasize ". Vol." * volume tie.or.space.connect }
        if$
      }
      { volume empty$
         { title emphasize }%% ein Buch, das zusaetzl. SERIES=Reihentitel besitzt
     %% jetzt kommt d. Fall des mehrbaendigen Werkes mit Gesamttitel=SERIES
     %% Zaehlung=VOLUME und Bandtitel=TITLE;
-        { series emphasize ". Bd." * volume tie.or.space.connect
+        { series emphasize ". Vol." * volume tie.or.space.connect
                                  ": " * "{\emph{" * title * "}}" * }
        if$
      }
@@ -1113,14 +1113,14 @@ FUNCTION {format.in.ed.booktitle.din}
         { volume empty$
             { "{In: }" booktitle emphasize * }
             { "{In: }" booktitle emphasize *
-              " Bd." volume tie.or.space.connect *
+              " Vol." volume tie.or.space.connect *
             }
           if$
         }
         { volume empty$
             { "{In: }" format.ed.incoll * ": " * booktitle emphasize * }
             { "{In: }" format.ed.incoll * ": " * booktitle emphasize *
-              " Bd." volume tie.or.space.connect *
+              " Vol." volume tie.or.space.connect *
             }
           if$
         }
@@ -1207,10 +1207,10 @@ FUNCTION {format.inbk.vol.title}
 { volume empty$
      { " In: " }
      { title empty$
-        { " In: Bd." volume tie.or.space.connect
+        { " In: Vol." volume tie.or.space.connect
                 " von " *
         }
-        { "In: Bd." volume tie.or.space.connect ": " * title emphasize *
+        { "In: Vol." volume tie.or.space.connect ": " * title emphasize *
                      " (" * year * ") in " *
         }
       if$
@@ -1226,7 +1226,7 @@ FUNCTION {format.book.crossref}
        { "empty volume in " cite$ * "'s crossref of " * crossref * warning$
          " "
        }
-       { ". -- Bd." volume tie.or.space.connect
+       { ". -- Vol." volume tie.or.space.connect
           " von " *
        }
      if$
@@ -1736,7 +1736,7 @@ FUNCTION {proceedings}
   format.btitle "title" output.check
   volume empty$
     { skip$ }
-    { "{\textnormal{Bd.}}" volume tie.or.space.connect emphasize "volume" output.check }
+    { "{\textnormal{Vol.}}" volume tie.or.space.connect emphasize "volume" output.check }
   if$
   format.address.publisher.year "publisher" output.check
   new.sentence
@@ -1802,35 +1802,35 @@ FUNCTION {unpublished} {misc}%%       AUTHOR, TITLE, NOTE muessen sein!
 FUNCTION {default.type} { misc }
 
 
-MACRO {jan} {"Januar"}
+MACRO {jan} {"January"}
 
-MACRO {feb} {"Februar"}
+MACRO {feb} {"February"}
 
-MACRO {mar} {"M{\^^b a}rz"}
+MACRO {mar} {"March"}
 
 MACRO {apr} {"April"}
 
-MACRO {mai} {"Mai"}
+MACRO {mai} {"May"}
 
-MACRO {may} {"Mai"}
+MACRO {may} {"May"}
 
-MACRO {jun} {"Juni"}
+MACRO {jun} {"June"}
 
-MACRO {jul} {"Juli"}
+MACRO {jul} {"July"}
 
 MACRO {aug} {"August"}
 
 MACRO {sep} {"September"}
 
-MACRO {okt} {"Oktober"}
+MACRO {okt} {"October"}
 
-MACRO {oct} {"Oktober"}
+MACRO {oct} {"October"}
 
 MACRO {nov} {"November"}
 
-MACRO {dez} {"Dezember"}
+MACRO {dez} {"December"}
 
-MACRO {dec} {"Dezember"}
+MACRO {dec} {"December"}
 
 %%$$$  stillgelegte Beispiele fuer den Gebrauch von Kuerzeln (hier Zs-Titel).
 

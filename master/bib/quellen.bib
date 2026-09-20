@@ -19,10 +19,10 @@
   institution = {INCOSE},
   year        = {2007},
   month       = sep,
-  type        = {Technical Product},
+  type        = {Technical Report},
   number      = {INCOSE-TP-2004-004-02, v2.03},
   url         = {https://sdincose.org/wp-content/uploads/2011/12/SEVision2020_20071003_v2_03.pdf},
-  note        = {INCOSE foresight report (workshop synthesis, not an empirical study) that coins the canonical MBSE definition. Anchors the thesis's framing and its treatment of \emph{Verifizierung} and \emph{Validierung} as distinct activities.}
+  note        = {INCOSE foresight report (workshop synthesis, not an empirical study) that coins the canonical MBSE definition. Anchors the thesis's framing of MBSE and of the system model as the central artifact the agent operates on.}
 }
 
 % ---------- Subject 2: SysML v2 (foundations) -- reused from the WS seminar paper ----------
@@ -48,7 +48,7 @@
   pages   = {60},
   year    = {2025},
   doi     = {10.1007/s10010-025-00827-w},
-  note    = {Encodes mechanical-domain modelling guidelines natively in SysML\,v2 via Metadata Definitions (motego methodology, one worked example, no quantitative evaluation). Precedent for exposing guideline conformance as a tool-native check in \emph{Validierung}.}
+  note    = {Encodes mechanical-domain modelling guidelines natively in SysML\,v2 via Metadata Definitions (motego methodology, one worked example, no quantitative evaluation). Precedent for exposing guideline conformance as a tool-native check in Validation.}
 }
 
 @inproceedings{ahlbrecht2025mbsqle,
@@ -60,7 +60,7 @@
   address   = {Montreal, Canada},
   publisher = {IEEE},
   url       = {https://elib.dlr.de/214792/},
-  note      = {The standard SysML\,v2 API offers no graph traversal (REST traversals $>$10\,s); MBSqlE imports models into SQLite so recursive SQL traverses them in one query. Motivates a semantic/cache layer instead of a thin REST proxy for \emph{Abfragen}.}
+  note      = {The standard SysML\,v2 API offers no graph traversal (REST traversals $>$10\,s); MBSqlE imports models into SQLite so recursive SQL traverses them in one query. Motivates a semantic/cache layer instead of a thin REST proxy for Query.}
 }
 
 @article{helle2026apollo,
@@ -72,7 +72,7 @@
   month     = jun,
   day       = {22},
   doi       = {10.1002/sys.70074},
-  note      = {[TOP 3] Airbus Central R\&T's five-layer CoSMA (Purpose/Operational/Functional/Logical/Technical) SysML\,v2 model of the Apollo 11 mission, released open-source (\texttt{github.com/airbus/apollo-11-sysml-v2}, MPL-2.0, commit \texttt{6e9c93f}, accessed 20.09.2026) as a public MBSE benchmark. The instrument this thesis measures on: \textasciitilde{}7.2\,kLOC / 28 files / \textasciitilde{}2\,000 elements, deliberately incomplete "scaffold" for \emph{Erstellen}/\emph{Korrektur} tasks.}
+  note      = {[TOP 3] Airbus Central R\&T's five-layer CoSMA (Purpose/Operational/Functional/Logical/Technical) SysML\,v2 model of the Apollo 11 mission, released open-source (\texttt{github.com/airbus/apollo-11-sysml-v2}, MPL-2.0, commit \texttt{6e9c93f}, accessed 20.09.2026) as a public MBSE benchmark. The instrument this thesis measures on: $\sim$7.2\,kLOC / 28 files / $\sim$2\,000 elements, deliberately incomplete ``scaffold'' for Create and fault correction tasks.}
 }
 
 @misc{gfse-models,
@@ -80,7 +80,7 @@
   title        = {{SysML-v2-Models}: An Open Collection of {SysML} v2 Models},
   howpublished = {GitHub repository, \url{https://github.com/GfSE/SysML-v2-Models}, commit \texttt{ebbb0c3}, accessed 20.09.2026},
   year         = {2025},
-  note         = {BSD-3. \textasciitilde{}5.1\,kLOC curated teaching/reference models (VehicleModel, DroneModelLogical, EveOnline Mining Frigate) explicitly meant to "help train LLMs"; ships \texttt{CI/parse.py} + a pilot-implementation jar as a validity oracle. Secondary/generalisation set (D2) -- H3 target, small self-contained models plus deliberate "bad examples".}
+  note         = {BSD-3. $\sim$5.1\,kLOC curated teaching/reference models (VehicleModel, DroneModelLogical, EveOnline Mining Frigate) explicitly meant to ``help train LLMs''; ships \texttt{CI/parse.py} + a pilot-implementation jar as a validity oracle. Secondary set for generalisation: small self-contained models plus deliberate ``bad examples''.}
 }
 
 % ---------- Subject 4: LLM x SysML v2 ----------
@@ -119,7 +119,7 @@
   pages     = {1--7},
   publisher = {IEEE},
   doi       = {10.1109/ISSE65546.2025.11369988},
-  note      = {Four-component structured prompting for NL$\rightarrow$SysML\,v2 generation, evaluated on an automotive use case with precision/recall/F1 and syntax checks over three runs; few-shot examples prove essential. Primary reference for \emph{Erstellen}, but file-based without a modelling tool.}
+  note      = {Four-component structured prompting for NL$\rightarrow$SysML\,v2 generation, evaluated on an automotive use case with precision/recall/F1 and syntax checks over three runs; few-shot examples prove essential. Primary reference for Create, but file-based without a modelling tool.}
 }
 
 @inproceedings{qualis2025hallucination,
@@ -131,7 +131,7 @@
   pages     = {357--366},
   publisher = {IEEE},
   doi       = {10.1109/MODELS-C68889.2025.00054},
-  note      = {Tri-layered knowledge graph grounding SysML\,v2 generation against hallucinations, evaluated on a satellite case study against curated ground truth: structurally valid, semantically weak. Motivates grounding the agent in the live model rather than a static KG (\emph{Erstellen}).}
+  note      = {Tri-layered knowledge graph grounding SysML\,v2 generation against hallucinations, evaluated on a satellite case study against curated ground truth: structurally valid, semantically weak. Motivates grounding the agent in the live model rather than a static KG (Create).}
 }
 
 @inproceedings{wu2025sysforge,
@@ -143,7 +143,7 @@
   pages     = {581--586},
   publisher = {IEEE},
   doi       = {10.1109/IEEECONF65522.2025.11137199},
-  note      = {SysForge: four agents with dependency-aware KG retrieval and a generate--validate--refine loop, beating plain-LLM and semantic-RAG baselines on Pass@1 and BLEU. Closest prior work for \emph{Korrektur}, but file-based with its own validator instead of tool-native validation.}
+  note      = {SysForge: four agents with dependency-aware KG retrieval and a generate--validate--refine loop, beating plain-LLM and semantic-RAG baselines on Pass@1 and BLEU. Closest prior work for fault correction, but file-based with its own validator instead of tool-native validation.}
 }
 
 @article{quast2026graphrag,
@@ -157,7 +157,7 @@
   month     = jan,
   publisher = {MDPI},
   doi       = {10.3390/systems14010083},
-  note      = {GraphRAG multi-agent QA over a Neo4j graph parsed from SysML\,v2 text, reaching 93\,\% accuracy on a synthetic battery-EV model. Accuracy-metric template for \emph{Abfragen} and a second ``no standardized benchmarks'' gap citation; it queries a derived graph, not the live model.}
+  note      = {GraphRAG multi-agent QA over a Neo4j graph parsed from SysML\,v2 text, reaching 93\,\% accuracy on a synthetic battery-EV model. Accuracy-metric template for Query and a second ``no standardized benchmarks'' gap citation; it queries a derived graph, not the live model.}
 }
 
 @inproceedings{bouamra2025systemp,
@@ -184,7 +184,7 @@
   year    = {2026},
   month   = jul,
   doi     = {10.1002/iis2.70189},
-  note    = {Fine-tuned small LLM plus a physical-compatibility KG repairs \emph{semantic} faults that pass SysML\,v2 syntax checks, rising from $<$3\,\% to $>$91\,\% on 1\,184 test samples. Methodological precedent for the fault injection and fault taxonomy of \emph{Korrektur}.}
+  note    = {Fine-tuned small LLM plus a physical-compatibility KG repairs \emph{semantic} faults that pass SysML\,v2 syntax checks, rising from $<$3\,\% to $>$91\,\% on 1\,184 test samples. Methodological precedent for the fault injection and fault taxonomy of fault correction.}
 }
 
 @article{bazzal2026mcpmbse,
@@ -207,7 +207,7 @@
   year         = {2026},
   month        = sep,
   day          = {2},
-  note         = {[TOP 3] Controlled three-arm SysML v2 experiment (no tool / validation loop / plus MCP knowledge and skills): both tool arms reach zero syntax errors, but only full tooling lifts the pattern score (71.7 $\to$ 94.1). Direct template for this thesis's ablation and evidence for H2.}
+  note         = {[TOP 3] Controlled three-arm SysML v2 experiment (no tool / validation loop / plus MCP knowledge and skills): both tool arms reach zero syntax errors, but only full tooling lifts the pattern score (71.7 $\to$ 94.1). Direct template for this thesis's ablation arms; grey literature (practitioner blog), so its numbers are treated as unvalidated.}
 }
 
 @techreport{iso-15288,
@@ -219,7 +219,7 @@
   type        = {International Standard},
   number      = {ISO/IEC/IEEE 15288:2023},
   url         = {https://www.iso.org/standard/81702.html},
-  note        = {Defines Verification (conformance to specified requirements) and Validation (fulfilment of stakeholder needs in the operational environment) as distinct life-cycle processes. The thesis adopts these definitions for its \emph{Verifizierung} and \emph{Validierung} use cases and audits prior work against them.}
+  note        = {Defines Verification (conformance to specified requirements) and Validation (fulfilment of stakeholder needs in the operational environment) as distinct life-cycle processes. The thesis adopts these definitions for its Verification and Validation use cases and audits prior work against them.}
 }
 
 % Verification-leaf candidates were independently audited (evidence-auditor subagents, 19.09.2026)
@@ -242,7 +242,7 @@
   pages   = {121444--121457},
   year    = {2025},
   doi     = {10.1109/ACCESS.2025.3587786},
-  note    = {Metamodel-derived rule checking (lexical, ANTLR syntax, semantic cross-references) detects 97\,\% of 428 injected errors across 25 OMG test models. Precedent for \emph{Verifizierung}: an error taxonomy, a fault-injection method transferable to \emph{Korrektur}, and a detection-rate baseline.}
+  note    = {Metamodel-derived rule checking (lexical, ANTLR syntax, semantic cross-references) detects 97\,\% of 428 injected errors across 25 OMG test models. Despite its title, ISO-verification rather than validation; precedent for Verification: an error taxonomy, a fault-injection method transferable to fault correction, and a detection-rate baseline.}
 }
 
 @inproceedings{molnar2024formalverification,
@@ -252,7 +252,7 @@
   pages     = {1086--1095},
   year      = {2024},
   doi       = {10.1145/3652620.3687820},
-  note      = {OMG Formal Methods WG survey of five formal-methods integrations for SysML\,v2 (model checking, theorem proving, contracts), illustrated by small examples without benchmarks. State-of-the-art backdrop for positioning a prompt-driven agent's \emph{Verifizierung} capability, which has no formal backend.}
+  note      = {OMG Formal Methods WG survey of five formal-methods integrations for SysML\,v2 (model checking, theorem proving, contracts), illustrated by small examples without benchmarks. State-of-the-art backdrop for positioning a prompt-driven agent's Verification capability, which has no formal backend.}
 }
 
 @inproceedings{ratzke2025constraints,
@@ -262,7 +262,7 @@
   pages     = {1--6},
   year      = {2025},
   doi       = {10.1109/SoSE66311.2025.11083847},
-  note      = {Extends SysML\,v2 constraints with range semantics (\texttt{oneOf}/\texttt{anyOf}/\texttt{allOf}) compiled into a CSP, demonstrated on two small examples and limited to static structure. Mechanism reference for what an agent could delegate to a tool-native constraint solver in \emph{Verifizierung}.}
+  note      = {Extends SysML\,v2 constraints with range semantics (\texttt{oneOf}/\texttt{anyOf}/\texttt{allOf}) compiled into a CSP, demonstrated on two small examples and limited to static structure. Mechanism reference for what an agent could delegate to a tool-native constraint solver in Verification.}
 }
 
 % ---------- Subject 5: Agent evaluation & tooling benchmarks (adjacent domains) ----------
@@ -272,8 +272,7 @@
   title        = {Benchmarking {AI} Agents for Hardware Design Automation via {MCP} Tool Calling},
   year         = {2026},
   month        = aug,
-  howpublished = {arXiv:2608.26199 [cs.AI]},
-  doi          = {10.48550/arXiv.2608.26199},
+  howpublished = {arXiv:2608.26199 [cs.AI], \url{https://arxiv.org/abs/2608.26199}},
   note         = {Benchmarks seven open-source models against a purpose-built MCP server for hardware design across single-operation, chained, invalid and misspelled tasks under prompt and tool-description ablations. Closest methodological sibling: its task tiers and tool-description findings shape the bridge and benchmark design.}
 }
 
@@ -282,8 +281,7 @@
   title        = {Model Context Protocol ({MCP}) Tool Descriptions Are Smelly! Towards Improving {AI} Agent Efficiency with Augmented {MCP} Tool Descriptions},
   year         = {2026},
   month        = feb,
-  howpublished = {arXiv:2602.14878},
-  doi          = {10.48550/arXiv.2602.14878},
+  howpublished = {arXiv:2602.14878, \url{https://arxiv.org/abs/2602.14878}},
   note         = {Study of 856 MCP tools: 97.1\,\% of descriptions carry a ``smell'', and augmenting them raises success by 5.85\,pp but adds 67\,\% more steps. Supplies the rubric for the bridge's tool descriptions and a confound to hold constant across arms.}
 }
 
@@ -292,8 +290,7 @@
   title        = {{EngiAI}: Capability-Based Evaluation of Tool-Connected {LLM} Agents for Engineering Design},
   year         = {2026},
   month        = may,
-  howpublished = {arXiv:2605.19743 (extended version of an ASME IDETC-CIE 2026 paper)},
-  doi          = {10.48550/arXiv.2605.19743},
+  howpublished = {arXiv:2605.19743 (extended version of an ASME IDETC-CIE 2026 paper), \url{https://arxiv.org/abs/2605.19743}},
   note         = {Capability-based evaluation scoring workflow execution, parameter selection, orchestration and code authoring separately from execution traces; backends reach 96--97\,\% on workflow tasks but only 20--53\,\% on tool-based decisions. Rationale for per-use-case scoring and template for the failure taxonomy.}
 }
 
@@ -302,8 +299,7 @@
   title        = {{DUCTILE}: Agentic {LLM} Orchestration of Engineering Analysis in Product Development Practice},
   year         = {2026},
   month        = mar,
-  howpublished = {arXiv:2603.10249},
-  doi          = {10.48550/arXiv.2603.10249},
+  howpublished = {arXiv:2603.10249, \url{https://arxiv.org/abs/2603.10249}},
   note         = {Splits adaptive orchestration by the agent from deterministic execution by verified tools, evaluated on an industrial aerospace task against expert acceptance criteria over 10 repeated runs. Template for the agent--tool division of labour and for repeated-run reliability reporting.}
 }
 
@@ -312,8 +308,7 @@
   title        = {Beyond Executable Models: The {Pufibara} Agent Harness and the {Modelica} Agent Workflow Benchmark for Physical System Modeling},
   year         = {2026},
   month        = aug,
-  howpublished = {arXiv:2608.23653 [cs.SE]},
-  doi          = {10.48550/arXiv.2608.23653},
+  howpublished = {arXiv:2608.23653 [cs.SE], \url{https://arxiv.org/abs/2608.23653}},
   note         = {Agent harness plus a source-grounded 232-task Modelica benchmark (repair, generation, tuning) scored by an evaluator outside the agent loop. Supplies three adopted principles: external evaluator, tasks grounded in an existing model, and the repair/generation/tuning split.}
 }
 
@@ -322,9 +317,8 @@
   title        = {What Do {CAE} Simulation Agents Really Need Beyond a Generic Harness?},
   year         = {2026},
   month        = sep,
-  howpublished = {arXiv:2609.03718 [cs.CE]},
-  doi          = {10.48550/arXiv.2609.03718},
-  note         = {With information access and repair budget held fixed, a generic single-agent harness beats specialised multi-agent CAE systems (96.4\,\% vs.\ 88.2\,\%); execution-feedback repair and domain tutorials drive the gains. Counter-evidence to H2 that the thin-vs-semantic ablation must engage.}
+  howpublished = {arXiv:2609.03718 [cs.CE], \url{https://arxiv.org/abs/2609.03718}},
+  note         = {With information access and repair budget held fixed, a generic single-agent harness beats specialised multi-agent CAE systems (96.4\,\% vs.\ 88.2\,\%); execution-feedback repair and domain tutorials drive the gains. Counter-evidence that the thin-vs-full-harness ablation must engage.}
 }
 
 @misc{shefa2026reqquality,
@@ -332,7 +326,6 @@
   title        = {Two Truths and A Lie? Benchmarking Off-the-Shelf {LLMs} for Requirements Quality Assessment: Performance, False Alarms, and Misses},
   year         = {2026},
   month        = sep,
-  howpublished = {arXiv:2609.03230 [cs.SE]},
-  doi          = {10.48550/arXiv.2609.03230},
+  howpublished = {arXiv:2609.03230 [cs.SE], \url{https://arxiv.org/abs/2609.03230}},
   note         = {Ten LLMs, 100 runs, expert ground truth on INCOSE criteria: the best model finds a median of 47\,\% of issues and misses judgement-heavy ones. Justifies expert acceptance criteria with a human second rater instead of LLM-as-judge, and repeated runs.}
 }

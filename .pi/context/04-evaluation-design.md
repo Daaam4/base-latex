@@ -13,12 +13,12 @@
 | **Query/Read** | "Which technical components satisfy requirement X?" | exact set match vs. model query | 5 layers, cross-layer chains: need → mission req → functional req → function → logical → technical |
 | **Patch** | rename an element / change an attribute value / redirect a `satisfy` link to the correct requirement | diff against target state — exact intended edit, no collateral change | dense cross-references make an isolated, clean patch non-trivial |
 | **Delete** | remove a duplicate/orphaned element cleanly | post-delete referential-integrity check (no dangling `satisfy`/typed-by/port relationships left behind) + diff (only the intended element removed) | model has deliberate redundancy/gaps to target |
-| **Validation** (Validierung) | "Is package P well-formed and CoSMA-conformant?" | tool validation suite results | large enough to hide well-formedness issues; CoSMA base types (`:>`) give guideline checks |
-| **Verification** (Verifizierung) | "Is mass-budget requirement R satisfied by current values?" | expression evaluation in tool | `requirement` + `satisfy`/`verify`; `Analysis/CalculationsPackage.sysml` |
+| **Validation** | "Is package P well-formed and CoSMA-conformant?" | tool validation suite results | large enough to hide well-formedness issues; CoSMA base types (`:>`) give guideline checks |
+| **Verification** | "Is mass-budget requirement R satisfied by current values?" | expression evaluation in tool | `requirement` + `satisfy`/`verify`; `Analysis/CalculationsPackage.sysml` |
 
 ### Composed scenarios — not separately scored, built from the six primitives
-- **Korrektur** (correction, fault injection) = Query (locate the fault) → Patch/Delete (repair) → re-run Validation/Verification (confirm the fix) — scored end-to-end for fault-repair rate + no collateral change; inject faults into a copy of the model
-- *Erklären* (optional) = Query + synthesis, judged by expert rubric
+- **Fault correction** (fault injection) = Query (locate the fault) → Patch/Delete (repair) → re-run Validation/Verification (confirm the fix) — scored end-to-end for fault-repair rate + no collateral change; inject faults into a copy of the model
+- *Explanation* (optional) = Query + synthesis, judged by expert rubric
 - *Refactoring* (optional) = Query + Patch (+ Delete) applied consistently across multiple elements, judged by diff + validation
 
 ### Difficulty tiers (D16, 20.09.2026)
@@ -46,12 +46,14 @@ Grounded in the actual Apollo 11 package structure (`airbus/apollo-11-sysml-v2`,
 | **Patch** | Fix a wrong attribute value/unit in place | Redirect a `satisfy` in `SystemSpecificationPackage` to the correct component | Fix a `satisfy 'hlr-Rxx' by ...` Operation reference — correct target only identifiable via the Operation↔Function↔FLR chain |
 | **Delete** | Remove an isolated/unused local attribute | Delete a duplicate Technical Component with 1–2 `satisfy` refs, no dangling links | Delete a Function that is `refine`d from an Operation, `satisfy`-targeted by an FLR, and `perform`ed by a Logical Component — clean up across 4 layers |
 | **Validation** (scope-based, see above) | Does `HLR-R002`'s own specialization/attributes conform to its base type? | Do all `satisfy` targets in `SystemSpecificationPackage` resolve within `TechnicalRequirementsPackage`? | Full CoSMA traceability across the whole model |
-| **Verification** | Given `actualVerticalVelocity=1.8m/s`, does `HLR-R002` hold against its own `maxVerticalVelocity=2m/s`? | Evaluate `Apollo11MissionSystemPowerAnalysis` — rolls up `PowerProvider`/`PowerConsumer` subparts via `CalculationsPackage` | Evaluate `Apollo11MissionDeltaVBudgetAnalysis` — stage delta-v (Technical) vs. `dv_required_tli` tied to `HLR-R003` (Requirements/Purpose) |
+| **Verification**| Given `actualVerticalVelocity=1.8m/s`, does `HLR-R002` hold against its own `maxVerticalVelocity=2m/s`? | Evaluate `Apollo11MissionSystemPowerAnalysis` — rolls up `PowerProvider`/`PowerConsumer` subparts via `CalculationsPackage` | Evaluate `Apollo11MissionDeltaVBudgetAnalysis` — stage delta-v (Technical) vs. `dv_required_tli` tied to `HLR-R003` (Requirements/Purpose) |
 
 - [ ] Turn this into `master/pages/2xx-evaluation.tex` task-catalogue skeleton alongside the use-case table
 
 
-### Evaluation arms (ablation, cf. SEI 3-arm design)
+> **⚠️ Superseded by D18 (21.09.2026):** the 3-arm ablation below is replaced by a **two-phase design** — Phase 1 = bare MCP bridge baseline, Phase 2 = same benchmark after the harness is built from the Phase 1 failure data. Everything in this file that says "3 arms", "Friedman", "arm effect" needs re-cutting to **2 paired conditions** (Wilcoxon signed-rank on per-task pass rates; runs = tasks × 2 × k). Kept as written until that rework is done.
+
+### Evaluation arms (ablation, cf. SEI 3-arm design) — SUPERSEDED, see note above
 - **Arm 0** — no tool, textual file in context only
 - **Arm 1** — thin CRUD bridge over the SysML v2 API
 - **Arm 2** — semantic bridge: tool-native validation + expression evaluation + task-oriented tools
@@ -67,7 +69,7 @@ Two complementary halves. The quantitative half locates the capability boundary;
 |---|---|---|
 | **Question** | *How often* and *how well*? | *Why* does it fail, and *what kind* of failure is it? |
 | **Unit** | task × arm × model tier × repetition (pass^k); Claude family only (D9) | failure instance; task family |
-| **Measures** | task success rate · pass^k (k=5→3) · syntactic validity (MSoSA validation suite: #violations) · semantic correctness vs. ground truth (exact-set match / precision-recall for Abfragen; expression result for Verifizierung) · fault-repair rate (Korrektur) · collateral damage = model diff size / unintended element changes · trace preservation (#orphaned requirements, #broken satisfy) · tool-call count, redundant-call ratio, token cost, wall-clock | **failure taxonomy** (§7 list: parameter hallucination, silent mid-workflow stop, traversal exhaustion, conditional inversion, semantic distractor, over-calling …) · **expert rubric** for open-ended output (Erstellen, Erklären): correctness / completeness / conformance to CoSMA guidelines / idiomatic SysML v2, scored 0–3 each with written justification · interaction-trace analysis: what the agent *tried* before succeeding/failing · observed limitations of the bridge itself |
+| **Measures** | task success rate · pass^k (k=5→3) · syntactic validity (MSoSA validation suite: #violations) · semantic correctness vs. ground truth (exact-set match / precision-recall for Query; expression result for Verification) · fault-repair rate (fault correction) · collateral damage = model diff size / unintended element changes · trace preservation (#orphaned requirements, #broken satisfy) · tool-call count, redundant-call ratio, token cost, wall-clock | **failure taxonomy** (§7 list: parameter hallucination, silent mid-workflow stop, traversal exhaustion, conditional inversion, semantic distractor, over-calling …) · **expert rubric** for open-ended output (Create, explanation): correctness / completeness / conformance to CoSMA guidelines / idiomatic SysML v2, scored 0–3 each with written justification · interaction-trace analysis: what the agent *tried* before succeeding/failing · observed limitations of the bridge itself |
 | **Statistics** | descriptive + per-arm comparison; effect direction over significance claims (n is small); one model family only (D9) | thematic coding, frequency counts per failure category, illustrative excerpts |
 | **Ground truth** | Apollo 11 as-is + pilot-implementation parser + injected-fault manifest | expert acceptance criteria defined **per task, before the runs** |
 | **Who judges** | **external evaluator script, outside the agent loop** (cf. Pufibara) | the author, against pre-registered criteria; LLM-as-judge only as a secondary cross-check (arXiv 2609.03230: best model catches only 47% of expert issues) |
@@ -132,7 +134,7 @@ Repetitions and arms are now **protected**; breadth pays instead:
 1. Second model tier → smaller subset, or drop (H2 survives; the tier contrast does not)
 2. Task **instances** per cell: 3 → 2 → 1 (keep all 6 use cases × 3 tiers for coverage)
 3. GfSE generalisation set → drop (costs H3)
-4. Optional use cases *Erklären* / *Refactoring* → drop
+4. Optional use cases *explanation* / *refactoring* → drop
 5. k: 5 → 3 (**last** — directly attacks the statistical claim)
 6. Arms: never
 

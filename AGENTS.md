@@ -78,7 +78,7 @@ Later additions (planned): `master/models/` (git submodules for Apollo 11 + GfSE
 - **Working process — write while working:** every practical phase (bridge, benchmark, evaluation) is written up into `master/pages/2xx-*.tex` **as soon as it is done**, while the next phase's implementation continues. A phase is not finished until its prose exists. See `master/0. OVERVIEW.md` §2.1 for the page budget.
 - **Implementation is vibe-coded** (MCP bridge / MBSE harness, evaluation framework, fault injection, run harness): favour speed, but log design decisions, dead ends and limitations as they happen — that log becomes the Design and Discussion chapters. Capture tool output/errors/screenshots into `pic/` immediately.
 - **Web research:** configured search providers may be unavailable; `anysearch`/`duckduckgo` work as explicit fallbacks.
-- **Style:** concise, academic English; German use-case names (Abfragen, Validierung, …) are kept as terms because Prof. Voss uses them.
+- **Style:** concise, academic English; **English-only terminology** (D17): use cases are Create · Query · Patch · Delete · Verification · Validation, composed scenarios are fault correction / explanation / refactoring. No German use-case terms in any thesis file.
 
 ## 5. Session start checklist
 

@@ -1,43 +1,42 @@
 \clearpage
 
-\chapter{Expose}
+\chapter{Expos\'e}
 % =====================================================================
-% Structure:
+% Structure (official brief: Themendefinition · Relevanz · Forschungsfrage ·
+% annotated literature list; source-type paragraph dropped on request 21.09):
 % 1. Subject overview
 % 2. Concrete contribution
 % 3. Relevance
 % 4. Research Question
-% 5. Hypothesis
-% 6. Methodology (six use cases + difficulty tiers)
-%
+% 5. Methodology (six use cases, difficulty tiers, two phases: bare bridge -> harness, evaluation)
+% Hypotheses are deliberately not stated here (removed 21.09.2026). They are
+% formulated after the exposé is agreed with Prof. Voss.
+% Style: no semicolons, no dashes in the body.
 % =====================================================================
 
 %
 % Subject overview
 %
-Model-Based Systems Engineering (MBSE) manages the growing complexity of Cyber-Physical Systems through a central, formalized model \citep{incose2007mbsevision}. SysML has become widely adopted as the standard for modeling such systems and serves as a key enabler of MBSE \citep{incose2007mbsevision}. It allows discipline specific subsystems to be modeled within a shared model, and its most recent revision, SysML v2, enhances and simplifies this capability through a formal textual syntax and a standardized API \citep{omg-kerml}.
+Model-Based Systems Engineering (MBSE) manages the growing complexity of cyber-physical systems through a central, formalized system model \citep{incose2007mbsevision}. SysML is the established language for such models. Its most recent revision, SysML~v2, rebuilds the language on the formally grounded Kernel Modeling Language (KerML) \citep{omg-kerml}, with a textual notation and a standardized API for tool access.
 
 %
 % Concrete contribution
 %
-This thesis investigates the modeling capabilities of LLM-based agents \citep{dehart2024llm} operating interactively on a SysML v2 model through the industrial modeling tool Magic Systems of Systems Architect (MSoSA), operating on the open-source Airbus Apollo~11 SysML v2 model \citep{helle2026apollo} as system under test. A purpose-built Model Context Protocol (MCP) bridge acts as a harness that allows the agent to interact with and modify the live model, with built-in guardrails that improve LLM adherence.
+This thesis empirically evaluates the SysML~v2 modeling capabilities of LLM-based agents operating interactively on a live model inside the industrial tool Magic Systems of Systems Architect (MSoSA). A purpose-built Model Context Protocol (MCP) bridge connects the agent to MSoSA's Java Open API (plugin API) and exposes the live model state as tools. Based on the failures observed with this bare bridge, it is then extended by a harness of knowledge base, guardrails and encoded best practices intended to improve adherence to modeling conventions. The open-source Airbus Apollo~11 SysML~v2 model \citep{helle2026apollo} serves as the system under test, with the GfSE model collection \citep{gfse-models} as a smaller secondary set.
 
 %
 % Relevance
 %
-A recent review finds interactive, tool using agents on live models entirely absent from the literature \citep{fresemann2025review}. The closest work evaluates file-based tooling only \citep{dempsey2026nativeai} or contributes an MCP framework with no capability evaluation \citep{bazzal2026mcpmbse}, and no standard benchmark for fundamental modeling tasks exists \citep{bouamra2025systemp}. Closing this gap matters, as industry deploys agentic MBSE tooling faster than it is measured.
+In a recent review of LLMs for system modeling \citep{fresemann2025review}, interactive, tool-using agents on live models do not appear as an evaluated subject. The closest work either evaluates file-based tooling only \citep{dempsey2026nativeai} or contributes an MCP framework without a capability evaluation \citep{bazzal2026mcpmbse}, and no standard benchmark for fundamental modeling tasks exists \citep{bouamra2025systemp,quast2026graphrag}. Closing this gap matters, as industry deploys agentic MBSE tooling faster than it is measured.
 
 %
 % Research Question
 %
-\bigskip
+\medskip
 \textbf{RQ:} \textit{Which SysML v2 modeling tasks can an LLM-based agent perform reliably in an industrial modeling environment (MSoSA) when connected through an MCP bridge, and where do its capabilities break down?}
 \medskip
-
-We hypothesize that bare MCP tool access, without an accompanying knowledge base, guardrails, and encoded best practices, produces a failure rate high enough to be counterproductive for engineering work, while a well-structured harness measurably improves output quality. However, given the non-deterministic nature of LLMs, reducing this failure rate to a negligible level is expected to require substantial iterative refinement of the harness rather than a single design pass.
-\bigskip
 
 %
 % Methodology
 %
-The MCP bridge attaches to MSoSA's Java OpenAPI plugin and exposes a broad range of tools to the live model state \citep{ahlbrecht2025mbsqle}. These provide the interaction surface needed to exercise the following benchmark use-cases: \textbf{Create}, \textbf{Query}, \textbf{Patch}, \textbf{Delete}, \textbf{Validation} \citep{iso-15288,cibrian2025validation}, and \textbf{Verification} \citep{iso-15288}. These primitives are composed across multiple tiers of difficulty into increasingly complex, realistic modeling flows, such as fault correction \citep{alshami2026faultloc}. Each use case is benchmarked on Apollo~11 across multiple difficulty tiers on Claude-family models, allowing for both a qualitative and a quantitative assessment of the current capabilities.
+The evaluation is organized as a benchmark of six use cases on Apollo~11: \textbf{Create}, \textbf{Query}, \textbf{Patch} and \textbf{Delete} as primitives on the live model, plus \textbf{Verification} and \textbf{Validation}, distinguished according to ISO/IEC/IEEE~15288 \citep{iso-15288}. Each use case is instantiated in several difficulty tiers, from single operations to composed, realistic modeling flows such as fault correction, with faults injected into the model following Cibri\'an et al.\ \citep{cibrian2025validation} and Al-Shami et al.\ \citep{alshami2026faultloc}. The evaluation proceeds in two phases. First, the agent is benchmarked through the bare MCP bridge to establish a baseline. The collected failure data then drives the design of the harness, and the benchmark is repeated to measure the improvement. Every task has a ground truth, and the resulting model state is scored by an evaluator outside the agent loop \citep{wang2026pufibara}. Tasks are repeated to account for LLM non-determinism \citep{pradasgomez2026ductile}. Runs use Claude-family models. The outcome is a quantitative capability profile per use case and tier, before and after the harness, plus a qualitative failure taxonomy \citep{molinari2026engiai}.
