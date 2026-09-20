@@ -2,8 +2,9 @@
 
 > **Read order:** this file → `master/0. OVERVIEW.md` → `.pi/context/` as needed.
 > - **`master/0. OVERVIEW.md` is the user's document:** milestone-structured, short, checkbox-driven. M1 (Exposé) is detailed; M2–M5 are placeholders until agreed with Prof. Voss. **Keep it lean — do not move reference detail back into it.**
-> - **`.pi/context/`** holds the agent-facing detail: decisions (D1–D13), requirements, evaluation + statistical design, tooling, related work, conventions. Index: `.pi/context/00-index.md`.
-> - At the end of a session: tick the Overview checkboxes, add one log row, update the relevant `.pi/context/` file if a decision changed.
+> - **`.pi/context/`** holds the agent-facing detail: decisions (D1…, the living decision record), requirements, evaluation + statistical design, tooling, related work, conventions. Index: `.pi/context/00-index.md`.
+> - **Decisions evolve.** `.pi/context/02-decisions.md` is the source of truth for what was decided; `master/0. OVERVIEW.md` is the source of truth for current status. Do not hardcode decision content elsewhere (including this file).
+> - At the end of a session: tick the Overview checkboxes, add one log row, update `.pi/context/02-decisions.md` (or the relevant `.pi/context/` file) if a decision changed.
 > The Obsidian vault (`~/Documents/Obsidian Vault/Master Arbeit`) is **deprecated** — do not read from or write to it. Everything lives in this repo; **all thesis files live under `master/`**.
 
 ---
@@ -23,18 +24,13 @@
 | Tooling | FH licence covers **MSoSA only** — **2026x** (access granted by Prof. Voss 13.09.2026; exact build TBD, native SysML v2), VPN-gated licence server; no Teamwork Cloud known. LLMs: **own Anthropic Max subscription** → Claude family only. |
 | Prior work | WS seminar paper (grade 1.3): *Mechanisms for Model Consistency — SysML v1 vs v2 guidelines* (`0. Seminar/WS Paper/`), on branch `SysML-modeling-guidelines` |
 
-## 2. Decisions so far (kickoff 07.09.2026)
+## 2. Scope (kickoff 07.09.2026)
 
-1. **Model under test:** Airbus **Apollo 11 SysML v2 model** (`github.com/airbus/apollo-11-sysml-v2`; Helle & Schramm 2026, *Systems Engineering*, DOI 10.1002/sys.70074; ~7 kLOC, ~2 000 elements, 5 CoSMA layers, MPL-2.0). Secondary/generalisation set: **GfSE SysML-v2-Models** (`github.com/GfSE/SysML-v2-Models`, BSD-3).
-2. **Use cases to evaluate:** *Abfragen* (query) · *Validierung* (validation) · *Verifizierung* (verification) · *Korrektur* (correction) · *Erstellen* (creation). Optional: *Erklären*, *Refactoring*.
-3. **Interface:** an **MCP server bridging LLM agents to Magic Systems of Systems Architect (MSoSA)** — the FH has a licence.
-   - Option A: Teamwork Cloud **SysML v2 REST API** (standard, tool-agnostic) — requires a TWC instance.
-   - Option B: **MagicDraw OpenAPI Java plugin** (works with desktop licence only).
-   - Decision pending the FH licence check (see open questions).
-4. **Evaluation design:** benchmark of tasks per use case with ground truth; ablation arms (no tool / thin CRUD bridge / semantic bridge with tool-native validation & evaluation); fault injection for *Korrektur*; evaluator outside the agent loop; 2–3 LLMs.
-5. Research question + H1–H3 are in `master/pages/101expose.tex`.
+Decisions evolve — this file gives static context only, not the decision record. **Current decisions live in `.pi/context/02-decisions.md` (D1…); current status, open items and checkboxes live in `master/0. OVERVIEW.md`.** Do not hardcode decision content here — it goes stale.
 
-**Open questions (ask Prof. Voss):** ~~newer MSoSA build~~ → **settled: 2026x** (train is 2022x → 2024x → 2026x, no 2025x). Teamwork Cloud available? expected rigour level? — current list in `master/0. OVERVIEW.md` §5. Settled: English, ≥ 40 pages, Anthropic Max, MSoSA-only licence.
+Kickoff with Prof. Voss fixed the thesis scope: a system under test (an open-source SysML v2 model), a benchmark of tasks with ground truth across ablation arms, an MCP bridge to MSoSA as the interface, fault injection for correction-style tasks, and an evaluator outside the agent loop. Research question + H1–H3 are in `master/pages/101expose.tex`.
+
+**Open questions:** tracked in `master/0. OVERVIEW.md` §"Open with Prof. Voss" — do not duplicate the list here.
 
 ## 3. Repository layout
 

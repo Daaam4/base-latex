@@ -1,4 +1,4 @@
-# Decisions (D1–D14)
+# Decisions (D1–D16)
 
 > Agent context for the Master's thesis. Human-facing status lives in `master/0. OVERVIEW.md`.
 > Do not duplicate status here; this file holds stable context.
@@ -7,10 +7,10 @@
 
 | # | Decision | Where decided |
 |---|---|---|
-| D1 | **System under test:** Airbus **Apollo 11 SysML v2** model (`airbus/apollo-11-sysml-v2`, MPL-2.0, ~7.2 kLOC / 28 files / ~2 000 elements, 5 CoSMA layers). Paper: Helle & Schramm 2026, *Systems Engineering*, DOI 10.1002/sys.70074 | kickoff + `06-tooling-msosa.md` |
+| D1 | **System under test:** Airbus **Apollo 11 SysML v2** model (`airbus/apollo-11-sysml-v2`, MPL-2.0, ~7.2 kLOC / 28 files / ~2 000 elements, 5 CoSMA layers). Paper: Helle & Schramm 2026, *Systems Engineering*, DOI 10.1002/sys.70074 — bib key `helle2026apollo`, Crossref-verified, `[TOP 3]` (20.09.2026, replaces INCOSE) | kickoff + `06-tooling-msosa.md` |
 | D2 | **Secondary / generalisation set:** GfSE `SysML-v2-Models` (BSD-3, ~5.1 kLOC across ~15 small models); also source of "bad examples" | same |
 | D3 | **Interface:** MCP server bridging LLM agents to **MSoSA** (FH has a licence) — replaces the earlier "wrap the pilot REST API" framing | kickoff |
-| D4 | **Use cases:** Abfragen · Validierung · Verifizierung · Korrektur · Erstellen (optional: Erklären, Refactoring) | kickoff |
+| D4 | ~~**Use cases:** Abfragen · Validierung · Verifizierung · Korrektur · Erstellen (optional: Erklären, Refactoring)~~ — **superseded by D15** | kickoff |
 | D5 | **Evaluation design:** ablation arms (0) no tool / (1) thin CRUD bridge / (2) semantic bridge with tool-native validation & evaluation; fault injection for Korrektur; **evaluator outside the agent loop** | kickoff + lit. |
 | D6 | Second examiner: **Tim Höner** | kickoff |
 | D7 | Obsidian vault retired — everything lives in this repo | 12.09.2026 |
@@ -20,6 +20,8 @@
 | D13 | **Bridge = Option B** (MCP ↔ MagicDraw OpenAPI Java plugin in MSoSA) — the exposé is written for this. Standing instruction: work with what the FH has access to. TWC availability asked *after* the exposé (upgrade path, not a replan); A′ = emergency fallback only | 13.09.2026 |
 | D12 | **Rigour target: statistically solid results**, not a pilot study → paired design across arms, k=5, 36-task target, pre-registration, inter-rater kappa (`.pi/context/04-evaluation-design.md` (statistical design)). Cost: task breadth + a mandatory unattended batch harness | 13.09.2026 |
 | D11 | **Tooling licence scope: MSoSA only.** No TWC, no SysIDE licence assumed. SysIDE Automator only if essential / clearly advantageous — decided later, not designed into the exposé | 13.09.2026 |
+| D15 | **Use cases narrowed to six primitives:** Create · Query/Read · Patch · Delete · Validation · Verification. Validation/Verification keep the German terms (Validierung/Verifizierung, per D8); Create/Query/Patch/Delete are the CRUD primitives, named in English. **Korrektur, Erklären and Refactoring are no longer separately scored** — they become *composed scenarios* built from the six primitives (Korrektur = Query → Patch/Delete → re-check Validation/Verification against an injected fault). Rationale: every other use case decomposes into these six, so scoring the primitives directly gives atomic, cleaner ground truth and lines up with the ablation arms (Arm 1 thin-CRUD bridge → Create/Read/Patch/Delete; Arm 2 semantic bridge → adds tool-native Validation/Verification). Supersedes D4; detail in `04-evaluation-design.md` | 20.09.2026 |
+| D16 | **Difficulty tiers = Local / Cross-package / Cross-layer**, operationalized by relationship-hop count + files touched + CoSMA layers spanned (1 file/0–1 hop/1 layer · 2–3 files/2–4 hops/1 layer · 3+ files/≥3 hops/≥3 layers), verified against the real Apollo 11 package structure (cloned + inspected 20.09.2026; chain confirmed via `#refinement dependency`, `satisfy 'REQ' by ...`, `perform action` relationships). Validation is scope-based instead of hop-based (single element → package/cluster → whole model) since it checks a scope, not a traversal. Detail + worked examples in `04-evaluation-design.md` | 20.09.2026 |
 | D14 | **Tool build = MSoSA 2026x** (access granted by Prof. Voss, 13.09.2026) — supersedes the seminar-era 2024x Refresh2 HF1. Native SysML v2; 2024x-specific caveats (feature flag, incubator-grade v2) dropped. Exact build + API surface recorded in `06-tooling-msosa.md` A.0 after install. The exposé names 2026x as the tool version. Alternatives rejected: staying on 2024x (two generations behind on the feature under test) | 13.09.2026 |
 
 ### Pending decision: bridge option

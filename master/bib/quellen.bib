@@ -22,7 +22,7 @@
   type        = {Technical Product},
   number      = {INCOSE-TP-2004-004-02, v2.03},
   url         = {https://sdincose.org/wp-content/uploads/2011/12/SEVision2020_20071003_v2_03.pdf},
-  note        = {[TOP 3] INCOSE foresight report (workshop synthesis, not an empirical study) that coins the canonical MBSE definition. Anchors the thesis's framing and its treatment of \emph{Verifizierung} and \emph{Validierung} as distinct activities.}
+  note        = {INCOSE foresight report (workshop synthesis, not an empirical study) that coins the canonical MBSE definition. Anchors the thesis's framing and its treatment of \emph{Verifizierung} and \emph{Validierung} as distinct activities.}
 }
 
 % ---------- Subject 2: SysML v2 (foundations) -- reused from the WS seminar paper ----------
@@ -61,6 +61,26 @@
   publisher = {IEEE},
   url       = {https://elib.dlr.de/214792/},
   note      = {The standard SysML\,v2 API offers no graph traversal (REST traversals $>$10\,s); MBSqlE imports models into SQLite so recursive SQL traverses them in one query. Motivates a semantic/cache layer instead of a thin REST proxy for \emph{Abfragen}.}
+}
+
+@article{helle2026apollo,
+  author    = {Helle, Philipp and Schramm, Gerrit},
+  title     = {Fly me to the {M}oon -- {M}odeling {A}pollo 11 {U}sing {SysML} v2},
+  journal   = {Systems Engineering},
+  publisher = {Wiley},
+  year      = {2026},
+  month     = jun,
+  day       = {22},
+  doi       = {10.1002/sys.70074},
+  note      = {[TOP 3] Airbus Central R\&T's five-layer CoSMA (Purpose/Operational/Functional/Logical/Technical) SysML\,v2 model of the Apollo 11 mission, released open-source (\texttt{github.com/airbus/apollo-11-sysml-v2}, MPL-2.0, commit \texttt{6e9c93f}, accessed 20.09.2026) as a public MBSE benchmark. The instrument this thesis measures on: \textasciitilde{}7.2\,kLOC / 28 files / \textasciitilde{}2\,000 elements, deliberately incomplete "scaffold" for \emph{Erstellen}/\emph{Korrektur} tasks.}
+}
+
+@misc{gfse-models,
+  author       = {{Gesellschaft f\"ur Systems Engineering (GfSE)}},
+  title        = {{SysML-v2-Models}: An Open Collection of {SysML} v2 Models},
+  howpublished = {GitHub repository, \url{https://github.com/GfSE/SysML-v2-Models}, commit \texttt{ebbb0c3}, accessed 20.09.2026},
+  year         = {2025},
+  note         = {BSD-3. \textasciitilde{}5.1\,kLOC curated teaching/reference models (VehicleModel, DroneModelLogical, EveOnline Mining Frigate) explicitly meant to "help train LLMs"; ships \texttt{CI/parse.py} + a pilot-implementation jar as a validity oracle. Secondary/generalisation set (D2) -- H3 target, small self-contained models plus deliberate "bad examples".}
 }
 
 % ---------- Subject 4: LLM x SysML v2 ----------

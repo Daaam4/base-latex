@@ -5,15 +5,51 @@
 
 ## Design: use cases, tasks & metrics
 
-| Use case | Example task on Apollo 11 | Ground truth / metric | Apollo 11 hook |
+**D15 (20.09.2026):** the scored use-case set is six CRUD+V+V primitives, not the original five (D4, superseded). Every other candidate use case decomposes into these six — see "Composed scenarios" below.
+
+| Use case (primitive) | Example task on Apollo 11 | Ground truth / metric | Apollo 11 hook |
 |---|---|---|---|
-| **Abfragen** (query) | "Which technical components satisfy requirement X?" | exact set match vs. model query | 5 layers, cross-layer chains: need → mission req → functional req → function → logical → technical |
-| **Validierung** (validation) | "Is package P well-formed and CoSMA-conformant?" | tool validation suite results | large enough to hide well-formedness issues; CoSMA base types (`:>`) give guideline checks |
-| **Verifizierung** (verification) | "Is mass-budget requirement R satisfied by current values?" | expression evaluation in tool | `requirement` + `satisfy`/`verify`; `Analysis/CalculationsPackage.sysml` |
-| **Korrektur** (correction) | repair injected faults | fault-repair rate, no collateral change | inject faults into a copy → measure repair |
-| **Erstellen** (creation) | add missing technical component with ports + satisfy links | syntactic validity + expert rubric | model is deliberately a "scaffold" with intended gaps |
-| *Erklären* (optional) | summarise a subsystem for a stakeholder | expert rubric | — |
-| *Refactoring* (optional) | move/rename elements consistently | diff + validation | — |
+| **Create** | add missing technical component with ports + satisfy links | syntactic validity + expert rubric | model is deliberately a "scaffold" with intended gaps |
+| **Query/Read** | "Which technical components satisfy requirement X?" | exact set match vs. model query | 5 layers, cross-layer chains: need → mission req → functional req → function → logical → technical |
+| **Patch** | rename an element / change an attribute value / redirect a `satisfy` link to the correct requirement | diff against target state — exact intended edit, no collateral change | dense cross-references make an isolated, clean patch non-trivial |
+| **Delete** | remove a duplicate/orphaned element cleanly | post-delete referential-integrity check (no dangling `satisfy`/typed-by/port relationships left behind) + diff (only the intended element removed) | model has deliberate redundancy/gaps to target |
+| **Validation** (Validierung) | "Is package P well-formed and CoSMA-conformant?" | tool validation suite results | large enough to hide well-formedness issues; CoSMA base types (`:>`) give guideline checks |
+| **Verification** (Verifizierung) | "Is mass-budget requirement R satisfied by current values?" | expression evaluation in tool | `requirement` + `satisfy`/`verify`; `Analysis/CalculationsPackage.sysml` |
+
+### Composed scenarios — not separately scored, built from the six primitives
+- **Korrektur** (correction, fault injection) = Query (locate the fault) → Patch/Delete (repair) → re-run Validation/Verification (confirm the fix) — scored end-to-end for fault-repair rate + no collateral change; inject faults into a copy of the model
+- *Erklären* (optional) = Query + synthesis, judged by expert rubric
+- *Refactoring* (optional) = Query + Patch (+ Delete) applied consistently across multiple elements, judged by diff + validation
+
+### Difficulty tiers (D16, 20.09.2026)
+
+> ⚠️ **Exposé scope note:** this section is agent-context detail, not exposé content. The exposé should say only that **each use case is tested across multiple difficulty tiers** — no hop-count rule, no per-primitive worked-example table. Keep the full definition here for task authoring later.
+
+Grounded in the actual Apollo 11 package structure (`airbus/apollo-11-sysml-v2`, cloned and inspected 20.09.2026) rather than assumed — the "need → mission req → functional req → function → logical → technical" chain is real and traceable via three concrete relationship kinds: `#refinement dependency X to Y` (StakeholderNeed → Capability → Mission Requirement, Purpose layer), `satisfy 'REQ-ID' by path.to.element;` (Mission Req → Operation, Functional Req → Function, Technical Req → Technical Component), and `perform action x : FunctionName;` (Logical Component → Function).
+
+**Operational rule** (fixed *before* task authoring, so tier assignment is checkable, not subjective):
+
+| Tier | Rule | Files/packages | CoSMA layers |
+|---|---|---|---|
+| **1 — Local** | 0–1 relationship hops beyond the target element | 1 file | 1 |
+| **2 — Cross-package** | 2–4 hops via `satisfy`/typing within one layer's package cluster | 2–3 files | 1 (occasionally 2 adjacent) |
+| **3 — Cross-layer** | ≥3 hops crossing layer boundaries via `#refinement`/`satisfy`/`perform` chains | 3+ files | ≥3 of the 5 CoSMA layers |
+
+**Validation is the one exception to hop-counting** — it is inherently a scope-of-check, not a traversal, so its tiers scale the **scope of what is validated** instead: T1 = a single element/part in isolation, T2 = one package or a bounded cluster, T3 = the whole model (full CoSMA traceability, every StakeholderNeed → technical component or flagged scaffold gap).
+
+**Worked examples (real Apollo 11 elements):**
+
+| Primitive | T1 — Local | T2 — Cross-package | T3 — Cross-layer |
+|---|---|---|---|
+| **Query/Read** | List attributes of `HLR-R002` (LunarLanderSoftLandingRequirement) | Which technical components satisfy `CLR-R012` (CMHabitableVolume)? (`TechnicalRequirementsPackage` → `SystemSpecificationPackage`) | Trace `HLR-R002` back to its stakeholder need via Capability, and forward to the satisfying technical components |
+| **Create** | Add attribute `actualNoiseLevel` to an existing requirement | Add a new Technical Component typed with an existing port from `TechnicalPortsPackage`, inserted into `SystemPackage` | Add a Technical Requirement + `satisfy` link, wired through Function → Functional Req → Mission Req (fills a genuine scaffold gap) |
+| **Patch** | Fix a wrong attribute value/unit in place | Redirect a `satisfy` in `SystemSpecificationPackage` to the correct component | Fix a `satisfy 'hlr-Rxx' by ...` Operation reference — correct target only identifiable via the Operation↔Function↔FLR chain |
+| **Delete** | Remove an isolated/unused local attribute | Delete a duplicate Technical Component with 1–2 `satisfy` refs, no dangling links | Delete a Function that is `refine`d from an Operation, `satisfy`-targeted by an FLR, and `perform`ed by a Logical Component — clean up across 4 layers |
+| **Validation** (scope-based, see above) | Does `HLR-R002`'s own specialization/attributes conform to its base type? | Do all `satisfy` targets in `SystemSpecificationPackage` resolve within `TechnicalRequirementsPackage`? | Full CoSMA traceability across the whole model |
+| **Verification** | Given `actualVerticalVelocity=1.8m/s`, does `HLR-R002` hold against its own `maxVerticalVelocity=2m/s`? | Evaluate `Apollo11MissionSystemPowerAnalysis` — rolls up `PowerProvider`/`PowerConsumer` subparts via `CalculationsPackage` | Evaluate `Apollo11MissionDeltaVBudgetAnalysis` — stage delta-v (Technical) vs. `dv_required_tli` tied to `HLR-R003` (Requirements/Purpose) |
+
+- [ ] Turn this into `master/pages/2xx-evaluation.tex` task-catalogue skeleton alongside the use-case table
+
 
 ### Evaluation arms (ablation, cf. SEI 3-arm design)
 - **Arm 0** — no tool, textual file in context only
@@ -62,7 +98,7 @@ With per-task pass rates and a paired design, detecting a moderate arm effect (r
 
 | | Target | Minimum acceptable |
 |---|---|---|
-| Tasks (paired across arms) | **36** (5 use cases × 3 difficulty tiers × ~2–3 instances) | 24 |
+| Tasks (paired across arms) | **36** (6 use cases × 3 difficulty tiers × 2 instances) | 24 |
 | Repetitions k | **5** | 3 |
 | Arms | 3 (no tool / thin / semantic) | 3 — **not negotiable**, H2 depends on it |
 | Model tiers | 2 (Opus + Sonnet), 2nd tier on a **~50% subset** | 1 |
@@ -94,7 +130,7 @@ Runs = `tasks × 3 arms × k` + `half-subset × 3 × k` for the second tier:
 #### What this costs — revised descoping order
 Repetitions and arms are now **protected**; breadth pays instead:
 1. Second model tier → smaller subset, or drop (H2 survives; the tier contrast does not)
-2. Task **instances** per cell: 3 → 2 → 1 (keep all 5 use cases × 3 tiers for coverage)
+2. Task **instances** per cell: 3 → 2 → 1 (keep all 6 use cases × 3 tiers for coverage)
 3. GfSE generalisation set → drop (costs H3)
 4. Optional use cases *Erklären* / *Refactoring* → drop
 5. k: 5 → 3 (**last** — directly attacks the statistical claim)

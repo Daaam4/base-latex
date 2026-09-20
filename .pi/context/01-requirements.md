@@ -12,13 +12,13 @@
 
 ## The thesis in one paragraph
 
-Prior research on LLMs + SysML v2 is almost entirely **one-shot generation** from natural language, evaluated on small hand-made models, working on **text files**. Nobody has measured what an agent can and cannot do when it works **interactively against a live model inside an industrial modeling tool**, on a **large** model, across the full task spectrum. This thesis builds an **MCP bridge to Magic Systems of Systems Architect (MSoSA)**, uses the **Airbus Apollo 11 SysML v2 model** as system under test, and produces a **capability-and-failure map** across five use cases (Abfragen · Validierung · Verifizierung · Korrektur · Erstellen). *The bridge is the instrument — the evaluation is the contribution.*
+Prior research on LLMs + SysML v2 is almost entirely **one-shot generation** from natural language, evaluated on small hand-made models, working on **text files**. Nobody has measured what an agent can and cannot do when it works **interactively against a live model inside an industrial modeling tool**, on a **large** model, across the full task spectrum. This thesis builds an **MCP bridge to Magic Systems of Systems Architect (MSoSA)**, uses the **Airbus Apollo 11 SysML v2 model** as system under test, and produces a **capability-and-failure map** across six CRUD+V+V use cases (Create · Query/Read · Patch · Delete · Validation · Verification, D15) — composed scenarios like *Korrektur* (correction) are built from these, not scored separately. *The bridge is the instrument — the evaluation is the contribution.*
 
 **Research question (as in `master/pages/101expose.tex`):**
 > Which SysML v2 modeling tasks can an LLM-based agent perform reliably in an industrial modeling environment (MSoSA) when connected through an MCP bridge, and where do its capabilities break down?
 
 **Hypotheses**
-- **H1 (task asymmetry)** — read-only tasks (Abfragen, Validierung) are reliable; write tasks (Korrektur, Erstellen) and Verifizierung degrade with model size and cross-layer dependency depth.
+- **H1 (task asymmetry)** — read-only tasks (Query/Read, Validation) are reliable; write tasks (Create, Patch, Delete, and composed correction scenarios) and Verification degrade with model size and cross-layer dependency depth.
 - **H2 (tool semantics)** — exposing tool-native capabilities (validation suites, expression evaluation) as MCP tools beats a thin CRUD wrapper over the SysML v2 API.
 - **H3 (model scale)** — findings from small teaching models (GfSE) do not transfer to a large multi-layer model (Apollo 11) without a semantic navigation layer.
 
