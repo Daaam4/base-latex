@@ -12,7 +12,7 @@
 Nothing else goes to him before the exposé.
 
 - [x] **MSoSA version** — asked via Webex 13.09.2026, **answered same day: access to MSoSA 2026x granted** (D14). Exact build (2026x base / HF1 / Refresh1) unknown until installed → read `Help > About`, record in `06-tooling-msosa.md`.
-- [ ] **BLOCKER — sciebo share password (19.09.2026).** Prof. Voss sent the 2026x download as a **password-protected** sciebo link (`fh-aachen.sciebo.de/s/L3kBaQZr3tY7dHS`). An FH sciebo login does **not** satisfy a per-link passphrase — only the sharer can supply or reset it. Asked via Webex. Alternative: he re-shares directly to the FH account (no passphrase). Nothing downloads until this clears.
+- [X] **BLOCKER — sciebo share password (19.09.2026).** Prof. Voss sent the 2026x download as a **password-protected** sciebo link (`fh-aachen.sciebo.de/s/L3kBaQZr3tY7dHS`). An FH sciebo login does **not** satisfy a per-link passphrase — only the sharer can supply or reset it. Asked via Webex. Alternative: he re-shares directly to the FH account (no passphrase). Nothing downloads until this clears.
 - [ ] After install: record exact build, plugin set, and whether the `-Dmd.sysml2.enabled` flag is still required in 2026x (expected: **no** — SysML v2 is native there)
 
 **Verified release train (13.09.2026, docs.nomagic.com — there is no 2025x):**

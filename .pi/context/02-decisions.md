@@ -10,13 +10,12 @@
 | D1 | **System under test:** Airbus **Apollo 11 SysML v2** model (`airbus/apollo-11-sysml-v2`, MPL-2.0, ~7.2 kLOC / 28 files / ~2 000 elements, 5 CoSMA layers). Paper: Helle & Schramm 2026, *Systems Engineering*, DOI 10.1002/sys.70074 — bib key `helle2026apollo`, Crossref-verified, `[TOP 3]` (20.09.2026, replaces INCOSE) | kickoff + `06-tooling-msosa.md` |
 | D2 | **Secondary / generalisation set:** GfSE `SysML-v2-Models` (BSD-3, ~5.1 kLOC across ~15 small models); also source of "bad examples" | same |
 | D3 | **Interface:** MCP server bridging LLM agents to **MSoSA** (FH has a licence) — replaces the earlier "wrap the pilot REST API" framing | kickoff |
-| D4 | ~~**Use cases:** Abfragen · Validierung · Verifizierung · Korrektur · Erstellen (optional: Erklären, Refactoring)~~ — **superseded by D15** | kickoff |
-| D5 | **Evaluation design:** ablation arms (0) no tool / (1) thin CRUD bridge / (2) semantic bridge with tool-native validation & evaluation; fault injection for Korrektur; **evaluator outside the agent loop** | kickoff + lit. |
-| D6 | Second examiner: **Tim Höner** | kickoff |
-| D7 | Obsidian vault retired — everything lives in this repo | 12.09.2026 |
-| D8 | German use-case names kept as terms (Prof. Voss uses them) | convention |
-| D9 | **LLM access: own Anthropic Max subscription** → Claude family. Evaluation is single-family; a capability-tier contrast (e.g. Opus vs. Sonnet) replaces cross-vendor comparison. Written up as a threat to validity (§5.3) | 13.09.2026 |
-| D10 | **Thesis language English**; **min. 40 pages** | confirmed 13.09.2026 |
+| D4 | **Evaluation design:** ablation arms (0) no tool / (1) thin CRUD bridge / (2) semantic bridge with tool-native validation & evaluation; fault injection for Korrektur; **evaluator outside the agent loop** | kickoff + lit. |
+| D5 | Second examiner: **Tim Höner** | kickoff |
+| D6 | Obsidian vault retired — everything lives in this repo | 12.09.2026 |
+| D7 | German use-case names kept as terms (Prof. Voss uses them) | convention |
+| D8 | **LLM access: own Anthropic Max subscription** → Claude family. Evaluation is single-family; a capability-tier contrast (e.g. Opus vs. Sonnet) replaces cross-vendor comparison. Written up as a threat to validity (§5.3) | 13.09.2026 |
+| D9 | **Thesis language English**; **min. 40 pages** | confirmed 13.09.2026 |
 | D13 | **Bridge = Option B** (MCP ↔ MagicDraw OpenAPI Java plugin in MSoSA) — the exposé is written for this. Standing instruction: work with what the FH has access to. TWC availability asked *after* the exposé (upgrade path, not a replan); A′ = emergency fallback only | 13.09.2026 |
 | D12 | **Rigour target: statistically solid results**, not a pilot study → paired design across arms, k=5, 36-task target, pre-registration, inter-rater kappa (`.pi/context/04-evaluation-design.md` (statistical design)). Cost: task breadth + a mandatory unattended batch harness | 13.09.2026 |
 | D11 | **Tooling licence scope: MSoSA only.** No TWC, no SysIDE licence assumed. SysIDE Automator only if essential / clearly advantageous — decided later, not designed into the exposé | 13.09.2026 |
