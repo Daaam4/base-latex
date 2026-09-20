@@ -12,3 +12,6 @@ Ten models (OpenAI + Anthropic, five generations each), 100 independent runs, tw
 
 ## Relevance
 Justifies two evaluation-design decisions: (1) **expert-defined acceptance criteria + human second rater** instead of LLM-as-judge for semantic correctness; (2) reporting repeated runs (k ≥ 5) rather than single-shot results. Its warning that agentic architectures may *compound* rather than correct LLM deficiencies is relevant to the *Validierung* and *Verifizierung* use cases, where the agent judges model quality.
+
+## Status
+PDF filed at `bib/papers/shefa2026reqquality.pdf`. Bib entry promoted to `bib/quellen.bib` (Subject 5). Added to `bib/mindmap.md` under the EvalFW node level.

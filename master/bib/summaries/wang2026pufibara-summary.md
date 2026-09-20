@@ -12,3 +12,6 @@ Agent evaluation for physical-system modelling, where a model may compile and si
 
 ## Relevance
 Three design principles adopted for the SysML v2 benchmark: evaluator outside the agent loop; task construction grounded in an existing source model (Apollo 11) rather than authored from scratch; the repair / generation / tuning split maps onto *Korrektur* / *Erstellen* / *Validierung–Verifizierung*. Also evidence that harness design alone shifts results under identical models — a confound to keep constant across arms.
+
+## Status
+PDF filed at `bib/papers/wang2026pufibara.pdf`. Bib entry promoted to `bib/quellen.bib` (Subject 5). Added to `bib/mindmap.md` under the EvalFW node level.

@@ -46,141 +46,171 @@ flowchart TD
 **Open item:** "Delete" within CRUD Operations is flagged — keep as a sub-case only if it turns
 out to be a non-trivial capability to evaluate; drop otherwise.
 
-## Sources per leaf (so far)
+## Sources by node (table)
 
-- **MBSE** (node): `incose2007mbsevision` — canonical MBSE definition (INCOSE SE Vision 2020).
-- **AI** (node): `dehart2024llm` — origin paper of the whole LLM x SysML v2 topic (July 2024): SysML v2's
-  English-like textual syntax + concurrent LLM maturation make conversational model interaction
-  feasible, LLM as interpretive layer replacing API expertise. Three OpenAI Assistants-API case
-  studies (beam-model edit via LLM-generated regex/Python directly on the text file, no structured
-  tool call; Flask `/ask` endpoint for conversational querying, e.g.\ von Mises stress from prose
-  boundary conditions; Jupyter-notebook requirement validation against a block model, correctly
-  traversing Definition/Usage and flagging a failed requirement) — single-run proofs of concept,
-  no ground truth, explicit warning on automation bias/overreliance. Predates MCP, so sits above
-  the MCP/Harness leaves rather than in either; also the earliest instance of the "no structured
-  tool, LLM edits text directly" pattern the thesis's no-tool/thin-bridge ablation arms contrast
-  against.
-- **MBSE / SysML v2 Evaluation Framework** (EvalFW, node level — closest *evaluated* work, direct
-  ablation template): `fresemann2025review` — structured literature review of 20 LLM-for-
-  system-modeling publications; supplies the **task taxonomy** (creation/analysis/modification/
-  reformulation) this whole EvalFW node and its CRUD/Verification/Validation children are mapped
-  onto, points to MCP as the emerging mechanism for supplying engineering context beyond
-  prompting-only methods, and explicitly flags the field's lack of standardized, comparable
-  evaluation criteria — the same gap `bouamra2025systemp`/`quast2026graphrag` independently name
-  below. `sei-native-ai` — controlled 3-arm SysML v2 benchmark (baseline / CLI
-  validation loop / full MCP-knowledge + skills tooling), 8 tasks x 2 scales, Claude Opus 4.6.
-  Validation alone kills syntax errors but barely moves a modeling-pattern score (78.3→ 71.7);
-  curated knowledge + skills raises it 71.7→94.1. This thesis's own no-tool/thin-bridge/semantic-
-  bridge arms mirror this design directly. File-based (Syside LSP), so the thesis differentiates
-  on the live-model / industrial-tool axis. [TOP 3]
-- **SysML v2** (child): `boelsen2025guidelines`, `omg-kerml` — foundations. `bouamra2025systemp`
-  independently corroborates the corpus-scarcity fact that shapes our model choice: the only two
-  available SysML v2 example sources are the Pilot-Implementation test suite and
-  `GfSE/SysML-v2-Models`, <150 scenarios total — supports using Apollo 11 (large instrument,
-  because nothing comparable at scale exists) with GfSE as the secondary/generalisation set.
-- **API Query Limits** (leaf under SysML v2): `ahlbrecht2025mbsqle` — the standard
-  SysML v2 API query model features no direct graph traversal, leading to performance
-  bottlenecks; proposes SQLite as a traversable intermediate representation. Motivates querying
-  inside the tool / a semantic layer in the bridge rather than going through the REST API.
-  `bazzal2026mcpmbse` — builds its MCP framework directly on this same standard API (no
-  traversal layer added); pairs with Ahlbrecht as the "Option A" contrast to this thesis's
-  MSoSA-internal "Option B" attachment point.
-- **Verification (ISO 15288)**: `iso-15288`, `molnar2024formalverification`, `cibrian2025validation`,
-  `ratzke2025constraints`. All six non-ISO candidates were independently audited (evidence-auditor
-  subagents, 19.09.2026) against the ISO 15288 definitions and unanimously verdicted
-  **Verification**, despite four of them self-labeling their method "validation" in the title,
-  abstract, or body. Curated down 19.09.2026 to the 3 most valuable: Molnar (broadest tool
-  landscape), Cibrian (practical tool + clearest conflation example), Ratzke (explains the native
-  KerML-CSP mechanism, complements `omg-kerml`/`boelsen2025guidelines`). Removed: Zavada
-  (redundant conflation example), Kausch (Isabelle theorem-proving, tangential to an agent/MCP
-  workflow), Lu (SysML v1, not v2). See `bib/quellen.bib` notes for per-paper quotes/rationale.
-- **Validation (ISO 15288)**: `iso-15288` only. **Open gap** — no reviewed source performs actual
-  ISO-validation (behavioral simulation or operational-scenario execution against
-  stakeholder/business objectives). Worth stating explicitly in related work, or finding a
-  genuine validation source before the thesis leans on this leaf.
-- **CRUD Operations** (leaf under EvalFW; merges the former Create/Patch/Delete/Query leaves —
-  19.09.2026, since all four are just verbs on the same model-element API and the source overlap
-  between them was already heavy). Also carries the branch's **gap citation**: `bouamra2025systemp`
-  concludes verbatim that "assessing the quality of generated SysML v2 models remains constrained
-  by the absence of standard benchmarks" — the reason this whole EvalFW node exists.
-  `quast2026graphrag` independently states the same gap for QA-over-MBSE specifically ("lack of
-  standardized benchmarks") — a second, unrelated group reaching the same conclusion.
-  - *Create* (= *Erstellen*): `dehn2025nl2sysml` — **primary reference for this leaf.**
-    Four-component structured prompting (role/goal, ontology description, few-shot examples,
-    NL requirements set) for NL→SysML v2 generation, evaluated on an automotive electric-window-
-    opener case across four incremental prompting setups with precision/recall/F1 (information
-    extraction), traceability coverage, syntax pass/fail, and qualitative semantics scores,
-    averaged over 3 runs each. Ontology improves traceability but needs few-shot examples for
-    syntactic correctness; few-shot examples are essential for valid SysML v2 output; structured
-    prompting trades quality for token/runtime cost. Weak spot: logical-to-physical element
-    mapping stays unstable. File-based generation without a modelling tool — the thesis's
-    element-level metric template for *Erstellen*, contrasted against the live-tool/MSoSA
-    attachment point. `qualis2025hallucination` — tri-layer knowledge graph (SysML pattern KG /
-    domain-specific KG / auto-generated system-specific KG) feeding reusable prompt templates to
-    ground generation against hallucinated constructs; satellite-system case study, manually
-    curated ground-truth dataset (Average Structure/Semantic Scores, Consistency Ratio).
-    Structurally valid models reliably, but semantic fidelity/determinism remain limited —
-    motivates grounding the agent in the *live* model/tool state rather than a hand-built static
-    KG, the design choice this thesis makes instead. `bazzal2026mcpmbse` — "model creation tools" class + case study 1
-    (agentic use-case-diagram generation: create use case → query/create actor → create
-    association). Demonstration only, no ground truth or metrics. `bouamra2025systemp` —
-    four-agent NL→SysML-v2 pipeline (spec extraction → template skeleton → completion →
-    parse-repair loop); ablation shows template scaffolding lifts syntax convergence from 1/5 to
-    4/5 scenarios. Syntax-only, no semantic ground truth — this is exactly the gap the thesis's
-    *Erstellen* metric (syntactic validity + expert rubric) closes. `sei-native-ai` — the 8-task
-    generation benchmark itself (worked 4-drone-swarm example: 0 syntax errors, 97.2/100 pattern
-    score, yet separation/lost-link parameters and requested components silently drift from the
-    prompt) — the clearest available illustration of "syntactically valid but wrong", directly
-    motivating the expert-rubric half of the *Erstellen* metric alongside syntactic validity.
-  - *Patch* (= *Korrektur*): `alshami2026faultloc` — syntactic-vs-semantic fault distinction +
-    KG-driven systematic fault injection is the model for our fault taxonomy/injection method on
-    Apollo 11; plain-LLM repair rate <3 % is the no-tool-arm baseline expectation.
-    `wu2025sysforge` — multi-agent generate-validate-refine repair loop, Pass@1/BLEU.
-    `bazzal2026mcpmbse` — "model modification tools" class + case study 2 (signal-redundancy
-    optimization); architecture citation only (no fault-repair evaluation), weaker fit than the
-    above two.
-  - *Query* (= *Abfragen*): `quast2026graphrag` — **primary reference for this leaf.** GraphRAG
-    multi-agent system (Supervisor + Graph Query Agent) over a Neo4j graph parsed from SysML v2
-    text, schema'd by RFLP; hybrid graph+vector indexing, Cypher queries. Evaluated on a synthetic
-    battery-EV model with a zero/one-hop vs.\ multi-hop QA dataset across 4 LLMs — best model
-    (Gemini-2.5-flash-preview) reaches **93\% overall / 90\% multi-hop accuracy**. Real ground-
-    truth evaluation, unlike the other CRUD entries so far — the accuracy-metric template for the
-    *Abfragen* use case. Own stated limits: synthetic (not industrial-scale) model, metamodel-
-    specific parser, no user studies. The thesis queries the live tool/model state directly rather
-    than a derived, pre-built graph. `bazzal2026mcpmbse` — "model analysis tools" class + case
-    study 2's query-vector-DB / query-model steps. Demonstration only, weaker fit than Quast.
-  - *Delete*: no sources yet — open item, see above.
-- **MCP** (child under AI): `bazzal2026mcpmbse` — Fraunhofer
-  IEM/HNI/FAU/Audi framework implementing MCP servers directly on the standard SysML v2 API
-  (C#.NET, open source at `github.com/hni-ase/SysMLV2-mcp`); closest scientific competing work.
-  [TOP 3] `sei-native-ai` — contrasting MCP design point: their repository-local MCP server is a
-  **knowledge-retrieval** service over curated Markdown, not a model-editing/model-repository
-  interface. Good pairing with Bazzal to frame the design space: MCP-as-model-CRUD (Bazzal) vs.
-  MCP-as-knowledge-base (SEI) vs. this thesis's MCP-as-live-tool-bridge (both CRUD *and*
-  tool-native validation, inside MSoSA). [TOP 3] `hasan2026mcpsmells` — empirical study of 856
-  MCP tools across 103 servers: 97.1\% of tool descriptions carry at least one "smell" (56\%
-  fail to state purpose); augmenting all description components lifts task success by a median
-  5.85 pp but costs +67\% execution steps, with 17\% regressions. Supplies the description-
-  quality rubric for the bridge's own tools, and flags a **confound to control** between the
-  thin- and semantic-bridge ablation arms — description quality must be held constant so the
-  semantic arm doesn't win merely on better-written tool text.
-- **AI Harness** (child under AI — first source in this leaf): `bouamra2025systemp` — four
-  specialised agents (spec extraction, template generation via a rule-based Jinja2 tool, writing,
-  Java-parser-backed error feedback) orchestrated as a fixed pipeline with one iterative
-  writer↔parser repair loop; not MCP, but a directly comparable harness-design precedent for
-  structuring our own agent's tool-use loop, and for the no-tool vs.\ tool-arm ablation (their
-  own ablation is structurally the same idea: scaffolding present vs.\ absent). `sei-native-ai` —
-  10 version-controlled "skill" files (retrieve → edit → check orchestration instructions, not
-  tools themselves) layered on top of a fixed validation loop; a second, more elaborate harness-
-  design precedent, and the source of this thesis's planned no-tool/thin-bridge/semantic-bridge
-  ablation structure. [TOP 3] `quast2026graphrag` — Supervisor Agent (query decomposition) +
-  Graph Query Agent (Cypher/semantic search execution) two-agent split; a third harness-design
-  precedent, specifically for read-only/query-decomposition orchestration rather than generation
-  or repair loops. `liparulo2026hwmcp` — **closest methodological sibling** (adjacent domain,
-  not SysML v2): purpose-built MCP server reproducing a stateful hardware-design tool + task
-  benchmark (single-op/chain/invalid/misspelled) + ablations of system prompt, tool-description
-  detail, context scope, and single- vs.\ multi-agent architecture across 7 open models. Directly
-  transferable findings: comprehensive tool descriptions reduce failures (pairs with
-  `hasan2026mcpsmells`), few-shot prompting can cause severe inaction, cumulative context hurts
-  constrained models, multi-agent decomposition helps weak workers at extra call cost. Its task
-  taxonomy maps onto the SysML v2 benchmark's planned difficulty tiers.
+Rows = sources (25, from `bib/quellen.bib`), columns = mind-map nodes/leaves above. `X` marks that
+a source is attached to that node. `MSoSA` and `Delete` have no source yet (open gaps).
+
+| # | Source | MBSE | AI | SysML v2 | MSoSA | EvalFW | API Query Limits | CRUD Ops | Create (Erstellen) | Patch (Korrektur) | Query (Abfragen) | Delete | Verification | Validation | MCP | AI Harness |
+|---|---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| 1 | `ahlbrecht2025mbsqle` | | | | | | X | | | | | | | | | |
+| 2 | `alshami2026faultloc` | | | | | | | | | X | | | | | | |
+| 3 | `bazzal2026mcpmbse` | | | | | | X | | X | X | X | | | | X | |
+| 4 | `boelsen2025guidelines` | | | X | | | | | | | | | | | | |
+| 5 | `bouamra2025systemp` | | | X | | | X | X | | | | | | | X |
+| 6 | `cibrian2025validation` | | | | | | | | | | | | X | | | |
+| 7 | `dehart2024llm` | | X | | | | | | | | | | | | | |
+| 8 | `dehn2025nl2sysml` | | | | | | | | X | | | | | | | |
+| 9 | `dempsey2026nativeai` | | | | | X | | | X | | | | | | X | X |
+| 10 | `fresemann2025review` | | | | | X | | | | | | | | | | |
+| 11 | `hasan2026mcpsmells` | | | | | | | | | | | | | | X | |
+| 12 | `incose2007mbsevision` | X | | | | | | | | | | | | | | |
+| 13 | `iso-15288` | | | | | | | | | | | | X | X | | |
+| 14 | `liparulo2026hwmcp` | | | | | | | | | | | | | | | X |
+| 15 | `molinari2026engiai` | | | | | X | | | | | | | | | | |
+| 16 | `molnar2024formalverification` | | | | | | | | | | | | X | | | |
+| 17 | `omg-kerml` | | | X | | | | | | | | | | | | |
+| 18 | `pradasgomez2026ductile` | | | | | X | | | | | | | | | | |
+| 19 | `qualis2025hallucination` | | | | | | | | X | | | | | | | |
+| 20 | `quast2026graphrag` | | | | | | | X | | | X | | | | | X |
+| 21 | `ratzke2025constraints` | | | | | | | | | | | | X | | | |
+| 22 | `shefa2026reqquality` | | | | | X | | | | | | | | | | |
+| 23 | `shi2026cae` | | | | | X | | | | | | | | | | |
+| 24 | `wang2026pufibara` | | | | | X | | | | | | | | | | |
+| 25 | `wu2025sysforge` | | | | | | | | | X | | | | | | |
+
+## Sources, one line each
+
+1. **ahlbrecht2025mbsqle** — The standard SysML v2 API query model has no direct graph traversal
+   and hits performance bottlenecks; proposes SQLite as a traversable intermediate representation.
+   Motivates querying inside the tool / a semantic layer in the bridge rather than through the raw REST API.
+2. **alshami2026faultloc** — Syntactic-vs-semantic fault distinction plus KG-driven systematic
+   fault injection is the model for this thesis's fault taxonomy/injection method on Apollo 11;
+   plain-LLM repair rate <3% sets the no-tool-arm baseline expectation for *Korrektur*.
+3. **bazzal2026mcpmbse** — [TOP 3] Fraunhofer IEM/HNI/FAU/Audi MCP framework built directly on the
+   standard SysML v2 API (C#.NET, official reference API+DB in Docker, open source); three tool
+   classes (creation/modification/analysis) mirror this thesis's Create/Patch/Query use cases and it
+   is the closest scientific competing work — the "Option A" contrast to this thesis's MSoSA-internal
+   "Option B" attachment. Two qualitative DSRM case studies (agentic use-case generation;
+   signal-redundancy optimization) are demonstrations only, with no ground truth or quantitative
+   metrics; its own discussion names tool-count limits and single-agent scope as open issues.
+4. **boelsen2025guidelines** — SysML v2 modeling guidelines; foundational reference for the SysML v2
+   node alongside `omg-kerml`.
+5. **bouamra2025systemp** — Four-agent NL→SysML v2 pipeline (spec extraction → template skeleton →
+   completion → parse-repair loop) whose scaffolding ablation lifts syntax convergence from 1/5 to
+   4/5 scenarios, but stays syntax-only with no semantic ground truth — exactly the gap this thesis's
+   *Erstellen* metric (syntactic validity + expert rubric) closes. States verbatim that model-quality
+   assessment "remains constrained by the absence of standard benchmarks" (motivating the EvalFW
+   node) and independently confirms the SysML v2 corpus-scarcity fact (<150 example scenarios total
+   across Pilot-Implementation + GfSE) that justifies choosing Apollo 11 as the primary model.
+6. **cibrian2025validation** — Practical SysML v2 verification tool and the clearest example of the
+   field's validation/verification terminology conflation; despite self-labeling its method
+   "validation," an ISO 15288 audit unanimously verdicted it as verification.
+7. **dehart2024llm** — Origin paper (July 2024) of the whole LLM×SysML v2 topic, arguing SysML v2's
+   English-like textual syntax plus LLM maturation make conversational model interaction feasible;
+   three OpenAI Assistants-API case studies (direct text-file regex/Python edits, a conversational
+   query endpoint, notebook-based requirement validation) are single-run proofs of concept with no
+   ground truth and an explicit automation-bias warning. Predates MCP and is the earliest instance of
+   the "no structured tool, LLM edits text directly" pattern this thesis's no-tool/thin-bridge arms
+   contrast against.
+8. **dehn2025nl2sysml** — Primary reference for the Create/*Erstellen* leaf: four-component structured
+   prompting (role/goal, ontology, few-shot examples, NL requirements) for NL→SysML v2 generation,
+   evaluated on an automotive case with precision/recall/F1, traceability coverage, syntax pass/fail
+   and semantics scores across 3 runs. Ontology improves traceability but few-shot examples are
+   essential for syntactic correctness, and structured prompting trades quality for token/runtime
+   cost; logical-to-physical element mapping stays unstable. File-based (no modelling tool) — supplies
+   this thesis's element-level metric template, contrasted against the live-tool/MSoSA attachment.
+9. **dempsey2026nativeai** — [TOP 3] Controlled 3-arm SysML v2 benchmark (baseline / CLI validation
+   loop / full MCP-knowledge+skills tooling, 8 tasks × 2 scales, Claude Opus 4.6) that directly
+   templates this thesis's no-tool/thin-bridge/semantic-bridge ablation design: validation alone
+   kills syntax errors but barely moves the modeling-pattern score (78.3→71.7), while curated
+   knowledge+skills raises it to 94.1. Its worked drone-swarm example (0 syntax errors, 97.2/100
+   pattern score, yet silently drifted parameters) is the clearest illustration of "syntactically
+   valid but wrong," motivating the expert-rubric half of the *Erstellen* metric. File-based
+   (Syside LSP) with a knowledge-retrieval MCP server, not a model-editing one — the thesis
+   differentiates on the live-model/industrial-tool axis.
+10. **fresemann2025review** — Structured literature review of 20 LLM-for-system-modeling
+    publications supplying the task taxonomy (creation/analysis/modification/reformulation) onto
+    which the EvalFW node and its CRUD/Verification/Validation children are mapped. Points to MCP as
+    the emerging mechanism for supplying engineering context beyond prompting-only methods and flags
+    the field's lack of standardized, comparable evaluation criteria — the same gap `bouamra2025systemp`
+    and `quast2026graphrag` independently name.
+11. **hasan2026mcpsmells** — Empirical study of 856 MCP tools across 103 servers finding 97.1% of
+    tool descriptions carry at least one "smell" (56% fail to state purpose); augmenting all
+    description components lifts task success by a median 5.85 pp but costs +67% execution steps
+    with 17% regressions. Supplies the description-quality rubric for this thesis's bridge tools and
+    flags a confound to control between the thin- and semantic-bridge arms, so the semantic arm
+    doesn't win merely on better-written tool text.
+12. **incose2007mbsevision** — [TOP 3] The original, canonical coinage of MBSE (INCOSE SE Vision
+    2020), verified directly from the primary PDF; nearly every downstream MBSE paper traces its
+    definition to this document — foundational reference for the MBSE root node.
+13. **iso-15288** — Source of the ISO 15288 verification/validation definitions used to audit and
+    classify every other candidate verification source here (six non-ISO candidates independently
+    verdicted "verification" despite self-labeling). Also the only source under the Validation leaf —
+    no reviewed source yet performs actual ISO-validation (behavioral simulation / operational-
+    scenario execution against stakeholder objectives), an open gap to flag in related work.
+14. **liparulo2026hwmcp** — Closest methodological sibling (adjacent hardware-design domain, not
+    SysML v2): purpose-built MCP server over a stateful tool, a task benchmark (single-op/chain/
+    invalid/misspelled), and ablations of system prompt, tool-description detail, context scope, and
+    single- vs. multi-agent architecture across 7 open models. Transferable findings: comprehensive
+    tool descriptions reduce failures (pairs with `hasan2026mcpsmells`), few-shot prompting can cause
+    severe inaction, cumulative context hurts constrained models, and multi-agent decomposition helps
+    weak workers at extra call cost; its task taxonomy maps onto this thesis's planned difficulty tiers.
+15. **molinari2026engiai** — Capability-based evaluation framework for tool-connected engineering
+    agents (adjacent domain, EngiBench) that scores workflow execution, parameter selection,
+    orchestration and code authoring separately rather than one end-to-end success rate, using
+    execution traces plus the resulting artifact as evidence. Across four LLM backends, proprietary
+    models score 96–97% on workflow tasks vs. 55–78% for open-source, with tool-based
+    decision-making much lower (20–53%) — supplies the methodological argument for this thesis's
+    per-use-case scoring and trace-based failure-mechanism reporting.
+16. **molnar2024formalverification** — Broadest SysML v2 verification tool landscape survey among
+    the audited verification candidates.
+17. **omg-kerml** — KerML/SysML v2 foundation specification; foundational reference for the SysML v2
+    node alongside `boelsen2025guidelines`.
+18. **pradasgomez2026ductile** — DUCTILE, an industrial aerospace structural-analysis agent
+    (adjacent domain) separating *adaptive orchestration* by the LLM from *deterministic execution*
+    by verified engineering tools under engineer supervision, evaluated against expert-defined
+    acceptance criteria over 10 repeated independent runs plus deployment with practising engineers.
+    Template for this thesis's agent/tool division of labour, reliability reporting via repeated
+    runs (pass^k), and discussion of supervisory-fatigue effects in the human-in-the-loop framing.
+19. **qualis2025hallucination** — Tri-layer knowledge graph (SysML pattern KG / domain-specific KG /
+    auto-generated system-specific KG) feeding reusable prompt templates to ground generation against
+    hallucinated constructs; satellite-system case study with manually curated ground truth. Produces
+    structurally valid models reliably but limited semantic fidelity/determinism — motivates grounding
+    the agent in the *live* model/tool state rather than a hand-built static KG, the choice this thesis
+    makes instead.
+20. **quast2026graphrag** — Primary reference for the Query/*Abfragen* leaf: GraphRAG multi-agent
+    system (Supervisor + Graph Query Agent) over a Neo4j graph parsed from SysML v2 text, RFLP-schema'd,
+    hybrid graph+vector indexing with Cypher queries. Evaluated on a synthetic battery-EV model across
+    4 LLMs — best model reaches 93% overall / 90% multi-hop accuracy, real ground-truth evaluation
+    unlike other CRUD entries, the accuracy-metric template for *Abfragen*. Also independently states
+    the same "lack of standardized benchmarks" gap as `bouamra2025systemp`; own limits: synthetic
+    model, metamodel-specific parser, no user studies.
+21. **ratzke2025constraints** — Explains the native KerML-CSP verification mechanism, complementing
+    `omg-kerml`/`boelsen2025guidelines`.
+22. **shefa2026reqquality** — [counter-evidence to H2] Adjacent-domain (requirements, not SysML v2)
+    benchmark of ten OpenAI/Anthropic models judging requirement quality against expert-derived
+    INCOSE-criteria ground truth, 100 runs × two requirement sets × five temperatures: the best model
+    finds a median of only 47% of expert-identified issues while false-flagging 11%, and judgement-
+    heavy criteria are almost always missed. Justifies expert-defined acceptance criteria plus a human
+    second rater instead of LLM-as-judge, and warns that agentic orchestration risks *compounding*
+    rather than correcting these deficiencies in the *Validierung*/*Verifizierung* use cases.
+23. **shi2026cae** — Adjacent-domain (CAE/OpenFOAM) controlled comparison with information access and
+    repair budget held fixed: a single-agent generic harness matches or beats specialised multi-agent
+    systems on FoamBench (96.4% vs. 88.2%); execution-feedback repair and domain-knowledge tutorials
+    explain the gains, scripted reflection adds nothing. Directly challenges H2 (semantic bridge > thin
+    CRUD bridge) and motivates giving every tool arm the same validation-feedback loop so the semantic
+    layer's effect is isolated from the repair-loop effect.
+24. **wang2026pufibara** — Adjacent-domain (Modelica) methodological sibling: the Pufibara harness
+    (persistent engineering state, evidence bound to the candidate that produced it, explicit submit
+    action) plus source-grounded task construction yielding a 232-task benchmark (Model Repair/
+    Generation/Tuning), each scored by a benchmark-owned evaluator outside the agent loop; beats
+    Claude Code under matched backends at 76–83% fewer tokens. Source of the external-evaluator
+    design principle (pairs with `shefa2026reqquality`'s LLM-as-judge warning) and the repair/
+    generation/tuning split mapping onto this thesis's *Korrektur*/*Erstellen*/*Validierung*–
+    *Verifizierung* use cases.
+25. **wu2025sysforge** — SysForge: four-agent framework (conversational, context-synthesizer,
+    designer, validator) around a dependency-aware KG retriever, iterating generate-validate-refine
+    until the validator agent accepts the output; beats plain-LLM and semantic-RAG baselines on
+    Pass@1/BLEU. Closest prior work for the Patch/*Korrektur* leaf's generate-validate-refine
+    structure — the semantic-bridge arm's tool-native validation replaces its own Validator Agent.

@@ -12,3 +12,6 @@ DUCTILE (Delegated, User-supervised Coordination of Tool- and document-Integrate
 
 ## Relevance
 Template for (1) the agent–tool division of labour — the bridge exposes MSoSA's deterministic validation/evaluation, the agent orchestrates; (2) reliability reporting via repeated independent runs and pass^k; (3) the discussion of unintended effects (supervisory fatigue) for the human-in-the-loop framing.
+
+## Status
+Abstract/metadata verified (arXiv, 15.09.2026). Bib entry live in `quellen.bib`. PDF filed at `bib/papers/pradasgomez2026ductile.pdf`. Added to `bib/mindmap.md`.

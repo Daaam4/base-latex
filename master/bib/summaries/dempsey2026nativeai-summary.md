@@ -1,6 +1,6 @@
 # Native AI Integration for Model-Based Systems Engineering: Three Layers that Make It Work
 
-**Bib:** `sei-native-ai` · **Type:** 2 blog (grey literature — institutional engineering blog) · **Verified:** page metadata (`sei_author`, `sei_date_published`) 19.09.2026
+**Bib:** `dempsey2026nativeai` · **Type:** 2 blog (grey literature — institutional engineering blog) · **Verified:** page metadata (`sei_author`, `sei_date_published`) 19.09.2026
 **Metadata:** Dempsey, Colin · SEI Blog, Carnegie Mellon University Software Engineering Institute · 2 September 2026 · https://www.sei.cmu.edu/blog/native-ai-integration-for-model-based-systems-engineering-three-layers-that-make-it-work/
 **Tags:** #LLM #SysMLv2 #MCP #MBSE #AblationStudy #Benchmark #CompetingWork #TOP3
 
@@ -22,4 +22,4 @@ Three arms, same 8 tasks, two scales, one model (Claude Opus 4.6): (i) baseline 
 - **Differentiation:** entirely file-based (textual notation + Syside LSP/CLI, version-controlled Markdown + MCP-served retrieval). No industrial modeling tool, no live in-session model state in a running MBSE server, no tool-native validation/evaluation beyond a language-server check, no graph traversal. This thesis works against a **live model inside MSoSA**, and its MCP server is a retrieval-only service, not a model-editing/model-repository interface — sharpens the "thin CRUD bridge vs. semantic bridge with tool-native validation" distinction this thesis tests.
 
 ## Status
-Full text read 19.09.2026. Bib entry (`quellen.bib` and `pool-verified.bib`) carries proper author (Colin Dempsey) and exact publication date (2 Sept 2026), promoted into the live bibliography. PDF archived 19.09.2026 at `bib/papers/sei-native-ai.pdf` (page has no native PDF export; archived as a readable-text capture of the live page for citation purposes, since SEI blog posts are HTML-only).
+Full text read 19.09.2026. Bib entry (`quellen.bib` and `pool-verified.bib`) carries proper author (Colin Dempsey) and exact publication date (2 Sept 2026), promoted into the live bibliography. Full page archived 20.09.2026 as a native HTML capture (Save Page As, with resource folder) at `bib/papers/dempsey2026nativeai.html` (+ `dempsey2026nativeai_files/`) — supersedes the earlier unreadable HTML-to-PDF conversion, which has been deleted.

@@ -12,3 +12,6 @@ Controlled comparison with information access and repair budget held fixed. Sing
 
 ## Relevance
 **Direct challenge to H2** (semantic bridge > thin CRUD bridge): if their result transfers, a thin bridge plus tool-native validation feedback plus good SysML v2 reference material may already capture most of the gain, and the semantic layer adds little. The Arm 1 vs Arm 2 ablation is designed to test exactly this; the discussion must engage the result either way. Also supports including a validation-feedback loop in *every* tool arm so that the semantic layer's effect is isolated from the repair-loop effect (cf. SEI arm 2 vs arm 3).
+
+## Status
+PDF filed at `bib/papers/shi2026cae.pdf`. Bib entry promoted to `bib/quellen.bib` (Subject 5). Added to `bib/mindmap.md` under the EvalFW node level.

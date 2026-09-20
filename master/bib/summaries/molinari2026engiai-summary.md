@@ -12,3 +12,6 @@ Capability-based framework that scores distinct skills separately — workflow e
 
 ## Relevance
 The rationale for evaluating **per capability / use case** (Abfragen, Validierung, …) with separate scores rather than one end-to-end success rate, and for using execution traces (tool-call logs) as evaluation evidence alongside the artifact (the model diff). Its structured failure-mechanism reporting is the model for the thesis's failure taxonomy.
+
+## Status
+Abstract/metadata verified (arXiv, 15.09.2026). Bib entry live in `quellen.bib` (Subject 5). PDF filed at `bib/papers/molinari2026engiai.pdf` (v3, from `~/Downloads/2605.19743v3.pdf`, 20.09.2026). Added to `bib/mindmap.md` under the EvalFW node level.
