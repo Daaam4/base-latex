@@ -8,6 +8,7 @@
 ### A.0 — Current: MSoSA **2026x** (granted by Prof. Voss, 13.09.2026 — D14)
 
 > **This is the build the thesis is done on.** Fill in on first launch; goes into the reproducibility appendix verbatim.
+> **Exposé-level scope note (20.09.2026):** no install access before the exposé deadline — the exposé names the tool as **"MSoSA 2026x"** only, no exact build/edition/JDK/plugin detail. This table stays TODO until launch, which happens after submission, before bridge work starts.
 
 | Item | Value |
 |---|---|
