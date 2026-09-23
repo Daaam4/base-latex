@@ -28,13 +28,11 @@
 
 | Window | Duration | Thesis capacity |
 |---|---|---|
-| 13.09 → **20.09** (exposé) | 1 week | ~28 h · concretely: Tue 15th, Thu 17th PM, Fri 18th, one of Sat 19th / Sun 20th |
-| 13.09 → **10.12** (practical work done) | 12.6 weeks | **≈ 350 h** |
+| 23.09 → **10.12** (practical work done) | 11.1 weeks | **≈ 310 h** |
 | 10.12 → **19.01** (writing) | 5.7 weeks | ≈ 160 h + likely extra over the Christmas break |
 
 ## Consequences already relevant
 
-- **The ~350 h to 10.12 must cover:** bridge implementation + benchmark construction + ~810 evaluation runs + the chapters written alongside. That is tight but feasible **only if the runs do not consume attended time**.
+- **The ~310 h to 10.12 must cover:** MSoSA setup + bridge implementation + benchmark construction + both evaluation phases (D18) + the chapters written alongside. That is tight but feasible **only if the runs do not consume attended time**.
 - **Therefore the unattended batch runner is a schedule requirement, not just a quality one.** The job days (Mon / Wed / Thu morning) and nights are ~4 usable unattended windows per week. If runs need supervision, the run matrix does not fit — see `04-evaluation-design.md`.
 - Writing while working (see `01-requirements.md`) matters more with chunked time: a half day is enough to write a section, not enough to build a subsystem.
-- The 20.09 exposé deadline falls on a **Sunday**; the last realistic working slot is that weekend day. Aim to be done Friday 18th so Sunday is buffer, not the plan.

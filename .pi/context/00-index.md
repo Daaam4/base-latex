@@ -1,18 +1,19 @@
 # Agent context index — Master's thesis (branch `master-thesis`)
 
 **Read order:** `AGENTS.md` → `master/0. OVERVIEW.md` (human status, milestone-structured) → these files as needed.
+**Used by:** pi and Claude Code (Claude loads `AGENTS.md` via the `CLAUDE.md` symlink). Skills live in `.pi/skills/`; `.claude/skills/` symlinks to them. Work only on branch `master-thesis`.
 
 | File | Contains |
 |---|---|
-| `01-requirements.md` | Hard constraints (≥40 pp., dates), thesis premise + RQ/H1–H3, write-while-working process, per-chapter page budget |
-| `02-decisions.md` | **D1–D13** decision record + bridge options A/A′/B/C/C′ and why B is locked |
-| `03-open-questions.md` | What is open / deferred / settled; consequences of the Anthropic-Max decision |
-| `04-evaluation-design.md` | Use cases × tasks × metrics, ablation arms, quantitative vs. qualitative split, **statistical design** (paired arms, k=5, n≈36, pre-registration, kappa, run-matrix throughput) |
+| `01-requirements.md` | Hard constraints (≥40 pp., dates), thesis premise + RQ (no hypotheses, D19), write-while-working process, per-chapter page budget |
+| `02-decisions.md` | **D1–D19** decision record + bridge options A/A′/B/C/C′ and why B is locked + implementation log |
+| `03-open-questions.md` | What is open / settled; questions for Prof. Voss; consequences of the Anthropic-Max decision |
+| `04-evaluation-design.md` | Use cases (D15) × difficulty tiers (D16) × metrics, quantitative vs. qualitative split, statistical design — **partly stale (3-arm), re-cut after the bare bridge is built** |
 | `05-related-work.md` | Landscape (file-based vs. API-based), closest competing work, anticipated pushback → answers |
 | `06-tooling-msosa.md` | MSoSA install recipe + feature flag + plugins, verified release train, model candidate table |
 | `07-deferred-design.md` | L1–L6 taxonomy, superseded pre-kickoff framing (do not repeat) |
 | `08-repo-conventions.md` | Repo layout, build, bibliography rules, style, session checklist |
-| `09-technical-backlog.md` | Technical setup + post-exposé sequence (OpenAPI spike is the top priority) |
+| `09-technical-backlog.md` | Technical setup sequence: MSoSA install → OpenAPI spike → bare MCP bridge |
 | `10-schedule.md` | **Working rhythm & capacity** — job days Mon/Wed + Thu morning; thesis on Tue, Thu PM, Fri, one weekend day (~28 h/week); one protected day off |
 
 ## Rules

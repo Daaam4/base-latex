@@ -23,7 +23,7 @@
 
 ### Difficulty tiers (D16, 20.09.2026)
 
-> ⚠️ **Exposé scope note:** this section is agent-context detail, not exposé content. The exposé should say only that **each use case is tested across multiple difficulty tiers** — no hop-count rule, no per-primitive worked-example table. Keep the full definition here for task authoring later.
+> **Scope note:** agent-context detail for task authoring. The (sent) exposé says only that **each use case is tested across multiple difficulty tiers** — the hop-count rule and worked examples live here, and go into the thesis's evaluation chapter later.
 
 Grounded in the actual Apollo 11 package structure (`airbus/apollo-11-sysml-v2`, cloned and inspected 20.09.2026) rather than assumed — the "need → mission req → functional req → function → logical → technical" chain is real and traceable via three concrete relationship kinds: `#refinement dependency X to Y` (StakeholderNeed → Capability → Mission Requirement, Purpose layer), `satisfy 'REQ-ID' by path.to.element;` (Mission Req → Operation, Functional Req → Function, Technical Req → Technical Component), and `perform action x : FunctionName;` (Logical Component → Function).
 
@@ -51,9 +51,13 @@ Grounded in the actual Apollo 11 package structure (`airbus/apollo-11-sysml-v2`,
 - [ ] Turn this into `master/pages/2xx-evaluation.tex` task-catalogue skeleton alongside the use-case table
 
 
-> **⚠️ Superseded by D18 (21.09.2026):** the 3-arm ablation below is replaced by a **two-phase design** — Phase 1 = bare MCP bridge baseline, Phase 2 = same benchmark after the harness is built from the Phase 1 failure data. Everything in this file that says "3 arms", "Friedman", "arm effect" needs re-cutting to **2 paired conditions** (Wilcoxon signed-rank on per-task pass rates; runs = tasks × 2 × k). Kept as written until that rework is done.
+> **⚠️ Stale below — re-cut deferred (23.09.2026).** Two later decisions invalidate parts of the rest of this file:
+> - **D18:** the 3-arm ablation is replaced by a **two-phase design** — Phase 1 = bare MCP bridge baseline, Phase 2 = same benchmark after the harness is built from the Phase 1 failure data. "3 arms", "Friedman", "arm effect", the 810-run matrix → re-cut to **2 paired conditions** (e.g. Wilcoxon signed-rank on per-task pass rates; runs = tasks × 2 × k).
+> - **D19:** hypotheses H1–H3 are **dropped**; every "H1/H2/H3" reference below is historical. Analyses must be justified by the RQ alone.
+>
+> **When:** the evaluation framework is decided *after* the initial setup and the bare MCP bridge are built — not before. Until then, treat the statistics/throughput sections as background, not as decisions. Still valid regardless: use cases (D15), difficulty tiers (D16), external evaluator, pre-registration, deterministic reset + unattended batch runner.
 
-### Evaluation arms (ablation, cf. SEI 3-arm design) — SUPERSEDED, see note above
+### Evaluation arms (ablation, cf. SEI 3-arm design) — SUPERSEDED by D18
 - **Arm 0** — no tool, textual file in context only
 - **Arm 1** — thin CRUD bridge over the SysML v2 API
 - **Arm 2** — semantic bridge: tool-native validation + expression evaluation + task-oriented tools
